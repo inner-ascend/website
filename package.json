@@ -15,7 +15,8 @@
     "serve:railway": "one serve --host 0.0.0.0",
     "dev-build-prod": "VXRN_DISABLE_PROD_OPTIMIZATION=1 yarn build:prod && yarn serve",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "postinstall": "chmod +x scripts/fix-demo-images.sh && ./scripts/fix-demo-images.sh"
   },
   "dependencies": {
     "@discordjs/core": "^0.6.0",
