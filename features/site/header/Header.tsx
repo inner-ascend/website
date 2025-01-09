@@ -1,11 +1,13 @@
-import { LogoWords, TamaguiLogo, ThemeTint, useTint } from '@tamagui/logo'
+import { LogoWords, ThemeTint } from '@tamagui/logo'
 import { usePathname } from 'one'
 import * as React from 'react'
-import { SizableText, TooltipGroup, XGroup, XStack, YStack, isClient } from 'tamagui'
+import { TooltipGroup, XGroup, XStack, YStack, isClient } from 'tamagui'
 import { Link } from '../../../components/Link'
 import { bannerHeight } from '../../../components/PromoBanner'
+/* Dependencies commented out
 import { GithubIcon } from '../../icons/GithubIcon'
 import { SeasonTogglePopover } from '../seasons/SeasonTogglePopover'
+*/
 import { ThemeToggle } from '../theme/ThemeToggle'
 import { HeaderLinks } from './HeaderLinks'
 import { HeaderMenu } from './HeaderMenu'
@@ -127,7 +129,9 @@ const tooltipDelay = { open: 0, close: 150 }
 export const HeaderContents = React.memo((props: HeaderProps) => {
   const pathname = usePathname()
   const isHome = pathname === '/'
+  /* Seasonal toggle functionality (commented out)
   const tint = useTint()
+  */
   // const isTakeout = router.pathname === '/takeout'
 
   return (
@@ -142,6 +146,7 @@ export const HeaderContents = React.memo((props: HeaderProps) => {
     >
       {!props.minimal && (
         <XStack ai="center" gap="$4">
+          {/* Seasonal toggle section (commented out)
           <Link href="/">
             <SeasonTogglePopover>
               <YStack
@@ -149,7 +154,6 @@ export const HeaderContents = React.memo((props: HeaderProps) => {
                 cur="pointer"
                 o={1}
                 {...(isHome && {
-                  // o: 0.25,
                   onPress(e) {
                     e.preventDefault()
                     e.stopPropagation()
@@ -161,6 +165,7 @@ export const HeaderContents = React.memo((props: HeaderProps) => {
               </YStack>
             </SeasonTogglePopover>
           </Link>
+          */}
 
           <TooltipGroup delay={tooltipDelay}>
             <XGroup mah={32} bc="transparent" ai="center" size="$4">
@@ -172,6 +177,7 @@ export const HeaderContents = React.memo((props: HeaderProps) => {
 
           <SearchButton size="$2" br="$10" elevation="$0.5" />
 
+          {/* GitHub link section (commented out)
           <Link target="_blank" href="https://github.com/tamagui/tamagui">
             <XStack group>
               <XStack
@@ -196,6 +202,7 @@ export const HeaderContents = React.memo((props: HeaderProps) => {
               </XStack>
             </XStack>
           </Link>
+          */}
         </XStack>
       )}
 
