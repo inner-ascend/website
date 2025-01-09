@@ -151,7 +151,7 @@ export const HeaderLinks = (props: HeaderProps) => {
         </>
       )}
 
-      {/* Bento and Takeout triggers (commented out){!forceShowAllLinks && (
+      {!forceShowAllLinks && (
         <SlidingPopover>
           <Popover.Trigger asChild="except-style">
             <XStack
@@ -166,7 +166,7 @@ export const HeaderLinks = (props: HeaderProps) => {
                 bc: '$color025',
               }}
             >
-              
+              {/* Bento and Takeout triggers (commented out)
               <SlidingPopoverTrigger id="takeout">
                 <CTAHeaderLink
                   {...props}
@@ -192,10 +192,11 @@ export const HeaderLinks = (props: HeaderProps) => {
                   }
                 />
               </SlidingPopoverTrigger>
+              */}
             </XStack>
           </Popover.Trigger>
         </SlidingPopover>
-      )} */}
+      )}
 
       {showExtra && (
         <Link asChild href="/studio">
