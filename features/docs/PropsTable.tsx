@@ -1,15 +1,15 @@
 import {
-    H3,
-    H4,
-    ListItem,
-    Paragraph,
-    Separator,
-    View,
-    XStack,
-    YStack
+  H3,
+  H4,
+  ListItem,
+  Paragraph,
+  Separator,
+  View,
+  XStack,
+  YStack
 } from 'tamagui'
 
-import { Code } from '../components/Code'
+import { Code } from '~/components/Code'
 
 export type PropDef = {
   name: string

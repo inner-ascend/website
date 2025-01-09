@@ -2,20 +2,20 @@ import { ThemeTint } from '@tamagui/logo'
 import { Timer, Waves } from '@tamagui/lucide-icons'
 import React from 'react'
 import {
-    Configuration,
-    Switch,
-    Theme,
-    TooltipSimple,
-    XStack,
-    YStack,
-    styled,
+  Configuration,
+  Switch,
+  Theme,
+  TooltipSimple,
+  XStack,
+  YStack,
+  styled,
 } from 'tamagui'
 import {
-    AnimationDriverTogglerContextProvider,
-    useAnimationDriverToggler,
+  AnimationDriverTogglerContextProvider,
+  useAnimationDriverToggler,
 } from './useAnimationDriver'
 
-import { ErrorBoundary } from '../components/ErrorBoundary'
+import { ErrorBoundary } from '~/components/ErrorBoundary'
 
 export function HeroContainer({
   children,

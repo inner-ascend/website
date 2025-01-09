@@ -183,8 +183,7 @@ export const AnimationsEnterDemo = lazyDemo(() =>
   import('@tamagui/demos/demo/AnimationsEnterDemo').then((x) => x.AnimationsEnterDemo)
 )
 export const AnimationsPresenceDemo = lazyDemo(() =>
-  // @ts-ignore
-  import('@tamagui/demos/demo/AnimationsPresenceDemo').then(
+  import('../../components/AnimationsPresenceDemo').then(
     (x) => x.AnimationsPresenceDemo
   )
 )
