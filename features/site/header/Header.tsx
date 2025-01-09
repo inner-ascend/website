@@ -1,4 +1,4 @@
-import { LogoWords, ThemeTint } from '@tamagui/logo'
+import { ThemeTint } from '@tamagui/logo'
 import { usePathname } from 'one'
 import * as React from 'react'
 import { TooltipGroup, XGroup, XStack, YStack, isClient } from 'tamagui'
@@ -8,6 +8,7 @@ import { bannerHeight } from '../../../components/PromoBanner'
 import { GithubIcon } from '../../icons/GithubIcon'
 import { SeasonTogglePopover } from '../seasons/SeasonTogglePopover'
 */
+import { InnerAscendLogo } from '../logo/InnerAscendLogo'
 import { ThemeToggle } from '../theme/ThemeToggle'
 import { HeaderLinks } from './HeaderLinks'
 import { HeaderMenu } from './HeaderMenu'
@@ -223,7 +224,7 @@ export const HeaderContents = React.memo((props: HeaderProps) => {
             pointerEvents="auto"
             als="center"
           >
-            <LogoWords animated />
+            <InnerAscendLogo animated />
           </XStack>
         </Link>
       </XStack>
