@@ -16,6 +16,21 @@ const letterToTint = {
   11: 11, // D
 } as const
 
+// Letter widths in SVG units
+const letterWidths = {
+  I: 16,   // Single vertical stroke
+  N: 48,   // Wide with diagonal stroke
+  E: 30,   // Three horizontal strokes
+  R: 36,   // Vertical with curved top
+  A: 40,   // Wide with angled sides
+  S: 40,   // Curved with wide middle
+  C: 24,   // Narrow curved stroke
+  D: 32,   // Vertical with curve
+}
+
+// Offset to adjust dot position slightly left (in SVG units)
+const DOT_OFFSET = 6
+
 export const useInnerAscendLogo = (downscale = 1) => {
   const Tint = useTint()
   const { tintIndex: index, tint } = Tint
@@ -46,18 +61,18 @@ export const useInnerAscendLogo = (downscale = 1) => {
   }
 
   const letterPositions = [
-    0,    // I
-    32,   // N
-    96,   // N
-    160,  // E
-    208,  // R
-    272,  // Space
-    296,  // A
-    352,  // S
-    416,  // C
-    464,  // E
-    512,  // N
-    576,  // D
+    0 + letterWidths.I/2 - DOT_OFFSET,      // I
+    32 + letterWidths.N/2 - DOT_OFFSET,     // N
+    96 + letterWidths.N/2 - DOT_OFFSET,     // N
+    160 + letterWidths.E/2 - DOT_OFFSET,    // E
+    208 + letterWidths.R/2 - DOT_OFFSET,    // R
+    272 - DOT_OFFSET,                  // Space (24 units wide)
+    296 + letterWidths.A/2 - DOT_OFFSET,    // A
+    352 + letterWidths.S/2 - DOT_OFFSET,    // S
+    416 + letterWidths.C/2 - DOT_OFFSET,    // C
+    464 + letterWidths.E/2 - DOT_OFFSET,    // E
+    512 + letterWidths.N/2 - DOT_OFFSET,    // N
+    576 + letterWidths.D/2 - DOT_OFFSET,    // D
   ].map(x => x * (1 / downscale) * 0.333333334)
 
   const spaceIndex = 5
