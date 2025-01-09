@@ -10,11 +10,11 @@ const letterToTint = {
   4: 4,  // R
   5: 5,  // Space
   // ASCEND (second half of tints)
-  6: 5,  // A
-  7: 6,  // S
-  8: 7,  // C
-  9: 8,  // E
-  10: 9, // N
+  6: 0,  // A
+  7: 1,  // S
+  8: 2,  // C
+  9: 3,  // E
+  10: 4, // N
   11: 0, // D
 } as const
 
@@ -73,6 +73,11 @@ export const useInnerAscendLogo = (
     }
   }
 
+  const getTintIndex = (position: number) => {
+    // Use the same logic as getColorIndex to ensure tint matches the letter color
+    return getColorIndex(position)
+  }
+
   const getColor = (position: number) => {
     const isActive = mounted !== 'start' && position === dotPosition
     if (mounted !== 'start' && hovered) {
@@ -119,7 +124,7 @@ export const useInnerAscendLogo = (
     setHovered,
     getColor,
     setTintIndex: (position: number) => {
-      Tint.setTintIndex(letterToTint[position])
+      Tint.setTintIndex(getTintIndex(position))
       setDotPosition(position)
     },
     mounted,
