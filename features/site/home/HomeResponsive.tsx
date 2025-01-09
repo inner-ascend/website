@@ -35,8 +35,8 @@ import { demoMedia } from '../../../config/media'
 
 import { Container, ContainerLarge } from '../../../components/Containers'
 import { useTransitionState } from '../../../hooks/useTransitionState'
-import favicon from '../../../public/favicon.svg'
 import { HomeH2, HomeH3 } from './HomeHeaders'
+import favicon from '/favicon.svg?url'
 
 const breakpoints = [
   { name: 'xs', at: demoMedia[0] },

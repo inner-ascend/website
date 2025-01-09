@@ -4,8 +4,8 @@ import '~/tamagui.css'
 
 import { HydrateTheme, UserThemeProvider, useUserTheme } from '@tamagui/one-theme'
 import { ToastProvider } from '@tamagui/toast'
-import { isWeb, setupPopper, TamaguiProvider } from 'tamagui'
 import { LoadProgressBar, Slot, Stack } from 'one'
+import { isWeb, setupPopper, TamaguiProvider } from 'tamagui'
 import { HeadInfo } from '~/components/HeadInfo'
 import tamaConf from '~/config/tamagui.config'
 import { SearchProvider } from '~/features/site/search/SearchProvider'
@@ -39,7 +39,7 @@ export default function Layout() {
         content="width=device-width, initial-scale=1, maximum-scale=5"
       />
 
-      <link rel="icon" href="/favicon.png" />
+      <link rel="icon" href="/favicon.png" type="image/png" />
       <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       <meta name="docsearch:language" content="en" />
       <meta name="docsearch:version" content="1.0.0,latest" />
