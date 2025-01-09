@@ -19,7 +19,6 @@ const letterToTint = {
 } as const
 
 export type ColorBehavior = 'individual' | 'unified'
-export type ColorDistribution = 'cycle' | 'flow'
 
 // Letter widths in SVG units
 const letterWidths = {
@@ -38,8 +37,7 @@ const DOT_OFFSET = 6
 
 export const useInnerAscendLogo = (
   downscale = 1, 
-  colorBehavior: ColorBehavior = 'individual',
-  colorDistribution: ColorDistribution = 'cycle'
+  colorBehavior: ColorBehavior = 'individual'
 ) => {
   const Tint = useTint()
   const { tintIndex: index, tint } = Tint
@@ -62,15 +60,10 @@ export const useInnerAscendLogo = (
   }, [])
 
   const getColorIndex = (position: number) => {
-    if (colorDistribution === 'flow') {
-      // Natural progression through colors
-      return position % tints.length
-    } else {
-      // Use first 5 colors from the natural progression in a repeating pattern
-      // Skip the space (position 5) in our counting
-      const adjustedPosition = position > spaceIndex ? position - 1 : position
-      return adjustedPosition % 5  // Use first 5 colors in a repeating pattern
-    }
+    // Use 6 colors to match ASCEND's length
+    // Skip the space (position 5) in our counting
+    const adjustedPosition = position > spaceIndex ? position - 1 : position
+    return adjustedPosition % 6  // Use 6 colors in a repeating pattern
   }
 
   const getTintIndex = (position: number) => {
