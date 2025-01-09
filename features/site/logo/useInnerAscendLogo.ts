@@ -86,8 +86,8 @@ export const useInnerAscendLogo = (
         return isActive ? 'var(--color)' : tints[getColorIndex(position)]
       }
     }
-    // When no hover, cycle through tints normally
-    return tints[getColorIndex(position)]
+    // When no hover, cycle through tints normally, but keep dot color synced with its position
+    return isActive ? tints[getColorIndex(dotPosition)] : tints[getColorIndex(position)]
   }
 
   const letterPositions = [
