@@ -2,9 +2,33 @@ import { useRouter } from 'one'
 import { useEffect } from 'react'
 import useSWR, { useSWRConfig } from 'swr'
 import { Spinner, YStack } from 'tamagui'
-
 import { useOfflineMode } from '../../hooks/useOfflineMode'
-import type { UserContextType } from '../auth/types'
+
+export type UserContextType = {
+  user: null
+  userDetails: null
+  subscriptions: []
+  productOwnerships: []
+  teams: {
+    all: []
+    personal: null
+    orgs: []
+    main: null
+  }
+  connections: {
+    discord: boolean
+    github: boolean
+  }
+  accessInfo: {
+    hasAccess: boolean
+    hasActiveSubscription: boolean
+    hasActiveTeamSubscription: boolean
+    hasActiveClaim: boolean
+    hasActiveTeamClaim: boolean
+    hasDiscordAccess: boolean
+    hasGithubAccess: boolean
+  }
+}
 
 export const useUser = () => {
   const { mutate } = useSWRConfig()
@@ -17,12 +41,6 @@ export const useUser = () => {
       if (res.ok) {
         return (await res.json()) as UserContextType
       }
-
-      // in the case where you are unauthorized lets clear all cookies
-      // this is because we had a bad version of supabase ssr that caused bad cookies
-      // and users with those cookies cant sign in
-      deleteSupabaseCookies()
-
       return null
     },
     refreshInterval: 0,
@@ -33,15 +51,6 @@ export const useUser = () => {
       mutate('user')
     },
   }
-}
-
-function deleteSupabaseCookies() {
-  document.cookie.split(';').forEach((cookie) => {
-    const [name] = cookie.split('=')
-    if (name.startsWith('sb-')) {
-      document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT'
-    }
-  })
 }
 
 export const UserGuard = ({ children }: { children: React.ReactNode }) => {
