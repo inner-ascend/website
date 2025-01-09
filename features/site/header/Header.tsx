@@ -11,7 +11,6 @@ import { SeasonTogglePopover } from '../seasons/SeasonTogglePopover'
 import { ThemeToggle } from '../theme/ThemeToggle'
 import { HeaderLinks } from './HeaderLinks'
 import { HeaderMenu } from './HeaderMenu'
-import { SearchButton } from './SearchButton'
 import type { HeaderProps } from './types'
 
 export function Header(props: HeaderProps) {
@@ -175,7 +174,7 @@ export const HeaderContents = React.memo((props: HeaderProps) => {
             </XGroup>
           </TooltipGroup>
 
-          <SearchButton size="$2" br="$10" elevation="$0.5" />
+          {/* <SearchButton size="$2" br="$10" elevation="$0.5" /> */}
 
           {/* GitHub link section (commented out)
           <Link target="_blank" href="https://github.com/tamagui/tamagui">
