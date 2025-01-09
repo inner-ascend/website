@@ -3,22 +3,20 @@ import { Menu } from '@tamagui/lucide-icons'
 import { usePathname } from 'one'
 import * as React from 'react'
 import {
-    Adapt,
-    Button,
-    Circle,
-    Popover,
-    Sheet,
-    Spacer,
-    Theme,
-    XStack,
-    YStack,
-    isTouchable,
+  Adapt,
+  Button,
+  Circle,
+  Popover,
+  Sheet,
+  Spacer,
+  Theme,
+  XStack,
+  YStack,
+  isTouchable,
 } from 'tamagui'
 import { DocsMenuContents } from '../../docs/DocsMenuContents'
 import { useDocsMenu } from '../../docs/useDocsMenu'
-import { useUser } from '../../user/useUser'
 import { HeaderLinks } from './HeaderLinks'
-import { UserAvatar } from './UserAvatar'
 
 export const HeaderMenu = React.memo(function HeaderMenu() {
   const { open, setOpen } = useDocsMenu()
@@ -26,7 +24,6 @@ export const HeaderMenu = React.memo(function HeaderMenu() {
     via: undefined as 'hover' | 'press' | undefined,
     viaAt: Date.now(),
   })
-  const userSwr = useUser()
   const isBento = usePathname().startsWith('/bento')
   const isPressOpened = state.via === 'press' && open
 
@@ -34,8 +31,6 @@ export const HeaderMenu = React.memo(function HeaderMenu() {
     <HeaderMenuTheme>
       <Popover
         disableRTL
-        // Note: turning this on seems to break the HomeGlow (shockingly, maybe a React bug)
-        // keepChildrenMounted
         hoverable={{
           delay: 50,
           restMs: 40,
@@ -85,7 +80,7 @@ export const HeaderMenu = React.memo(function HeaderMenu() {
             }}
           >
             <Circle size={34} ai="center" jc="center">
-              {userSwr.data?.userDetails ? <UserAvatar /> : <Menu size={16} />}
+              <Menu size={16} />
             </Circle>
           </Button>
         </Popover.Anchor>

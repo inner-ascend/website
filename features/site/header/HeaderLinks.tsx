@@ -1,6 +1,6 @@
 import { createShallowSetState, useComposedRefs } from '@tamagui/core'
 import { ThemeTintAlt } from '@tamagui/logo'
-import { ExternalLink, Figma, LogIn, Paintbrush } from '@tamagui/lucide-icons'
+import { Paintbrush } from '@tamagui/lucide-icons'
 import type { Href } from 'one'
 import * as React from 'react'
 import type { LayoutRectangle } from 'react-native'
@@ -22,9 +22,6 @@ import { Link } from '../../../components/Link'
 // import { BentoPageFrame } from '../../bento/BentoPageFrame'
 // import { BentoIcon } from '../../icons/BentoIcon'
 // import { TakeoutIcon } from '../../icons/TakeoutIcon'
-import { GithubIcon } from '../../icons/GithubIcon'
-import { useUser } from '../../user/useUser'
-import { UserAvatar } from './UserAvatar'
 import type { HeaderProps } from './types'
 
 const HeadAnchor = styled(Paragraph, {
@@ -75,7 +72,6 @@ const HeadAnchor = styled(Paragraph, {
 
 export const HeaderLinks = (props: HeaderProps) => {
   const { showExtra, forceShowAllLinks, isHeader } = props
-  const userSwr = useUser()
 
   const primaryLinks = (
     <>
@@ -91,7 +87,7 @@ export const HeaderLinks = (props: HeaderProps) => {
         </HeadAnchor>
       </Link>
 
-      <Link asChild href="/ui/intro">
+      {/* <Link asChild href="/ui/intro">
         <HeadAnchor
           // half={forceShowAllLinks}
           grid={forceShowAllLinks}
@@ -101,7 +97,7 @@ export const HeaderLinks = (props: HeaderProps) => {
         >
           UI
         </HeadAnchor>
-      </Link>
+      </Link> */}
     </>
   )
 
@@ -115,16 +111,6 @@ export const HeaderLinks = (props: HeaderProps) => {
       ) : (
         primaryLinks
       )}
-      {/* {forceShowAllLinks ? (
-        <>
-          <XStack fw="wrap" f={1} gap="$2" w="100%">
-            {primaryLinks}
-          </XStack>
-          <Separator bc="$color025" o={0.25} my="$2" />
-        </>
-      ) : (
-        primaryLinks
-      )} */}
 
       {forceShowAllLinks && (
         <>
@@ -134,154 +120,17 @@ export const HeaderLinks = (props: HeaderProps) => {
                 Community
               </HeadAnchor>
             </Link>
-            {/* <Link asChild href="/studio">
-              <HeadAnchor
-                grid
-                half
-                tag="a"
-                $md={{
-                  display: forceShowAllLinks ? 'flex' : 'none',
-                }}
-              >
-                Studio
-              </HeadAnchor>
-            </Link> */}
           </XStack>
           <Separator bc="$color025" o={0.25} my="$2" />
         </>
       )}
 
-      {/* Bento and Takeout triggers (commented out)
-      {!forceShowAllLinks && (
-        <SlidingPopover>
-          <Popover.Trigger asChild="except-style">
-            <XStack
-              gap="$2"
-              br="$10"
-              px="$2"
-              height={44}
-              ai="center"
-              bw={1}
-              bc="transparent"
-              hoverStyle={{
-                bc: '$color025',
-              }}
-            >
-              <SlidingPopoverTrigger id="takeout">
-                <CTAHeaderLink
-                  {...props}
-                  excludeRoutes={['/', '/bento', '/takeout']}
-                  href="/takeout"
-                  name="Takeout"
-                  description="starter kit"
-                  icon={<TakeoutIcon scale={0.8} />}
-                />
-              </SlidingPopoverTrigger>
-
-              <SlidingPopoverTrigger id="bento">
-                <CTAHeaderLink
-                  {...props}
-                  excludeRoutes={['*']}
-                  href="/bento"
-                  name="Bento"
-                  description="starter kit"
-                  icon={
-                    <YStack y={1}>
-                      <BentoIcon scale={0.8} />
-                    </YStack>
-                  }
-                />
-              </SlidingPopoverTrigger>
-            </XStack>
-          </Popover.Trigger>
-        </SlidingPopover>
-      )}
-      */}
-
+      {/* Bento and Takeout triggers (commented out) */}
 
       {showExtra && (
         <Link asChild href="/studio">
           <HeadAnchor grid={forceShowAllLinks}>Studio</HeadAnchor>
         </Link>
-      )}
-
-      {forceShowAllLinks && (
-        <>
-          <Separator bc="$color025" o={0.25} my="$2" />
-          {!userSwr.data?.userDetails && (
-            <Link asChild href="/login">
-              <HeadAnchor grid>
-                Login
-                <YStack dsp={'inline-block' as any} y={2} x={10} als="flex-end">
-                  <LogIn color="$color10" size={14} />
-                </YStack>
-              </HeadAnchor>
-            </Link>
-          )}
-          {userSwr.data?.userDetails && (
-            <Link asChild href="/login">
-              <HeadAnchor grid>
-                <XStack ai="center" jc="center">
-                  Account
-                  <YStack flex={10} />
-                  <YStack dsp={'inline-block' as any} y={-2} my={-3} als="flex-end">
-                    <UserAvatar size={22} />
-                  </YStack>
-                </XStack>
-              </HeadAnchor>
-            </Link>
-          )}
-        </>
-      )}
-
-      {forceShowAllLinks && (
-        <>
-          <Separator bc="$color025" o={0.25} my="$2" />
-
-          <XStack fw="wrap" f={1} gap="$2" w="100%">
-            {forceShowAllLinks && (
-              <Link asChild href="https://github.com/tamagui/tamagui">
-                <HeadAnchor target="_blank" half grid={forceShowAllLinks}>
-                  Github{' '}
-                  <YStack dsp={'inline-block' as any} y={10} my={-20} o={0.8}>
-                    <GithubIcon width={14} />
-                  </YStack>
-                </HeadAnchor>
-              </Link>
-            )}
-
-            {forceShowAllLinks && (
-              <Link
-                asChild
-                href="https://www.figma.com/community/file/1326593766534421119/tamagui-v1-2-1"
-              >
-                <HeadAnchor target="_blank" half grid={forceShowAllLinks}>
-                  Figma{' '}
-                  <YStack dsp={'inline-block' as any} y={2} my={-20} o={0.8}>
-                    <Figma size={14} />
-                  </YStack>
-                </HeadAnchor>
-              </Link>
-            )}
-
-            <Link asChild href="/blog">
-              <HeadAnchor half grid={forceShowAllLinks}>
-                Blog
-              </HeadAnchor>
-            </Link>
-
-            {forceShowAllLinks && (
-              <Link asChild href="https://github.com/sponsors/natew">
-                <HeadAnchor half target="_blank" grid={forceShowAllLinks}>
-                  Sponsor
-                  <YStack dsp={'inline-block' as any} y={0} my={-20} ml={12} o={0.8}>
-                    <ExternalLink size={10} o={0.5} />
-                  </YStack>
-                </HeadAnchor>
-              </Link>
-            )}
-          </XStack>
-        </>
       )}
     </>
   )
