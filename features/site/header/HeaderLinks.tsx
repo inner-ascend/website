@@ -6,17 +6,17 @@ import * as React from 'react'
 import type { LayoutRectangle } from 'react-native'
 import type { PopoverProps } from 'tamagui'
 import {
-    AnimatePresence,
-    H2,
-    Paragraph,
-    Popover,
-    Separator,
-    SizableText,
-    Theme,
-    XStack,
-    YStack,
-    debounce,
-    styled,
+  AnimatePresence,
+  H2,
+  Paragraph,
+  Popover,
+  Separator,
+  SizableText,
+  Theme,
+  XStack,
+  YStack,
+  debounce,
+  styled,
 } from 'tamagui'
 import { Link } from '../../../components/Link'
 import { BentoPageFrame } from '../../bento/BentoPageFrame'
@@ -100,18 +100,6 @@ export const HeaderLinks = (props: HeaderProps) => {
           }}
         >
           UI
-        </HeadAnchor>
-      </Link>
-
-      <Link asChild href="/theme">
-        <HeadAnchor
-          // half={forceShowAllLinks}
-          grid={forceShowAllLinks}
-          $sm={{
-            display: forceShowAllLinks ? 'flex' : 'none',
-          }}
-        >
-          Theme
         </HeadAnchor>
       </Link>
     </>
