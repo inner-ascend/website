@@ -1,4 +1,4 @@
-import { animations } from '@tamagui/config/v3'
+import type { SizeTokens } from '@tamagui/core'
 import { LogoIcon, useTint } from '@tamagui/logo'
 import { ArrowDown, Play } from '@tamagui/lucide-icons'
 import React, { memo, useEffect, useRef, useState } from 'react'
@@ -10,15 +10,31 @@ import {
     Square,
     XStack,
     YStack,
+    styled,
     useControllableState,
     useEvent,
 } from 'tamagui'
+import { animations } from '../../../config/animations'
 import { useIsIntersecting } from '../../../hooks/useOnIntersecting'
 
 import { ContainerLarge } from '../../../components/Containers'
 import { Link } from '../../../components/Link'
 import { CodeDemoPreParsed } from './CodeDemoPreParsed'
 import { HomeH2, HomeH3 } from './HomeHeaders'
+
+const StyledButton = styled(Button, {
+  variants: {
+    size: {
+      '...size': (size: SizeTokens, { tokens }) => {
+        return {
+          height: tokens.size[size],
+          borderRadius: tokens.radius[size],
+          gap: tokens.space[size],
+        }
+      },
+    },
+  } as const,
+})
 
 export const AnimationsDemo = (props) => {
   const { tint } = useTint()
@@ -297,7 +313,6 @@ export function AnimationsDemoBase(props) {
     </>
   )
 }
-
 export const positions = [
   {
     x: 0,
@@ -330,3 +345,4 @@ export const positions = [
     },
   },
 ]
+

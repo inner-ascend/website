@@ -2959,7 +2959,7 @@
     "@tamagui/use-presence" "1.121.7"
     "@tamagui/web" "1.121.7"
 
-"@tamagui/animations-moti@1.121.7":
+"@tamagui/animations-moti@1.121.7", "@tamagui/animations-moti@^1.121.7":
   version "1.121.7"
   resolved "https://registry.yarnpkg.com/@tamagui/animations-moti/-/animations-moti-1.121.7.tgz#6d9a6e502354f69de55fe1a4fdba821a7ae35107"
   integrity sha512-XGKMvZFI7afo0WdT1K+lgRY05578emCWsZZiVb/qh/A4TeRiHpgR9hp7vuK25DzEnoXeqMyV0oh3S5ahciLe1Q==
@@ -3189,7 +3189,7 @@
   resolved "https://registry.yarnpkg.com/@tamagui/constants/-/constants-1.121.7.tgz#5070be4fe8de8378c9a3e717476a4295cc9c1ed1"
   integrity sha512-x5Ge3WVZvM+2os5i66aZOGfsew4nzXKX7xUw4X+Lk1Mo973X9z94hf8Z5tOOOAeAfmBui23AcwfQcLAnoRfZxQ==
 
-"@tamagui/core@1.121.7":
+"@tamagui/core@1.121.7", "@tamagui/core@^1.121.7":
   version "1.121.7"
   resolved "https://registry.yarnpkg.com/@tamagui/core/-/core-1.121.7.tgz#b1f1353dd4745a4ae3ed299aaddadf18c3cee345"
   integrity sha512-c9o6/rMdDOZmRIoiXi+J0PtU5uT+p/iCvY+t6eHWx7yhlTN44SF4NLvg+x/mKtoVsZ7HnqiFvV6q3YKPFCVhuQ==
@@ -3216,7 +3216,7 @@
   resolved "https://registry.yarnpkg.com/@tamagui/cubic-bezier-animator/-/cubic-bezier-animator-1.121.7.tgz#b627e48d91009a9835e1c0fcae463aaf28c5380f"
   integrity sha512-kXGTgFpN0Tw16MT5JdWNWPi2C9TFuYsn2j0nFqU+XnQ3M+CBLhGOk8NDfo8V3NSaFB8mGB4p5GhKr/XplH/KOQ==
 
-"@tamagui/demos@1.121.7":
+"@tamagui/demos@^1.121.7":
   version "1.121.7"
   resolved "https://registry.yarnpkg.com/@tamagui/demos/-/demos-1.121.7.tgz#e0e81d80676cb3b2be40bf49798648148f2eaf20"
   integrity sha512-eXhcL1S4olvyy8f0HCd5Xkn1Dld/Yx0MQLgOo3HeZ6XcKAVPKZ61M6aROBYmNfPEtuFZ0igRQqvE+7aSR2w/dQ==
