@@ -31,7 +31,9 @@ const letterWidths = {
 // Offset to adjust dot position slightly left (in SVG units)
 const DOT_OFFSET = 6
 
-export const useInnerAscendLogo = (downscale = 1) => {
+export type ColorBehavior = 'individual' | 'unified'
+
+export const useInnerAscendLogo = (downscale = 1, colorBehavior: ColorBehavior = 'individual') => {
   const Tint = useTint()
   const { tintIndex: index, tint } = Tint
   const tints = Tint.tints.map((t) => `var(--${t}9)`)
@@ -54,9 +56,20 @@ export const useInnerAscendLogo = (downscale = 1) => {
 
   const getColor = (position: number) => {
     const isActive = mounted !== 'start' && position === dotPosition
-    if (hovered && isActive) {
-      return 'var(--color)'
+    if (mounted !== 'start' && hovered) {
+      if (colorBehavior === 'unified') {
+        // When any letter is hovered:
+        // - The hovered letter becomes white ('var(--color)')
+        // - All other letters take on the current tint color
+        return isActive ? 'var(--color)' : `var(--${tint}9)`
+      } else {
+        // Individual behavior:
+        // - Only the hovered letter changes color
+        // - Other letters keep their cycling colors
+        return isActive ? 'var(--color)' : tints[position % tints.length]
+      }
     }
+    // When no hover, cycle through tints normally
     return tints[position % tints.length]
   }
 
