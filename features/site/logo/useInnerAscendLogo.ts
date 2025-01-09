@@ -2,19 +2,24 @@ import { useTint } from '@tamagui/logo'
 import { useEffect, useState } from 'react'
 
 const letterToTint = {
+  // INNER (first half of tints)
   0: 0,  // I
   1: 1,  // N
   2: 2,  // N
   3: 3,  // E
   4: 4,  // R
   5: 5,  // Space
-  6: 6,  // A
-  7: 7,  // S
-  8: 8,  // C
-  9: 9,  // E
-  10: 10, // N
-  11: 11, // D
+  // ASCEND (second half of tints)
+  6: 5,  // A
+  7: 6,  // S
+  8: 7,  // C
+  9: 8,  // E
+  10: 9, // N
+  11: 0, // D
 } as const
+
+export type ColorBehavior = 'individual' | 'unified'
+export type ColorDistribution = 'cycle' | 'flow'
 
 // Letter widths in SVG units
 const letterWidths = {
@@ -31,9 +36,11 @@ const letterWidths = {
 // Offset to adjust dot position slightly left (in SVG units)
 const DOT_OFFSET = 6
 
-export type ColorBehavior = 'individual' | 'unified'
-
-export const useInnerAscendLogo = (downscale = 1, colorBehavior: ColorBehavior = 'individual') => {
+export const useInnerAscendLogo = (
+  downscale = 1, 
+  colorBehavior: ColorBehavior = 'individual',
+  colorDistribution: ColorDistribution = 'cycle'
+) => {
   const Tint = useTint()
   const { tintIndex: index, tint } = Tint
   const tints = Tint.tints.map((t) => `var(--${t}9)`)
@@ -54,6 +61,18 @@ export const useInnerAscendLogo = (downscale = 1, colorBehavior: ColorBehavior =
     })
   }, [])
 
+  const getColorIndex = (position: number) => {
+    if (colorDistribution === 'flow') {
+      // Natural progression through colors
+      return position % tints.length
+    } else {
+      // Use first 5 colors from the natural progression in a repeating pattern
+      // Skip the space (position 5) in our counting
+      const adjustedPosition = position > spaceIndex ? position - 1 : position
+      return adjustedPosition % 5  // Use first 5 colors in a repeating pattern
+    }
+  }
+
   const getColor = (position: number) => {
     const isActive = mounted !== 'start' && position === dotPosition
     if (mounted !== 'start' && hovered) {
@@ -66,11 +85,11 @@ export const useInnerAscendLogo = (downscale = 1, colorBehavior: ColorBehavior =
         // Individual behavior:
         // - Only the hovered letter changes color
         // - Other letters keep their cycling colors
-        return isActive ? 'var(--color)' : tints[position % tints.length]
+        return isActive ? 'var(--color)' : tints[getColorIndex(position)]
       }
     }
     // When no hover, cycle through tints normally
-    return tints[position % tints.length]
+    return tints[getColorIndex(position)]
   }
 
   const letterPositions = [
