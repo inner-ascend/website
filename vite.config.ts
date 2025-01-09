@@ -24,7 +24,6 @@ const include = [
   'react-hook-form',
   '@github/mini-throttle',
   'swr',
-  '@supabase/ssr',
   'is-buffer',
   'extend',
   'minimatch',
@@ -84,8 +83,6 @@ export default {
       },
 
       deps: {
-        '@supabase/postgrest-js': true,
-        '@supabase/node-fetch': true,
         postmark: true,
         stripe: true,
         jsonwebtoken: true,
