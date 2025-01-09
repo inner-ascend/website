@@ -46,6 +46,13 @@ export const useInnerAscendLogo = (
   const [mounted, setMounted] = useState<'start' | 'animate' | 'done'>('start')
   const [dotPosition, setDotPosition] = useState(5)
 
+  // Set initial tint to red (index 6)
+  useEffect(() => {
+    if (mounted === 'start') {
+      Tint.setTintIndex(6)
+    }
+  }, [mounted])
+
   useEffect(() => {
     const idle = window.requestIdleCallback || setTimeout
     idle(() => {
