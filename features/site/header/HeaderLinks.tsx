@@ -11,18 +11,18 @@ import {
   Paragraph,
   Popover,
   Separator,
-  SizableText,
   Theme,
   XStack,
   YStack,
   debounce,
-  styled,
+  styled
 } from 'tamagui'
 import { Link } from '../../../components/Link'
-import { BentoPageFrame } from '../../bento/BentoPageFrame'
-import { BentoIcon } from '../../icons/BentoIcon'
+// Bento and Takeout dependencies (commented out)
+// import { BentoPageFrame } from '../../bento/BentoPageFrame'
+// import { BentoIcon } from '../../icons/BentoIcon'
+// import { TakeoutIcon } from '../../icons/TakeoutIcon'
 import { GithubIcon } from '../../icons/GithubIcon'
-import { TakeoutIcon } from '../../icons/TakeoutIcon'
 import { useUser } from '../../user/useUser'
 import { UserAvatar } from './UserAvatar'
 import type { HeaderProps } from './types'
@@ -129,48 +129,6 @@ export const HeaderLinks = (props: HeaderProps) => {
       {forceShowAllLinks && (
         <>
           <XStack fw="wrap" f={1} gap="$2" w="100%">
-            <Link asChild href="/takeout">
-              <HeadAnchor grid half tag="a">
-                <XStack ai="center">
-                  Takeout{' '}
-                  <YStack dsp={'inline-block' as any} x={6} my={-20} o={0.8}>
-                    <TakeoutIcon scale={0.65} />
-                  </YStack>
-                </XStack>
-                <SizableText size="$2" theme="alt2">
-                  Starter Kit
-                </SizableText>
-              </HeadAnchor>
-            </Link>
-
-            <Link asChild href="/bento">
-              <HeadAnchor grid half tag="a">
-                <XStack ai="center">
-                  Bento{' '}
-                  <YStack
-                    ml={3}
-                    dsp={'inline-block' as any}
-                    x={6}
-                    y={-1}
-                    my={-10}
-                    o={0.8}
-                  >
-                    <BentoIcon scale={0.65} />
-                  </YStack>
-                </XStack>
-                <SizableText size="$2" theme="alt2">
-                  Copy-paste UI
-                </SizableText>
-              </HeadAnchor>
-            </Link>
-          </XStack>
-          <Separator bc="$color025" o={0.25} my="$2" />
-        </>
-      )}
-
-      {forceShowAllLinks && (
-        <>
-          <XStack fw="wrap" f={1} gap="$2" w="100%">
             <Link asChild href="/community">
               <HeadAnchor grid tag="a">
                 Community
@@ -208,6 +166,7 @@ export const HeaderLinks = (props: HeaderProps) => {
                 bc: '$color025',
               }}
             >
+              {/* Bento and Takeout triggers (commented out)
               <SlidingPopoverTrigger id="takeout">
                 <CTAHeaderLink
                   {...props}
@@ -233,21 +192,9 @@ export const HeaderLinks = (props: HeaderProps) => {
                   }
                 />
               </SlidingPopoverTrigger>
+              */}
             </XStack>
           </Popover.Trigger>
-
-          {/* <SlidingPopoverTrigger id="studio">
-            <Link  href="/studio">
-              <HeadAnchor
-                grid={forceShowAllLinks}
-                $md={{
-                  display: forceShowAllLinks ? 'flex' : 'none',
-                }}
-              >
-                <StudioIcon />
-              </HeadAnchor>
-            </Link>
-          </SlidingPopoverTrigger> */}
         </SlidingPopover>
       )}
 
