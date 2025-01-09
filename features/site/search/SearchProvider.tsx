@@ -1,29 +1,22 @@
-import { Href, useRouter } from 'one'
+import { useRouter } from 'one'
 import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { Paragraph } from 'tamagui'
-import DocSearchModal from './DocSearch'
-
+import { Button, Dialog, Input, ScrollView, Text, XStack, YStack } from 'tamagui'
 import { Link } from '../../../components/Link'
 import { SearchContext } from './SearchContext'
-
-// const ACTION_KEY_DEFAULT = ['Ctrl ', 'Control']
-// const ACTION_KEY_APPLE = ['⌘', 'Command']
-const API_KEY = '10e7bbeb85d3909346e1519bfcdf82dc'
-const APP_ID = 'AIE0I4P8ZS'
-const INDEX = 'tamagui'
+import { useSearch } from './useSearch'
 
 export const SearchProvider = memo(({ children }: any) => {
   const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
-  const [initialQuery, setInitialQuery] = useState(null)
+  const { search, results, query } = useSearch()
 
   const onInput = useCallback(
     (e: any) => {
       setIsOpen(true)
-      setInitialQuery(e.key)
+      search(e.key)
     },
-    [setIsOpen, setInitialQuery]
+    [setIsOpen, search]
   )
   const onOpen = useCallback(() => setIsOpen(true), [setIsOpen])
   const onClose = useCallback(() => setIsOpen(false), [setIsOpen])
@@ -50,63 +43,81 @@ export const SearchProvider = memo(({ children }: any) => {
       <SearchContext.Provider value={contextValue}>{children}</SearchContext.Provider>
       {isOpen &&
         createPortal(
-          <DocSearchModal
-            placeholder="Search docs..."
-            hitComponent={ResultItem}
-            searchParameters={{
-              // facetFilters: ['version:1.0.0'],
-              facetFilters: [],
-              distinct: 1,
-            }}
-            initialQuery={initialQuery || ''}
-            initialScrollY={window.scrollY}
-            onClose={onClose}
-            appId={APP_ID}
-            apiKey={API_KEY}
-            indexName={INDEX}
-            navigator={{
-              navigate({ itemUrl }) {
-                setIsOpen(false)
-                router.push(itemUrl as Href)
-              },
-            }}
-            transformItems={(items) => {
-              return items.map((item, index) => {
-                const aEl = document.createElement('a')
-                aEl.href = item.url
-                const hash = aEl.hash
-                return {
-                  ...item,
-                  url: `${aEl.pathname}${hash}`,
-                  isResult: () => true,
-                  isParent: () => item.type === 'lvl1' && items.length > 1 && index === 0,
-                  isChild: () =>
-                    items.length > 1 &&
-                    items[0].type === 'lvl1' &&
-                    item.type !== 'lvl1' &&
-                    index !== 0,
-                  isFirst: () => index === 1,
-                  isLast: () => index === items.length - 1 && index !== 0,
-                }
-              })
-            }}
-          />,
-          // <View width={200} height={200} bg={"$red10"} zIndex={500000} pos={"absolute"} top={0} left={0}/>,
+          <Dialog modal open onOpenChange={(open) => !open && onClose()}>
+            <Dialog.Portal>
+              <Dialog.Overlay
+                key="overlay"
+                animation="medium"
+                opacity={0.5}
+                enterStyle={{ opacity: 0 }}
+                exitStyle={{ opacity: 0 }}
+              />
+              <Dialog.Content
+                bordered
+                elevate
+                key="content"
+                animation={[
+                  'quick',
+                  {
+                    opacity: {
+                      overshootClamping: true,
+                    },
+                  },
+                ]}
+                enterStyle={{ x: 0, y: -20, opacity: 0, scale: 0.9 }}
+                exitStyle={{ x: 0, y: 10, opacity: 0, scale: 0.95 }}
+                x={0}
+                scale={1}
+                width="90%"
+                maxWidth={600}
+              >
+                <YStack space>
+                  <Input
+                    size="$4"
+                    borderWidth={1}
+                    placeholder="Search..."
+                    value={query}
+                    onChange={(e) => search(e.nativeEvent.text)}
+                    autoFocus
+                  />
+                  <ScrollView maxHeight={400}>
+                    <YStack padding="$2" space="$2">
+                      {results.map((result) => (
+                        <Link 
+                          key={result.url} 
+                          href={result.url}
+                          onPress={() => {
+                            onClose()
+                            router.push(result.url)
+                          }}
+                        >
+                          <YStack 
+                            padding="$2" 
+                            hoverStyle={{ backgroundColor: '$backgroundHover' }}
+                          >
+                            <Text size="$5" fontWeight="bold">{result.title}</Text>
+                            <Text size="$3" theme="alt2">{result.content}</Text>
+                          </YStack>
+                        </Link>
+                      ))}
+                      {query && results.length === 0 && (
+                        <Text theme="alt2">No results found</Text>
+                      )}
+                    </YStack>
+                  </ScrollView>
+                </YStack>
+
+                <XStack marginTop="$4" justifyContent="flex-end">
+                  <Button onPress={onClose}>Close</Button>
+                </XStack>
+              </Dialog.Content>
+            </Dialog.Portal>
+          </Dialog>,
           document.body
         )}
     </>
   )
 })
-
-const ResultItem = ({ hit, children }) => {
-  return (
-    <Link href={(window.location.origin + hit.url) as Href}>
-      <Paragraph tag="span" color="$color">
-        {children}
-      </Paragraph>
-    </Link>
-  )
-}
 
 const useSearchKeyboard = ({ isOpen, onOpen, onClose }: any) => {
   useEffect(() => {
