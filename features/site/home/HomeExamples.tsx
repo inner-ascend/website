@@ -49,7 +49,7 @@ export const HomeExamples = memo(
                 Through Sustainable Innovation
               </HomeH2>
               <HomeH3 ai="center" jc="center">
-                Through Inner Ascend DAO you can<br></br>
+              Our platform enables you to<br></br>
                 <strong>{subtitles[activeIndex]}</strong>
               </HomeH3>
             </YStack>
