@@ -7,19 +7,15 @@ import {
   SizableText,
   Spacer,
   Text,
-  Theme,
   TooltipSimple,
   VisuallyHidden,
-  XGroup,
   XStack,
   YStack,
-  styled,
+  styled
 } from 'tamagui'
 import { ContainerLarge } from '../../../components/Containers'
 import { Link } from '../../../components/Link'
-import { BentoIcon } from '../../icons/BentoIcon'
 import { DiscordIcon } from '../../icons/DiscordIcon'
-import { TakeoutIcon } from '../../icons/TakeoutIcon'
 import { TwitterIcon } from '../../icons/TwitterIcon'
 import { seasons } from '../seasons/SeasonTogglePopover'
 
@@ -44,22 +40,23 @@ const HeroSubTitle = memo(() => {
     <Subtitle>
       <Link asChild href="/docs/core/configuration">
         <Tag theme="green" onHoverIn={() => setHovered(0)} active={hovered === 0}>
-          earth
+        SUSTAINABLE LIVING
         </Tag>
       </Link>{' '}
       ·{' '}
       <Link asChild href="/docs/intro/why-a-compiler">
         <Tag theme="blue" onHoverIn={() => setHovered(1)} active={hovered === 1}>
-          nature
+        SPIRITUAL GROWTH
         </Tag> 
       </Link>{' '}
       ·{' '}
       <Link asChild href="/ui/stacks">
         <Tag theme="purple" onHoverIn={() => setHovered(2)} active={hovered === 2}>
-          nft&nbsp;dao
+        COLLECTIVE WISDOM
         </Tag>
       </Link>{' '}
-      for&nbsp;people&nbsp;·&nbsp;for&nbsp;all
+      · for&nbsp;all
+      {/* ·&nbsp;through&nbsp;nfts */}
     </Subtitle>
   )
 })
@@ -101,7 +98,7 @@ const HeroContents = memo(function HeroContents() {
           pb: '$4',
         }}
       >
-        <>
+        {/* <>
           <XGroup pos="absolute" als="center" y={-80} br="$8">
             <Link href="/takeout">
               <XGroup.Item>
@@ -169,8 +166,8 @@ const HeroContents = memo(function HeroContents() {
 
             {/* <FigmaButton circular /> */}
             {/* <GithubButton /> */}
-          </XGroup>
-        </>
+          {/* </XGroup>
+        </> */}
 
         <YStack ai="flex-start" $gtSm={{ ai: 'center' }} gap="$4">
           <H1
@@ -215,12 +212,12 @@ const HeroContents = memo(function HeroContents() {
                 )`,
               }}
             >
-              Ecovillage
+              Inner Ascend
             </Text>
             {/* add gradient to other colors: */}
             <br />
             <span style={{ position: 'relative' }}>
-              <TextWithEffects text="connection" />
+              <TextWithEffects text="DAO" />
             </span>
           </H1>
 
@@ -255,22 +252,44 @@ const HeroContents = memo(function HeroContents() {
 
           <YStack
             px={0}
-            maw={420}
+            maw={500}
             // prevent layout shift
-            h={70}
+            h={80}
             $gtSm={{
-              maw: 500,
+              maw: 600,
             }}
             $gtMd={{
-              h: 90,
-              px: 90,
+              h: 100,
+              px: 40,
               maw: 700,
             }}
             $gtLg={{
-              maw: 900,
+              maw: 800,
             }}
           >
             <HeroSubTitle />
+            <Paragraph
+              size="$4"
+              ta="center"
+              o={0.9}
+              fontFamily="$silkscreen"
+              mt="$4"
+              color="$color10"
+              als="center"
+              letterSpacing={-0.5}
+              lh={26}
+              $gtSm={{
+                size: '$5',
+                lh: 30,
+              }}
+              $gtMd={{
+                size: '$5',
+                lh: 30,
+                px: "$2"
+              }}
+            >
+              Join our mission to decentralize land stewardship and community ownership through NFTs
+            </Paragraph>
           </YStack>
         </YStack>
 
