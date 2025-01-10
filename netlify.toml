@@ -22,7 +22,22 @@ command = "yarn build:prod"
 [context.feature]
 command = "yarn build:prod"
 
+# Handle single-page application routing
 [[redirects]]
 from = "/*"
 to = "/index.html"
 status = 200
+force = true
+
+# Ensure proper MIME types
+[[headers]]
+for = "/*"
+[headers.values]
+X-Frame-Options = "DENY"
+X-XSS-Protection = "1; mode=block"
+X-Content-Type-Options = "nosniff"
+
+[[headers]]
+for = "/assets/*"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
