@@ -19,7 +19,7 @@ X-XSS-Protection = "1; mode=block"
 X-Content-Type-Options = "nosniff"
 Referrer-Policy = "strict-origin-when-cross-origin"
 Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-Content-Security-Policy = "default-src 'self' 'unsafe-inline' 'unsafe-eval' *.netlify.app *.segment.com *.bugsnag.com; connect-src 'self' *.netlify.app *.segment.com *.bugsnag.com; img-src 'self' data: blob: *.netlify.app; style-src 'self' 'unsafe-inline' fonts.googleapis.com *.netlify.app; font-src 'self' data: fonts.gstatic.com *.netlify.app; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: *.netlify.app *.segment.com *.bugsnag.com; frame-src 'none'; worker-src 'self' blob:; manifest-src 'self';"
+Content-Security-Policy = "default-src 'self' 'unsafe-inline' 'unsafe-eval' *.netlify.app *.segment.com *.bugsnag.com; connect-src 'self' *.netlify.app *.segment.com *.bugsnag.com; img-src 'self' data: blob: *.netlify.app; style-src 'self' 'unsafe-inline' fonts.googleapis.com *.netlify.app; font-src 'self' data: fonts.gstatic.com *.netlify.app; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: *.netlify.app *.segment.com *.bugsnag.com; frame-src 'self' app.netlify.com *.netlify.app; worker-src 'self' blob:; manifest-src 'self';"
 
 [[headers]]
 for = "/*.js"
