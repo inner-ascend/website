@@ -1,7 +1,5 @@
 {
   "version": 2,
-  "buildCommand": "yarn build:prod",
-  "outputDirectory": "dist/client",
   "framework": "nextjs",
   "env": {
     "NODE_VERSION": "20"
