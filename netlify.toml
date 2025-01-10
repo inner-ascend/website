@@ -10,25 +10,6 @@ NODE_OPTIONS = "--max-old-space-size=4096"
 # Hide Netlify deploy preview banner
 [context.deploy-preview.environment]
 NETLIFY_NEXT_PLUGIN_SKIP = "true"
-NETLIFY_SKIP_DEPLOY_PREVIEW = "true"
-
-[[redirects]]
-from = "/assets/*"
-to = "/assets/:splat"
-status = 200
-force = true
-
-[[redirects]]
-from = "/*.js"
-to = "/:splat"
-status = 200
-force = true
-
-[[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
-force = true
 
 [[headers]]
 for = "/*"
@@ -38,7 +19,7 @@ X-XSS-Protection = "1; mode=block"
 X-Content-Type-Options = "nosniff"
 Referrer-Policy = "strict-origin-when-cross-origin"
 Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-Content-Security-Policy = "default-src 'self' 'unsafe-inline' 'unsafe-eval' *.netlify.app *.segment.com *.bugsnag.com; connect-src 'self' *.netlify.app *.segment.com *.bugsnag.com; img-src 'self' data: blob: *.netlify.app; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' data: fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: *.netlify.app *.segment.com *.bugsnag.com; frame-src 'self' app.netlify.com *.netlify.app; worker-src 'self' blob:; manifest-src 'self';"
+Content-Security-Policy = "default-src 'self' 'unsafe-inline' 'unsafe-eval' *.netlify.app *.segment.com *.bugsnag.com; connect-src 'self' *.netlify.app *.segment.com *.bugsnag.com; img-src 'self' data: blob: *.netlify.app; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' data: fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: *.netlify.app *.segment.com *.bugsnag.com; frame-src 'none'; worker-src 'self' blob:; manifest-src 'self';"
 
 [[headers]]
 for = "/*.js"
@@ -61,24 +42,55 @@ for = "/assets/*.css"
 Content-Type = "text/css"
 
 [[headers]]
-for = "/assets/*.woff2"
+for = "/*.woff2"
 [headers.values]
 Content-Type = "font/woff2"
 Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-for = "/assets/*.woff"
+for = "/fonts/*.woff2"
+[headers.values]
+Content-Type = "font/woff2"
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/*.woff"
 [headers.values]
 Content-Type = "font/woff"
 Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-for = "/assets/*.ttf"
+for = "/fonts/*.woff"
+[headers.values]
+Content-Type = "font/woff"
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/*.ttf"
 [headers.values]
 Content-Type = "font/ttf"
 Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-for = "/assets/*"
+for = "/fonts/*.ttf"
 [headers.values]
+Content-Type = "font/ttf"
 Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+from = "/assets/*"
+to = "/assets/:splat"
+status = 200
+force = true
+
+[[redirects]]
+from = "/*.js"
+to = "/:splat"
+status = 200
+force = true
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+force = true
