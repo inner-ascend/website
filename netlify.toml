@@ -1,10 +1,11 @@
 [build]
 command = "yarn build:prod"
-publish = "dist/client"
+publish = "dist"
 
 [build.environment]
 NODE_VERSION = "20"
 YARN_VERSION = "1.22.19"
+NODE_OPTIONS = "--max-old-space-size=4096"
 
 # Production context: all deploys from the Production branch set in your site's
 # deploy contexts will inherit these settings.
