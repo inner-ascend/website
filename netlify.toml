@@ -1,0 +1,27 @@
+[build]
+command = "yarn build:prod"
+publish = "dist/client"
+
+[build.environment]
+NODE_VERSION = "20"
+YARN_VERSION = "1.22.19"
+
+# Production context: all deploys from the Production branch set in your site's
+# deploy contexts will inherit these settings.
+[context.production]
+command = "yarn build:prod"
+
+# Deploy Preview context: all deploys generated from a pull/merge request will
+# inherit these settings.
+[context.deploy-preview]
+command = "yarn build:prod"
+
+# Specific branch context: all deploys from this specific branch will inherit
+# these settings.
+[context.feature]
+command = "yarn build:prod"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
