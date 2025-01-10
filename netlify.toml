@@ -10,6 +10,7 @@ NODE_OPTIONS = "--max-old-space-size=4096"
 # Hide Netlify deploy preview banner
 [context.deploy-preview.environment]
 NETLIFY_NEXT_PLUGIN_SKIP = "true"
+NETLIFY_SKIP_DEPLOY_PREVIEW = "true"
 
 [[redirects]]
 from = "/assets/*"
