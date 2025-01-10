@@ -54,10 +54,9 @@ export const HeroBelowContent = memo(() => {
           <IconStack>
             <Code size={16} color="var(--color9)" />
           </IconStack>
-          <TitleLink href="/docs/core/configuration">Core</TitleLink>
+          <TitleLink href="/docs/core/configuration">Decentralized Ownership</TitleLink>
           <Paragraph o={0.7} size="$5">
-            A style library for React and/or React Native with a large typed superset of
-            the React Native style API, with no outside dependencies in about 24Kb.
+          Your NFT is your voice. Participate in transparent governance and shape the future of sustainable communities through our innovative DAO structure.
           </Paragraph>
         </Section>
 
@@ -65,11 +64,9 @@ export const HeroBelowContent = memo(() => {
           <IconStack>
             <Cpu size={16} color="var(--color9)" />
           </IconStack>
-          <TitleLink href="/docs/intro/why-a-compiler">Static</TitleLink>
+          <TitleLink href="/docs/intro/why-a-compiler">NFT-Powered Property Rights</TitleLink>
           <Paragraph o={0.7} size="$5">
-            A smart optimizer that makes your app fast with partial analysis, extracts
-            CSS, flattens your tree, and removes code. Next, Webpack, Vite, Babel and
-            Metro.
+          Break down barriers to sustainable living with fractional ownership through NFTs. Secure, transparent, and community-validated property rights.
           </Paragraph>
         </Section>
 
@@ -77,10 +74,9 @@ export const HeroBelowContent = memo(() => {
           <IconStack>
             <Layers size={16} color="var(--color9)" />
           </IconStack>
-          <TitleLink href="/docs/components/stacks">Tamagui</TitleLink>
+          <TitleLink href="/docs/components/stacks">Holistic Development</TitleLink>
           <Paragraph o={0.7} size="$5">
-            All the components you'd want, cross platform and adaptable to each other.
-            Compound Component APIs, styled or unstyled, sizable, themeable, and more.
+          Connect with like-minded individuals in vibrant eco-communities. Experience personal and collective evolution through our unique incubator programs.
           </Paragraph>
         </Section>
       </XStack>
