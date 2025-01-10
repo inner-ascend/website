@@ -1,0 +1,15 @@
+[build]
+ignore = "exit 0"
+
+[build.environment]
+NETLIFY_SKIP_BUILD = "true"
+
+[[plugins]]
+package = "@netlify/plugin-sitemap"
+[plugins.inputs]
+enabled = false
+
+[[plugins]]
+package = "@netlify/plugin-lighthouse"
+[plugins.inputs]
+enabled = false

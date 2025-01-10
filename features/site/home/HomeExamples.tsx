@@ -29,10 +29,10 @@ export const HomeExamples = memo(
 
     const activeExample = examples[activeIndex] ?? defaultExample
     const subtitles = [
-      'SSR-first atomic CSS',
-      'eliminating inline style logic',
-      'flattening your component tree',
-      'removing dead code entirely',
+      'own land collectively with trusted communities',
+      'participate in ecological regeneration',
+      'join a network of conscious creators',
+      'build sustainable living spaces',
     ]
 
     if (!activeExample) {
@@ -44,11 +44,13 @@ export const HomeExamples = memo(
         <YStack zi={1} space="$6" mb="$4">
           {!onlyDemo && (
             <YStack ai="center" space="$3">
-              <HomeH2>A powerful style system</HomeH2>
+              <HomeH2 maw={850} size="$10" ls={-0.5} $gtSm={{ size: "$11", maw: 950 }}>
+                Empowering Communities{' '}
+                Through Sustainable Innovation
+              </HomeH2>
               <HomeH3 ai="center" jc="center">
-                A multi-faceted optimizing compiler enables
-                <br />
-                <strong>{subtitles[activeIndex]}</strong>.
+              Our platform enables you to<br></br>
+                <strong>{subtitles[activeIndex]}</strong>
               </HomeH3>
             </YStack>
           )}

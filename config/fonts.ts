@@ -5,13 +5,46 @@ import { createInterFont } from '@tamagui/font-inter'
 import { createMunroFont } from '@tamagui/font-munro'
 import { createNohemi } from '@tamagui/font-nohemi'
 import { createSilkscreenFont } from '@tamagui/font-silkscreen'
+import { isWeb } from 'tamagui'
 import { createGenericFont } from './createGenericFont'
 
 export const cherryBombFont = createCherryBombFont({
   family: '"Cherry Bomb", Arial, sans-serif',
 })
 export const munroFont = createMunroFont()
-export const silkscreenFont = createSilkscreenFont()
+export const silkscreenFont = createSilkscreenFont({
+  family: isWeb ? '"Silkscreen", monospace' : 'Silkscreen',
+  size: {
+    1: 11,
+    2: 12,
+    3: 13,
+    4: 14,
+    5: 15,
+    6: 16,
+    7: 20,
+    8: 22,
+    9: 30,
+    10: 42,
+  },
+  lineHeight: {
+    1: 15,
+    2: 16,
+    3: 17,
+    4: 18,
+    5: 19,
+    6: 20,
+    7: 24,
+    8: 26,
+    9: 34,
+    10: 46,
+  },
+  weight: {
+    4: '400',
+  },
+  face: {
+    400: { normal: 'Silkscreen' },
+  },
+})
 export const headingFont = createInterFont(
   {
     size: {
