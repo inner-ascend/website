@@ -7,6 +7,10 @@ NODE_VERSION = "20"
 YARN_VERSION = "1.22.19"
 NODE_OPTIONS = "--max-old-space-size=4096"
 
+# Hide Netlify deploy preview banner
+[context.deploy-preview.environment]
+NETLIFY_NEXT_PLUGIN_SKIP = "true"
+
 [[redirects]]
 from = "/assets/*"
 to = "/assets/:splat"
