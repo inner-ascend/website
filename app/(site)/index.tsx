@@ -31,7 +31,7 @@ export default function TamaguiHomePage() {
   return (
     <>
       <HeadInfo
-        title="Tamagui"
+        title="Inner Ascend"
         description="React style library and UI kit that unifies React Native and React web"
       />
 

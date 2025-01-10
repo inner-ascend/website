@@ -54,8 +54,8 @@ export default function Layout() {
         openGraph={{
           type: 'website',
           locale: 'en_US',
-          url: 'https://tamagui.dev',
-          siteName: 'Tamagui',
+          url: 'https://inner-ascend.com',
+          siteName: 'Inner Ascend',
           images: [
             {
               url: 'https://tamagui.dev/social.png',
