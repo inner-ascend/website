@@ -1,53 +1,21 @@
-name: PR Preview Build
+name: Build Preview
 
 on:
   pull_request:
     types: [opened, synchronize, reopened]
 
-jobs:
-  preview:
-    name: Build Preview
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: 'yarn'
-          
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-        
-      - name: Build
-        run: yarn build:prod
-        
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: pr-preview-${{ github.event.pull_request.number }}
-          path: './dist/client'
-          retention-days: 7
+permissions:
+  checks: write
+  contents: read
+  pull-requests: write
 
-      - name: Report Status
-        uses: actions/github-script@v7
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          script: |
-            const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts`
-            await github.rest.checks.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              name: 'PR Preview Build',
-              head_sha: context.payload.pull_request.head.sha,
-              status: 'completed',
-              conclusion: 'success',
-              output: {
-                title: 'Preview Build Available',
-                summary: `✅ Preview build completed successfully.\n\nYou can download the preview build from the [artifacts page](${artifactUrl}).`
-              }
-            }) 
+          node-version: '20'
+      - run: yarn install
+      - run: yarn build:prod 
