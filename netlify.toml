@@ -7,23 +7,24 @@ NODE_VERSION = "20"
 YARN_VERSION = "1.22.19"
 NODE_OPTIONS = "--max-old-space-size=4096"
 
-[context.production]
-command = "yarn build:prod"
+[[redirects]]
+from = "/assets/*"
+to = "/assets/:splat"
+status = 200
+force = true
 
-[context.deploy-preview]
-command = "yarn build:prod"
+[[redirects]]
+from = "/*.js"
+to = "/:splat"
+status = 200
+force = true
 
-[context.feature]
-command = "yarn build:prod"
-
-# Handle single-page application routing
 [[redirects]]
 from = "/*"
 to = "/index.html"
 status = 200
 force = true
 
-# Global security headers
 [[headers]]
 for = "/*"
 [headers.values]
@@ -34,41 +35,27 @@ Referrer-Policy = "strict-origin-when-cross-origin"
 Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 Content-Security-Policy = "default-src 'self' 'unsafe-inline' 'unsafe-eval' *.netlify.app; connect-src 'self' *.netlify.app; img-src 'self' data: blob: *.netlify.app; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: *.netlify.app; frame-src 'self' app.netlify.com *.netlify.app; worker-src 'self' blob:;"
 
-# Handle JavaScript modules with hash suffixes
-[[headers]]
-for = "/assets/*-*.js"
-[headers.values]
-Content-Type = "application/javascript; charset=utf-8"
-Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-for = "/*-*.js"
-[headers.values]
-Content-Type = "application/javascript; charset=utf-8"
-Cache-Control = "public, max-age=31536000, immutable"
-
-# Handle regular JavaScript files
-[[headers]]
-for = "/assets/*.js"
-[headers.values]
-Content-Type = "application/javascript; charset=utf-8"
-Cache-Control = "public, max-age=31536000, immutable"
-
 [[headers]]
 for = "/*.js"
 [headers.values]
-Content-Type = "application/javascript; charset=utf-8"
-Cache-Control = "public, max-age=31536000, immutable"
+Content-Type = "application/javascript"
 
-# Handle CSS files
 [[headers]]
-for = "/assets/*.css"
+for = "/assets/*.js"
 [headers.values]
-Content-Type = "text/css"
-Cache-Control = "public, max-age=31536000, immutable"
+Content-Type = "application/javascript"
 
 [[headers]]
 for = "/*.css"
 [headers.values]
 Content-Type = "text/css"
+
+[[headers]]
+for = "/assets/*.css"
+[headers.values]
+Content-Type = "text/css"
+
+[[headers]]
+for = "/assets/*"
+[headers.values]
 Cache-Control = "public, max-age=31536000, immutable"
