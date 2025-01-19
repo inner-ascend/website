@@ -1,4 +1,4 @@
-import { EnsureFlexed, H4, Paragraph, YStack } from 'tamagui'
+import { H4, Paragraph, YStack } from 'tamagui'
 
 import { ContainerLarge } from '../../../components/Containers'
 import { Grid } from '../../../components/Grid'
@@ -11,63 +11,55 @@ export function HomeFeaturesGrid() {
           <Grid gap={25} itemMinWidth={280}>
             <YStack gap="$4" p="$4">
               <H4 ls={0} fontFamily="$silkscreen" ta="center">
-                Fully typed
+                Sustainable Living
               </H4>
               <Paragraph theme="alt1">
-                <EnsureFlexed />
-                Typed inline styles, themes, tokens, shorthands, media queries,
-                animations, and hooks that optimize.
+                Implement permaculture principles, renewable energy systems, and ecological building practices in your community.
               </Paragraph>
             </YStack>
 
             <YStack gap="$4" p="$4">
               <H4 ls={0} fontFamily="$silkscreen" ta="center">
-                Server-first
+                Community Governance
               </H4>
               <Paragraph theme="alt1">
-                SSR and RSC just work, hydrate, and don't flicker, with all animation
-                drivers, responsive styles, and themes.
+                Participate in decentralized decision-making through our DAO structure, ensuring transparent and equitable governance.
               </Paragraph>
             </YStack>
 
             <YStack gap="$4" p="$4">
               <H4 ls={0} fontFamily="$silkscreen" ta="center">
-                Fast AF
+                Resource Sharing
               </H4>
               <Paragraph theme="alt1">
-                Fully optimizes and flattens to platform-ideal code for web and native,
-                every feature works at compile and runtime.
+                Access shared tools, knowledge, and resources within your community network while minimizing environmental impact.
               </Paragraph>
             </YStack>
 
             <YStack gap="$4" p="$4">
               <H4 ls={0} fontFamily="$silkscreen" ta="center">
-                Introspection
+                Skill Development
               </H4>
               <Paragraph theme="alt1">
-                <EnsureFlexed />
-                Multi-level debug pragma and props, compile-time JSX props for quick
-                file:line:component jump.
+                Learn and share sustainable living skills, from natural building techniques to organic farming practices.
               </Paragraph>
             </YStack>
 
             <YStack gap="$4" p="$4">
               <H4 ls={0} fontFamily="$silkscreen" ta="center">
-                Compatibility
+                Cultural Exchange
               </H4>
               <Paragraph theme="alt1">
-                Runs entirely without plugins, with optional optimizing plugins for Metro,
-                Vite, and Webpack.
+                Foster diverse and inclusive communities through cultural events, shared celebrations, and collaborative projects.
               </Paragraph>
             </YStack>
 
             <YStack gap="$4" p="$4">
               <H4 ls={0} fontFamily="$silkscreen" ta="center">
-                Full Featured
+                Regenerative Impact
               </H4>
               <Paragraph theme="alt1">
-                Style library + headless components. Animations, themes, variants, tokens,
-                fonts. Advanced selectors, and more.
+                Track and improve your community's environmental impact through regenerative practices and ecological restoration.
               </Paragraph>
             </YStack>
           </Grid>

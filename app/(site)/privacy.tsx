@@ -27,7 +27,7 @@ export default function DocComponentsPage() {
   return (
     <>
       <HeadInfo
-        title={`${frontmatter.title} | Tamagui`}
+        title={`${frontmatter.title} | Inner Ascend`}
         description={frontmatter.description}
       />
 

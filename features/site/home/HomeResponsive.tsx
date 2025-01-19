@@ -3,32 +3,32 @@ import { Image } from '@tamagui/image-next'
 import { useTint } from '@tamagui/logo'
 import { ChevronLeft, ChevronRight, Lock, MapPin, Star } from '@tamagui/lucide-icons'
 import {
-    memo,
-    startTransition,
-    useCallback,
-    useEffect,
-    useMemo,
-    useRef,
-    useState,
+  memo,
+  startTransition,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
 } from 'react'
 import type { YStackProps } from 'tamagui'
 import {
-    Button,
-    Circle,
-    H3,
-    H4,
-    H5,
-    Paragraph,
-    Spacer,
-    Theme,
-    XStack,
-    YStack,
-    isTouchable,
-    useDebounce,
-    useDidFinishSSR,
-    useGet,
-    useIsomorphicLayoutEffect,
-    useMedia,
+  Button,
+  Circle,
+  H3,
+  H4,
+  H5,
+  Paragraph,
+  Spacer,
+  Theme,
+  XStack,
+  YStack,
+  isTouchable,
+  useDebounce,
+  useDidFinishSSR,
+  useGet,
+  useIsomorphicLayoutEffect,
+  useMedia,
 } from 'tamagui'
 import { LinearGradient } from 'tamagui/linear-gradient'
 import { demoMedia } from '../../../config/media'
@@ -318,12 +318,12 @@ const ResponsiveHeader = memo(() => {
     <YStack f={1} space="$3">
       <XStack>
         <HomeH2 ta="left" als="flex-start">
-          Easily responsive
+          Adaptable Community Spaces
         </HomeH2>
       </XStack>
 
       <HomeH3 ta="left" als="flex-start" p={0} maxWidth={450} theme="alt2">
-        Responsive props and hooks, compiled to atomic CSS on web.
+        Design your ecovillage to accommodate different community needs and activities, from shared gardens to communal spaces.
       </HomeH3>
     </YStack>
   )
