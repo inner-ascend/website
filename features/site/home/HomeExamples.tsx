@@ -118,7 +118,7 @@ export const HomeExamples = memo(() => {
             Empowering Communities{' '}
             Through Sustainable Innovation
           </HomeH2>
-          <HomeH3 ai="center" jc="center">
+          <HomeH3 ai="center" jc="center" maw={650} $gtSm={{ maw: 750 }}>
             Our platform enables you to<br />
             <Text fontWeight="bold">{subtitles[activeIndex]}</Text>
           </HomeH3>
@@ -153,11 +153,12 @@ export const HomeExamples = memo(() => {
 
         <XStack
           pos="relative"
-          jc="space-between"
+          jc="center"
           gap="$4"
           $sm={{ fd: 'column' }}
+          width="100%"
         >
-          <Card bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60} f={1}>
+          <Card bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60} width="48%" $sm={{ width: "100%" }}>
             <YStack jc="center" p="$6" space="$4">
               <Paragraph size="$8" fow="400" ls={-1} fontFamily="$silkscreen">
                 {activeItem.content.leftCard.title}
@@ -175,7 +176,7 @@ export const HomeExamples = memo(() => {
             </YStack>
           </Card>
 
-          <Card bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60} f={1}>
+          <Card bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60} width="48%" $sm={{ width: "100%" }}>
             <YStack jc="center" p="$6" space="$4">
               <Paragraph size="$8" fow="400" ls={-1} fontFamily="$silkscreen">
                 {activeItem.content.rightCard.title}
