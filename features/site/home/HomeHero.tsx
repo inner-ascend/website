@@ -40,23 +40,22 @@ const HeroSubTitle = memo(() => {
     <Subtitle>
       <Link asChild href="/docs/core/configuration">
         <Tag theme="green" onHoverIn={() => setHovered(0)} active={hovered === 0}>
-        SUSTAINABLE LIVING
+        REGENERATIVE LIVING
         </Tag>
       </Link>{' '}
       ·{' '}
       <Link asChild href="/docs/intro/why-a-compiler">
         <Tag theme="blue" onHoverIn={() => setHovered(1)} active={hovered === 1}>
-        SPIRITUAL GROWTH
+        CONSCIOUS COMMUNITY
         </Tag> 
       </Link>{' '}
       ·{' '}
       <Link asChild href="/ui/stacks">
         <Tag theme="purple" onHoverIn={() => setHovered(2)} active={hovered === 2}>
-        COLLECTIVE WISDOM
+        LAND STEWARDSHIP
         </Tag>
       </Link>{' '}
-      · for&nbsp;all
-      {/* ·&nbsp;through&nbsp;nfts */}
+      · for&nbsp;all · in&nbsp;harmony
     </Subtitle>
   )
 })
@@ -214,10 +213,9 @@ const HeroContents = memo(function HeroContents() {
             >
               Inner Ascend
             </Text>
-            {/* add gradient to other colors: */}
             <br />
             <span style={{ position: 'relative' }}>
-              <TextWithEffects text="DAO" />
+              <TextWithEffects text="DAO " />
             </span>
           </H1>
 
@@ -293,9 +291,10 @@ const HeroContents = memo(function HeroContents() {
           </YStack>
         </YStack>
 
-        <Spacer size="$8" />
+        <Spacer size="$9" />
         {/* <InstallInput /> */}
-        <Spacer size="$1" />
+        <Spacer size="$8" />
+
 
         <XStack
           ai="center"

@@ -119,8 +119,8 @@ export const CommunityShowcase = memo(({ examples }: CommunityShowcaseProps) => 
       <YStack zi={1} space="$6" mb="$4">
         <YStack ai="center" space="$3">
           <HomeH2 maw={850} size="$10" ls={-0.5} $gtSm={{ size: "$11", maw: 950 }}>
-            Empowering Communities{' '}
-            Through Sustainable Innovation
+            Building Regenerative{' '}
+            Communities Together
           </HomeH2>
           <HomeH3 ai="center" jc="center" maw={650} $gtSm={{ maw: 750 }}>
             Our platform enables you to<br />
