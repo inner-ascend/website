@@ -1,218 +1,199 @@
-import { ThemeTint, useTint } from '@tamagui/logo'
-import { FastForward } from '@tamagui/lucide-icons'
+import { ThemeTint } from '@tamagui/logo'
 import { memo, useState } from 'react'
-import { Button, Paragraph, ScrollView, XGroup, XStack, YStack } from 'tamagui'
-
+import { Button, Card, Paragraph, Text, XGroup, XStack, YStack } from 'tamagui'
 import { ContainerLarge } from '../../../components/Containers'
-import { CodeDemoPreParsed } from './CodeDemoPreParsed'
 import { HomeH2, HomeH3 } from './HomeHeaders'
-import { IconStack } from './IconStack'
 
-const defaultExample = {
-  input: {
-    description: '',
-  },
-  output: {
-    description: '',
-    examples: [],
-  },
-}
+const subtitles = [
+  'join thriving ecovillages and sustainable communities',
+  'participate in decentralized land ownership through DAOs',
+  'contribute to ecological restoration and regeneration',
+  'build meaningful connections in conscious communities',
+]
 
-export const HomeExamples = memo(
-  ({ examples, onlyDemo }: { examples: any; onlyDemo?: boolean }) => {
-    const [activeIndex, setActiveIndex] = useState(0)
-
-    if (!examples) {
-      console.error(`Missing examples!`)
-      return null
+const showcaseItems = [
+  {
+    name: 'Ecovillages',
+    content: {
+      leftCard: {
+        title: 'Community Living',
+        description: 'Experience shared resources, permaculture gardens, and collective decision-making in harmonious eco-conscious communities.',
+        highlights: [
+          'Shared Community Spaces',
+          'Renewable Energy Systems',
+          'Local Food Production'
+        ]
+      },
+      rightCard: {
+        title: 'Natural Building',
+        description: 'Learn and practice sustainable building techniques using natural and locally sourced materials.',
+        highlights: [
+          'Natural Building Methods',
+          'Traditional Techniques',
+          'Eco-friendly Materials'
+        ]
+      }
     }
-
-    const activeExample = examples[activeIndex] ?? defaultExample
-    const subtitles = [
-      'own land collectively with trusted communities',
-      'participate in ecological regeneration',
-      'join a network of conscious creators',
-      'build sustainable living spaces',
-    ]
-
-    if (!activeExample) {
-      return null
+  },
+  {
+    name: 'Land DAO',
+    content: {
+      leftCard: {
+        title: 'Governance',
+        description: 'Vote on land use decisions and contribute to community development through transparent blockchain governance.',
+        highlights: [
+          'Democratic Decision Making',
+          'Transparent Voting',
+          'Community Proposals'
+        ]
+      },
+      rightCard: {
+        title: 'Resource Sharing',
+        description: 'Access shared resources and contribute to the collective growth of the community.',
+        highlights: [
+          'Shared Equipment',
+          'Knowledge Exchange',
+          'Collective Investments'
+        ]
+      }
     }
-
-    return (
-      <ContainerLarge position="relative">
-        <YStack zi={1} space="$6" mb="$4">
-          {!onlyDemo && (
-            <YStack ai="center" space="$3">
-              <HomeH2 maw={850} size="$10" ls={-0.5} $gtSm={{ size: "$11", maw: 950 }}>
-                Empowering Communities{' '}
-                Through Sustainable Innovation
-              </HomeH2>
-              <HomeH3 ai="center" jc="center">
-              Our platform enables you to<br></br>
-                <strong>{subtitles[activeIndex]}</strong>
-              </HomeH3>
-            </YStack>
-          )}
-
-          <ThemeTint>
-            <XGroup
-              scrollable
-              bordered
-              bg="$color2"
-              maxWidth="100%"
-              als="center"
-              ov="hidden"
-              {...(onlyDemo && {
-                mt: '$-6',
-              })}
-            >
-              {examples.map((example, i) => {
-                return (
-                  <XGroup.Item key={i}>
-                    <Button
-                      accessibilityLabel="See example"
-                      onPress={() => setActiveIndex(i)}
-                      theme={i === activeIndex ? 'active' : null}
-                      chromeless={i !== activeIndex}
-                      borderRadius={0}
-                      size="$3"
-                      fontFamily="$silkscreen"
-                    >
-                      {example.name}
-                    </Button>
-                  </XGroup.Item>
-                )
-              })}
-            </XGroup>
-          </ThemeTint>
-
-          <XStack
-            theme="surface1"
-            pos="relative"
-            jc="space-between"
-            $sm={{ fd: 'column' }}
-            {...(onlyDemo && {
-              fd: 'column',
-            })}
-          >
-            <YStack
-              key={`input${activeIndex}`}
-              f={1}
-              maxWidth="50%"
-              {...(onlyDemo && { maxWidth: '100%' })}
-              $sm={{ maxWidth: '100%' }}
-              px="$2"
-              space
-            >
-              <Paragraph
-                maw={480}
-                als="center"
-                size="$5"
-                minHeight={50}
-                ta="center"
-                px="$6"
-              >
-                <span style={{ opacity: 0.65 }}>{activeExample.input.description}</span>
-              </Paragraph>
-              <CodeExamples title="Input" {...activeExample.input} />
-            </YStack>
-
-            <YStack
-              $sm={{ display: 'none' }}
-              {...(onlyDemo && { display: 'none' })}
-              pos="absolute"
-              left={0}
-              right={0}
-              ai="center"
-              jc="center"
-              top="55%"
-              theme="alt2"
-              zIndex={1000}
-              pe="none"
-            >
-              <IconStack als="center" p="$2.5" mb={0} elevation="$2">
-                <FastForward color="var(--colorHover)" size="$1" />
-              </IconStack>
-            </YStack>
-            <YStack
-              key={`output${activeIndex}`}
-              f={1}
-              maxWidth="50%"
-              {...(onlyDemo && { maxWidth: '100%', mt: '$6' })}
-              $sm={{ maxWidth: '100%', mt: '$6' }}
-              px="$2"
-              space
-            >
-              <Paragraph
-                maw={480}
-                als="center"
-                size="$5"
-                minHeight={50}
-                ta="center"
-                px="$6"
-              >
-                <span style={{ opacity: 0.65 }}>{activeExample.output.description}</span>
-              </Paragraph>
-              <CodeExamples title="Output" {...activeExample.output} />
-            </YStack>
-          </XStack>
-        </YStack>
-      </ContainerLarge>
-    )
+  },
+  {
+    name: 'Regeneration',
+    content: {
+      leftCard: {
+        title: 'Land Restoration',
+        description: 'Participate in reforestation and soil regeneration projects that heal the Earth.',
+        highlights: [
+          'Forest Conservation',
+          'Soil Regeneration',
+          'Native Species'
+        ]
+      },
+      rightCard: {
+        title: 'Water Systems',
+        description: 'Implement sustainable water management practices and protect water resources.',
+        highlights: [
+          'Water Conservation',
+          'Rain Harvesting',
+          'Natural Filtration'
+        ]
+      }
+    }
+  },
+  {
+    name: 'Community',
+    content: {
+      leftCard: {
+        title: 'Skill Sharing',
+        description: 'Exchange knowledge and learn from community members in a collaborative environment.',
+        highlights: [
+          'Workshops',
+          'Mentorship',
+          'Traditional Skills'
+        ]
+      },
+      rightCard: {
+        title: 'Cultural Exchange',
+        description: 'Celebrate diversity and create lasting bonds through shared experiences and events.',
+        highlights: [
+          'Cultural Events',
+          'Art & Music',
+          'Celebrations'
+        ]
+      }
+    }
   }
-)
+]
 
-const CodeExamples = memo(({ examples = [], title }: any) => {
+export const HomeExamples = memo(() => {
   const [activeIndex, setActiveIndex] = useState(0)
-  const example = examples[activeIndex] || defaultExample
-  const { tint } = useTint()
+  const activeItem = showcaseItems[activeIndex]
 
   return (
-    <YStack overflow="hidden" flex={1}>
-      <>
-        <ScrollView
-          als="center"
-          ai="center"
-          zi={10}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          mb="$-2.5"
-          maw="100%"
-        >
-          <XStack px="$4" fs={0} space>
-            <Button disabled size="$2" fontSize="$4" px="$4">
-              {title}
-            </Button>
-            <XGroup size="$2" bordered>
-              {examples.map((example, i) => (
-                <XGroup.Item key={i}>
-                  <Button
-                    accessibilityLabel="See example"
-                    onPress={() => setActiveIndex(i)}
-                    theme={i === activeIndex ? (tint as any) : 'alt1'}
-                    size="$2"
-                    borderRadius="$0"
-                  >
-                    {example.name}
-                  </Button>
-                </XGroup.Item>
-              ))}
-            </XGroup>
-          </XStack>
-        </ScrollView>
-      </>
-      <XStack maxWidth="100%" f={1}>
-        <YStack f={1} maxWidth="100%" opacity={0.9} hoverStyle={{ opacity: 1 }}>
-          <CodeDemoPreParsed
-            height={325}
-            maxHeight={325}
-            f={1}
-            language={example.language}
-            source={example.code}
-          />
+    <ContainerLarge position="relative">
+      <YStack zi={1} space="$6" mb="$4">
+        <YStack ai="center" space="$3">
+          <HomeH2 maw={850} size="$10" ls={-0.5} $gtSm={{ size: "$11", maw: 950 }}>
+            Empowering Communities{' '}
+            Through Sustainable Innovation
+          </HomeH2>
+          <HomeH3 ai="center" jc="center">
+            Our platform enables you to<br />
+            <Text fontWeight="bold">{subtitles[activeIndex]}</Text>
+          </HomeH3>
         </YStack>
-      </XStack>
-    </YStack>
+
+        <ThemeTint>
+          <XGroup
+            scrollable
+            bordered
+            bg="$color2"
+            maxWidth="100%"
+            als="center"
+            ov="hidden"
+          >
+            {showcaseItems.map((item, i) => (
+              <XGroup.Item key={i}>
+                <Button
+                  accessibilityLabel={`See ${item.name}`}
+                  onPress={() => setActiveIndex(i)}
+                  theme={i === activeIndex ? 'active' : null}
+                  chromeless={i !== activeIndex}
+                  borderRadius={0}
+                  size="$3"
+                  fontFamily="$silkscreen"
+                >
+                  {item.name}
+                </Button>
+              </XGroup.Item>
+            ))}
+          </XGroup>
+        </ThemeTint>
+
+        <XStack
+          pos="relative"
+          jc="space-between"
+          gap="$4"
+          $sm={{ fd: 'column' }}
+        >
+          <Card bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60} f={1}>
+            <YStack jc="center" p="$6" space="$4">
+              <Paragraph size="$8" fow="400" ls={-1} fontFamily="$silkscreen">
+                {activeItem.content.leftCard.title}
+              </Paragraph>
+              <Paragraph size="$5" theme="alt2" fow="400">
+                {activeItem.content.leftCard.description}
+              </Paragraph>
+              <YStack space="$2">
+                {activeItem.content.leftCard.highlights.map((highlight, i) => (
+                  <Paragraph key={i} size="$4" theme="alt2">
+                    • {highlight}
+                  </Paragraph>
+                ))}
+              </YStack>
+            </YStack>
+          </Card>
+
+          <Card bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60} f={1}>
+            <YStack jc="center" p="$6" space="$4">
+              <Paragraph size="$8" fow="400" ls={-1} fontFamily="$silkscreen">
+                {activeItem.content.rightCard.title}
+              </Paragraph>
+              <Paragraph size="$5" theme="alt2" fow="400">
+                {activeItem.content.rightCard.description}
+              </Paragraph>
+              <YStack space="$2">
+                {activeItem.content.rightCard.highlights.map((highlight, i) => (
+                  <Paragraph key={i} size="$4" theme="alt2">
+                    • {highlight}
+                  </Paragraph>
+                ))}
+              </YStack>
+            </YStack>
+          </Card>
+        </XStack>
+      </YStack>
+    </ContainerLarge>
   )
 })
