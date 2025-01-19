@@ -1,8 +1,39 @@
 import { ThemeTint } from '@tamagui/logo'
 import { memo, useState } from 'react'
-import { Button, Card, Paragraph, Text, XGroup, XStack, YStack } from 'tamagui'
+import { Button, Card, GetThemeValueForKey, Paragraph, Text, XGroup, XStack, YStack } from 'tamagui'
 import { ContainerLarge } from '../../../components/Containers'
 import { HomeH2, HomeH3 } from './HomeHeaders'
+
+type CardContent = {
+  title: string
+  description: string
+  highlights: string[]
+}
+
+type InfoCardProps = {
+  content: CardContent
+  width?: number | GetThemeValueForKey<'width'>
+}
+
+const InfoCard = memo(({ content, width = '48%' as any }: InfoCardProps) => (
+  <Card bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60} width={width} $sm={{ width: '100%' }}>
+    <YStack jc="center" p="$6" space="$4">
+      <Paragraph size="$8" fow="400" ls={-1} fontFamily="$silkscreen">
+        {content.title}
+      </Paragraph>
+      <Paragraph size="$5" theme="alt2" fow="400">
+        {content.description}
+      </Paragraph>
+      <YStack space="$2">
+        {content.highlights.map((highlight, i) => (
+          <Paragraph key={i} size="$4" theme="alt2">
+            • {highlight}
+          </Paragraph>
+        ))}
+      </YStack>
+    </YStack>
+  </Card>
+))
 
 type CommunityShowcaseProps = {
   examples?: any // TODO: Add proper type
@@ -162,41 +193,8 @@ export const CommunityShowcase = memo(({ examples }: CommunityShowcaseProps) => 
           $sm={{ fd: 'column' }}
           width="100%"
         >
-          <Card bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60} width="48%" $sm={{ width: "100%" }}>
-            <YStack jc="center" p="$6" space="$4">
-              <Paragraph size="$8" fow="400" ls={-1} fontFamily="$silkscreen">
-                {activeItem.content.leftCard.title}
-              </Paragraph>
-              <Paragraph size="$5" theme="alt2" fow="400">
-                {activeItem.content.leftCard.description}
-              </Paragraph>
-              <YStack space="$2">
-                {activeItem.content.leftCard.highlights.map((highlight, i) => (
-                  <Paragraph key={i} size="$4" theme="alt2">
-                    • {highlight}
-                  </Paragraph>
-                ))}
-              </YStack>
-            </YStack>
-          </Card>
-
-          <Card bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60} width="48%" $sm={{ width: "100%" }}>
-            <YStack jc="center" p="$6" space="$4">
-              <Paragraph size="$8" fow="400" ls={-1} fontFamily="$silkscreen">
-                {activeItem.content.rightCard.title}
-              </Paragraph>
-              <Paragraph size="$5" theme="alt2" fow="400">
-                {activeItem.content.rightCard.description}
-              </Paragraph>
-              <YStack space="$2">
-                {activeItem.content.rightCard.highlights.map((highlight, i) => (
-                  <Paragraph key={i} size="$4" theme="alt2">
-                    • {highlight}
-                  </Paragraph>
-                ))}
-              </YStack>
-            </YStack>
-          </Card>
+          <InfoCard content={activeItem.content.leftCard} />
+          <InfoCard content={activeItem.content.rightCard} />
         </XStack>
       </YStack>
     </ContainerLarge>
