@@ -3,18 +3,18 @@ import { useTint } from '@tamagui/logo'
 import { memo, useEffect, useRef, useState } from 'react'
 import type { Heading, TextProps } from 'tamagui'
 import {
-  Button,
-  Card,
-  H1,
-  H2,
-  H3,
-  H4,
-  H5,
-  H6,
-  Paragraph,
-  XStack,
-  YStack,
-  useDidFinishSSR,
+    Button,
+    Card,
+    H1,
+    H2,
+    H3,
+    H4,
+    H5,
+    H6,
+    Paragraph,
+    XStack,
+    YStack,
+    useDidFinishSSR,
 } from 'tamagui'
 import { Link } from '../../../components/Link'
 import { useIsIntersecting } from '../../../hooks/useOnIntersecting'
@@ -24,7 +24,7 @@ import { HomeH2 } from './HomeHeaders'
 
 const families = ['silkscreen', 'mono', 'heading']
 
-export const HomeTypography = memo(() => {
+export const CommunityVision = memo(() => {
   const [family, setFamily] = useState(`silkscreen`)
   const ref = useRef<any>()
   const isIntersecting = useIsIntersecting(ref)

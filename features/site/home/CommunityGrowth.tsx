@@ -64,7 +64,7 @@ const animationDescriptions = [
 
 let hasScrolledOnce = false
 
-export function HomeAnimations({ animationCode }: { animationCode: string }) {
+export function CommunityGrowth({ animationCode }: { animationCode: string }) {
   const { tint } = useTint()
   const [disableScrollPane, setDisableScrollPane] = useState(true)
 

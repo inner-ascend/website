@@ -3,14 +3,14 @@ import type { SetStateAction } from 'react'
 import { memo, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type { ThemeName } from 'tamagui'
 import {
-  Theme,
-  XGroup,
-  XStack,
-  YStack,
-  debounce,
-  useDebounce,
-  useEvent,
-  useGet,
+    Theme,
+    XGroup,
+    XStack,
+    YStack,
+    debounce,
+    useDebounce,
+    useEvent,
+    useGet,
 } from 'tamagui'
 import { useIsIntersecting } from '../../../hooks/useOnIntersecting'
 
@@ -22,7 +22,7 @@ import { MediaPlayer } from './MediaPlayer'
 
 type Lock = null | 'shouldAnimate' | 'animate' | 'scroll'
 
-export const HomeThemes = memo(function HomeThemes() {
+export const EcoThemes = memo(function EcoThemes() {
   const [{ resolvedTheme }, setUserTheme] = useUserTheme()
 
   const tints = useTints().tints as ThemeName[]

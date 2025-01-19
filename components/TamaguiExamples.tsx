@@ -2,7 +2,7 @@ import type { getCompilationExamples } from '@tamagui/mdx-2'
 import { createContext, useContext } from 'react'
 import { Spacer } from 'tamagui'
 import { HeroContainer } from '../features/docs/HeroContainer'
-import { HomeExamples } from '../features/site/home/HomeExamples'
+import { CommunityShowcase } from '../features/site/home/CommunityShowcase'
 
 export const TamaguiExamples = createContext<ReturnType<
   typeof getCompilationExamples
@@ -14,7 +14,7 @@ export function TamaguiExamplesCode() {
     return (
       <HeroContainer noScroll noPad>
         <Spacer />
-        <HomeExamples onlyDemo examples={examples?.compilationExamples} />
+        <CommunityShowcase onlyDemo examples={examples?.compilationExamples} />
         <Spacer />
       </HeroContainer>
     )

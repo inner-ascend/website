@@ -1,10 +1,10 @@
-import { TamaguiLogo } from '@tamagui/logo'
 import { memo } from 'react'
 import { H4, Paragraph, Spacer, VisuallyHidden, XStack, YStack } from 'tamagui'
 
 import { ContainerLarge } from '../../components/Containers'
 import { Link, ParagraphLink } from '../../components/Link'
 import { ExternalIcon } from '../icons/ExternalIcon'
+import { InnerAscendLogo } from './logo/InnerAscendLogo'
 
 export const Footer = memo(() => {
   return (
@@ -22,10 +22,11 @@ export const Footer = memo(() => {
           >
             <Link href="/" aria-label="Homepage">
               <VisuallyHidden>homepage</VisuallyHidden>
-              <TamaguiLogo showWords downscale={1} />
+              {/* <TamaguiLogo showWords downscale={1} /> */}
+              <InnerAscendLogo showWords downscale={1}/>
             </Link>
             <Paragraph size="$3" o={0.25}>
-              built with Tamagui
+              built with love by communities
             </Paragraph>
           </YStack>
 

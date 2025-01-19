@@ -67,7 +67,7 @@ import { ExternalIcon } from '../icons/ExternalIcon'
 import { BenchmarkChart } from '../site/benchmarks/BenchmarkChart'
 import { BenchmarkChartNative } from '../site/benchmarks/BenchmarkChartNative'
 import { BenchmarkChartWeb } from '../site/benchmarks/BenchmarkChartWeb'
-import { ExampleAnimations } from '../site/home/HomeAnimations'
+import { ExampleAnimations } from '../site/home/CommunityGrowth'
 import { MediaPlayer } from '../site/home/MediaPlayer'
 import { SocialLinksRow } from '../site/home/SocialLinksRow'
 

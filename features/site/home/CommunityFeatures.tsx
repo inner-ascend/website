@@ -34,7 +34,7 @@ const Features = ({ items, ...props }: any) => {
   )
 }
 
-export const HomeExampleProps = () => {
+export const CommunityFeatures = () => {
   return (
     <ContainerLarge position="relative">
       <XStack px="$6" pt="$8" space="$4" $sm={{ flexDirection: 'column', px: 0 }}>

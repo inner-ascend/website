@@ -4,6 +4,10 @@ import { Button, Card, Paragraph, Text, XGroup, XStack, YStack } from 'tamagui'
 import { ContainerLarge } from '../../../components/Containers'
 import { HomeH2, HomeH3 } from './HomeHeaders'
 
+type CommunityShowcaseProps = {
+  examples?: any // TODO: Add proper type
+}
+
 const subtitles = [
   'join thriving ecovillages and sustainable communities',
   'participate in decentralized land ownership through DAOs',
@@ -106,7 +110,7 @@ const showcaseItems = [
   }
 ]
 
-export const HomeExamples = memo(() => {
+export const CommunityShowcase = memo(({ examples }: CommunityShowcaseProps) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const activeItem = showcaseItems[activeIndex]
 

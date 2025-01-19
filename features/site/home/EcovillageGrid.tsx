@@ -3,7 +3,7 @@ import { H4, Paragraph, YStack } from 'tamagui'
 import { ContainerLarge } from '../../../components/Containers'
 import { Grid } from '../../../components/Grid'
 
-export function HomeFeaturesGrid() {
+export function EcovillageGrid() {
   return (
     <>
       <ContainerLarge space="$8">

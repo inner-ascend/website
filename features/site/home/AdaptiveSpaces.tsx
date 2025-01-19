@@ -3,32 +3,32 @@ import { Image } from '@tamagui/image-next'
 import { useTint } from '@tamagui/logo'
 import { ChevronLeft, ChevronRight, Lock, MapPin, Star } from '@tamagui/lucide-icons'
 import {
-  memo,
-  startTransition,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
+    memo,
+    startTransition,
+    useCallback,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
 } from 'react'
 import type { YStackProps } from 'tamagui'
 import {
-  Button,
-  Circle,
-  H3,
-  H4,
-  H5,
-  Paragraph,
-  Spacer,
-  Theme,
-  XStack,
-  YStack,
-  isTouchable,
-  useDebounce,
-  useDidFinishSSR,
-  useGet,
-  useIsomorphicLayoutEffect,
-  useMedia,
+    Button,
+    Circle,
+    H3,
+    H4,
+    H5,
+    Paragraph,
+    Spacer,
+    Theme,
+    XStack,
+    YStack,
+    isTouchable,
+    useDebounce,
+    useDidFinishSSR,
+    useGet,
+    useIsomorphicLayoutEffect,
+    useMedia,
 } from 'tamagui'
 import { LinearGradient } from 'tamagui/linear-gradient'
 import { demoMedia } from '../../../config/media'
@@ -55,7 +55,7 @@ const useIsSafari = () => {
   return ssrDone ? IS_SAFARI : false
 }
 
-export const HomeResponsive = memo(() => {
+export const AdaptiveSpaces = memo(() => {
   const [bounding, setBounding] = useTransitionState<DOMRect | null>(null)
   const prevMove = useRef(0)
   const initialWidth = 420

@@ -8,7 +8,7 @@ import { useOnIntersecting } from '../../../hooks/useOnIntersecting'
 import { BenchmarkChartWeb } from '../benchmarks/BenchmarkChartWeb'
 import { HomeH2, HomeH3 } from './HomeHeaders'
 
-export function HomePerformance() {
+export function SustainableImpact() {
   const ref = useRef<HTMLElement>(null)
   const [show, setShow] = useState(false)
 
