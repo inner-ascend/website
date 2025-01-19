@@ -42,13 +42,15 @@ export const HomeExampleProps = () => {
           <Features
             space="$4"
             items={[
-              <FeatureItem label="Press & hover events">
-                onHoverIn, onHoverOut, onPressIn, and onPressOut.
+              <FeatureItem label="Community Engagement">
+                Participate in community events, decision-making, and shared activities.
               </FeatureItem>,
-              <FeatureItem label="Pseudo styles">
-                Style hover, press, and focus, in combination with media queries.
+              <FeatureItem label="Land Stewardship">
+                Contribute to ecological restoration and sustainable land management.
               </FeatureItem>,
-              <FeatureItem label="Media queries">For every style/variant.</FeatureItem>,
+              <FeatureItem label="Shared Resources">
+                Access community tools, spaces, and knowledge bases.
+              </FeatureItem>,
             ]}
           />
         </YStack>
@@ -56,12 +58,14 @@ export const HomeExampleProps = () => {
           <Features
             space="$4"
             items={[
-              <FeatureItem label="Themes">Change theme on any component.</FeatureItem>,
-              <FeatureItem label="Animations">
-                Animate every component, enter and exit styling, works with pseudo states.
+              <FeatureItem label="Sustainable Living">
+                Practice eco-friendly lifestyle with renewable energy and natural building.
               </FeatureItem>,
-              <FeatureItem label="DOM escape hatches">
-                Support for className and other HTML attributes.
+              <FeatureItem label="Cultural Activities">
+                Join workshops, celebrations, and skill-sharing sessions.
+              </FeatureItem>,
+              <FeatureItem label="Governance Rights">
+                Vote on community decisions through transparent DAO structure.
               </FeatureItem>,
             ]}
           />

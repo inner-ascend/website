@@ -3,14 +3,14 @@ import type { SetStateAction } from 'react'
 import { memo, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type { ThemeName } from 'tamagui'
 import {
-    Theme,
-    XGroup,
-    XStack,
-    YStack,
-    debounce,
-    useDebounce,
-    useEvent,
-    useGet,
+  Theme,
+  XGroup,
+  XStack,
+  YStack,
+  debounce,
+  useDebounce,
+  useEvent,
+  useGet,
 } from 'tamagui'
 import { useIsIntersecting } from '../../../hooks/useOnIntersecting'
 
@@ -156,10 +156,10 @@ export const HomeThemes = memo(function HomeThemes() {
       {useMemo(() => {
         return (
           <ContainerLarge position="relative" space="$3">
-            <HomeH2>Smart themes and sub-themes down to the component.</HomeH2>
+            <HomeH2>Explore Different Types of Ecovillages</HomeH2>
             <HomeH3>
-              Themes that act like CSS variables, overriding as they descend and compiled
-              to CSS to avoid re-renders.
+              Discover various sustainable community models - from permaculture-based settlements 
+              to regenerative farming communities and collaborative land stewardship projects.
             </HomeH3>
           </ContainerLarge>
         )

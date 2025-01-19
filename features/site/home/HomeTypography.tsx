@@ -3,18 +3,18 @@ import { useTint } from '@tamagui/logo'
 import { memo, useEffect, useRef, useState } from 'react'
 import type { Heading, TextProps } from 'tamagui'
 import {
-    Button,
-    Card,
-    H1,
-    H2,
-    H3,
-    H4,
-    H5,
-    H6,
-    Paragraph,
-    XStack,
-    YStack,
-    useDidFinishSSR,
+  Button,
+  Card,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  Paragraph,
+  XStack,
+  YStack,
+  useDidFinishSSR,
 } from 'tamagui'
 import { Link } from '../../../components/Link'
 import { useIsIntersecting } from '../../../hooks/useOnIntersecting'
@@ -28,6 +28,7 @@ export const HomeTypography = memo(() => {
   const [family, setFamily] = useState(`silkscreen`)
   const ref = useRef<any>()
   const isIntersecting = useIsIntersecting(ref)
+  const { tint } = useTint()
 
   useEffect(() => {
     if (!isIntersecting) {
@@ -52,8 +53,8 @@ export const HomeTypography = memo(() => {
       <ContainerLarge my={-5} position="relative" space="$8">
         <YStack ref={ref} ai="center" space="$3">
           <HomeH2>
-            Beautifully expressive font systems with{' '}
-            <span className="clip-text rainbow">rhythm</span>.
+            Building harmonious communities with{' '}
+            <span className="clip-text rainbow">purpose</span>.
           </HomeH2>
         </YStack>
 
@@ -67,7 +68,35 @@ export const HomeTypography = memo(() => {
             flexDirection: 'column-reverse',
           }}
         >
-          <OverlayCard />
+          <Card bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60}>
+            <YStack
+              jc="center"
+              p="$6"
+              space="$5"
+              maw="calc(min(90vw, 400px))"
+              $sm={{ p: '$5' }}
+            >
+              <Paragraph ta="left" size="$8" fow="400" ls={-1}>
+                Join a network of conscious communities working towards a sustainable future.
+              </Paragraph>
+
+              <Paragraph ta="left" size="$6" theme="alt2" fow="400">
+                Connect with like-minded individuals and communities focused on ecological living,
+                regenerative practices, and collaborative governance.
+              </Paragraph>
+
+              <Link asChild href="/docs/core/configuration">
+                <Button
+                  accessibilityLabel="Join community"
+                  fontFamily="$silkscreen"
+                  als="flex-end"
+                  theme={tint as any}
+                >
+                  Join Us &raquo;
+                </Button>
+              </Link>
+            </YStack>
+          </Card>
 
           <YStack
             h={300}
@@ -89,7 +118,7 @@ export const HomeTypography = memo(() => {
                   family={family}
                   color="$pink10"
                 >
-                  Swappable
+                  Sustainable
                 </AnimatedHeading>
                 <AnimatedHeading
                   disableAnimation={!isIntersecting}
@@ -99,7 +128,7 @@ export const HomeTypography = memo(() => {
                   family={family}
                   color="$blue10"
                 >
-                  typed, compiled
+                  regenerative
                 </AnimatedHeading>
                 <AnimatedHeading
                   disableAnimation={!isIntersecting}
@@ -109,7 +138,7 @@ export const HomeTypography = memo(() => {
                   family={family}
                   color="$purple10"
                 >
-                  custom per-size
+                  community-driven
                 </AnimatedHeading>
                 <AnimatedHeading
                   disableAnimation={!isIntersecting}
@@ -119,7 +148,7 @@ export const HomeTypography = memo(() => {
                   family={family}
                   color="$green10"
                 >
-                  premade or custom
+                  eco-conscious
                 </AnimatedHeading>
                 <AnimatedHeading
                   disableAnimation={!isIntersecting}
@@ -129,7 +158,7 @@ export const HomeTypography = memo(() => {
                   family={family}
                   color="$orange10"
                 >
-                  easy to author
+                  collaborative
                 </AnimatedHeading>
                 <AnimatedHeading
                   disableAnimation={!isIntersecting}
@@ -139,7 +168,7 @@ export const HomeTypography = memo(() => {
                   family={family}
                   color="$red10"
                 >
-                  font themes
+                  harmonious
                 </AnimatedHeading>
               </AnimatePresence>
             </YStack>
