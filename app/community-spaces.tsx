@@ -1,164 +1,200 @@
 // @ts-nocheck responsive props
-import { Book, Leaf, Star, Users } from '@tamagui/lucide-icons'
+import { Building2, ClipboardList, Shield, Sprout, Users, Vote, Wallet, Zap } from '@tamagui/lucide-icons'
 import { useEffect, useState } from 'react'
 import { Button, Circle, H2, H3, Paragraph, XStack, YStack } from 'tamagui'
 
 const views = {
   xs: {
     title: "Overview",
-    description: "Discover our regenerative community spaces",
+    description: "Essential tools for community coordination",
     content: [
       {
-        name: 'Sacred Circle',
+        name: "Governance",
+        description: "Participate in community decisions through token voting",
+        features: ["Proposal voting", "Resource allocation", "Role delegation"],
+        icon: Building2,
+        theme: "blue"
+      },
+    //   {
+    //     name: "Treasury",
+    //     description: "Manage shared resources and community funds",
+    //     features: ["Token distribution", "Budget tracking", "Rewards system"],
+    //     icon: Wallet,
+    //     theme: "yellow"
+    //   },
+      {
+        name: "Membership",
+        description: "Join and contribute to the community",
+        features: ["Identity verification", "Reputation system", "Access control"],
         icon: Users,
-        description: 'Central gathering space for community rituals, ceremonies, and celebrations',
-        features: ['Daily meditation', 'Weekly ceremonies', 'Monthly gatherings'],
-        theme: 'yellow'
+        theme: "yellow"
       },
       {
-        name: 'Living Food Forest',
-        icon: Leaf,
-        description: 'Regenerative permaculture gardens and food systems',
-        features: ['Organic produce', 'Seed saving', 'Composting'],
-        theme: 'green'
-      },
-      {
-        name: 'Wisdom Temple',
-        icon: Book,
-        description: 'Space for learning, sharing wisdom, and spiritual growth',
-        features: ['Sacred teachings', 'Knowledge library', 'Meditation space'],
-        theme: 'blue'
+        name: "Projects",
+        description: "Collaborate on community initiatives",
+        features: ["Task management", "Progress tracking", "Resource sharing"],
+        icon: ClipboardList,
+        theme: "green"
+        // theme: "purple"
       }
     ]
   },
   sm: {
     title: "Schedule",
-    description: "Join our transformative community activities",
+    description: "Key community activities and milestones",
     content: [
       { 
-        day: "Dawn", 
-        activity: "Sacred Movement", 
-        time: "6:00 AM", 
-        location: "Temple Garden",
-        description: "Start your day with mindful movement and meditation",
-        theme: "blue"
-      },
-      { 
-        day: "Morning", 
-        activity: "Community Circle", 
-        time: "10:00 AM", 
-        location: "Sacred Circle",
-        description: "Share intentions and connect with community",
+        name: "Token Launch",
+        description: "Initial distribution of governance tokens to founding members",
+        features: [
+          "Q1 2024",
+          "On Mainnet",
+          "Community allocation"
+        ],
+        icon: Wallet,
         theme: "yellow"
       },
       { 
-        day: "Midday", 
-        activity: "Forest Tending", 
-        time: "2:00 PM", 
-        location: "Food Forest",
-        description: "Nurture our living food systems together",
+        name: "Land NFTs",
+        description: "Release of tokenized land parcels and common spaces",
+        features: [
+          "Q2 2024",
+          "NFT Marketplace",
+          "Plot selection"
+        ],
+        icon: Building2,
         theme: "green"
       },
       { 
-        day: "Evening", 
-        activity: "Wisdom Sharing", 
-        time: "6:00 PM", 
-        location: "Wisdom Temple",
-        description: "Learn and grow through shared knowledge",
-        theme: "purple"
+        name: "DAO Setup",
+        description: "Implementation of on-chain voting and treasury",
+        features: [
+          "Q3 2024",
+          "Governance portal",
+          "Proposal system"
+        ],
+        icon: Users,
+        theme: "blue"
       },
-      { 
-        day: "Dusk", 
-        activity: "Sacred Fire", 
-        time: "8:00 PM", 
-        location: "Fire Circle",
-        description: "Gather around the fire for stories and connection",
-        theme: "orange"
-      }
+    //   { 
+    //     name: "Community Build",
+    //     description: "Begin physical development of community spaces",
+    //     features: [
+    //       "Q4 2024",
+    //       "On-site work",
+    //       "Space design"
+    //     ],
+    //     icon: ClipboardList,
+    //     theme: "purple"
+    //   }
     ]
   },
   md: {
     title: "Resources",
-    description: "Explore our shared abundance",
+    description: "Community assets and shared resources",
     content: [
-      { 
-        item: "Sacred Tools", 
-        available: 12, 
-        total: 15, 
-        category: "Ceremony",
-        description: "Tools for rituals and ceremonies",
-        icon: "🔮",
-        theme: "purple"
+      {
+        name: "Living Spaces",
+        description: "Tokenized residential units and common areas",
+        features: [
+          "12/20 Units Available",
+          "Sustainable Design",
+          "Shared Amenities"
+        ],
+        icon: Building2,
+        theme: "green",
+        available: 12,
+        total: 20
       },
-      { 
-        item: "Earth Kitchen", 
-        available: 3, 
-        total: 4, 
-        category: "Nourishment",
-        description: "Community cooking and food processing",
-        icon: "🌱",
-        theme: "green"
+      {
+        name: "Energy Grid",
+        description: "Renewable energy distribution system",
+        features: [
+          "5000/10000 kWh Available",
+          "Solar + Storage",
+          "Usage Tracking"
+        ],
+        icon: Zap,
+        theme: "yellow",
+        available: 5000,
+        total: 10000
       },
-      { 
-        item: "Temple Spaces", 
-        available: 2, 
-        total: 3, 
-        category: "Wisdom",
-        description: "Spaces for learning and meditation",
-        icon: "🏛️",
-        theme: "blue"
+      {
+        name: "Food System",
+        description: "Community gardens and food production",
+        features: [
+          "8/10 Plots Available",
+          "Permaculture Design",
+          "Harvest Sharing"
+        ],
+        icon: Sprout,
+        theme: "blue",
+        available: 8,
+        total: 10
       },
-      { 
-        item: "Garden Wisdom", 
-        available: 8, 
-        total: 10, 
-        category: "Nature",
-        description: "Permaculture tools and knowledge",
-        icon: "🌿",
-        theme: "yellow"
-      },
-      { 
-        item: "Creation Studio", 
-        available: 20, 
-        total: 25, 
-        category: "Art",
-        description: "Tools for creative expression",
-        icon: "🎨",
-        theme: "orange"
-      }
+    //   {
+    //     name: "Tool Library",
+    //     description: "Shared equipment and resources",
+    //     features: [
+    //       "25/30 Tools Available",
+    //       "Maintenance Program",
+    //       "Booking System"
+    //     ],
+    //     icon: Wrench,
+    //     theme: "purple",
+    //     available: 25,
+    //     total: 30
+    //   }
     ]
   },
   lg: {
     title: "Governance",
-    description: "Co-creating through sacred stewardship",
+    description: "Decentralized decision-making framework",
     content: [
-      { 
-        level: "Sacred Circle", 
-        members: "All community", 
-        meetings: "Monthly",
-        decisions: "Vision & Values",
-        description: "Heart-centered community gatherings for major decisions",
-        icon: "⭕",
-        theme: "purple"
-      },
-      { 
-        level: "Wisdom Council", 
-        members: "Elected guides", 
-        meetings: "Weekly",
-        decisions: "Strategic Direction",
-        description: "Experienced members guiding community development",
-        icon: "🌟",
+      {
+        name: "Token Governance",
+        description: "Community-wide token voting system",
+        features: [
+          "1 token = 1 vote",
+          "Quadratic voting",
+          "Delegation enabled"
+        ],
+        icon: Vote,
         theme: "yellow"
       },
-      { 
-        level: "Guardian Circles", 
-        members: "Stewards", 
-        meetings: "Daily",
-        decisions: "Implementation",
-        description: "Dedicated teams managing specific areas",
-        icon: "🛡️",
+      {
+        name: "Guardian Council",
+        description: "Elected stewards managing operations",
+        features: [
+          "Multi-sig treasury",
+          "Protocol upgrades",
+          "Risk assessment"
+        ],
+        icon: Shield,
         theme: "blue"
-      }
+      },
+      {
+        name: "Working Groups",
+        description: "Focused development teams",
+        features: [
+          "Task allocation",
+          "Resource management",
+          "Progress tracking"
+        ],
+        icon: Users,
+        theme: "green"
+      },
+    //   {
+    //     name: "Community Forum",
+    //     description: "Open discussion and proposal refinement",
+    //     features: [
+    //       "Proposal discussion",
+    //       "Knowledge sharing",
+    //       "Community polls"
+    //     ],
+    //     icon: MessageCircle,
+    //     theme: "purple"
+    //   }
     ]
   }
 }
@@ -233,137 +269,147 @@ export default function ResponsiveDemo() {
       
       case views.sm:
         return (
-          <YStack space="$4" p="$4">
-            {currentView.content.map((event) => (
+          <XStack flexWrap="wrap" jc="center" gap="$4" p="$4">
+            {currentView.content.map((space) => (
               <Card
-                key={event.day}
-                theme={event.theme}
-                br="$6" 
-                bw={1}
+                key={space.name}
+                theme={space.theme}
+                width={300}
                 p="$4"
                 space="$4"
-                ai="center"
+                br="$6"
+                bw={1}
+                hoverStyle={{ scale: 1.02, y: -5 }}
+                pressStyle={{ scale: 0.98 }}
                 animation="bouncy"
-                hoverStyle={{ scale: 1.01, y: -2 }}
               >
-                <YStack f={1} space="$2">
-                  <XStack space="$3" ai="center">
-                    <H3 size="$7" color="$color" fontWeight="800">{event.day}</H3>
-                    <Paragraph size="$5" theme="alt1" fontWeight="600">{event.activity}</Paragraph>
-                  </XStack>
-                  <Paragraph theme="alt2" size="$4" o={0.8}>{event.description}</Paragraph>
-                </YStack>
-                <XStack ai="center" space="$4" pt="$2">
-                  <Paragraph theme="alt2" o={0.7}>{event.time}</Paragraph>
-                  <Button size="$3" icon={Star} chromeless themeInverse>
-                    {event.location}
-                  </Button>
+                <XStack ai="center" space="$3">
+                  <YStack 
+                    width={60} 
+                    height={60} 
+                    br="$6" 
+                    backgroundColor="$color5" 
+                    ai="center" 
+                    jc="center"
+                    shadowColor="$shadowColor"
+                    shadowRadius={10}
+                    elevation={2}
+                  >
+                    <space.icon size={30} color="$background" />
+                  </YStack>
+                  <H3 size="$6" fontWeight="800">{space.name}</H3>
                 </XStack>
+                <Paragraph theme="alt2" size="$4" o={0.8}>{space.description}</Paragraph>
+                <YStack space="$2" pt="$2">
+                  {space.features.map((feature, i) => (
+                    <XStack key={i} ai="center" space="$2">
+                      <Circle size={6} backgroundColor="$color5" />
+                      <Paragraph size="$3" theme="alt1">{feature}</Paragraph>
+                    </XStack>
+                  ))}
+                </YStack>
               </Card>
             ))}
-          </YStack>
+          </XStack>
         )
 
       case views.md:
         return (
-          <YStack space="$4" p="$4">
-            {currentView.content.map((resource) => (
+          <XStack flexWrap="wrap" jc="center" gap="$4" p="$4">
+            {currentView.content.map((space) => (
               <Card
-                key={resource.item}
-                theme={resource.theme}
-                br="$6" 
-                bw={1}
+                key={space.name}
+                theme={space.theme}
+                width={300}
                 p="$4"
                 space="$4"
-                ai="center"
+                br="$6"
+                bw={1}
+                hoverStyle={{ scale: 1.02, y: -5 }}
+                pressStyle={{ scale: 0.98 }}
                 animation="bouncy"
-                hoverStyle={{ scale: 1.01, y: -2 }}
               >
-                <XStack f={1} space="$4" ai="center">
-                  <YStack
-                    width={50}
-                    height={50}
-                    br="$4"
-                    backgroundColor="$color5"
-                    ai="center"
+                <XStack ai="center" space="$3">
+                  <YStack 
+                    width={60} 
+                    height={60} 
+                    br="$6" 
+                    backgroundColor="$color5" 
+                    ai="center" 
                     jc="center"
                     shadowColor="$shadowColor"
-                    shadowRadius={8}
+                    shadowRadius={10}
                     elevation={2}
                   >
-                    <Paragraph size="$8">{resource.icon}</Paragraph>
+                    <space.icon size={30} color="$background" />
                   </YStack>
-                  <YStack space="$2" f={1}>
-                    <H3 size="$6" fontWeight="800">{resource.item}</H3>
-                    <Paragraph theme="alt2" size="$4" o={0.8}>{resource.description}</Paragraph>
-                  </YStack>
+                  <H3 size="$6" fontWeight="800">{space.name}</H3>
                 </XStack>
-                <XStack ai="center" jc="space-between" pt="$2" width="100%">
-                  <XStack space="$2" ai="center">
-                    <Circle size={6} backgroundColor="$color5" />
-                    <Paragraph theme="alt2" o={0.7}>
-                      {resource.available}/{resource.total} Available
-                    </Paragraph>
-                  </XStack>
-                  <Button 
-                    size="$3" 
-                    chromeless
-                    themeInverse
-                  >
-                    {resource.available > 0 ? 'Reserve' : 'Waitlist'}
-                  </Button>
-                </XStack>
+                {/* <Paragraph theme="alt2" size="$4" o={0.8}>{space.description}</Paragraph> */}
+                <YStack space="$2" pt="$2">
+                  {space.features.map((feature, i) => (
+                    <XStack key={i} ai="center" space="$2">
+                      <Circle size={6} backgroundColor="$color5" />
+                      <Paragraph size="$3" theme="alt1">{feature}</Paragraph>
+                    </XStack>
+                  ))}
+                </YStack>
+                <Button 
+                  size="$3" 
+                //   themeInverse
+                  mt="$2"
+                >
+                  {space.available > 0 ? 'Reserve' : 'Waitlist'}
+                </Button>
               </Card>
             ))}
-          </YStack>
+          </XStack>
         )
 
       case views.lg:
         return (
-          <YStack space="$4" p="$4">
-            {currentView.content.map((level) => (
+          <XStack flexWrap="wrap" jc="center" gap="$4" p="$4">
+            {currentView.content.map((space) => (
               <Card
-                key={level.level}
-                theme={level.theme}
-                br="$6" 
-                bw={1}
+                key={space.name}
+                theme={space.theme}
+                width={300}
                 p="$4"
-                space="$3"
+                space="$4"
+                br="$6"
+                bw={1}
+                hoverStyle={{ scale: 1.02, y: -5 }}
+                pressStyle={{ scale: 0.98 }}
                 animation="bouncy"
-                hoverStyle={{ scale: 1.01, y: -2 }}
               >
-                <XStack jc="space-between" ai="center" space="$4">
-                  <XStack space="$3" ai="center">
-                    <YStack
-                      width={50}
-                      height={50}
-                      br="$4"
-                      backgroundColor="$color5"
-                      ai="center"
-                      jc="center"
-                      shadowColor="$shadowColor"
-                      shadowRadius={8}
-                      elevation={2}
-                    >
-                      <Paragraph size="$8">{level.icon}</Paragraph>
-                    </YStack>
-                    <YStack>
-                      <H3 size="$6" fontWeight="800">{level.level}</H3>
-                      <Paragraph theme="alt2" o={0.7}>{level.members}</Paragraph>
-                    </YStack>
-                  </XStack>
-                  <Button size="$3" chromeless themeInverse>
-                    {level.meetings}
-                  </Button>
+                <XStack ai="center" space="$3">
+                  <YStack 
+                    width={60} 
+                    height={60} 
+                    br="$6" 
+                    backgroundColor="$color5" 
+                    ai="center" 
+                    jc="center"
+                    shadowColor="$shadowColor"
+                    shadowRadius={10}
+                    elevation={2}
+                  >
+                    <space.icon size={30} color="$background" />
+                  </YStack>
+                  <H3 size="$6" fontWeight="800">{space.name}</H3>
                 </XStack>
-                <Paragraph size="$4" theme="alt2" o={0.8}>{level.description}</Paragraph>
-                <XStack space="$2" ai="center">
-                  <Circle size={6} backgroundColor="$color5" />
-                  <Paragraph theme="alt1">Focus: {level.decisions}</Paragraph>
-                </XStack>
+                <Paragraph theme="alt2" size="$4" o={0.8}>{space.description}</Paragraph>
+                <YStack space="$2" pt="$2">
+                  {space.features.map((feature, i) => (
+                    <XStack key={i} ai="center" space="$2">
+                      <Circle size={6} backgroundColor="$color5" />
+                      <Paragraph size="$3" theme="alt1">{feature}</Paragraph>
+                    </XStack>
+                  ))}
+                </YStack>
               </Card>
             ))}
-          </YStack>
+          </XStack>
         )
     }
   }
