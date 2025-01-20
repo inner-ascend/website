@@ -1,59 +1,164 @@
 // @ts-nocheck responsive props
-import { Book, Leaf, Users } from '@tamagui/lucide-icons'
+import { Book, Leaf, Star, Users } from '@tamagui/lucide-icons'
 import { useEffect, useState } from 'react'
-import { Button, H2, H3, Paragraph, Theme, XStack, YStack } from 'tamagui'
+import { Button, Circle, H2, H3, Paragraph, XStack, YStack } from 'tamagui'
 
 const views = {
   xs: {
     title: "Overview",
-    description: "Quick glance at our community spaces",
+    description: "Discover our regenerative community spaces",
     content: [
       {
-        name: 'Community Center',
+        name: 'Sacred Circle',
         icon: Users,
-        description: 'Central hub for gatherings and events',
+        description: 'Central gathering space for community rituals, ceremonies, and celebrations',
+        features: ['Daily meditation', 'Weekly ceremonies', 'Monthly gatherings'],
+        theme: 'yellow'
       },
       {
-        name: 'Food Forest',
+        name: 'Living Food Forest',
         icon: Leaf,
-        description: 'Regenerative food production',
+        description: 'Regenerative permaculture gardens and food systems',
+        features: ['Organic produce', 'Seed saving', 'Composting'],
+        theme: 'green'
       },
       {
-        name: 'Learning Hub',
+        name: 'Wisdom Temple',
         icon: Book,
-        description: 'Education and skill sharing',
+        description: 'Space for learning, sharing wisdom, and spiritual growth',
+        features: ['Sacred teachings', 'Knowledge library', 'Meditation space'],
+        theme: 'blue'
       }
     ]
   },
   sm: {
     title: "Schedule",
-    description: "Weekly events and activities",
+    description: "Join our transformative community activities",
     content: [
-      { day: "Monday", activity: "Morning Yoga", time: "7:00 AM", location: "Wellness Center" },
-      { day: "Tuesday", activity: "Community Lunch", time: "12:00 PM", location: "Cafe" },
-      { day: "Wednesday", activity: "Gardening Workshop", time: "4:00 PM", location: "Food Forest" },
-      { day: "Thursday", activity: "Art Class", time: "6:00 PM", location: "Maker Space" },
-      { day: "Friday", activity: "Community Meeting", time: "5:00 PM", location: "Community Center" }
+      { 
+        day: "Dawn", 
+        activity: "Sacred Movement", 
+        time: "6:00 AM", 
+        location: "Temple Garden",
+        description: "Start your day with mindful movement and meditation",
+        theme: "blue"
+      },
+      { 
+        day: "Morning", 
+        activity: "Community Circle", 
+        time: "10:00 AM", 
+        location: "Sacred Circle",
+        description: "Share intentions and connect with community",
+        theme: "yellow"
+      },
+      { 
+        day: "Midday", 
+        activity: "Forest Tending", 
+        time: "2:00 PM", 
+        location: "Food Forest",
+        description: "Nurture our living food systems together",
+        theme: "green"
+      },
+      { 
+        day: "Evening", 
+        activity: "Wisdom Sharing", 
+        time: "6:00 PM", 
+        location: "Wisdom Temple",
+        description: "Learn and grow through shared knowledge",
+        theme: "purple"
+      },
+      { 
+        day: "Dusk", 
+        activity: "Sacred Fire", 
+        time: "8:00 PM", 
+        location: "Fire Circle",
+        description: "Gather around the fire for stories and connection",
+        theme: "orange"
+      }
     ]
   },
   md: {
     title: "Resources",
-    description: "Community tools and resources",
+    description: "Explore our shared abundance",
     content: [
-      { item: "Tool Library", available: 12, total: 15, category: "DIY" },
-      { item: "Shared Kitchen", available: 3, total: 4, category: "Food" },
-      { item: "Meeting Rooms", available: 2, total: 3, category: "Space" },
-      { item: "Garden Tools", available: 8, total: 10, category: "Garden" },
-      { item: "Art Supplies", available: 20, total: 25, category: "Creative" }
+      { 
+        item: "Sacred Tools", 
+        available: 12, 
+        total: 15, 
+        category: "Ceremony",
+        description: "Tools for rituals and ceremonies",
+        icon: "🔮",
+        theme: "purple"
+      },
+      { 
+        item: "Earth Kitchen", 
+        available: 3, 
+        total: 4, 
+        category: "Nourishment",
+        description: "Community cooking and food processing",
+        icon: "🌱",
+        theme: "green"
+      },
+      { 
+        item: "Temple Spaces", 
+        available: 2, 
+        total: 3, 
+        category: "Wisdom",
+        description: "Spaces for learning and meditation",
+        icon: "🏛️",
+        theme: "blue"
+      },
+      { 
+        item: "Garden Wisdom", 
+        available: 8, 
+        total: 10, 
+        category: "Nature",
+        description: "Permaculture tools and knowledge",
+        icon: "🌿",
+        theme: "yellow"
+      },
+      { 
+        item: "Creation Studio", 
+        available: 20, 
+        total: 25, 
+        category: "Art",
+        description: "Tools for creative expression",
+        icon: "🎨",
+        theme: "orange"
+      }
     ]
   },
   lg: {
     title: "Governance",
-    description: "How we make decisions together",
+    description: "Co-creating through sacred stewardship",
     content: [
-      { level: "Community Circle", members: "All residents", meetings: "Monthly", decisions: "Vision & Values" },
-      { level: "Working Groups", members: "Volunteers", meetings: "Weekly", decisions: "Implementation" },
-      { level: "Stewardship", members: "Rotating", meetings: "Daily", decisions: "Operations" }
+      { 
+        level: "Sacred Circle", 
+        members: "All community", 
+        meetings: "Monthly",
+        decisions: "Vision & Values",
+        description: "Heart-centered community gatherings for major decisions",
+        icon: "⭕",
+        theme: "purple"
+      },
+      { 
+        level: "Wisdom Council", 
+        members: "Elected guides", 
+        meetings: "Weekly",
+        decisions: "Strategic Direction",
+        description: "Experienced members guiding community development",
+        icon: "🌟",
+        theme: "yellow"
+      },
+      { 
+        level: "Guardian Circles", 
+        members: "Stewards", 
+        meetings: "Daily",
+        decisions: "Implementation",
+        description: "Dedicated teams managing specific areas",
+        icon: "🛡️",
+        theme: "blue"
+      }
     ]
   }
 }
@@ -62,14 +167,12 @@ export default function ResponsiveDemo() {
   const [currentView, setCurrentView] = useState(views.xs)
 
   useEffect(() => {
-    // Initial view from hash
     const hash = window.location.hash.slice(1)
     if (hash) {
       const view = Object.entries(views).find(([_, data]) => data.title === hash)?.[1]
       if (view) setCurrentView(view)
     }
 
-    // Listen for hash changes
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1)
       const view = Object.entries(views).find(([_, data]) => data.title === hash)?.[1]
@@ -84,28 +187,46 @@ export default function ResponsiveDemo() {
     switch (currentView) {
       case views.xs:
         return (
-          <XStack flexWrap="wrap" jc="center" gap="$4">
+          <XStack flexWrap="wrap" jc="center" gap="$4" p="$4">
             {currentView.content.map((space) => (
-              <YStack
+              <Card
                 key={space.name}
+                theme={space.theme}
                 width={300}
                 p="$4"
-                space="$3"
-                br="$4"
+                space="$4"
+                br="$6"
                 bw={1}
-                bc="$borderColor"
-                hoverStyle={{ scale: 1.02 }}
+                hoverStyle={{ scale: 1.02, y: -5 }}
                 pressStyle={{ scale: 0.98 }}
                 animation="bouncy"
               >
                 <XStack ai="center" space="$3">
-                  <YStack width={50} height={50} br="$4" bg="$color5" ai="center" jc="center">
-                    <space.icon size={24} color="var(--color)" />
+                  <YStack 
+                    width={60} 
+                    height={60} 
+                    br="$6" 
+                    backgroundColor="$color5" 
+                    ai="center" 
+                    jc="center"
+                    shadowColor="$shadowColor"
+                    shadowRadius={10}
+                    elevation={2}
+                  >
+                    <space.icon size={30} color="$background" />
                   </YStack>
-                  <H3>{space.name}</H3>
+                  <H3 size="$6" fontWeight="800">{space.name}</H3>
                 </XStack>
-                <Paragraph theme="alt2">{space.description}</Paragraph>
-              </YStack>
+                <Paragraph theme="alt2" size="$4" o={0.8}>{space.description}</Paragraph>
+                <YStack space="$2" pt="$2">
+                  {space.features.map((feature, i) => (
+                    <XStack key={i} ai="center" space="$2">
+                      <Circle size={6} backgroundColor="$color5" />
+                      <Paragraph size="$3" theme="alt1">{feature}</Paragraph>
+                    </XStack>
+                  ))}
+                </YStack>
+              </Card>
             ))}
           </XStack>
         )
@@ -114,24 +235,31 @@ export default function ResponsiveDemo() {
         return (
           <YStack space="$4" p="$4">
             {currentView.content.map((event) => (
-              <XStack 
-                key={event.day} 
-                br="$4" 
-                bw={1} 
-                bc="$borderColor" 
+              <Card
+                key={event.day}
+                theme={event.theme}
+                br="$6" 
+                bw={1}
                 p="$4"
-                jc="space-between"
+                space="$4"
                 ai="center"
+                animation="bouncy"
+                hoverStyle={{ scale: 1.01, y: -2 }}
               >
-                <XStack f={1} space="$4">
-                  <H3>{event.day}</H3>
-                  <Paragraph theme="alt2">{event.activity}</Paragraph>
+                <YStack f={1} space="$2">
+                  <XStack space="$3" ai="center">
+                    <H3 size="$7" color="$color" fontWeight="800">{event.day}</H3>
+                    <Paragraph size="$5" theme="alt1" fontWeight="600">{event.activity}</Paragraph>
+                  </XStack>
+                  <Paragraph theme="alt2" size="$4" o={0.8}>{event.description}</Paragraph>
+                </YStack>
+                <XStack ai="center" space="$4" pt="$2">
+                  <Paragraph theme="alt2" o={0.7}>{event.time}</Paragraph>
+                  <Button size="$3" icon={Star} chromeless themeInverse>
+                    {event.location}
+                  </Button>
                 </XStack>
-                <XStack space="$4" ai="center">
-                  <Paragraph>{event.time}</Paragraph>
-                  <Button size="$2">{event.location}</Button>
-                </XStack>
-              </XStack>
+              </Card>
             ))}
           </YStack>
         )
@@ -140,26 +268,52 @@ export default function ResponsiveDemo() {
         return (
           <YStack space="$4" p="$4">
             {currentView.content.map((resource) => (
-              <XStack 
-                key={resource.item} 
-                br="$4" 
-                bw={1} 
-                bc="$borderColor" 
+              <Card
+                key={resource.item}
+                theme={resource.theme}
+                br="$6" 
+                bw={1}
                 p="$4"
-                jc="space-between"
+                space="$4"
                 ai="center"
+                animation="bouncy"
+                hoverStyle={{ scale: 1.01, y: -2 }}
               >
-                <XStack f={1} space="$4">
-                  <H3>{resource.item}</H3>
-                  <Paragraph theme="alt2">{resource.category}</Paragraph>
+                <XStack f={1} space="$4" ai="center">
+                  <YStack
+                    width={50}
+                    height={50}
+                    br="$4"
+                    backgroundColor="$color5"
+                    ai="center"
+                    jc="center"
+                    shadowColor="$shadowColor"
+                    shadowRadius={8}
+                    elevation={2}
+                  >
+                    <Paragraph size="$8">{resource.icon}</Paragraph>
+                  </YStack>
+                  <YStack space="$2" f={1}>
+                    <H3 size="$6" fontWeight="800">{resource.item}</H3>
+                    <Paragraph theme="alt2" size="$4" o={0.8}>{resource.description}</Paragraph>
+                  </YStack>
                 </XStack>
-                <XStack space="$2" ai="center">
-                  <Paragraph>Available: {resource.available}/{resource.total}</Paragraph>
-                  <Button size="$2" theme={resource.available > 0 ? "green" : "red"}>
-                    {resource.available > 0 ? "Reserve" : "Waitlist"}
+                <XStack ai="center" jc="space-between" pt="$2" width="100%">
+                  <XStack space="$2" ai="center">
+                    <Circle size={6} backgroundColor="$color5" />
+                    <Paragraph theme="alt2" o={0.7}>
+                      {resource.available}/{resource.total} Available
+                    </Paragraph>
+                  </XStack>
+                  <Button 
+                    size="$3" 
+                    chromeless
+                    themeInverse
+                  >
+                    {resource.available > 0 ? 'Reserve' : 'Waitlist'}
                   </Button>
                 </XStack>
-              </XStack>
+              </Card>
             ))}
           </YStack>
         )
@@ -168,21 +322,46 @@ export default function ResponsiveDemo() {
         return (
           <YStack space="$4" p="$4">
             {currentView.content.map((level) => (
-              <YStack 
-                key={level.level} 
-                br="$4" 
-                bw={1} 
-                bc="$borderColor" 
+              <Card
+                key={level.level}
+                theme={level.theme}
+                br="$6" 
+                bw={1}
                 p="$4"
-                space="$2"
+                space="$3"
+                animation="bouncy"
+                hoverStyle={{ scale: 1.01, y: -2 }}
               >
-                <XStack jc="space-between" ai="center">
-                  <H3>{level.level}</H3>
-                  <Button size="$2" theme="blue">{level.meetings}</Button>
+                <XStack jc="space-between" ai="center" space="$4">
+                  <XStack space="$3" ai="center">
+                    <YStack
+                      width={50}
+                      height={50}
+                      br="$4"
+                      backgroundColor="$color5"
+                      ai="center"
+                      jc="center"
+                      shadowColor="$shadowColor"
+                      shadowRadius={8}
+                      elevation={2}
+                    >
+                      <Paragraph size="$8">{level.icon}</Paragraph>
+                    </YStack>
+                    <YStack>
+                      <H3 size="$6" fontWeight="800">{level.level}</H3>
+                      <Paragraph theme="alt2" o={0.7}>{level.members}</Paragraph>
+                    </YStack>
+                  </XStack>
+                  <Button size="$3" chromeless themeInverse>
+                    {level.meetings}
+                  </Button>
                 </XStack>
-                <Paragraph theme="alt2">Members: {level.members}</Paragraph>
-                <Paragraph>Decisions: {level.decisions}</Paragraph>
-              </YStack>
+                <Paragraph size="$4" theme="alt2" o={0.8}>{level.description}</Paragraph>
+                <XStack space="$2" ai="center">
+                  <Circle size={6} backgroundColor="$color5" />
+                  <Paragraph theme="alt1">Focus: {level.decisions}</Paragraph>
+                </XStack>
+              </Card>
             ))}
           </YStack>
         )
@@ -190,17 +369,32 @@ export default function ResponsiveDemo() {
   }
 
   return (
-    <Theme name="light">
-      <YStack mah="100vh" ov="hidden" space="$4">
-        <YStack p="$4" space="$2">
-          <H2 ta="center" size="$8">{currentView.title}</H2>
-          <Paragraph ta="center" theme="alt2" size="$5">
-            {currentView.description}
-          </Paragraph>
-        </YStack>
+    <YStack backgroundColor="$backgroundHover" mah="100vh" ov="hidden" space="$4">
+      <YStack p="$6" space="$4">
+        <H2 ta="center" size="$9" fontWeight="900" theme="alt1">{currentView.title}</H2>
+        <Paragraph ta="center" theme="alt2" size="$5" o={0.7}>
+          {currentView.description}
+        </Paragraph>
+      </YStack>
 
+      <YStack f={1}>
         {renderContent()}
       </YStack>
-    </Theme>
+    </YStack>
   )
-} 
+}
+
+const Card = ({ children, theme, ...props }) => (
+  <YStack
+    theme={theme}
+    backgroundColor="$background"
+    borderColor="$borderColor"
+    shadowColor="$shadowColor"
+    shadowRadius={15}
+    shadowOffset={{ width: 0, height: 4 }}
+    elevation={4}
+    {...props}
+  >
+    {children}
+  </YStack>
+) 

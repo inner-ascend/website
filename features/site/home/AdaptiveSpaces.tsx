@@ -208,7 +208,7 @@ export const AdaptiveSpaces = memo(() => {
             className="unselectable"
             pe={isDragging ? 'none' : 'auto'}
             // w={width}
-            w={1020}
+            w={1110}
             f={1}
             ref={safariRef}
             onPress={() => {
