@@ -410,7 +410,7 @@ export const Safari = memo(
               >
                 <Lock color="var(--colorPress)" size={12} />
                 <Paragraph theme="alt1" size="$2">
-                  Ecovillage DAO Platform
+                  inner-ascend.com
                 </Paragraph>
               </XStack>
               <XStack f={1} />
@@ -420,13 +420,13 @@ export const Safari = memo(
 
         <XStack bg="$background" mx={-2}>
           <Tab bc="var(--green7)" btlr={0}>
-            Github
+            Overview
           </Tab>
           <Tab bc="var(--pink7)" active>
-            Tamagui - React Native & Web UI kits
+            Inner Ascend - Ecovillage DAO Platform
           </Tab>
           <Tab bc="var(--yellow7)" btrr={0}>
-            @natebirdman
+            Community
           </Tab>
         </XStack>
 
@@ -441,7 +441,7 @@ export const Safari = memo(
                 zIndex={10}
               >
                 <iframe
-                  title="Ecovillage DAO Platform"
+                  title="Inner Ascend - Ecovillage DAO Platform"
                   style={{
                     backgroundColor: 'transparent',
                   }}
@@ -466,10 +466,10 @@ export const Safari = memo(
                   <YStack f={1} />
                   <XStack>
                     <YStack f={1}>
-                      <H3>Community Spaces</H3>
+                      <H3>Empowering Sustainable Communities</H3>
                       <XStack ai="center" space>
                         <Users size={12} color="var(--color)" />
-                        <H5>Interactive Demo</H5>
+                        <H5>Building the Future Together</H5>
                       </XStack>
                     </YStack>
                   </XStack>
