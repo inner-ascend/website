@@ -8,7 +8,7 @@ import { useOnIntersecting } from '../../../hooks/useOnIntersecting'
 import { BenchmarkChartWeb } from '../benchmarks/BenchmarkChartWeb'
 import { HomeH2, HomeH3 } from './HomeHeaders'
 
-export function HomePerformance() {
+export function SustainableImpact() {
   const ref = useRef<HTMLElement>(null)
   const [show, setShow] = useState(false)
 
@@ -25,11 +25,10 @@ export function HomePerformance() {
       <YStack ai="center" zi={1} gap="$4">
         <YStack ai="center" gap="$2">
           <HomeH2 size="$10" maw={500} ref={ref}>
-            Automatically fast
+            Sustainable Impact
           </HomeH2>
           <HomeH3>
-            Partial evaluation, tree flattening, hoisting and
-            dead-code&nbsp;elimination&nbsp;✅
+            Track your community's environmental impact, resource usage, and regenerative practices
           </HomeH3>
         </YStack>
 
@@ -72,11 +71,11 @@ const BenchmarksLink = () => {
   return (
     <Link href="/docs/intro/benchmarks">
       <Button
-        accessibilityLabel="Performance benchmarks"
+        accessibilityLabel="View sustainability metrics"
         fontFamily="$silkscreen"
         theme={tint as any}
       >
-        Benchmarks &raquo;
+        Impact Metrics &raquo;
       </Button>
     </Link>
   )
@@ -86,8 +85,8 @@ const CompilerLink = () => {
   const { tint } = useTint()
   return (
     <Link href="/docs/intro/why-a-compiler">
-      <Button accessibilityLabel="Compiler" fontFamily="$silkscreen" theme={tint as any}>
-        About &raquo;
+      <Button accessibilityLabel="Learn more" fontFamily="$silkscreen" theme={tint as any}>
+        Learn More &raquo;
       </Button>
     </Link>
   )

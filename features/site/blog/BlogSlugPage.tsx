@@ -3,16 +3,16 @@ import { ArrowLeft } from '@tamagui/lucide-icons'
 import type { Frontmatter } from '@tamagui/mdx-2'
 import { usePathname } from 'one'
 import {
-    Button,
-    H1,
-    H2,
-    H3,
-    H6,
-    Paragraph,
-    Separator,
-    Spacer,
-    XStack,
-    YStack,
+  Button,
+  H1,
+  H2,
+  H3,
+  H6,
+  Paragraph,
+  Separator,
+  Spacer,
+  XStack,
+  YStack,
 } from 'tamagui'
 import { LinearGradient } from 'tamagui/linear-gradient'
 import { Container } from '../../../components/Containers'
@@ -125,7 +125,7 @@ export function BlogSlugPage(props: BlogPost) {
 
         <Separator my="$8" mx="auto" />
 
-        <YStack mb="$8" ai="center">
+        {/* <YStack mb="$8" ai="center">
           <Paragraph>
             Share this post on{' '}
             <Link
@@ -138,7 +138,7 @@ export function BlogSlugPage(props: BlogPost) {
             </Link>
             .
           </Paragraph>
-        </YStack>
+        </YStack> */}
 
         {relatedPosts && (
           <YStack>

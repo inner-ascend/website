@@ -16,7 +16,7 @@ import {
 import { ContainerLarge } from '../../../components/Containers'
 import { Link } from '../../../components/Link'
 import { DiscordIcon } from '../../icons/DiscordIcon'
-import { TwitterIcon } from '../../icons/TwitterIcon'
+import { TelegramIcon } from '../../icons/TelegramIcon'
 import { seasons } from '../seasons/SeasonTogglePopover'
 
 import { useHeroHovered } from './useHeroHovered'
@@ -40,23 +40,22 @@ const HeroSubTitle = memo(() => {
     <Subtitle>
       <Link asChild href="/docs/core/configuration">
         <Tag theme="green" onHoverIn={() => setHovered(0)} active={hovered === 0}>
-        SUSTAINABLE LIVING
+        REGENERATIVE LIVING
         </Tag>
       </Link>{' '}
       ·{' '}
       <Link asChild href="/docs/intro/why-a-compiler">
         <Tag theme="blue" onHoverIn={() => setHovered(1)} active={hovered === 1}>
-        SPIRITUAL GROWTH
+        CONSCIOUS COMMUNITY
         </Tag> 
       </Link>{' '}
       ·{' '}
       <Link asChild href="/ui/stacks">
         <Tag theme="purple" onHoverIn={() => setHovered(2)} active={hovered === 2}>
-        COLLECTIVE WISDOM
+        LAND STEWARDSHIP
         </Tag>
       </Link>{' '}
-      · for&nbsp;all
-      {/* ·&nbsp;through&nbsp;nfts */}
+      · for&nbsp;all · in&nbsp;harmony
     </Subtitle>
   )
 })
@@ -214,10 +213,9 @@ const HeroContents = memo(function HeroContents() {
             >
               Inner Ascend
             </Text>
-            {/* add gradient to other colors: */}
             <br />
             <span style={{ position: 'relative' }}>
-              <TextWithEffects text="DAO" />
+              <TextWithEffects text="DAO " />
             </span>
           </H1>
 
@@ -293,9 +291,10 @@ const HeroContents = memo(function HeroContents() {
           </YStack>
         </YStack>
 
-        <Spacer size="$8" />
+        <Spacer size="$9" />
         {/* <InstallInput /> */}
-        <Spacer size="$1" />
+        <Spacer size="$8" />
+
 
         <XStack
           ai="center"
@@ -303,13 +302,13 @@ const HeroContents = memo(function HeroContents() {
           gap="$2"
           $xxs={{ ai: 'center', fw: 'wrap', gap: 0 }}
         >
-          <Link target="_blank" href="https://twitter.com/tamagui_js">
-            <TooltipSimple placement="top" delay={0} restMs={25} label="Twitter">
+          <Link target="_blank" href="https://t.me/+s6l6LL0v5BIxMWJk">
+            <TooltipSimple placement="top" delay={0} restMs={25} label="Telegram">
               <YStack p="$5" $sm={{ p: '$3' }} opacity={0.65} hoverStyle={{ opacity: 1 }}>
                 <VisuallyHidden>
-                  <Text>Twitter</Text>
+                  <Text>Telegram</Text>
                 </VisuallyHidden>
-                <TwitterIcon width={24} />
+                <TelegramIcon width={24} />
               </YStack>
             </TooltipSimple>
           </Link>
@@ -345,7 +344,7 @@ const HeroContents = memo(function HeroContents() {
           </ThemeTint>
 
           <TooltipSimple placement="top" delay={0} restMs={25} label="Discord">
-            <Link asChild target="_blank" href="https://discord.gg/4qh6tdcVDa">
+            <Link asChild target="_blank" href="https://discord.gg/xdJNttaFrZ">
               <YStack
                 tag="a"
                 p="$5"

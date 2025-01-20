@@ -55,7 +55,7 @@ const useIsSafari = () => {
   return ssrDone ? IS_SAFARI : false
 }
 
-export const HomeResponsive = memo(() => {
+export const AdaptiveSpaces = memo(() => {
   const [bounding, setBounding] = useTransitionState<DOMRect | null>(null)
   const prevMove = useRef(0)
   const initialWidth = 420
@@ -318,12 +318,12 @@ const ResponsiveHeader = memo(() => {
     <YStack f={1} space="$3">
       <XStack>
         <HomeH2 ta="left" als="flex-start">
-          Easily responsive
+          Adaptable Community Spaces
         </HomeH2>
       </XStack>
 
       <HomeH3 ta="left" als="flex-start" p={0} maxWidth={450} theme="alt2">
-        Responsive props and hooks, compiled to atomic CSS on web.
+        Design your ecovillage to accommodate different community needs and activities, from shared gardens to communal spaces.
       </HomeH3>
     </YStack>
   )

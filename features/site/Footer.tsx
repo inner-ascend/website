@@ -1,10 +1,10 @@
-import { TamaguiLogo } from '@tamagui/logo'
 import { memo } from 'react'
 import { H4, Paragraph, Spacer, VisuallyHidden, XStack, YStack } from 'tamagui'
 
 import { ContainerLarge } from '../../components/Containers'
 import { Link, ParagraphLink } from '../../components/Link'
 import { ExternalIcon } from '../icons/ExternalIcon'
+import { InnerAscendLogo } from './logo/InnerAscendLogo'
 
 export const Footer = memo(() => {
   return (
@@ -22,10 +22,11 @@ export const Footer = memo(() => {
           >
             <Link href="/" aria-label="Homepage">
               <VisuallyHidden>homepage</VisuallyHidden>
-              <TamaguiLogo showWords downscale={1} />
+              {/* <TamaguiLogo showWords downscale={1} /> */}
+              <InnerAscendLogo showWords downscale={1}/>
             </Link>
             <Paragraph size="$3" o={0.25}>
-              built with Tamagui
+              built with ❤️ by communities
             </Paragraph>
           </YStack>
 
@@ -43,7 +44,7 @@ export const Footer = memo(() => {
             <ParagraphLink href="/docs/intro/introduction">Introduction</ParagraphLink>
             <ParagraphLink href="/docs/core/configuration">Configuration</ParagraphLink>
             <ParagraphLink href="/privacy">Privacy Policy</ParagraphLink>
-            <ParagraphLink href="/takeout-policy">Fulfillment Policy</ParagraphLink>
+            {/* <ParagraphLink href="/takeout-policy">Fulfillment Policy</ParagraphLink> */}
             <ParagraphLink href="/dpa">Data Processing Agreement</ParagraphLink>
             {/* <ParagraphLink href="/docs/api">API</ParagraphLink>
           <ParagraphLink href="/docs/frequently-asked-questions">FAQ</ParagraphLink> */}
@@ -84,20 +85,20 @@ export const Footer = memo(() => {
             <XStack gap="$1" ai="center">
               <ParagraphLink href="/blog">Blog</ParagraphLink>
             </XStack>
-            <XStack gap="$1" ai="center">
+            {/* <XStack gap="$1" ai="center">
               <ParagraphLink href="https://github.com/tamagui/tamagui" target="_blank">
                 GitHub
               </ParagraphLink>
               <ExternalIcon />
-            </XStack>
+            </XStack> */}
             <XStack gap="$1" ai="center">
-              <ParagraphLink href="https://twitter.com/tamagui_js" target="_blank">
-                Twitter
+              <ParagraphLink href="https://t.me/+s6l6LL0v5BIxMWJk" target="_blank">
+                Telegram
               </ParagraphLink>
               <ExternalIcon />
             </XStack>
             <XStack gap="$1" ai="center">
-              <ParagraphLink href="https://discord.gg/4qh6tdcVDa" target="_blank">
+              <ParagraphLink href="https://discord.gg/xdJNttaFrZ" target="_blank">
                 Discord
               </ParagraphLink>
               <ExternalIcon />

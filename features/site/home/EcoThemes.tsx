@@ -22,7 +22,7 @@ import { MediaPlayer } from './MediaPlayer'
 
 type Lock = null | 'shouldAnimate' | 'animate' | 'scroll'
 
-export const HomeThemes = memo(function HomeThemes() {
+export const EcoThemes = memo(function EcoThemes() {
   const [{ resolvedTheme }, setUserTheme] = useUserTheme()
 
   const tints = useTints().tints as ThemeName[]
@@ -156,10 +156,10 @@ export const HomeThemes = memo(function HomeThemes() {
       {useMemo(() => {
         return (
           <ContainerLarge position="relative" space="$3">
-            <HomeH2>Smart themes and sub-themes down to the component.</HomeH2>
+            <HomeH2>Explore Different Types of Ecovillages</HomeH2>
             <HomeH3>
-              Themes that act like CSS variables, overriding as they descend and compiled
-              to CSS to avoid re-renders.
+              Discover various sustainable community models - from permaculture-based settlements 
+              to regenerative farming communities and collaborative land stewardship projects.
             </HomeH3>
           </ContainerLarge>
         )

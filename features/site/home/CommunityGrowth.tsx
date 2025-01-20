@@ -43,20 +43,20 @@ export const AnimationsDemo = (props) => {
 
 const animationDescriptions = [
   {
-    name: 'Bouncy',
-    description: 'A bouncy spring',
+    name: 'Planning',
+    description: 'Initial community planning phase',
     animation: 'bouncy',
     settings: animations.animations.bouncy,
   },
   {
-    name: 'Lazy',
-    description: 'A lazy, straightforward spring',
+    name: 'Building',
+    description: 'Construction and infrastructure development',
     animation: 'lazy',
     settings: animations.animations.lazy,
   },
   {
-    name: 'Quick',
-    description: 'A super fast spring',
+    name: 'Thriving',
+    description: 'Established and flourishing community',
     animation: 'quick',
     settings: animations.animations.quick,
   },
@@ -64,7 +64,7 @@ const animationDescriptions = [
 
 let hasScrolledOnce = false
 
-export function HomeAnimations({ animationCode }: { animationCode: string }) {
+export function CommunityGrowth({ animationCode }: { animationCode: string }) {
   const { tint } = useTint()
   const [disableScrollPane, setDisableScrollPane] = useState(true)
 
@@ -73,11 +73,10 @@ export function HomeAnimations({ animationCode }: { animationCode: string }) {
       <ContainerLarge position="relative" space="$8">
         <YStack zi={1} space="$3">
           <HomeH2 pos="relative">
-            Universal <span className="rainbow clip-text">Animations</span>
+            Community <span className="rainbow clip-text">Growth</span>
           </HomeH2>
           <HomeH3>
-            Better platform targeting with animation drivers that can be changed without
-            changing code.
+            Watch your community evolve through different stages of development, from initial planning to thriving ecosystem.
           </HomeH3>
         </YStack>
 

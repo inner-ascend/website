@@ -1,18 +1,18 @@
 import { useLoader } from 'one'
-import { YStack } from 'tamagui'
+import { Spacer, YStack } from 'tamagui'
+import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
 import { HeadInfo } from '../../components/HeadInfo'
-import { HomeAnimations } from '../../features/site/home/HomeAnimations'
-import { HomeCommunity } from '../../features/site/home/HomeCommunity'
-import { HomeExampleProps } from '../../features/site/home/HomeExampleProps'
-import { HomeExamples } from '../../features/site/home/HomeExamples'
-import { HomeFeaturesGrid } from '../../features/site/home/HomeFeaturesGrid'
+import { AdaptiveSpaces } from '../../features/site/home/AdaptiveSpaces'
+import { CommunityFeatures } from '../../features/site/home/CommunityFeatures'
+import { CommunityGrowth } from '../../features/site/home/CommunityGrowth'
+import { CommunityShowcase } from '../../features/site/home/CommunityShowcase'
+import { CommunityVision } from '../../features/site/home/CommunityVision'
+import { EcoThemes } from '../../features/site/home/EcoThemes'
+import { EcovillageGrid } from '../../features/site/home/EcovillageGrid'
 import { HomeGlow } from '../../features/site/home/HomeGlow'
 import { Hero } from '../../features/site/home/HomeHero'
 import { HomeHeroBelow } from '../../features/site/home/HomeHeroBelow'
-import { HomePerformance } from '../../features/site/home/HomePerformance'
-import { HomeResponsive } from '../../features/site/home/HomeResponsive'
-import { HomeThemes } from '../../features/site/home/HomeThemes'
-import { HomeTypography } from '../../features/site/home/HomeTypography'
+import { SustainableImpact } from '../../features/site/home/SustainableImpact'
 import { HomeSection, SectionTinted, TintSection } from '../../features/site/home/TintSection'
 import { ThemeNameEffect } from '../../features/site/theme/ThemeNameEffect'
 
@@ -60,7 +60,7 @@ export default function TamaguiHomePage() {
             maskImage: `linear-gradient(transparent, #000, transparent)`,
           }}
         />
-        <HomeExamples examples={compilationExamples} />
+        <CommunityShowcase examples={compilationExamples} />
       </TintSection>
       <TintSection my={-50} index={3} contain="paint layout" pos="relative" zi={100}>
         <YStack
@@ -72,14 +72,14 @@ export default function TamaguiHomePage() {
             maskImage: `linear-gradient(transparent, #000, transparent)`,
           }}
         />
-        <HomeThemes />
+        <EcoThemes />
       </TintSection>
       <TintSection index={4} mb={-120} zIndex={10000}>
-        <HomeResponsive />
+        <AdaptiveSpaces />
       </TintSection>
       <TintSection index={5} p={0} zIndex={0}>
         <SectionTinted gradient bubble>
-          <HomePerformance />
+          <SustainableImpact />
         </SectionTinted>
       </TintSection>
       <TintSection index={6} zi={100}>
@@ -90,10 +90,10 @@ export default function TamaguiHomePage() {
             maskImage: `linear-gradient(transparent, #000, transparent)`,
           }}
         />
-        <HomeAnimations animationCode={animationCode} />
+        <CommunityGrowth animationCode={animationCode} />
       </TintSection>
       <TintSection index={7} zi={1}>
-        <HomeFeaturesGrid />
+        <EcovillageGrid />
         <YStack
           pe="none"
           zi={2}
@@ -106,7 +106,7 @@ export default function TamaguiHomePage() {
       </TintSection>
       <TintSection index={8} my="$-4" p={0} zIndex={100}>
         <SectionTinted zi={1000} bubble gradient>
-          <HomeTypography />
+          <CommunityVision />
         </SectionTinted>
       </TintSection>
       <HomeSection zi={10}>
@@ -119,10 +119,9 @@ export default function TamaguiHomePage() {
             maskImage: `linear-gradient(transparent, #000, transparent)`,
           }}
         />
-        <HomeExampleProps />
-      </HomeSection>
-      <HomeSection zi={0}>
-        <HomeCommunity />
+        <CommunityFeatures />
+        <Spacer size="$18" />
+        <SocialLinksRow />
       </HomeSection>
     </>
   )

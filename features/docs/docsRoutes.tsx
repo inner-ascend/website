@@ -9,10 +9,10 @@ export const docsRoutes = [
       { title: 'Installation', route: '/docs/intro/installation' },
       // { title: 'Thinking in Tamagui', route: '/docs/intro/thinking-in-tamagui' },
       // { title: 'Comparison', route: '/docs/intro/comparison' },
-      {
-        title: 'Releases',
-        route: 'https://github.com/tamagui/tamagui/releases',
-      },
+      // {
+      //   title: 'Releases',
+      //   route: 'https://github.com/tamagui/tamagui/releases',
+      // },
     ],
   },
 
@@ -101,8 +101,8 @@ export const docsRoutes = [
         ),
         route: 'https://github.com/tamagui/tamagui',
       },
-      { title: `Twitter`, route: 'https://twitter.com/tamagui_js' },
-      { title: `Discord`, route: 'https://discord.gg/4qh6tdcVDa' },
+      { title: `Telegram`, route: 'https://t.me/+s6l6LL0v5BIxMWJk' },
+      { title: `Discord`, route: 'https://discord.gg/xdJNttaFrZ' },
     ],
   },
 
