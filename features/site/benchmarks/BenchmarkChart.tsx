@@ -2,29 +2,18 @@ import { Paragraph, XStack, YStack } from 'tamagui'
 
 const getBarColor = (name: string) => {
   switch (name) {
-    case 'Tamagui (No Compiler)':
-    case 'Tamagui':
-      return '$pink9'
-    case 'Stitches':
-      return '$yellow9'
-    case 'Stitches 0.1.9':
-      return '$yellow4'
-    case 'Styled Components':
-    case 'SC':
-      return '$red9'
-    case 'react-native-web':
-    case 'RN':
-    case 'RNW':
-    case 'React Native':
-      return '$purple9'
-    case 'Emotion':
-      return '$green9'
-    case 'Dripsy':
-      return '$blue9'
-    case 'NativeBase':
-      return '$orange9'
+    case 'Carbon Negative':
+      return '$green10'
+    case 'Renewable Energy':
+      return '$yellow10'
+    case 'Food Self-Sufficiency':
+      return '$blue10'
+    case 'Water Conservation':
+      return '$blue8'
+    case 'Waste Reduction':
+      return '$purple10'
     default:
-      return 'gray'
+      return '$gray10'
   }
 }
 
@@ -34,7 +23,7 @@ export function BenchmarkChart({
   skipOthers = false,
   animateEnter = false,
 }) {
-  const maxValue = Math.max(...data.map((r) => r.value))
+  const maxValue = 100 // Using percentage scale
 
   return (
     <YStack gap="$2" my="$4">
@@ -42,14 +31,14 @@ export function BenchmarkChart({
         const width = `${Math.round((result.value / maxValue) * 100)}%`
         return (
           <XStack gap="$3" key={i}>
-            <YStack w={large ? 120 : 70}>
+            <YStack w={large ? 150 : 70}>
               <Paragraph
                 key={result.name}
                 size="$2"
                 whiteSpace="nowrap"
                 ta="right"
                 my={-3}
-                fontWeight={result.name === 'Tamagui' ? '700' : '400'}
+                fontWeight="600"
               >
                 {result.name}
               </Paragraph>
@@ -57,7 +46,7 @@ export function BenchmarkChart({
             <XStack mr={65} flex={1} ai="center">
               <YStack
                 bg={getBarColor(result.name)}
-                o={result.name === 'Tamagui' ? 1 : skipOthers ? 1 : 1}
+                o={1}
                 width={width as any}
                 height={20}
                 br="$2"
@@ -73,13 +62,14 @@ export function BenchmarkChart({
                 })}
               >
                 <Paragraph
-                  size="$1"
+                  size="$2"
                   whiteSpace="nowrap"
                   position="absolute"
                   right="$-2"
                   x="100%"
+                  fontWeight="600"
                 >
-                  {result.value}ms
+                  {result.value}%
                 </Paragraph>
               </YStack>
             </XStack>
