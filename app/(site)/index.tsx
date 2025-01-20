@@ -1,5 +1,6 @@
 import { useLoader } from 'one'
-import { YStack } from 'tamagui'
+import { Spacer, YStack } from 'tamagui'
+import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
 import { HeadInfo } from '../../components/HeadInfo'
 import { AdaptiveSpaces } from '../../features/site/home/AdaptiveSpaces'
 import { CommunityFeatures } from '../../features/site/home/CommunityFeatures'
@@ -119,6 +120,8 @@ export default function TamaguiHomePage() {
           }}
         />
         <CommunityFeatures />
+        <Spacer size="$18" />
+        <SocialLinksRow />
       </HomeSection>
     </>
   )
