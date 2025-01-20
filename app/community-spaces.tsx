@@ -1,11 +1,11 @@
-// @ts-nocheck
+// @ts-nocheck responsive props
 import { Book, Leaf, Users } from '@tamagui/lucide-icons'
-import { useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import { Button, H2, H3, Paragraph, Theme, XStack, YStack } from 'tamagui'
 
 const views = {
-  Overview: {
-    title: "Community Overview",
+  xs: {
+    title: "Overview",
     description: "Quick glance at our community spaces",
     content: [
       {
@@ -25,8 +25,8 @@ const views = {
       }
     ]
   },
-  Schedule: {
-    title: "Activity Schedule",
+  sm: {
+    title: "Schedule",
     description: "Weekly events and activities",
     content: [
       { day: "Monday", activity: "Morning Yoga", time: "7:00 AM", location: "Wellness Center" },
@@ -36,8 +36,8 @@ const views = {
       { day: "Friday", activity: "Community Meeting", time: "5:00 PM", location: "Community Center" }
     ]
   },
-  Resources: {
-    title: "Resource Sharing",
+  md: {
+    title: "Resources",
     description: "Community tools and resources",
     content: [
       { item: "Tool Library", available: 12, total: 15, category: "DIY" },
@@ -47,8 +47,8 @@ const views = {
       { item: "Art Supplies", available: 20, total: 25, category: "Creative" }
     ]
   },
-  Governance: {
-    title: "Governance Model",
+  lg: {
+    title: "Governance",
     description: "How we make decisions together",
     content: [
       { level: "Community Circle", members: "All residents", meetings: "Monthly", decisions: "Vision & Values" },
@@ -59,13 +59,30 @@ const views = {
 }
 
 export default function ResponsiveDemo() {
-  const searchParams = useSearchParams()
-  const view = searchParams.get('view') || 'Overview'
-  const currentView = views[view]
+  const [currentView, setCurrentView] = useState(views.xs)
+
+  useEffect(() => {
+    // Initial view from hash
+    const hash = window.location.hash.slice(1)
+    if (hash) {
+      const view = Object.entries(views).find(([_, data]) => data.title === hash)?.[1]
+      if (view) setCurrentView(view)
+    }
+
+    // Listen for hash changes
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1)
+      const view = Object.entries(views).find(([_, data]) => data.title === hash)?.[1]
+      if (view) setCurrentView(view)
+    }
+
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
 
   const renderContent = () => {
-    switch (view) {
-      case 'Overview':
+    switch (currentView) {
+      case views.xs:
         return (
           <XStack flexWrap="wrap" jc="center" gap="$4">
             {currentView.content.map((space) => (
@@ -93,7 +110,7 @@ export default function ResponsiveDemo() {
           </XStack>
         )
       
-      case 'Schedule':
+      case views.sm:
         return (
           <YStack space="$4" p="$4">
             {currentView.content.map((event) => (
@@ -119,7 +136,7 @@ export default function ResponsiveDemo() {
           </YStack>
         )
 
-      case 'Resources':
+      case views.md:
         return (
           <YStack space="$4" p="$4">
             {currentView.content.map((resource) => (
@@ -147,7 +164,7 @@ export default function ResponsiveDemo() {
           </YStack>
         )
 
-      case 'Governance':
+      case views.lg:
         return (
           <YStack space="$4" p="$4">
             {currentView.content.map((level) => (
@@ -186,4 +203,4 @@ export default function ResponsiveDemo() {
       </YStack>
     </Theme>
   )
-}
+} 

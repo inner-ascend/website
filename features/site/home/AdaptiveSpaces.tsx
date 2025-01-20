@@ -1,7 +1,7 @@
 import { throttle } from '@github/mini-throttle'
 import { Image } from '@tamagui/image-next'
 import { useTint } from '@tamagui/logo'
-import { ChevronLeft, ChevronRight, Lock, MapPin, Star } from '@tamagui/lucide-icons'
+import { ChevronLeft, ChevronRight, Lock, Star, Users } from '@tamagui/lucide-icons'
 import {
   memo,
   startTransition,
@@ -16,7 +16,6 @@ import {
   Button,
   Circle,
   H3,
-  H4,
   H5,
   Paragraph,
   Spacer,
@@ -28,7 +27,7 @@ import {
   useDidFinishSSR,
   useGet,
   useIsomorphicLayoutEffect,
-  useMedia,
+  useMedia
 } from 'tamagui'
 import { LinearGradient } from 'tamagui/linear-gradient'
 import { demoMedia } from '../../../config/media'
@@ -39,10 +38,10 @@ import { HomeH2, HomeH3 } from './HomeHeaders'
 import favicon from '/favicon.svg?url'
 
 const breakpoints = [
-  { name: 'xs', at: demoMedia[0] },
-  { name: 'sm', at: demoMedia[1] },
-  { name: 'md', at: demoMedia[2] },
-  { name: 'lg', at: demoMedia[3] },
+  { name: 'Overview', at: demoMedia[0] },
+  { name: 'Schedule', at: demoMedia[1] },
+  { name: 'Resources', at: demoMedia[2] },
+  { name: 'Governance', at: demoMedia[3] },
 ]
 const browserHeight = 485
 
@@ -67,6 +66,7 @@ export const AdaptiveSpaces = memo(() => {
   const [sizeI, setSizeI] = useState(0)
   // safari drags slower so lets pre-load iframe
   const [hasInteracted, setHasInteracted] = useState(false)
+  const [currentBreakpoint, setCurrentBreakpoint] = useState('Overview')
   const updateBoundings = useDebounce(() => {
     const rect = safariRef.current?.getBoundingClientRect() ?? null
     startTransition(() => {
@@ -175,9 +175,11 @@ export const AdaptiveSpaces = memo(() => {
 
   const handleMarkerPress = useCallback((name) => {
     setHasInteracted(true)
-    const next = (breakpoints.find((x) => x.name === name)?.at ?? 0) - initialWidth + 20
-    setMove(next)
-    prevMove.current = 0
+    setSizeI(breakpoints.findIndex(b => b.name === name))
+    setCurrentBreakpoint(name)
+    // Dispatch custom event for view change
+    const event = new CustomEvent('changeView', { detail: { view: name } })
+    window.dispatchEvent(event)
   }, [])
 
   const scale = 0.7 - smIndex * 0.05
@@ -205,7 +207,8 @@ export const AdaptiveSpaces = memo(() => {
             zi={2}
             className="unselectable"
             pe={isDragging ? 'none' : 'auto'}
-            w={width}
+            // w={width}
+            w={1020}
             f={1}
             ref={safariRef}
             onPress={() => {
@@ -225,7 +228,7 @@ export const AdaptiveSpaces = memo(() => {
                   <Marker
                     key={i}
                     onPress={handleMarkerPress}
-                    active={i === 0 ? true : sizeI > i}
+                    active={bp.name === currentBreakpoint}
                     name={breakpoints[i].name}
                     l={breakpoints[i].at}
                   />
@@ -292,15 +295,15 @@ const Marker = memo(({ name, active, onPress, ...props }: any) => {
       <XStack y={-60} ai="flex-start">
         <YStack w={1} h={70} bg="$colorHover" opacity={active ? 0.2 : 0.05} />
         <Button
-          accessibilityLabel={`Responsive size ${name}`}
+          accessibilityLabel={`View ${name}`}
           borderWidth={1}
           size="$3"
-          circular
+          circular={false}
           pos="absolute"
           top={0}
           left={0}
           y={-20}
-          x={-17}
+          x={-30}
           fontSize={12}
           onPress={() => {
             onPress(name)
@@ -318,12 +321,12 @@ const ResponsiveHeader = memo(() => {
     <YStack f={1} space="$3">
       <XStack>
         <HomeH2 ta="left" als="flex-start">
-          Adaptable Community Spaces
+          Community Use Cases
         </HomeH2>
       </XStack>
 
       <HomeH3 ta="left" als="flex-start" p={0} maxWidth={450} theme="alt2">
-        Design your ecovillage to accommodate different community needs and activities, from shared gardens to communal spaces.
+        Explore different aspects of our community platform
       </HomeH3>
     </YStack>
   )
@@ -353,6 +356,26 @@ const SafariFrame = ({ children, ...props }: YStackProps) => {
 export const Safari = memo(
   ({ isSmall, shouldLoad }: { isSmall?: boolean; shouldLoad?: boolean }) => {
     const [isLoaded, setIsLoaded] = useState(false)
+    const [currentView, setCurrentView] = useState('Overview')
+
+    useEffect(() => {
+      const iframe = document.querySelector('iframe')
+      if (iframe) {
+        const newUrl = `/community-spaces#${currentView}`
+        if (iframe.contentWindow && iframe.contentWindow.location.href !== newUrl) {
+          iframe.contentWindow.location.href = newUrl
+        }
+      }
+    }, [currentView])
+
+    useEffect(() => {
+      // Listen for view changes from parent
+      const handleViewChange = (e: CustomEvent) => {
+        setCurrentView(e.detail.view)
+      }
+      window.addEventListener('changeView' as any, handleViewChange)
+      return () => window.removeEventListener('changeView' as any, handleViewChange)
+    }, [])
 
     return (
       <SafariFrame>
@@ -387,7 +410,7 @@ export const Safari = memo(
               >
                 <Lock color="var(--colorPress)" size={12} />
                 <Paragraph theme="alt1" size="$2">
-                  tamagui.dev
+                  Ecovillage DAO Platform
                 </Paragraph>
               </XStack>
               <XStack f={1} />
@@ -418,7 +441,7 @@ export const Safari = memo(
                 zIndex={10}
               >
                 <iframe
-                  title="Responsive demo"
+                  title="Ecovillage DAO Platform"
                   style={{
                     backgroundColor: 'transparent',
                   }}
@@ -429,7 +452,7 @@ export const Safari = memo(
                   }}
                   width="100%"
                   height={browserHeight}
-                  src="/responsive-demo"
+                  src={`/community-spaces#${currentView}`}
                 />
               </YStack>
             )}
@@ -437,21 +460,17 @@ export const Safari = memo(
             <YStack zi={0} fullscreen p="$4">
               <XStack ai="center" jc="center" pos="relative" br="$6" ov="hidden">
                 <YStack width={800} height={200}>
-                  <LinearGradient o={0.1} fullscreen colors={['$yellow10', '$green10']} />
+                  <LinearGradient o={0.1} fullscreen colors={['$green10', '$blue10']} />
                 </YStack>
                 <YStack p="$4" pos="absolute" fullscreen f={1}>
                   <YStack f={1} />
                   <XStack>
                     <YStack f={1}>
-                      <H3>Enchanting Garden</H3>
+                      <H3>Community Spaces</H3>
                       <XStack ai="center" space>
-                        <MapPin size={12} color="var(--color)" />
-                        <H5>Kailua, HI</H5>
+                        <Users size={12} color="var(--color)" />
+                        <H5>Interactive Demo</H5>
                       </XStack>
-                    </YStack>
-                    <YStack ai="flex-end">
-                      <H4>$45</H4>
-                      <Paragraph>/night</Paragraph>
                     </YStack>
                   </XStack>
                 </YStack>
