@@ -16,7 +16,7 @@ import {
 import { ContainerLarge } from '../../../components/Containers'
 import { Link } from '../../../components/Link'
 import { DiscordIcon } from '../../icons/DiscordIcon'
-import { TwitterIcon } from '../../icons/TwitterIcon'
+import { TelegramIcon } from '../../icons/TelegramIcon'
 import { seasons } from '../seasons/SeasonTogglePopover'
 
 import { useHeroHovered } from './useHeroHovered'
@@ -302,13 +302,13 @@ const HeroContents = memo(function HeroContents() {
           gap="$2"
           $xxs={{ ai: 'center', fw: 'wrap', gap: 0 }}
         >
-          <Link target="_blank" href="https://twitter.com/tamagui_js">
-            <TooltipSimple placement="top" delay={0} restMs={25} label="Twitter">
+          <Link target="_blank" href="https://t.me/+s6l6LL0v5BIxMWJk">
+            <TooltipSimple placement="top" delay={0} restMs={25} label="Telegram">
               <YStack p="$5" $sm={{ p: '$3' }} opacity={0.65} hoverStyle={{ opacity: 1 }}>
                 <VisuallyHidden>
-                  <Text>Twitter</Text>
+                  <Text>Telegram</Text>
                 </VisuallyHidden>
-                <TwitterIcon width={24} />
+                <TelegramIcon width={24} />
               </YStack>
             </TooltipSimple>
           </Link>
@@ -344,7 +344,7 @@ const HeroContents = memo(function HeroContents() {
           </ThemeTint>
 
           <TooltipSimple placement="top" delay={0} restMs={25} label="Discord">
-            <Link asChild target="_blank" href="https://discord.gg/4qh6tdcVDa">
+            <Link asChild target="_blank" href="https://discord.gg/xdJNttaFrZ">
               <YStack
                 tag="a"
                 p="$5"
