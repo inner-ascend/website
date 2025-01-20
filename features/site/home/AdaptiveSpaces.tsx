@@ -1,7 +1,7 @@
 import { throttle } from '@github/mini-throttle'
 import { Image } from '@tamagui/image-next'
 import { useTint } from '@tamagui/logo'
-import { ChevronLeft, ChevronRight, Lock, Star, Users } from '@tamagui/lucide-icons'
+import { Building2, ChevronLeft, ChevronRight, ClipboardList, Lock, Users } from '@tamagui/lucide-icons'
 import {
   memo,
   startTransition,
@@ -15,8 +15,8 @@ import type { YStackProps } from 'tamagui'
 import {
   Button,
   Circle,
+  H2,
   H3,
-  H5,
   Paragraph,
   Spacer,
   Theme,
@@ -29,7 +29,6 @@ import {
   useIsomorphicLayoutEffect,
   useMedia
 } from 'tamagui'
-import { LinearGradient } from 'tamagui/linear-gradient'
 import { demoMedia } from '../../../config/media'
 
 import { Container, ContainerLarge } from '../../../components/Containers'
@@ -355,22 +354,13 @@ const SafariFrame = ({ children, ...props }: YStackProps) => {
 
 export const Safari = memo(
   ({ isSmall, shouldLoad }: { isSmall?: boolean; shouldLoad?: boolean }) => {
-    const [isLoaded, setIsLoaded] = useState(false)
+    const [hasInteracted, setHasInteracted] = useState(false)
     const [currentView, setCurrentView] = useState('Overview')
-
-    useEffect(() => {
-      const iframe = document.querySelector('iframe')
-      if (iframe) {
-        const newUrl = `/community-spaces#${currentView}`
-        if (iframe.contentWindow && iframe.contentWindow.location.href !== newUrl) {
-          iframe.contentWindow.location.href = newUrl
-        }
-      }
-    }, [currentView])
 
     useEffect(() => {
       // Listen for view changes from parent
       const handleViewChange = (e: CustomEvent) => {
+        setHasInteracted(true)
         setCurrentView(e.detail.view)
       }
       window.addEventListener('changeView' as any, handleViewChange)
@@ -432,75 +422,121 @@ export const Safari = memo(
 
         <YStack pos="relative" bg="$color1" h={browserHeight}>
           <YStack h="100%" pe="none">
-            {shouldLoad && (
-              <YStack
-                fullscreen
-                contain="paint"
-                opacity={isLoaded ? 1 : 0}
-                backgroundColor="$background"
-                zIndex={10}
-              >
-                <iframe
-                  title="Inner Ascend - Ecovillage DAO Platform"
-                  style={{
-                    backgroundColor: 'transparent',
-                  }}
-                  onLoad={() => {
-                    setTimeout(() => {
-                      setIsLoaded(true)
-                    }, 100)
-                  }}
-                  width="100%"
-                  height={browserHeight}
-                  src={`/community-spaces#${currentView}`}
-                />
+            {/* Placeholder content */}
+            {!hasInteracted && (
+              <YStack zi={0} fullscreen backgroundColor="$backgroundHover">
+                <YStack p="$6" space="$4">
+                  <H2 ta="center" size="$9" fontWeight="900" theme="alt1">Overview</H2>
+                  <Paragraph ta="center" theme="alt2" size="$5" o={0.7}>
+                    Essential tools for community coordination
+                  </Paragraph>
+                </YStack>
+
+                <YStack f={1}>
+                  <XStack flexWrap="wrap" jc="center" gap="$4" p="$4">
+                    <Card theme="blue" width={300} p="$4" space="$4" br="$6" bw={1}>
+                      <XStack ai="center" space="$3">
+                        <YStack width={60} height={60} br="$6" backgroundColor="$color5" ai="center" jc="center"
+                          shadowColor="$shadowColor" shadowRadius={10} elevation={2}>
+                          <Building2 size={30} color="$background" />
+                        </YStack>
+                        <H3 size="$6" fontWeight="800">Governance</H3>
+                      </XStack>
+                      <Paragraph theme="alt2" size="$4" o={0.8}>
+                        Participate in community decisions through token voting
+                      </Paragraph>
+                      <YStack space="$2" pt="$2">
+                        <XStack ai="center" space="$2">
+                          <Circle size={6} backgroundColor="$color5" />
+                          <Paragraph size="$3" theme="alt1">Proposal voting</Paragraph>
+                        </XStack>
+                        <XStack ai="center" space="$2">
+                          <Circle size={6} backgroundColor="$color5" />
+                          <Paragraph size="$3" theme="alt1">Resource allocation</Paragraph>
+                        </XStack>
+                        <XStack ai="center" space="$2">
+                          <Circle size={6} backgroundColor="$color5" />
+                          <Paragraph size="$3" theme="alt1">Role delegation</Paragraph>
+                        </XStack>
+                      </YStack>
+                    </Card>
+
+                    <Card theme="yellow" width={300} p="$4" space="$4" br="$6" bw={1}>
+                      <XStack ai="center" space="$3">
+                        <YStack width={60} height={60} br="$6" backgroundColor="$color5" ai="center" jc="center"
+                          shadowColor="$shadowColor" shadowRadius={10} elevation={2}>
+                          <Users size={30} color="$background" />
+                        </YStack>
+                        <H3 size="$6" fontWeight="800">Membership</H3>
+                      </XStack>
+                      <Paragraph theme="alt2" size="$4" o={0.8}>
+                        Join and contribute to the community
+                      </Paragraph>
+                      <YStack space="$2" pt="$2">
+                        <XStack ai="center" space="$2">
+                          <Circle size={6} backgroundColor="$color5" />
+                          <Paragraph size="$3" theme="alt1">Identity verification</Paragraph>
+                        </XStack>
+                        <XStack ai="center" space="$2">
+                          <Circle size={6} backgroundColor="$color5" />
+                          <Paragraph size="$3" theme="alt1">Reputation system</Paragraph>
+                        </XStack>
+                        <XStack ai="center" space="$2">
+                          <Circle size={6} backgroundColor="$color5" />
+                          <Paragraph size="$3" theme="alt1">Access control</Paragraph>
+                        </XStack>
+                      </YStack>
+                    </Card>
+
+                    <Card theme="green" width={300} p="$4" space="$4" br="$6" bw={1}>
+                      <XStack ai="center" space="$3">
+                        <YStack width={60} height={60} br="$6" backgroundColor="$color5" ai="center" jc="center"
+                          shadowColor="$shadowColor" shadowRadius={10} elevation={2}>
+                          <ClipboardList size={30} color="$background" />
+                        </YStack>
+                        <H3 size="$6" fontWeight="800">Projects</H3>
+                      </XStack>
+                      <Paragraph theme="alt2" size="$4" o={0.8}>
+                        Collaborate on community initiatives
+                      </Paragraph>
+                      <YStack space="$2" pt="$2">
+                        <XStack ai="center" space="$2">
+                          <Circle size={6} backgroundColor="$color5" />
+                          <Paragraph size="$3" theme="alt1">Task management</Paragraph>
+                        </XStack>
+                        <XStack ai="center" space="$2">
+                          <Circle size={6} backgroundColor="$color5" />
+                          <Paragraph size="$3" theme="alt1">Progress tracking</Paragraph>
+                        </XStack>
+                        <XStack ai="center" space="$2">
+                          <Circle size={6} backgroundColor="$color5" />
+                          <Paragraph size="$3" theme="alt1">Resource sharing</Paragraph>
+                        </XStack>
+                      </YStack>
+                    </Card>
+                  </XStack>
+                </YStack>
               </YStack>
             )}
 
-            <YStack zi={0} fullscreen p="$4">
-              <XStack ai="center" jc="center" pos="relative" br="$6" ov="hidden">
-                <YStack width={800} height={200}>
-                  <LinearGradient o={0.1} fullscreen colors={['$green10', '$blue10']} />
-                </YStack>
-                <YStack p="$4" pos="absolute" fullscreen f={1}>
-                  <YStack f={1} />
-                  <XStack>
-                    <YStack f={1}>
-                      <H3>Empowering Sustainable Communities</H3>
-                      <XStack ai="center" space>
-                        <Users size={12} color="var(--color)" />
-                        <H5>Building the Future Together</H5>
-                      </XStack>
-                    </YStack>
-                  </XStack>
-                </YStack>
-              </XStack>
-
-              <Spacer />
-
-              <YStack px="$4">
-                <XStack>
-                  <XStack ai="center" space>
-                    <Paragraph theme="alt2">4 guests</Paragraph>
-                    <Paragraph theme="alt2">&middot;</Paragraph>
-                    <Paragraph theme="alt2">Entire house</Paragraph>
-                  </XStack>
-                  <Spacer flex={1} />
-                  <XStack ai="center" space>
-                    <Star size={20} color="var(--purple10)" />
-                    <Paragraph theme="purple_alt2">4.55</Paragraph>
-                  </XStack>
-                </XStack>
-
-                <Spacer />
-
-                <Paragraph theme="alt1" size="$4">
-                  A lovely, private and very clean cottage with all amenities for a
-                  comfortable and peaceful stay. We are a 20 minute walk from the Hawaii
-                  Tropical Botanical Garden and well situated for touring to Akaka Falls,
-                  Volcano National Park, and many other destinations.
-                </Paragraph>
-              </YStack>
+            {/* Iframe */}
+            <YStack
+              fullscreen
+              contain="paint"
+              opacity={hasInteracted ? 1 : 0}
+              backgroundColor="$background"
+              zIndex={hasInteracted ? 10 : 0}
+              animation="quick"
+            >
+              <iframe
+                title="Inner Ascend - Ecovillage DAO Platform"
+                style={{
+                  backgroundColor: 'transparent',
+                }}
+                width="100%"
+                height={browserHeight}
+                src={`/community-spaces#${currentView}`}
+              />
             </YStack>
           </YStack>
         </YStack>
@@ -542,3 +578,18 @@ const Tab = memo(({ active, children, bc, ...props }: any) => {
     </Theme>
   )
 })
+
+const Card = ({ children, theme, ...props }) => (
+  <YStack
+    theme={theme}
+    backgroundColor="$background"
+    borderColor="$borderColor"
+    shadowColor="$shadowColor"
+    shadowRadius={15}
+    shadowOffset={{ width: 0, height: 4 }}
+    elevation={4}
+    {...props}
+  >
+    {children}
+  </YStack>
+)
