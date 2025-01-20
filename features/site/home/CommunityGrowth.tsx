@@ -1,25 +1,24 @@
 import type { SizeTokens } from '@tamagui/core'
 import { LogoIcon, useTint } from '@tamagui/logo'
-import { ArrowDown, Play } from '@tamagui/lucide-icons'
+import { Play } from '@tamagui/lucide-icons'
 import React, { memo, useEffect, useRef, useState } from 'react'
 import {
-    Button,
-    ListItem,
-    Paragraph,
-    Separator,
-    Square,
-    XStack,
-    YStack,
-    styled,
-    useControllableState,
-    useEvent,
+  Button,
+  ListItem,
+  Paragraph,
+  Separator,
+  Square,
+  XStack,
+  YStack,
+  styled,
+  useControllableState,
+  useEvent,
 } from 'tamagui'
 import { animations } from '../../../config/animations'
 import { useIsIntersecting } from '../../../hooks/useOnIntersecting'
 
 import { ContainerLarge } from '../../../components/Containers'
 import { Link } from '../../../components/Link'
-import { CodeDemoPreParsed } from './CodeDemoPreParsed'
 import { HomeH2, HomeH3 } from './HomeHeaders'
 
 const StyledButton = styled(Button, {
@@ -41,22 +40,37 @@ export const AnimationsDemo = (props) => {
   return <AnimationsDemoBase tint={tint} {...props} />
 }
 
-const animationDescriptions = [
+const growthStages = [
   {
     name: 'Planning',
-    description: 'Initial community planning phase',
+    description: 'Initial community formation',
+    features: [
+      'DAO token distribution',
+      'Land acquisition',
+      'Community guidelines'
+    ],
     animation: 'bouncy',
     settings: animations.animations.bouncy,
   },
   {
     name: 'Building',
-    description: 'Construction and infrastructure development',
+    description: 'Infrastructure development',
+    features: [
+      'Sustainable housing',
+      'Renewable energy',
+      'Food systems'
+    ],
     animation: 'lazy',
     settings: animations.animations.lazy,
   },
   {
     name: 'Thriving',
-    description: 'Established and flourishing community',
+    description: 'Flourishing ecosystem',
+    features: [
+      'Active governance',
+      'Resource sharing',
+      'Cultural events'
+    ],
     animation: 'quick',
     settings: animations.animations.quick,
   },
@@ -66,7 +80,8 @@ let hasScrolledOnce = false
 
 export function CommunityGrowth({ animationCode }: { animationCode: string }) {
   const { tint } = useTint()
-  const [disableScrollPane, setDisableScrollPane] = useState(true)
+  const [activeStage, setActiveStage] = useState(0)
+  const currentStage = growthStages[activeStage]
 
   return (
     <YStack>
@@ -85,65 +100,92 @@ export function CommunityGrowth({ animationCode }: { animationCode: string }) {
             f={2}
             miw="55%"
             als="center"
-            mr="$-2"
             zi={100}
             elevation="$4"
             br="$4"
             theme={tint as any}
+            space="$4"
           >
-            <ExampleAnimations />
-          </YStack>
-
-          <YStack
-            perspective={1000}
-            rotateY="-5deg"
-            x={-10}
-            $sm={{ display: 'none' }}
-            pos="relative"
-            br="$8"
-            elevation="$5"
-            ov="hidden"
-          >
-            <YStack
-              pe={disableScrollPane ? 'auto' : 'none'}
-              o={disableScrollPane ? 1 : 0}
-              fullscreen
-              ai="center"
-              jc="center"
+            <XStack
+              bw={1}
+              bc="$borderColor"
+              elevation="$1"
+              w="100%"
+              br="$4"
+              ov="hidden"
+              h={305}
+              als="center"
+              x={0}
             >
-              <YStack fullscreen top="60%" o={0.5} />
-              <Button
-                accessibilityLabel="View more"
-                y={200}
-                iconAfter={ArrowDown}
-                size="$4"
-                themeInverse
-                zi={10}
-                onPress={() => setDisableScrollPane(false)}
-              >
-                View more
-              </Button>
+              <YStack width="40%" theme="alt2" bg="$color1">
+                {growthStages.map((stage, i) => {
+                  const isActive = i === activeStage
+                  return (
+                    <ListItem
+                      key={stage.name}
+                      theme={isActive ? 'active' : null}
+                      px="$4"
+                      py="$2"
+                      title={stage.name}
+                      bg={isActive ? '$color2' : '$color1'}
+                      subTitle={stage.description}
+                      cursor="pointer"
+                      onPress={() => setActiveStage(i)}
+                    />
+                  )
+                })}
+              </YStack>
+
+              <Separator vertical />
+
+              <YStack f={1} p="$4" space="$4">
+                <YStack space="$2">
+                  <Paragraph size="$8" fontFamily="$silkscreen">{currentStage.name}</Paragraph>
+                  <Paragraph size="$5" theme="alt2">{currentStage.description}</Paragraph>
+                </YStack>
+
+                <YStack space="$2">
+                  {currentStage.features.map((feature, i) => (
+                    <XStack key={i} space="$2" ai="center">
+                      <Square size={8} bc="$color" br="$1" />
+                      <Paragraph theme="alt1">{feature}</Paragraph>
+                    </XStack>
+                  ))}
+                </YStack>
+              </YStack>
+            </XStack>
+
+            <YStack
+              br="$4"
+              elevation="$4"
+              ov="hidden"
+              backgroundColor="$background"
+              p="$6"
+              bw={1}
+              bc="$borderColor"
+              w="100%"
+              ai="center"
+              space="$5"
+            >
+              <YStack ai="center" space="$2">
+                <Paragraph size="$8" fontFamily="$silkscreen">Next Steps</Paragraph>
+                <Paragraph size="$4" theme="alt2" ta="center" maw={500}>
+                  Join our community and be part of the next generation of sustainable living
+                </Paragraph>
+              </YStack>
+              <YStack space="$4" ai="center" w="100%" maw={400}>
+                <Link href="/community" w="100%">
+                  <Button w="100%" size="$5" theme="active" iconAfter={Play}>Join the DAO</Button>
+                </Link>
+                <Link href="/community" w="100%">
+                  <Button w="100%" size="$5" theme="alt2">View Land NFTs</Button>
+                </Link>
+                <Link href="/community" w="100%">
+                  <Button w="100%" size="$5" theme="alt2">Community Guidelines</Button>
+                </Link>
+              </YStack>
             </YStack>
-
-            <CodeDemoPreParsed
-              pe={disableScrollPane ? 'none' : 'auto'}
-              maxHeight={500}
-              height={500}
-              maxWidth={530}
-              minWidth={530}
-              borderRadius="$8"
-              language="tsx"
-              source={animationCode}
-            />
           </YStack>
-        </XStack>
-
-        <XStack als="center" gap="$3">
-          <Link href="/docs/core/animations">
-            <Button accessibilityLabel="Animation docs" fontFamily="$silkscreen">
-              Docs &raquo;
-            </Button>
-          </Link>
         </XStack>
       </ContainerLarge>
     </YStack>
@@ -152,7 +194,7 @@ export function CommunityGrowth({ animationCode }: { animationCode: string }) {
 
 export const ExampleAnimations = memo(() => {
   const [animationI, setAnimationI] = useState(0)
-  const animation = animationDescriptions[animationI]
+  const animation = growthStages[animationI]
   const container = useRef(null)
   const [positionI, setPositionI] = useState(2)
   const isIntersecting = useIsIntersecting(container)
@@ -219,7 +261,7 @@ export const ExampleAnimations = memo(() => {
 
       <YStack pos="relative" $sm={{ display: 'none' }} width="40%">
         <YStack f={1} theme="alt2" bg="$color1">
-          {animationDescriptions.map((item, i) => {
+          {growthStages.map((item, i) => {
             const isActive = item === animation
             return (
               <ListItem
