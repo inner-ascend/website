@@ -186,16 +186,18 @@ export const CommunityShowcase = memo(({ examples }: CommunityShowcaseProps) => 
           </XGroup>
         </ThemeTint>
 
-        <XStack
-          pos="relative"
-          jc="center"
-          gap="$4"
-          $sm={{ fd: 'column' }}
-          width="100%"
-        >
-          <InfoCard content={activeItem.content.leftCard} />
-          <InfoCard content={activeItem.content.rightCard} />
-        </XStack>
+        <ThemeTint>
+          <XStack
+            pos="relative"
+            jc="center"
+            gap="$4"
+            $sm={{ fd: 'column' }}
+            width="100%"
+          >
+            <InfoCard content={activeItem.content.leftCard} />
+            <InfoCard content={activeItem.content.rightCard} />
+          </XStack>
+        </ThemeTint>
       </YStack>
     </ContainerLarge>
   )
