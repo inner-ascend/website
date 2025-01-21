@@ -246,16 +246,16 @@ export function CommunityGrowth({ animationCode }: { animationCode: string }) {
               </YStack>
               <YStack space="$4" ai="center" w="100%" maw={400}>
                 <Link href="/community" w="100%">
-                  <Button w="100%" size="$5" theme="active" iconAfter={Play}>Join the DAO</Button>
+                  <Button w="100%" size="$5" theme="active" fontFamily="$silkscreen" iconAfter={Play}>Join the DAO</Button>
                 </Link>
                 <Link href="/community" w="100%">
-                  <Button w="100%" size="$5" theme="alt2">View Land NFTs</Button>
+                  <Button w="100%" size="$5" theme="alt2" fontFamily="$silkscreen">View Land NFTs</Button>
                 </Link>
                 <Link href="/community" w="100%">
-                  <Button w="100%" size="$5" theme="alt2">Community Guidelines</Button>
+                  <Button w="100%" size="$5" theme="alt2" fontFamily="$silkscreen">Community Guidelines</Button>
                 </Link>
                 <Link href="/docs/intro/introduction" w="100%">
-                  <Button w="100%" size="$5" theme="alt2">Docs</Button>
+                  <Button w="100%" size="$5" theme="alt2" fontFamily="$silkscreen">Docs &raquo;</Button>
                 </Link>
               </YStack>
             </YStack>
