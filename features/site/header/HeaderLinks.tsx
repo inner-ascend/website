@@ -22,6 +22,7 @@ import { Link } from '../../../components/Link'
 // import { BentoPageFrame } from '../../bento/BentoPageFrame'
 // import { BentoIcon } from '../../icons/BentoIcon'
 // import { TakeoutIcon } from '../../icons/TakeoutIcon'
+import { TelegramIcon } from '~/features/icons/TelegramIcon'
 import type { HeaderProps } from './types'
 
 const HeadAnchor = styled(Paragraph, {
@@ -87,17 +88,23 @@ export const HeaderLinks = (props: HeaderProps) => {
         </HeadAnchor>
       </Link>
 
-      {/* <Link asChild href="/ui/intro">
+      <Link asChild href="https://t.me/+s6l6LL0v5BIxMWJk" target="_blank" rel="noopener noreferrer">
         <HeadAnchor
-          // half={forceShowAllLinks}
           grid={forceShowAllLinks}
           $sm={{
             display: forceShowAllLinks ? 'flex' : 'none',
           }}
         >
-          UI
+          <XStack ai="center" gap="$2">
+            {/* <TooltipSimple label="Telegram"> */}
+              <TelegramIcon width={14} height={14} />
+            {/* </TooltipSimple> */}
+            {forceShowAllLinks && (
+              <Paragraph fontFamily="$silkscreen">Telegram</Paragraph>
+            )}
+          </XStack>
         </HeadAnchor>
-      </Link> */}
+      </Link>
     </>
   )
 
