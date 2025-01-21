@@ -42,38 +42,70 @@ export const AnimationsDemo = (props) => {
 
 const growthStages = [
   {
-    name: 'Planning',
-    description: 'Initial community formation',
+    name: 'Phase 1: Foundation',
+    date: 'Sep-Dec 2025',
+    description: 'Community and DAO setup',
     features: [
-      'DAO token distribution',
-      'Land acquisition',
-      'Community guidelines'
+      'Initial DAO token distribution',
+      'Core team formation',
+      'Community platform launch',
+      'Early member onboarding'
     ],
     animation: 'bouncy',
     settings: animations.animations.bouncy,
   },
   {
-    name: 'Building',
-    description: 'Infrastructure development',
+    name: 'Phase 2: Land',
+    date: 'Jan-Apr 2026',
+    description: 'Land acquisition and planning',
     features: [
-      'Sustainable housing',
-      'Renewable energy',
-      'Food systems'
+      'Land NFT minting',
+      'Property evaluation',
+      'Legal framework setup',
+      'Sustainable design planning'
     ],
     animation: 'lazy',
     settings: animations.animations.lazy,
   },
   {
-    name: 'Thriving',
-    description: 'Flourishing ecosystem',
+    name: 'Phase 3: Infrastructure',
+    date: 'May-Dec 2026',
+    description: 'Sustainable systems development',
     features: [
-      'Active governance',
-      'Resource sharing',
+      'Renewable energy systems',
+      'Water management',
+      'Permaculture design',
+      'Initial housing units'
+    ],
+    animation: 'quick',
+    settings: animations.animations.quick,
+  },
+  {
+    name: 'Phase 4: Community',
+    date: 'Jan-Jun 2027',
+    description: 'Building social fabric',
+    features: [
+      'Governance framework',
+      'Resource sharing system',
+      'Skills workshops',
       'Cultural events'
     ],
     animation: 'quick',
     settings: animations.animations.quick,
   },
+  {
+    name: 'Phase 5: Expansion',
+    date: 'Jul 2027 →',
+    description: 'Scaling the ecosystem',
+    features: [
+      'Additional land acquisition',
+      'New member integration',
+      'Inter-community networks',
+      'Knowledge sharing platform'
+    ],
+    animation: 'quick',
+    settings: animations.animations.quick,
+  }
 ] as const
 
 let hasScrolledOnce = false
@@ -113,24 +145,31 @@ export function CommunityGrowth({ animationCode }: { animationCode: string }) {
               w="100%"
               br="$4"
               ov="hidden"
-              h={305}
+              h={400}
               als="center"
               x={0}
             >
-              <YStack width="40%" theme="alt2" bg="$color1">
+              <YStack width="40%" theme="alt2" bg="$color3" f={1} jc="space-between" pointerEvents="auto" >
                 {growthStages.map((stage, i) => {
                   const isActive = i === activeStage
                   return (
                     <ListItem
                       key={stage.name}
-                      theme={isActive ? 'active' : null}
+                      theme={isActive ? 'active' : 'alt2'}
                       px="$4"
-                      py="$2"
+                      py="$4"
+                      f={1}
                       title={stage.name}
-                      bg={isActive ? '$color2' : '$color1'}
+                      backgroundColor={isActive ? '$color2' : 'transparent'}
+                      iconAfter={
+                        <Paragraph size="$3" o={0.7} fontFamily="$silkscreen">
+                          {stage.date}
+                        </Paragraph>
+                      }
                       subTitle={stage.description}
                       cursor="pointer"
                       onPress={() => setActiveStage(i)}
+                      pressStyle={{ scale: 0.97 }}
                     />
                   )
                 })}
@@ -138,9 +177,12 @@ export function CommunityGrowth({ animationCode }: { animationCode: string }) {
 
               <Separator vertical />
 
-              <YStack f={1} p="$4" space="$4">
+              <YStack f={1} p="$4" space="$4" width="60%" bg="$color3">
                 <YStack space="$2">
-                  <Paragraph size="$8" fontFamily="$silkscreen">{currentStage.name}</Paragraph>
+                  <XStack jc="space-between" ai="center" $sm={{ fd: "column", ai: "flex-start", gap: "$1" }}>
+                    <Paragraph size="$8" fontFamily="$silkscreen">{currentStage.name}</Paragraph>
+                    <Paragraph size="$6" fontFamily="$silkscreen" o={0.7} $sm={{ size: "$5" }}>{currentStage.date}</Paragraph>
+                  </XStack>
                   <Paragraph size="$5" theme="alt2">{currentStage.description}</Paragraph>
                 </YStack>
 
@@ -163,6 +205,7 @@ export function CommunityGrowth({ animationCode }: { animationCode: string }) {
               p="$6"
               bw={1}
               bc="$borderColor"
+              bg="$color3"
               w="100%"
               ai="center"
               space="$5"
@@ -182,6 +225,9 @@ export function CommunityGrowth({ animationCode }: { animationCode: string }) {
                 </Link>
                 <Link href="/community" w="100%">
                   <Button w="100%" size="$5" theme="alt2">Community Guidelines</Button>
+                </Link>
+                <Link href="/docs/intro/introduction" w="100%">
+                  <Button w="100%" size="$5" theme="alt2">Docs</Button>
                 </Link>
               </YStack>
             </YStack>
