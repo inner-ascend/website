@@ -32,7 +32,7 @@ export default function TamaguiHomePage() {
     <>
       <HeadInfo
         title="Inner Ascend"
-        description="React style library and UI kit that unifies React Native and React web"
+        description="Building sustainable ecovillage communities through shared ownership and governance"
       />
 
       <ThemeNameEffect colorKey="$color2" />
