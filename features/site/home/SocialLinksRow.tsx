@@ -2,7 +2,6 @@ import { H4, Paragraph, XStack } from 'tamagui'
 
 import { TelegramIcon } from '~/features/icons/TelegramIcon'
 import { Card } from '../../../components/Card'
-import { DiscordIcon } from '../../icons/DiscordIcon'
 
 export const SocialLinksRow = () => {
   return (
@@ -14,7 +13,7 @@ export const SocialLinksRow = () => {
         $sm={{ width: 'auto' }}
         space="$2"
         tag="a"
-        href="https://t.me/+s6l6LL0v5BIxMWJk"
+        href="https://t.me/+dv4zmhAQfHMzYWFk"
         target="_blank"
         rel="noopener noreferrer"
         p="$5"
@@ -24,10 +23,10 @@ export const SocialLinksRow = () => {
           Telegram
         </H4>
         <Paragraph cursor="pointer" theme="alt2">
-          Announcements and general updates.
+          Announcements, general updates, and community discussions.
         </Paragraph>
       </Card>
-      <Card
+      {/* <Card
         width="40%"
         maxWidth={400}
         jc="center"
@@ -46,7 +45,7 @@ export const SocialLinksRow = () => {
         <Paragraph cursor="pointer" theme="alt2">
           Get involved and get questions answered.
         </Paragraph>
-      </Card>
+      </Card> */}
     </XStack>
   )
 }

@@ -92,17 +92,17 @@ export const Footer = memo(() => {
               <ExternalIcon />
             </XStack> */}
             <XStack gap="$1" ai="center">
-              <ParagraphLink href="https://t.me/+s6l6LL0v5BIxMWJk" target="_blank">
+              <ParagraphLink href="https://t.me/+dv4zmhAQfHMzYWFk" target="_blank">
                 Telegram
               </ParagraphLink>
               <ExternalIcon />
             </XStack>
-            <XStack gap="$1" ai="center">
+            {/* <XStack gap="$1" ai="center">
               <ParagraphLink href="https://discord.gg/xdJNttaFrZ" target="_blank">
                 Discord
               </ParagraphLink>
               <ExternalIcon />
-            </XStack>
+            </XStack> */}
           </YStack>
         </XStack>
 
