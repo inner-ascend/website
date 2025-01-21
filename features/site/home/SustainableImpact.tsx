@@ -58,7 +58,7 @@ export function SustainableImpact() {
           {show && <BenchmarkChartWeb />}
         </YStack>
 
-        <XStack space flexWrap="wrap">
+        <XStack flexWrap="wrap" gap="$4" ai="center" jc="center">
           <BenchmarksLink />
           <CompilerLink />
         </XStack>

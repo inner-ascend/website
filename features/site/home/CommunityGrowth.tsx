@@ -148,8 +148,24 @@ export function CommunityGrowth({ animationCode }: { animationCode: string }) {
               h={400}
               als="center"
               x={0}
+              $sm={{
+                fd: "column",
+                h: "auto"
+              }}
             >
-              <YStack width="40%" theme="alt2" bg="$color3" f={1} jc="space-between" pointerEvents="auto" >
+              <YStack 
+                width="40%" 
+                theme="alt2" 
+                bg="$color3" 
+                f={1} 
+                jc="space-between" 
+                pointerEvents="auto"
+                $sm={{
+                  width: "100%",
+                  f: 0,
+                  pb: "$2"
+                }}
+              >
                 {growthStages.map((stage, i) => {
                   const isActive = i === activeStage
                   return (
@@ -160,12 +176,14 @@ export function CommunityGrowth({ animationCode }: { animationCode: string }) {
                       py="$4"
                       f={1}
                       title={stage.name}
-                      backgroundColor={isActive ? '$color2' : 'transparent'}
                       iconAfter={
-                        <Paragraph size="$3" o={0.7} fontFamily="$silkscreen">
-                          {stage.date}
-                        </Paragraph>
+                        <XStack jc="unset" $sm={{ jc: "flex-end", minWidth: "38%" }}>
+                          <Paragraph size="$3" o={0.7} fontFamily="$silkscreen" $sm={{ size: "$2" }}>
+                            {stage.date}
+                          </Paragraph>
+                        </XStack>
                       }
+                      backgroundColor={isActive ? '$color2' : 'transparent'}
                       subTitle={stage.description}
                       cursor="pointer"
                       onPress={() => setActiveStage(i)}
@@ -175,12 +193,22 @@ export function CommunityGrowth({ animationCode }: { animationCode: string }) {
                 })}
               </YStack>
 
-              <Separator vertical />
+              <Separator vertical $sm={{ vertical: false, my: "$0.5" }} />
 
-              <YStack f={1} p="$4" space="$4" width="60%" bg="$color3">
+              <YStack 
+                f={1} 
+                p="$4" 
+                space="$4" 
+                width="60%"
+                bg="$color3"
+                $sm={{
+                  width: "100%",
+                  pt: "$4"
+                }}
+              >
                 <YStack space="$2">
                   <XStack jc="space-between" ai="center" $sm={{ fd: "column", ai: "flex-start", gap: "$1" }}>
-                    <Paragraph size="$8" fontFamily="$silkscreen">{currentStage.name}</Paragraph>
+                    <Paragraph size="$8" fontFamily="$silkscreen" $sm={{ size: "$7" }}>{currentStage.name}</Paragraph>
                     <Paragraph size="$6" fontFamily="$silkscreen" o={0.7} $sm={{ size: "$5" }}>{currentStage.date}</Paragraph>
                   </XStack>
                   <Paragraph size="$5" theme="alt2">{currentStage.description}</Paragraph>
