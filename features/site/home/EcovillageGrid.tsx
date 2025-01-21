@@ -8,7 +8,7 @@ export function EcovillageGrid() {
     <>
       <ContainerLarge space="$8">
         <YStack maw={950} als="center">
-          <Grid gap={25} itemMinWidth={280}>
+          <Grid gap={35} itemMinWidth={275}>
             <YStack gap="$4" p="$4">
               <H4 ls={0} fontFamily="$silkscreen" ta="center">
                 Sustainable Living
@@ -18,11 +18,11 @@ export function EcovillageGrid() {
               </Paragraph>
             </YStack>
 
-            <YStack gap="$4" p="$4">
+            <YStack gap="$4" pt="$4" pb="$4">
               <H4 ls={0} fontFamily="$silkscreen" ta="center">
                 Community Governance
               </H4>
-              <Paragraph theme="alt1">
+              <Paragraph theme="alt1" pl="$4" pr="$4">
                 Participate in decentralized decision-making through our DAO structure, ensuring transparent and equitable governance.
               </Paragraph>
             </YStack>

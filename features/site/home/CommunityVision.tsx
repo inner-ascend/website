@@ -3,18 +3,18 @@ import { useTint } from '@tamagui/logo'
 import { memo, useEffect, useRef, useState } from 'react'
 import type { Heading, TextProps } from 'tamagui'
 import {
-    Button,
-    Card,
-    H1,
-    H2,
-    H3,
-    H4,
-    H5,
-    H6,
-    Paragraph,
-    XStack,
-    YStack,
-    useDidFinishSSR,
+  Button,
+  Card,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  Paragraph,
+  XStack,
+  YStack,
+  useDidFinishSSR,
 } from 'tamagui'
 import { Link } from '../../../components/Link'
 import { useIsIntersecting } from '../../../hooks/useOnIntersecting'
@@ -39,7 +39,7 @@ export const CommunityVision = memo(() => {
         return families[(families.indexOf(cur) + 1) % families.length]
       })
     }
-    const tm = setInterval(next, 4200)
+    const tm = setInterval(next, 5200)
     next()
     return () => {
       clearInterval(tm)
