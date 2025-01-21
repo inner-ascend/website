@@ -58,7 +58,7 @@ export default function Layout() {
           siteName: 'Inner Ascend',
           images: [
             {
-              url: 'https://tamagui.dev/social.png',
+              url: 'https://inner-ascend.com/new-social.png',
             },
           ],
         }}
