@@ -1,5 +1,3 @@
-import { Figma } from '@tamagui/lucide-icons'
-import { GithubIcon } from '../icons/GithubIcon'
 
 export const docsRoutes = [
   {
@@ -89,20 +87,20 @@ export const docsRoutes = [
     pages: [
       { title: `Community`, route: '/community' },
       { title: `Blog`, route: '/blog' },
-      {
-        title: 'Figma',
-        icon: Figma,
-        route: 'https://www.figma.com/community/file/1326593766534421119/tamagui-v1-2-1',
-      },
-      {
-        title: `GitHub`,
-        icon: () => (
-          <GithubIcon width={16} height={16} style={{ margin: '0 0 -2.5px 2px' }} />
-        ),
-        route: 'https://github.com/tamagui/tamagui',
-      },
-      { title: `Telegram`, route: 'https://t.me/+s6l6LL0v5BIxMWJk' },
-      { title: `Discord`, route: 'https://discord.gg/xdJNttaFrZ' },
+      // {
+      //   title: 'Figma',
+      //   icon: Figma,
+      //   route: 'https://www.figma.com/community/file/1326593766534421119/tamagui-v1-2-1',
+      // },
+      // {
+      //   title: `GitHub`,
+      //   icon: () => (
+      //     <GithubIcon width={16} height={16} style={{ margin: '0 0 -2.5px 2px' }} />
+      //   ),
+      //   route: 'https://github.com/tamagui/tamagui',
+      // },
+      { title: `Telegram`, route: 'https://t.me/+dv4zmhAQfHMzYWFk' },
+      // { title: `Discord`, route: 'https://discord.gg/xdJNttaFrZ' },
     ],
   },
 
