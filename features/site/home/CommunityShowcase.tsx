@@ -160,6 +160,32 @@ export const CommunityShowcase = memo(({ examples }: CommunityShowcaseProps) => 
         </YStack>
 
         <ThemeTint>
+          <YStack
+            $gtSm={{ display: 'none' }}
+            flexDirection="row"
+            flexWrap="wrap"
+            jc="center"
+            bg="$color2"
+            als="center"
+            br="$5"
+          >
+            {showcaseItems.map((item, i) => (
+              <Button
+                key={i}
+                accessibilityLabel={`See ${item.name}`}
+                onPress={() => setActiveIndex(i)}
+                theme={i === activeIndex ? 'active' : null}
+                chromeless={i !== activeIndex}
+                size="$3"
+                fontFamily="$silkscreen"
+                width="50%"
+                br="$5"
+              >
+                {item.name}
+              </Button>
+            ))}
+          </YStack>
+
           <XGroup
             scrollable
             bordered
@@ -167,6 +193,7 @@ export const CommunityShowcase = memo(({ examples }: CommunityShowcaseProps) => 
             maxWidth="100%"
             als="center"
             ov="hidden"
+            $sm={{ display: 'none' }}
           >
             {showcaseItems.map((item, i) => (
               <XGroup.Item key={i}>
@@ -186,16 +213,18 @@ export const CommunityShowcase = memo(({ examples }: CommunityShowcaseProps) => 
           </XGroup>
         </ThemeTint>
 
-        <XStack
-          pos="relative"
-          jc="center"
-          gap="$4"
-          $sm={{ fd: 'column' }}
-          width="100%"
-        >
-          <InfoCard content={activeItem.content.leftCard} />
-          <InfoCard content={activeItem.content.rightCard} />
-        </XStack>
+        <ThemeTint>
+          <XStack
+            pos="relative"
+            jc="center"
+            gap="$4"
+            $sm={{ fd: 'column' }}
+            width="100%"
+          >
+            <InfoCard content={activeItem.content.leftCard} />
+            <InfoCard content={activeItem.content.rightCard} />
+          </XStack>
+        </ThemeTint>
       </YStack>
     </ContainerLarge>
   )

@@ -1,25 +1,24 @@
 import type { SizeTokens } from '@tamagui/core'
 import { LogoIcon, useTint } from '@tamagui/logo'
-import { ArrowDown, Play } from '@tamagui/lucide-icons'
+import { Play } from '@tamagui/lucide-icons'
 import React, { memo, useEffect, useRef, useState } from 'react'
 import {
-    Button,
-    ListItem,
-    Paragraph,
-    Separator,
-    Square,
-    XStack,
-    YStack,
-    styled,
-    useControllableState,
-    useEvent,
+  Button,
+  ListItem,
+  Paragraph,
+  Separator,
+  Square,
+  XStack,
+  YStack,
+  styled,
+  useControllableState,
+  useEvent,
 } from 'tamagui'
 import { animations } from '../../../config/animations'
 import { useIsIntersecting } from '../../../hooks/useOnIntersecting'
 
 import { ContainerLarge } from '../../../components/Containers'
 import { Link } from '../../../components/Link'
-import { CodeDemoPreParsed } from './CodeDemoPreParsed'
 import { HomeH2, HomeH3 } from './HomeHeaders'
 
 const StyledButton = styled(Button, {
@@ -41,32 +40,80 @@ export const AnimationsDemo = (props) => {
   return <AnimationsDemoBase tint={tint} {...props} />
 }
 
-const animationDescriptions = [
+const growthStages = [
   {
-    name: 'Planning',
-    description: 'Initial community planning phase',
+    name: 'Phase 1: Foundation',
+    date: 'Sep-Dec 2025',
+    description: 'Community and DAO setup',
+    features: [
+      'Initial DAO token distribution',
+      'Core team formation',
+      'Community platform launch',
+      'Early member onboarding'
+    ],
     animation: 'bouncy',
     settings: animations.animations.bouncy,
   },
   {
-    name: 'Building',
-    description: 'Construction and infrastructure development',
+    name: 'Phase 2: Land',
+    date: 'Jan-Apr 2026',
+    description: 'Land acquisition and planning',
+    features: [
+      'Land NFT minting',
+      'Property evaluation',
+      'Legal framework setup',
+      'Sustainable design planning'
+    ],
     animation: 'lazy',
     settings: animations.animations.lazy,
   },
   {
-    name: 'Thriving',
-    description: 'Established and flourishing community',
+    name: 'Phase 3: Infrastructure',
+    date: 'May-Dec 2026',
+    description: 'Sustainable systems development',
+    features: [
+      'Renewable energy systems',
+      'Water management',
+      'Permaculture design',
+      'Initial housing units'
+    ],
     animation: 'quick',
     settings: animations.animations.quick,
   },
+  {
+    name: 'Phase 4: Community',
+    date: 'Jan-Jun 2027',
+    description: 'Building social fabric',
+    features: [
+      'Governance framework',
+      'Resource sharing system',
+      'Skills workshops',
+      'Cultural events'
+    ],
+    animation: 'quick',
+    settings: animations.animations.quick,
+  },
+  {
+    name: 'Phase 5: Expansion',
+    date: 'Jul 2027 →',
+    description: 'Scaling the ecosystem',
+    features: [
+      'Additional land acquisition',
+      'New member integration',
+      'Inter-community networks',
+      'Knowledge sharing platform'
+    ],
+    animation: 'quick',
+    settings: animations.animations.quick,
+  }
 ] as const
 
 let hasScrolledOnce = false
 
 export function CommunityGrowth({ animationCode }: { animationCode: string }) {
   const { tint } = useTint()
-  const [disableScrollPane, setDisableScrollPane] = useState(true)
+  const [activeStage, setActiveStage] = useState(0)
+  const currentStage = growthStages[activeStage]
 
   return (
     <YStack>
@@ -85,65 +132,134 @@ export function CommunityGrowth({ animationCode }: { animationCode: string }) {
             f={2}
             miw="55%"
             als="center"
-            mr="$-2"
             zi={100}
             elevation="$4"
             br="$4"
             theme={tint as any}
+            space="$4"
           >
-            <ExampleAnimations />
-          </YStack>
-
-          <YStack
-            perspective={1000}
-            rotateY="-5deg"
-            x={-10}
-            $sm={{ display: 'none' }}
-            pos="relative"
-            br="$8"
-            elevation="$5"
-            ov="hidden"
-          >
-            <YStack
-              pe={disableScrollPane ? 'auto' : 'none'}
-              o={disableScrollPane ? 1 : 0}
-              fullscreen
-              ai="center"
-              jc="center"
+            <XStack
+              bw={1}
+              bc="$borderColor"
+              elevation="$1"
+              w="100%"
+              br="$4"
+              ov="hidden"
+              h={400}
+              als="center"
+              x={0}
+              $sm={{
+                fd: "column",
+                h: "auto"
+              }}
             >
-              <YStack fullscreen top="60%" o={0.5} />
-              <Button
-                accessibilityLabel="View more"
-                y={200}
-                iconAfter={ArrowDown}
-                size="$4"
-                themeInverse
-                zi={10}
-                onPress={() => setDisableScrollPane(false)}
+              <YStack 
+                width="40%" 
+                theme="alt2" 
+                bg="$color3" 
+                f={1} 
+                jc="space-between" 
+                pointerEvents="auto"
+                $sm={{
+                  width: "100%",
+                  f: 0,
+                  pb: "$2"
+                }}
               >
-                View more
-              </Button>
+                {growthStages.map((stage, i) => {
+                  const isActive = i === activeStage
+                  return (
+                    <ListItem
+                      key={stage.name}
+                      theme={isActive ? 'active' : 'alt2'}
+                      px="$4"
+                      py="$4"
+                      f={1}
+                      title={stage.name}
+                      iconAfter={
+                        <XStack jc="unset" $sm={{ jc: "flex-end", minWidth: "38%" }}>
+                          <Paragraph size="$3" o={0.7} fontFamily="$silkscreen" $sm={{ size: "$2" }}>
+                            {stage.date}
+                          </Paragraph>
+                        </XStack>
+                      }
+                      backgroundColor={isActive ? '$color2' : 'transparent'}
+                      subTitle={stage.description}
+                      cursor="pointer"
+                      onPress={() => setActiveStage(i)}
+                      pressStyle={{ scale: 0.97 }}
+                    />
+                  )
+                })}
+              </YStack>
+
+              <Separator vertical $sm={{ vertical: false, my: "$0.5" }} />
+
+              <YStack 
+                f={1} 
+                p="$4" 
+                space="$4" 
+                width="60%"
+                bg="$color3"
+                $sm={{
+                  width: "100%",
+                  pt: "$4"
+                }}
+              >
+                <YStack space="$2">
+                  <XStack jc="space-between" ai="center" $sm={{ fd: "column", ai: "flex-start", gap: "$1" }}>
+                    <Paragraph size="$8" fontFamily="$silkscreen" $sm={{ size: "$7" }}>{currentStage.name}</Paragraph>
+                    <Paragraph size="$6" fontFamily="$silkscreen" o={0.7} $sm={{ size: "$5" }}>{currentStage.date}</Paragraph>
+                  </XStack>
+                  <Paragraph size="$5" theme="alt2">{currentStage.description}</Paragraph>
+                </YStack>
+
+                <YStack space="$2">
+                  {currentStage.features.map((feature, i) => (
+                    <XStack key={i} space="$2" ai="center">
+                      <Square size={8} bc="$color" br="$1" />
+                      <Paragraph theme="alt1">{feature}</Paragraph>
+                    </XStack>
+                  ))}
+                </YStack>
+              </YStack>
+            </XStack>
+
+            <YStack
+              br="$4"
+              elevation="$4"
+              ov="hidden"
+              backgroundColor="$background"
+              p="$6"
+              bw={1}
+              bc="$borderColor"
+              bg="$color3"
+              w="100%"
+              ai="center"
+              space="$5"
+            >
+              <YStack ai="center" space="$2">
+                <Paragraph size="$8" fontFamily="$silkscreen">Next Steps</Paragraph>
+                <Paragraph size="$4" theme="alt2" ta="center" maw={500}>
+                  Join our community and be part of the next generation of sustainable living
+                </Paragraph>
+              </YStack>
+              <YStack space="$4" ai="center" w="100%" maw={400}>
+                <Link href="/community" w="100%">
+                  <Button w="100%" size="$5" theme="active" fontFamily="$silkscreen" iconAfter={Play}>Join the DAO</Button>
+                </Link>
+                <Link href="/community" w="100%">
+                  <Button w="100%" size="$5" theme="alt2" fontFamily="$silkscreen">View Land NFTs</Button>
+                </Link>
+                <Link href="/community" w="100%">
+                  <Button w="100%" size="$5" theme="alt2" fontFamily="$silkscreen">Community Guidelines</Button>
+                </Link>
+                <Link href="/docs/intro/introduction" w="100%">
+                  <Button w="100%" size="$5" theme="alt2" fontFamily="$silkscreen">Docs &raquo;</Button>
+                </Link>
+              </YStack>
             </YStack>
-
-            <CodeDemoPreParsed
-              pe={disableScrollPane ? 'none' : 'auto'}
-              maxHeight={500}
-              height={500}
-              maxWidth={530}
-              minWidth={530}
-              borderRadius="$8"
-              language="tsx"
-              source={animationCode}
-            />
           </YStack>
-        </XStack>
-
-        <XStack als="center" gap="$3">
-          <Link href="/docs/core/animations">
-            <Button accessibilityLabel="Animation docs" fontFamily="$silkscreen">
-              Docs &raquo;
-            </Button>
-          </Link>
         </XStack>
       </ContainerLarge>
     </YStack>
@@ -152,7 +268,7 @@ export function CommunityGrowth({ animationCode }: { animationCode: string }) {
 
 export const ExampleAnimations = memo(() => {
   const [animationI, setAnimationI] = useState(0)
-  const animation = animationDescriptions[animationI]
+  const animation = growthStages[animationI]
   const container = useRef(null)
   const [positionI, setPositionI] = useState(2)
   const isIntersecting = useIsIntersecting(container)
@@ -219,7 +335,7 @@ export const ExampleAnimations = memo(() => {
 
       <YStack pos="relative" $sm={{ display: 'none' }} width="40%">
         <YStack f={1} theme="alt2" bg="$color1">
-          {animationDescriptions.map((item, i) => {
+          {growthStages.map((item, i) => {
             const isActive = item === animation
             return (
               <ListItem

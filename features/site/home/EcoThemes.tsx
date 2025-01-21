@@ -3,22 +3,19 @@ import type { SetStateAction } from 'react'
 import { memo, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type { ThemeName } from 'tamagui'
 import {
-    Theme,
-    XGroup,
-    XStack,
-    YStack,
-    debounce,
-    useDebounce,
-    useEvent,
-    useGet,
+  Theme,
+  YStack,
+  debounce,
+  useDebounce,
+  useEvent,
+  useGet
 } from 'tamagui'
 import { useIsIntersecting } from '../../../hooks/useOnIntersecting'
 
 import { useUserTheme } from '@tamagui/one-theme'
-import { ActiveCircle } from '../../../components/ActiveCircle'
 import { ContainerLarge } from '../../../components/Containers'
+import { EcovillageCarousel } from '../../../components/EcovillageCarousel'
 import { HomeH2, HomeH3 } from './HomeHeaders'
-import { MediaPlayer } from './MediaPlayer'
 
 type Lock = null | 'shouldAnimate' | 'animate' | 'scroll'
 
@@ -166,7 +163,7 @@ export const EcoThemes = memo(function EcoThemes() {
       }, [])}
 
       <YStack my="$8" ai="center" jc="center">
-        <XStack className="scroll-horizontal no-scrollbar">
+        {/* <XStack className="scroll-horizontal no-scrollbar">
           <XStack px="$4" space="$2">
             <XGroup disablePassBorderRadius bordered p="$2" br="$10" als="center">
               {(['light', 'dark'] as const).map((name, i) => {
@@ -221,9 +218,9 @@ export const EcoThemes = memo(function EcoThemes() {
               </XGroup.Item>
             </XGroup>
           </XStack>
-        </XStack>
+        </XStack> */}
 
-        <YStack
+        {/* <YStack
           my="$3"
           ov="hidden"
           w="100%"
@@ -313,7 +310,13 @@ export const EcoThemes = memo(function EcoThemes() {
               />
             </Theme>
           </YStack>
-        </YStack>
+        </YStack> */}
+        
+        <ContainerLarge space="$4">
+          <Theme name={colorName}>
+            <EcovillageCarousel />
+          </Theme>
+        </ContainerLarge>
       </YStack>
     </YStack>
   )

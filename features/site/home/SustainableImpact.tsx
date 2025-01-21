@@ -35,8 +35,9 @@ export function SustainableImpact() {
         <YStack
           pos="relative"
           px="$2"
+          mb="$2"
           $sm={{ px: '$0', mx: -20, width: 'calc(100% + 40px)' }}
-          h={131}
+          h={141}
           br="$8"
           width="100%"
           ai="stretch"
@@ -51,13 +52,13 @@ export function SustainableImpact() {
             size="$2"
             $sm={{ display: 'none' }}
           >
-            Lower is better. As of February 2022.
+            Higher percentages indicate better sustainability impact. Updated quarterly.
           </Paragraph>
 
           {show && <BenchmarkChartWeb />}
         </YStack>
 
-        <XStack space flexWrap="wrap">
+        <XStack flexWrap="wrap" gap="$4" ai="center" jc="center">
           <BenchmarksLink />
           <CompilerLink />
         </XStack>

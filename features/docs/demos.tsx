@@ -183,8 +183,8 @@ export const AnimationsEnterDemo = lazyDemo(() =>
   import('@tamagui/demos/demo/AnimationsEnterDemo').then((x) => x.AnimationsEnterDemo)
 )
 export const AnimationsPresenceDemo = lazyDemo(() =>
-  import('../../components/AnimationsPresenceDemo').then(
-    (x) => x.AnimationsPresenceDemo
+  import('../../components/EcovillageCarousel').then(
+    (x) => x.EcovillageCarousel
   )
 )
 export const SwitchDemo = lazyDemo(
