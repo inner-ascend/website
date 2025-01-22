@@ -6,40 +6,40 @@ const roadmapPhases = [
     date: 'Sep-Dec 2025',
     title: 'Foundation',
     items: [
-      'Initial DAO token distribution',
-      'Core team formation',
-      'Community platform launch',
-      'Early member onboarding'
+      'Property purchase finalized',
+      'Initial permits secured',
+      'Community NFT launch',
+      'Core team established'
     ]
   },
   {
     date: 'Jan-Apr 2026',
-    title: 'Land Acquisition',
+    title: 'Land Development',
     items: [
-      'Land NFT minting',
-      'Property evaluation',
-      'Legal framework setup',
-      'Sustainable design planning'
+      'Land assessment complete',
+      'Architectural plans approved',
+      'Infrastructure planning',
+      'Sustainability framework'
     ]
   },
   {
     date: 'May-Dec 2026',
     title: 'Infrastructure',
     items: [
-      'Renewable energy systems',
-      'Water management',
-      'Permaculture design',
-      'Initial housing units'
+      'Solar installation begins',
+      'Water systems setup',
+      'Initial housing construction',
+      'Permaculture zones marked'
     ]
   },
   {
     date: 'Jan 2027+',
-    title: 'Community Growth',
+    title: 'Community Launch',
     items: [
       'First residents move in',
-      'Governance framework',
-      'Resource sharing system',
-      'Cultural events'
+      'Farm operations begin',
+      'Community spaces open',
+      'Education programs start'
     ]
   }
 ]
