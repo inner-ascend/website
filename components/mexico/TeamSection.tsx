@@ -40,6 +40,11 @@ export function TeamSection() {
         jc="center"
         maxWidth={1200}
         als="center"
+        px="$4"
+        $sm={{ 
+          gap: "$4",
+          px: "$2"
+        }}
       >
         {teamMembers.map((member, i) => (
           <Card
@@ -67,10 +72,10 @@ export function TeamSection() {
               maxWidth: 280
             }}
             $sm={{ 
-              width: "calc(100% - $4)",
-              minWidth: "calc(100% - $4)",
-              maxWidth: "calc(100% - $4)",
-              als: "center"
+              width: "100%",
+              minWidth: "100%",
+              maxWidth: "100%",
+              mb: "$2"
             }}
           >
             <YStack 
@@ -81,6 +86,11 @@ export function TeamSection() {
               ov="hidden" 
               backgroundColor="$color4"
               position="relative"
+              $sm={{
+                height: 280,
+                minHeight: 280,
+                maxHeight: 280
+              }}
             >
               {imageStates[member.name] === 'loading' && (
                 <YStack f={1} ai="center" jc="center">
@@ -91,8 +101,8 @@ export function TeamSection() {
               {imageStates[member.name] === 'loaded' && (
                 <YStack 
                   position="relative"
-                  height={320}
-                  width={280}
+                  height="100%"
+                  width="100%"
                   overflow="hidden"
                 >
                   <Image
@@ -104,6 +114,8 @@ export function TeamSection() {
                     left={0}
                     right={0}
                     bottom={0}
+                    width="100%"
+                    height="100%"
                     onError={() => setImageStates(prev => ({ ...prev, [member.name]: 'error' }))}
                   />
                 </YStack>
