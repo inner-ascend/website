@@ -1,5 +1,5 @@
 import { useTint } from '@tamagui/logo'
-import { Check, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Globe, Heart, Leaf, Palette, Sun, Users, X } from '@tamagui/lucide-icons'
+import { Check, ChevronLeft, ChevronRight, Globe, Heart, Leaf, Palette, Sun, Users, X } from '@tamagui/lucide-icons'
 import { useMemo, useState } from 'react'
 import { Button, Card, Dialog, H1, H2, H3, Paragraph, Separator, Spacer, XStack, YStack } from 'tamagui'
 import { ContainerLarge } from '~/components/Containers'
@@ -7,6 +7,8 @@ import { HeadInfo } from '~/components/HeadInfo'
 import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
 import { HomeSection, TintSection } from '~/features/site/home/TintSection'
 import { ThemeNameEffect } from '~/features/site/theme/ThemeNameEffect'
+import { FAQSection } from './components/FAQ'
+import { teamMembers } from './data/team'
 
 export default function Community() {
   return (
@@ -689,8 +691,195 @@ export default function Community() {
         </ContainerLarge>
       </TintSection>
 
-      {/* FAQ Section */}
+      {/* News & Updates */}
       <TintSection index={7}>
+        <ContainerLarge>
+          <YStack space="$6" mb="$8">
+            <YStack space="$6" mb="$6">
+              <H2 size="$9" ta="center" $sm={{ size: "$8" }}>News & Updates</H2>
+              <Paragraph size="$6" ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
+                Follow our journey as we build a sustainable paradise
+              </Paragraph>
+            </YStack>
+
+            <XStack flexWrap="wrap" gap="$4" jc="center">
+              {[
+                {
+                  date: 'January 2024',
+                  title: 'Land Survey Complete',
+                  description: 'Detailed topographical analysis reveals perfect building sites and confirms three pristine cenotes on the property.',
+                  tag: 'Development'
+                },
+                {
+                  date: 'December 2023',
+                  title: 'Community Design Workshop',
+                  description: 'Successful virtual workshop with future residents to finalize sustainable housing designs and community spaces.',
+                  tag: 'Community'
+                },
+                {
+                  date: 'November 2023',
+                  title: 'Solar Assessment',
+                  description: 'Technical study confirms excellent solar potential, enabling 100% renewable energy coverage for the community.',
+                  tag: 'Infrastructure'
+                },
+                {
+                  date: 'October 2023',
+                  title: 'Local Partnership',
+                  description: 'Agreement signed with local organic farmers to support our permaculture development and knowledge exchange.',
+                  tag: 'Partnership'
+                }
+              ].map((update, i) => (
+                <Card
+                  key={i}
+                  bw={1}
+                  bc="$borderColor"
+                  br="$6"
+                  elevation="$4"
+                  width="48%"
+                  p="$5"
+                  space="$3"
+                  pressStyle={{
+                    scale: 0.98,
+                    bc: "$color1",
+                  }}
+                  animation="medium"
+                  hoverStyle={{
+                    elevation: "$8",
+                    borderColor: "$color8",
+                    scale: 1.01
+                  }}
+                  $gtSm={{ minWidth: 400 }}
+                  $sm={{ width: '100%' }}
+                >
+                  <XStack jc="space-between" ai="center">
+                    <Paragraph size="$3" theme="alt2">{update.date}</Paragraph>
+                    <YStack 
+                      backgroundColor={
+                        update.tag === 'Development' ? '$green5' :
+                        update.tag === 'Community' ? '$blue5' :
+                        update.tag === 'Infrastructure' ? '$orange5' :
+                        '$purple5'
+                      }
+                      px="$2"
+                      py="$1"
+                      br="$4"
+                    >
+                      <Paragraph 
+                        size="$2" 
+                        color={
+                          update.tag === 'Development' ? '$green10' :
+                          update.tag === 'Community' ? '$blue10' :
+                          update.tag === 'Infrastructure' ? '$orange10' :
+                          '$purple10'
+                        }
+                      >
+                        {update.tag}
+                      </Paragraph>
+                    </YStack>
+                  </XStack>
+                  <H3 size="$6">{update.title}</H3>
+                  <Paragraph size="$4" theme="alt2">{update.description}</Paragraph>
+                </Card>
+              ))}
+            </XStack>
+
+            <YStack ai="center" mt="$4">
+              <Button 
+                size="$4" 
+                theme="alt2"
+                iconAfter={ChevronRight}
+                pressStyle={{
+                  scale: 0.97,
+                }}
+                animation="quick"
+                hoverStyle={{
+                  opacity: 0.9,
+                  scale: 1.02
+                }}
+              >
+                View All Updates
+              </Button>
+            </YStack>
+          </YStack>
+        </ContainerLarge>
+      </TintSection>
+
+      {/* Team Section */}
+      <TintSection index={8}>
+        <ContainerLarge>
+          <YStack space="$6" mb="$8">
+            <YStack space="$6" mb="$6">
+              <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Meet Our Team</H2>
+              <Paragraph size="$6" ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
+                Visionaries and experts bringing sustainable community living to life
+              </Paragraph>
+            </YStack>
+
+            <XStack flexWrap="wrap" gap="$6" jc="center">
+              {teamMembers.map((member, i) => (
+                <Card
+                  key={i}
+                  bw={1}
+                  bc="$borderColor"
+                  br="$6"
+                  elevation="$4"
+                  width={280}
+                  pressStyle={{
+                    scale: 0.98,
+                    bc: "$color1",
+                  }}
+                  animation="medium"
+                  hoverStyle={{
+                    elevation: "$8",
+                    borderColor: "$color8",
+                    scale: 1.01
+                  }}
+                  $sm={{ width: '100%' }}
+                >
+                  <YStack height={320} br="$6" ov="hidden" style={{
+                    backgroundImage: `url(${member.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }} />
+                  <YStack p="$4" space="$2">
+                    <H3 size="$6">{member.name}</H3>
+                    <Paragraph size="$4" theme="alt2" fontWeight="600">{member.role}</Paragraph>
+                    <Paragraph size="$3" theme="alt2">{member.bio}</Paragraph>
+                    <XStack mt="$2" ai="center" space="$2">
+                      <YStack backgroundColor="$color4" px="$2" py="$1" br="$4">
+                        <Paragraph size="$2" color="$color11">
+                          {member.focus}
+                        </Paragraph>
+                      </YStack>
+                    </XStack>
+                  </YStack>
+                </Card>
+              ))}
+            </XStack>
+
+            <YStack space="$4" ai="center" mt="$6">
+              <Button 
+                size="$4" 
+                theme="alt2"
+                iconAfter={ChevronRight}
+                pressStyle={{
+                  scale: 0.97,
+                }}
+                animation="quick"
+                hoverStyle={{
+                  opacity: 0.9,
+                  scale: 1.02
+                }}
+              >
+                Full Team & Advisors
+              </Button>
+            </YStack>
+          </YStack>
+        </ContainerLarge>
+      </TintSection>
+
+      {/* FAQ Section */}
+      <TintSection index={9}>
         <ContainerLarge>
           <YStack space="$6" mb="$8">
             <YStack space="$6" mb="$6">
@@ -759,107 +948,6 @@ export default function Community() {
 function CommunityLayout({ children }: { children: any }) {
   const { tint } = useTint()
   return <YStack theme={tint as any}>{useMemo(() => children, [children])}</YStack>
-}
-
-function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
-  
-  const faqs = [
-    {
-      question: "How does the NFT ownership model work?",
-      answer: "Each NFT represents a membership tier with specific rights and benefits in the community. Smart contracts ensure transparent ownership, voting rights, and revenue sharing based on your tier level."
-    },
-    {
-      question: "What are the legal considerations?",
-      answer: "Our project operates through a Mexican corporation with proper permits for foreign investment. NFT holders receive membership rights while the legal entity maintains land ownership in compliance with Mexican law."
-    },
-    {
-      question: "Can I live there year-round?",
-      answer: "Yes, Founding Members can live year-round in their private villas. Core Members have extended stay rights, while Community Members enjoy seasonal access. All stays comply with Mexican visa requirements."
-    },
-    {
-      question: "How is the community governed?",
-      answer: "We use a DAO (Decentralized Autonomous Organization) structure where members vote on key decisions. Voting power is weighted by membership tier, ensuring balanced representation while rewarding higher commitment levels."
-    },
-    {
-      question: "What about healthcare and amenities?",
-      answer: "The property is 20 minutes from a major hospital and 15 minutes from markets and amenities. We'll also have on-site basic medical facilities and wellness centers for community members."
-    },
-    {
-      question: "How sustainable is the project?",
-      answer: "We're implementing solar power, rainwater harvesting, permaculture food systems, and waste recycling. Our goal is 80% self-sufficiency in energy and food production within two years of operation."
-    }
-  ]
-
-  return (
-    <YStack w={650} space="$4" $sm={{ w: "100%" }}>
-      {faqs.map((faq, index) => (
-        <FAQItem 
-          key={index}
-          question={faq.question}
-          answer={faq.answer}
-          isOpen={openIndex === index}
-          onToggle={() => setOpenIndex(openIndex === index ? null : index)}
-        />
-      ))}
-    </YStack>
-  )
-}
-
-function FAQItem({ 
-  question, 
-  answer, 
-  isOpen, 
-  onToggle 
-}: { 
-  question: string
-  answer: string
-  isOpen: boolean
-  onToggle: () => void
-}) {
-  return (
-    <Card 
-      bw={1} 
-      bc="$borderColor" 
-      br="$6" 
-      ov="hidden"
-      animation="quick"
-      w="100%"
-    >
-      <XStack
-        p="$5"
-        pr="$4"
-        jc="space-between"
-        ai="center"
-        cursor="pointer"
-        pressStyle={{ opacity: 0.8 }}
-        onPress={onToggle}
-        w="100%"
-      >
-        <YStack f={1} pr="$4">
-          <H3 size="$6">{question}</H3>
-        </YStack>
-        <YStack>
-          {isOpen ? (
-            <ChevronUp size={20} color="var(--color)" />
-          ) : (
-            <ChevronDown size={20} color="var(--color)" />
-          )}
-        </YStack>
-      </XStack>
-      {isOpen && (
-        <YStack 
-          p="$5" 
-          pt="$0"
-          animation="quick"
-        >
-          <Paragraph size="$4" theme="alt2">
-            {answer}
-          </Paragraph>
-        </YStack>
-      )}
-    </Card>
-  )
 }
 
 const galleryData = {
