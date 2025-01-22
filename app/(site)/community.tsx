@@ -1,11 +1,11 @@
 import { useTint } from '@tamagui/logo'
 import { Check, Leaf, Map, Sun, Users } from '@tamagui/lucide-icons'
 import { useMemo } from 'react'
-import { Button, H1, H2, H3, Image, Paragraph, Separator, Spacer, XStack, YStack } from 'tamagui'
+import { Button, Card, H1, H2, H3, Paragraph, Separator, Spacer, XStack, YStack } from 'tamagui'
 import { ContainerLarge } from '~/components/Containers'
 import { HeadInfo } from '~/components/HeadInfo'
 import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
-import { HomeSection, SectionTinted, TintSection } from '~/features/site/home/TintSection'
+import { HomeSection, TintSection } from '~/features/site/home/TintSection'
 import { ThemeNameEffect } from '~/features/site/theme/ThemeNameEffect'
 
 export default function Community() {
@@ -18,35 +18,55 @@ export default function Community() {
       />
 
       {/* Hero Section with Background */}
-      <YStack pos="relative">
-        <Image
-          source={{ uri: '/banner-one.jpg' }}
-          width="100%"
-          height={500}
+      <YStack pos="relative" height={700}>
+        <YStack
           pos="absolute"
           top={0}
           left={0}
           right={0}
-          style={{ objectFit: 'cover' }}
+          bottom={0}
+          style={{
+            backgroundImage: 'url(/images/hero/oaxaca-paradise.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
         />
         <YStack
           fullscreen
           zi={1}
           style={{
-            background: 'linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%)',
+            background: 'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%), linear-gradient(0deg, rgba(0,100,100,0.15) 0%, rgba(0,0,0,0) 100%)',
           }}
         />
-        <YStack zi={2} py="$12" space="$6">
+        <YStack zi={2} py="$12" space="$6" ai="center" jc="center" f={1}>
           <ContainerLarge space="$4">
-            <H1 size="$10" ta="center" className="hero-text" color="$color1">
+            <H1 
+              size="$10" 
+              ta="center" 
+              className="hero-text" 
+              color="white"
+              fontWeight="900"
+              style={{
+                textShadow: '0 2px 10px rgba(0,0,0,0.3)'
+              }}
+            >
               Regenerative Living in Mexico
             </H1>
-            <Paragraph size="$7" ta="center" theme="alt2" color="$color1">
+            <Paragraph 
+              size="$7" 
+              ta="center" 
+              color="white"
+              o={0.9}
+              fontWeight="500"
+              style={{
+                textShadow: '0 1px 8px rgba(0,0,0,0.3)'
+              }}
+            >
               Own a piece of paradise through our NFT-powered community
             </Paragraph>
-            <XStack jc="center" mt="$4" gap="$4">
+            <XStack jc="center" mt="$6" gap="$4">
               <Button size="$5" theme="green">Join Whitelist</Button>
-              <Button size="$5" theme="alt1">Learn More</Button>
+              <Button size="$5" theme="alt1" borderWidth={1}>Learn More</Button>
             </XStack>
           </ContainerLarge>
         </YStack>
@@ -89,35 +109,46 @@ export default function Community() {
 
       {/* Location & Climate */}
       <TintSection index={2}>
-        <SectionTinted bubble gradient>
-          <ContainerLarge space="$8">
-            <XStack gap="$8" flexWrap="wrap">
-              <YStack f={1} miw={300} space="$4">
-                <H2 size="$8">Paradise Found</H2>
-                <Paragraph size="$5" theme="alt2">
-                  Located in the heart of Mexico's Riviera Maya, our 50-acre property combines:
-                </Paragraph>
-                <YStack space="$2">
-                  {[
-                    'Year-round tropical climate perfect for agriculture',
-                    'Rich biodiversity and natural cenotes',
-                    'Easy access to international airports',
-                    'Close proximity to beautiful beaches',
-                    'Established expat community nearby'
-                  ].map(item => (
-                    <XStack key={item} ai="center" space="$2">
-                      <Check size={16} color="var(--green10)" />
-                      <Paragraph size="$4">{item}</Paragraph>
-                    </XStack>
-                  ))}
+        <ContainerLarge position="relative">
+          <YStack zi={1} space="$6" mb="$4">
+            <XStack
+              pos="relative"
+              jc="center"
+              gap="$4"
+              $sm={{ fd: 'column' }}
+              width="100%"
+            >
+              <Card f={1} bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60} width="48%" $sm={{ width: '100%' }}>
+                <YStack jc="center" p="$6" space="$4">
+                  <H2 size="$8">Paradise Found</H2>
+                  <Paragraph size="$5" theme="alt2">
+                    Located in the heart of Mexico's Riviera Maya, our 50-acre property combines:
+                  </Paragraph>
+                  <YStack space="$2">
+                    {[
+                      'Year-round tropical climate perfect for agriculture',
+                      'Rich biodiversity and natural cenotes',
+                      'Easy access to international airports',
+                      'Close proximity to beautiful beaches',
+                      'Established expat community nearby'
+                    ].map(item => (
+                      <XStack key={item} ai="center" space="$2">
+                        <Check size={16} color="var(--green10)" />
+                        <Paragraph size="$4">{item}</Paragraph>
+                      </XStack>
+                    ))}
+                  </YStack>
                 </YStack>
-              </YStack>
-              <YStack f={1} miw={300} br="$4" ov="hidden" h={300}>
-                <Map size="100%" />
-              </YStack>
+              </Card>
+
+              <Card f={1} bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60} width="48%" $sm={{ width: '100%' }}>
+                <YStack br="$4" ov="hidden" h={400}>
+                  <Map size="100%" />
+                </YStack>
+              </Card>
             </XStack>
-          </ContainerLarge>
-        </SectionTinted>
+          </YStack>
+        </ContainerLarge>
       </TintSection>
 
       {/* NFT Tiers */}
@@ -233,49 +264,81 @@ export default function Community() {
 
       {/* Timeline */}
       <TintSection index={4}>
-        <SectionTinted bubble gradient>
-          <ContainerLarge space="$4">
+        <ContainerLarge position="relative">
+          <YStack zi={1} space="$6" mb="$4">
             <H2 size="$8" ta="center" mb="$6">Project Roadmap</H2>
-            <XStack flexWrap="wrap" gap="$4" jc="space-between">
-              <YStack f={1} miw={250} space="$2" p="$4">
-                <H3 size="$4" theme="alt2">Q4 2024</H3>
-                <H3 size="$5">Land Acquisition</H3>
-                <Paragraph size="$3" theme="alt2">
-                  • Property purchase finalized
-                  • Initial permits secured
-                  • Community NFT launch
-                </Paragraph>
-              </YStack>
-              <YStack f={1} miw={250} space="$2" p="$4">
-                <H3 size="$4" theme="alt2">Q2 2025</H3>
-                <H3 size="$5">Infrastructure</H3>
-                <Paragraph size="$3" theme="alt2">
-                  • Solar installation
-                  • Water systems
-                  • Initial housing units
-                </Paragraph>
-              </YStack>
-              <YStack f={1} miw={250} space="$2" p="$4">
-                <H3 size="$4" theme="alt2">Q4 2025</H3>
-                <H3 size="$5">Community Launch</H3>
-                <Paragraph size="$3" theme="alt2">
-                  • First residents move in
-                  • Farm operations begin
-                  • Community spaces open
-                </Paragraph>
-              </YStack>
-              <YStack f={1} miw={250} space="$2" p="$4">
-                <H3 size="$4" theme="alt2">2026+</H3>
-                <H3 size="$5">Expansion</H3>
-                <Paragraph size="$3" theme="alt2">
-                  • Additional housing
-                  • Education center
-                  • Wellness facilities
-                </Paragraph>
-              </YStack>
+            <XStack
+              pos="relative"
+              jc="center"
+              flexWrap="wrap"
+              gap="$4"
+              width="100%"
+            >
+              {[
+                {
+                  date: 'Q4 2024',
+                  title: 'Land Acquisition',
+                  items: [
+                    'Property purchase finalized',
+                    'Initial permits secured',
+                    'Community NFT launch'
+                  ]
+                },
+                {
+                  date: 'Q2 2025',
+                  title: 'Infrastructure',
+                  items: [
+                    'Solar installation',
+                    'Water systems',
+                    'Initial housing units'
+                  ]
+                },
+                {
+                  date: 'Q4 2025',
+                  title: 'Community Launch',
+                  items: [
+                    'First residents move in',
+                    'Farm operations begin',
+                    'Community spaces open'
+                  ]
+                },
+                {
+                  date: '2026+',
+                  title: 'Expansion',
+                  items: [
+                    'Additional housing',
+                    'Education center',
+                    'Wellness facilities'
+                  ]
+                }
+              ].map((phase, i) => (
+                <Card 
+                  key={i}
+                  bw={1}
+                  bc="$borderColor"
+                  br="$6"
+                  elevation="$6"
+                  shadowRadius={60}
+                  width="23%"
+                  $gtSm={{ minWidth: 220 }}
+                  $sm={{ width: '100%' }}
+                >
+                  <YStack jc="center" p="$4" space="$2">
+                    <H3 size="$4" theme="alt2">{phase.date}</H3>
+                    <H3 size="$5">{phase.title}</H3>
+                    <YStack space="$1">
+                      {phase.items.map((item, j) => (
+                        <Paragraph key={j} size="$3" theme="alt2">
+                          • {item}
+                        </Paragraph>
+                      ))}
+                    </YStack>
+                  </YStack>
+                </Card>
+              ))}
             </XStack>
-          </ContainerLarge>
-        </SectionTinted>
+          </YStack>
+        </ContainerLarge>
       </TintSection>
 
       {/* Call to Action */}
