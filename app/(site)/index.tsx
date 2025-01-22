@@ -1,5 +1,6 @@
 import { useLoader } from 'one'
 import { Spacer, YStack } from 'tamagui'
+import { MexicoProject } from '~/features/site/home/MexicoProject'
 import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
 import { HeadInfo } from '../../components/HeadInfo'
 import { AdaptiveSpaces } from '../../features/site/home/AdaptiveSpaces'
@@ -50,7 +51,8 @@ export default function TamaguiHomePage() {
         <Hero />
       </TintSection>
       <HomeHeroBelow />
-      <TintSection index={2} contain="paint layout" zi={1000}>
+      
+      <TintSection index={1} contain="paint layout" zi={1000}>
         <YStack
           pe="none"
           zi={0}
@@ -62,6 +64,20 @@ export default function TamaguiHomePage() {
         />
         <CommunityShowcase examples={compilationExamples} />
       </TintSection>
+
+      <TintSection index={2} contain="paint layout" zi={1000}>
+        <YStack
+          pe="none"
+          zi={0}
+          fullscreen
+          className="bg-dot-grid"
+          style={{
+            maskImage: `linear-gradient(transparent, #000, transparent)`,
+          }}
+        />
+        <MexicoProject />
+      </TintSection>
+
       <TintSection my={-50} index={3} contain="paint layout" pos="relative" zi={100}>
         <YStack
           pe="none"

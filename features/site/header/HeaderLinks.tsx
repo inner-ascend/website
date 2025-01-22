@@ -88,6 +88,18 @@ export const HeaderLinks = (props: HeaderProps) => {
         </HeadAnchor>
       </Link>
 
+      {!forceShowAllLinks && <Link asChild href="/mexico">
+        <HeadAnchor
+          // half={forceShowAllLinks}
+          grid={forceShowAllLinks}
+          $sm={{
+            display: forceShowAllLinks ? 'flex' : 'none',
+          }}
+        >
+          Mexico
+        </HeadAnchor>
+      </Link>}
+
       <Link asChild href="https://t.me/+s6l6LL0v5BIxMWJk" target="_blank" rel="noopener noreferrer">
         <HeadAnchor
           grid={forceShowAllLinks}
@@ -96,13 +108,16 @@ export const HeaderLinks = (props: HeaderProps) => {
           }}
         >
           <XStack ai="center" gap="$2">
-            {/* <TooltipSimple label="Telegram"> */}
-              <TelegramIcon width={14} height={14} />
-            {/* </TooltipSimple> */}
-            {forceShowAllLinks && (
-              <Paragraph fontFamily="$silkscreen">Telegram</Paragraph>
-            )}
-          </XStack>
+          {forceShowAllLinks && (
+            <TelegramIcon width={14} height={14} />
+          )}
+          {!forceShowAllLinks ? (
+            <TelegramIcon width={14} height={14} />
+          ) : (
+            'Telegram'
+          )}
+          
+</XStack>
         </HeadAnchor>
       </Link>
     </>
@@ -122,9 +137,9 @@ export const HeaderLinks = (props: HeaderProps) => {
       {forceShowAllLinks && (
         <>
           <XStack fw="wrap" f={1} gap="$2" w="100%">
-            <Link asChild href="/community">
+            <Link asChild href="/mexico">
               <HeadAnchor grid tag="a">
-                Community
+                Mexico Project
               </HeadAnchor>
             </Link>
           </XStack>
@@ -134,11 +149,11 @@ export const HeaderLinks = (props: HeaderProps) => {
 
       {/* Bento and Takeout triggers (commented out) */}
 
-      {showExtra && (
+      {/* {showExtra && (
         <Link asChild href="/studio">
           <HeadAnchor grid={forceShowAllLinks}>Studio</HeadAnchor>
         </Link>
-      )}
+      )} */}
     </>
   )
 }
