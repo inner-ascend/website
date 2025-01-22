@@ -1,7 +1,6 @@
 import { useTint } from '@tamagui/logo'
-import { ChevronRight } from '@tamagui/lucide-icons'
 import { useMemo } from 'react'
-import { Button, Card, H1, H3, Paragraph, Spacer, XStack, YStack } from 'tamagui'
+import { Button, H1, Paragraph, Spacer, XStack, YStack } from 'tamagui'
 import { ContainerLarge } from '~/components/Containers'
 import { HeadInfo } from '~/components/HeadInfo'
 import { FAQSection } from '~/components/mexico/FAQ'
@@ -12,7 +11,7 @@ import { MembershipTiers } from '~/components/mexico/MembershipTiers'
 import { NewsUpdates } from '~/components/mexico/NewsUpdates'
 import { ProjectImpact } from '~/components/mexico/ProjectImpact'
 import { ProjectRoadmap } from '~/components/mexico/ProjectRoadmap'
-import { teamMembers } from '~/data/mexico/team'
+import { TeamSection } from '~/components/mexico/TeamSection'
 import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
 import { HomeSection, TintSection } from '~/features/site/home/TintSection'
@@ -198,75 +197,7 @@ export default function Community() {
       {/* Team Section */}
       <TintSection index={8}>
         <ContainerLarge>
-          <YStack space="$6" mb="$8">
-            <YStack space="$6" mb="$6">
-              <HomeH2 ta="center" $sm={{ size: "$8" }}>Meet Our Team</HomeH2>
-              <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
-                Visionaries and experts bringing sustainable community living to life
-              </HomeH3>
-            </YStack>
-
-            <XStack flexWrap="wrap" gap="$6" jc="center">
-              {teamMembers.map((member, i) => (
-                <Card
-                  key={i}
-                  bw={1}
-                  bc="$borderColor"
-                  br="$6"
-                  elevation="$4"
-                  width={280}
-                  pressStyle={{
-                    scale: 0.98,
-                    bc: "$color1",
-                  }}
-                  animation="medium"
-                  hoverStyle={{
-                    elevation: "$8",
-                    borderColor: "$color8",
-                    scale: 1.01
-                  }}
-                  $sm={{ width: '100%' }}
-                >
-                  <YStack height={320} br="$6" ov="hidden" style={{
-                    backgroundImage: `url(${member.image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                  }} />
-                  <YStack p="$4" space="$2">
-                    <H3 size="$6">{member.name}</H3>
-                    <Paragraph size="$4" theme="alt2" fontWeight="600">{member.role}</Paragraph>
-                    <Paragraph size="$3" theme="alt2">{member.bio}</Paragraph>
-                    <XStack mt="$2" ai="center" space="$2">
-                      <YStack backgroundColor="$color4" px="$2" py="$1" br="$4">
-                        <Paragraph size="$2" color="$color11">
-                          {member.focus}
-                        </Paragraph>
-                      </YStack>
-                    </XStack>
-                  </YStack>
-                </Card>
-              ))}
-            </XStack>
-
-            <YStack space="$4" ai="center" mt="$6">
-              <Button 
-                size="$4" 
-                theme="alt2"
-                fontFamily="$silkscreen"
-                iconAfter={ChevronRight}
-                pressStyle={{
-                  scale: 0.97,
-                }}
-                animation="quick"
-                hoverStyle={{
-                  opacity: 0.9,
-                  scale: 1.02
-                }}
-              >
-                Full Team & Advisors
-              </Button>
-            </YStack>
-          </YStack>
+          <TeamSection />
         </ContainerLarge>
       </TintSection>
 
