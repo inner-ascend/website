@@ -8,7 +8,7 @@ export function LocationClimate() {
       <YStack space="$6" mb="$6">
         <HomeH2 ta="center" $sm={{ size: "$8" }}>Location & Climate</HomeH2>
         <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
-          Experience the perfect blend of natural beauty and modern comfort in Mexico's stunning Riviera Maya
+          Experience the perfect blend of mountain jungle and coastal proximity in Oaxaca's pristine Sierra Madre del Sur
         </HomeH3>
       </YStack>
 
@@ -53,7 +53,7 @@ export function LocationClimate() {
                 </YStack>
                 <YStack space="$1" f={1}>
                   <Paragraph size="$4" fontWeight="600">Perfect Growing Climate</Paragraph>
-                  <Paragraph size="$3" theme="alt2">Year-round conditions ideal for tropical and subtropical crops</Paragraph>
+                  <Paragraph size="$3" theme="alt2">Mountain jungle environment at 1200m altitude with ideal growing conditions</Paragraph>
                 </YStack>
               </XStack>
               
@@ -63,7 +63,7 @@ export function LocationClimate() {
                 </YStack>
                 <YStack space="$1" f={1}>
                   <Paragraph size="$4" fontWeight="600">Natural Resources</Paragraph>
-                  <Paragraph size="$3" theme="alt2">Crystal-clear cenotes and rich biodiversity on the property</Paragraph>
+                  <Paragraph size="$3" theme="alt2">Rich biodiversity with pristine mountain springs and diverse flora</Paragraph>
                 </YStack>
               </XStack>
 
@@ -73,7 +73,7 @@ export function LocationClimate() {
                 </YStack>
                 <YStack space="$1" f={1}>
                   <Paragraph size="$4" fontWeight="600">Strategic Location</Paragraph>
-                  <Paragraph size="$3" theme="alt2">Easy access to airports, beaches, and modern amenities</Paragraph>
+                  <Paragraph size="$3" theme="alt2">1-hour from Huatulco International Airport and Pacific beaches</Paragraph>
                 </YStack>
               </XStack>
 
@@ -128,13 +128,16 @@ export function LocationClimate() {
                   <H3 size="$5" theme="alt2">Climate & Environment</H3>
                   <YStack space="$2">
                     <Paragraph size="$4">
-                      • Average temperature: 24-29°C (75-84°F)
+                      • Elevation: 1200m above sea level
+                    </Paragraph>
+                    <Paragraph size="$4">
+                      • Average temperature: 20-28°C (68-82°F)
                     </Paragraph>
                     <Paragraph size="$4">
                       • Rainy season: June to October
                     </Paragraph>
                     <Paragraph size="$4">
-                      • Humidity: Moderate tropical climate
+                      • Climate: Mountain jungle microclimate
                     </Paragraph>
                   </YStack>
                 </YStack>
@@ -143,16 +146,16 @@ export function LocationClimate() {
                   <H3 size="$5" theme="alt2">Travel & Access</H3>
                   <YStack space="$2">
                     <Paragraph size="$4">
-                      • 45 min from Cancún International Airport
+                      • 1 hour from Huatulco International Airport
                     </Paragraph>
                     <Paragraph size="$4">
-                      • 20 min to nearest major hospital
+                      • 1 hour to Pacific beaches
                     </Paragraph>
                     <Paragraph size="$4">
-                      • 15 min to local markets and amenities
+                      • Easy access to local markets
                     </Paragraph>
                     <Paragraph size="$4">
-                      • 10 min to pristine beaches
+                      • Connected to mountain communities
                     </Paragraph>
                   </YStack>
                 </YStack>
@@ -161,16 +164,16 @@ export function LocationClimate() {
                   <H3 size="$5" theme="alt2">Property Overview</H3>
                   <YStack space="$2">
                     <Paragraph size="$4">
-                      • 50 acres of pristine tropical land
+                      • Pristine mountain jungle terrain
                     </Paragraph>
                     <Paragraph size="$4">
-                      • Multiple natural cenotes on-site
+                      • Natural springs and water sources
                     </Paragraph>
                     <Paragraph size="$4">
-                      • Mix of jungle and clearings
+                      • Rich biodiversity and wildlife
                     </Paragraph>
                     <Paragraph size="$4">
-                      • Natural elevation changes
+                      • Natural terraced landscape
                     </Paragraph>
                   </YStack>
                 </YStack>
