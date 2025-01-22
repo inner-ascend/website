@@ -85,7 +85,7 @@ export const docsRoutes = [
     isUI: false,
     title: 'Community',
     pages: [
-      { title: `Community`, route: '/community' },
+      { title: `Mexico`, route: '/mexico' },
       { title: `Blog`, route: '/blog' },
       // {
       //   title: 'Figma',
