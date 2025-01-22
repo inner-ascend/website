@@ -3,39 +3,43 @@ import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 
 const roadmapPhases = [
   {
-    date: 'Q4 2024',
-    title: 'Land Acquisition',
+    date: 'Sep-Dec 2025',
+    title: 'Foundation',
     items: [
-      'Property purchase finalized',
-      'Initial permits secured',
-      'Community NFT launch'
+      'Initial DAO token distribution',
+      'Core team formation',
+      'Community platform launch',
+      'Early member onboarding'
     ]
   },
   {
-    date: 'Q2 2025',
+    date: 'Jan-Apr 2026',
+    title: 'Land Acquisition',
+    items: [
+      'Land NFT minting',
+      'Property evaluation',
+      'Legal framework setup',
+      'Sustainable design planning'
+    ]
+  },
+  {
+    date: 'May-Dec 2026',
     title: 'Infrastructure',
     items: [
-      'Solar installation',
-      'Water systems',
+      'Renewable energy systems',
+      'Water management',
+      'Permaculture design',
       'Initial housing units'
     ]
   },
   {
-    date: 'Q4 2025',
-    title: 'Community Launch',
+    date: 'Jan 2027+',
+    title: 'Community Growth',
     items: [
       'First residents move in',
-      'Farm operations begin',
-      'Community spaces open'
-    ]
-  },
-  {
-    date: '2026+',
-    title: 'Expansion',
-    items: [
-      'Additional housing',
-      'Education center',
-      'Wellness facilities'
+      'Governance framework',
+      'Resource sharing system',
+      'Cultural events'
     ]
   }
 ]

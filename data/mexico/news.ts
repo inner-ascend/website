@@ -7,27 +7,27 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
-    date: 'January 2024',
-    title: 'Land Survey Complete',
-    description: 'Detailed topographical analysis reveals perfect building sites and confirms three pristine cenotes on the property.',
+    date: 'March 2026',
+    title: 'Land Acquisition Complete',
+    description: 'Strategic property secured in prime location, marking a major milestone in our sustainable community development.',
     tag: 'Development'
   },
   {
-    date: 'December 2023',
-    title: 'Community Design Workshop',
-    description: 'Successful virtual workshop with future residents to finalize sustainable housing designs and community spaces.',
+    date: 'February 2026',
+    title: 'NFT Whitelist Opens',
+    description: 'Community membership NFTs now available for early supporters, with exclusive benefits and governance rights.',
     tag: 'Community'
   },
   {
-    date: 'November 2023',
-    title: 'Solar Assessment',
-    description: 'Technical study confirms excellent solar potential, enabling 100% renewable energy coverage for the community.',
+    date: 'January 2026',
+    title: 'Master Plan Approved',
+    description: 'Detailed infrastructure and sustainability plans approved by local authorities, paving way for construction.',
     tag: 'Infrastructure'
   },
   {
-    date: 'October 2023',
-    title: 'Local Partnership',
-    description: 'Agreement signed with local organic farmers to support our permaculture development and knowledge exchange.',
+    date: 'December 2025',
+    title: 'Indigenous Partnership',
+    description: 'Collaboration established with local indigenous community for cultural preservation and knowledge sharing.',
     tag: 'Partnership'
   }
 ] 
