@@ -47,41 +47,51 @@ export function LocationClimate() {
               </Paragraph>
             </YStack>
             <YStack space="$6">
-              <XStack ai="center" space="$3">
-                <Check size={20} color="var(--green10)" />
-                <YStack space="$1">
+              <XStack ai="flex-start" space="$3" flexWrap="nowrap" width="100%">
+                <YStack pt="$1">
+                  <Check size={20} color="var(--green10)" />
+                </YStack>
+                <YStack space="$1" f={1}>
                   <Paragraph size="$4" fontWeight="600">Perfect Growing Climate</Paragraph>
                   <Paragraph size="$3" theme="alt2">Year-round conditions ideal for tropical and subtropical crops</Paragraph>
                 </YStack>
               </XStack>
               
-              <XStack ai="center" space="$3">
-                <Check size={20} color="var(--green10)" />
-                <YStack space="$1">
+              <XStack ai="flex-start" space="$3" flexWrap="nowrap" width="100%">
+                <YStack pt="$1">
+                  <Check size={20} color="var(--green10)" />
+                </YStack>
+                <YStack space="$1" f={1}>
                   <Paragraph size="$4" fontWeight="600">Natural Resources</Paragraph>
                   <Paragraph size="$3" theme="alt2">Crystal-clear cenotes and rich biodiversity on the property</Paragraph>
                 </YStack>
               </XStack>
 
-              <XStack ai="center" space="$3">
-                <Check size={20} color="var(--green10)" />
-                <YStack space="$1">
+              <XStack ai="flex-start" space="$3" flexWrap="nowrap" width="100%">
+                <YStack pt="$1">
+                  <Check size={20} color="var(--green10)" />
+                </YStack>
+                <YStack space="$1" f={1}>
                   <Paragraph size="$4" fontWeight="600">Strategic Location</Paragraph>
                   <Paragraph size="$3" theme="alt2">Easy access to airports, beaches, and modern amenities</Paragraph>
                 </YStack>
               </XStack>
 
-              <XStack ai="center" space="$3">
-                <Check size={20} color="var(--green10)" />
-                <YStack space="$1">
+              <XStack ai="flex-start" space="$3" flexWrap="nowrap" width="100%">
+                <YStack pt="$1">
+                  <Check size={20} color="var(--green10)" />
+                </YStack>
+                <YStack space="$1" f={1}>
                   <Paragraph size="$4" fontWeight="600">Community Integration</Paragraph>
                   <Paragraph size="$3" theme="alt2">Thriving expat community and local cultural experiences</Paragraph>
                 </YStack>
               </XStack>
 
-              <XStack ai="center" space="$3">
-                <Check size={20} color="var(--green10)" />
-                <YStack space="$1">
+              <XStack ai="flex-start" space="$3" flexWrap="nowrap" width="100%">
+                <YStack pt="$1">
+                  <Check size={20} color="var(--green10)" />
+                </YStack>
+                <YStack space="$1" f={1}>
                   <Paragraph size="$4" fontWeight="600">Development Ready</Paragraph>
                   <Paragraph size="$3" theme="alt2">All permits secured and infrastructure planning complete</Paragraph>
                 </YStack>

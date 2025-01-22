@@ -76,7 +76,18 @@ export default function Community() {
             >
               Join a visionary community where sustainable living meets tropical paradise
             </Paragraph>
-            <XStack jc="center" mt="$6" gap="$4">
+            <XStack 
+              jc="center" 
+              mt="$6" 
+              gap="$4"
+              $sm={{ 
+                flexDirection: 'column',
+                ai: 'center',
+                gap: '$3',
+                maxWidth: 200,
+                als: 'center'
+              }}
+            >
               <Button 
                 size="$5" 
                 theme="green"
