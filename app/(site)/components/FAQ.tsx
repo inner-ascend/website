@@ -1,5 +1,6 @@
+import { ChevronDown, ChevronUp } from '@tamagui/lucide-icons'
 import { useState } from 'react'
-import { Card, ChevronDown, ChevronUp, H3, Paragraph, XStack, YStack } from 'tamagui'
+import { Card, H3, Paragraph, XStack, YStack } from 'tamagui'
 
 export interface FAQItem {
   question: string
