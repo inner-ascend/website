@@ -67,8 +67,35 @@ export default function Community() {
               Join a visionary community where sustainable living meets tropical paradise
             </Paragraph>
             <XStack jc="center" mt="$6" gap="$4">
-              <Button size="$5" theme="green">Join Whitelist</Button>
-              <Button size="$5" theme="alt1" borderWidth={1}>Learn More</Button>
+              <Button 
+                size="$5" 
+                theme="green"
+                pressStyle={{
+                  scale: 0.97,
+                }}
+                animation="quick"
+                hoverStyle={{
+                  opacity: 0.9,
+                  scale: 1.02
+                }}
+              >
+                Join Whitelist
+              </Button>
+              <Button 
+                size="$5" 
+                theme="alt1" 
+                borderWidth={1}
+                pressStyle={{
+                  scale: 0.97,
+                }}
+                animation="quick"
+                hoverStyle={{
+                  opacity: 0.9,
+                  scale: 1.02
+                }}
+              >
+                Learn More
+              </Button>
             </XStack>
           </ContainerLarge>
         </YStack>
@@ -79,7 +106,16 @@ export default function Community() {
         <ContainerLarge>
           <XStack flexWrap="wrap" gap="$8" jc="center" $sm={{ gap: "$6" }}>
             <YStack w={250} ai="center" space="$3" $sm={{ w: "100%", maw: 300 }}>
-              <YStack p="$4" br="$6" bc="$green5">
+              <YStack 
+                p="$4" 
+                br="$6" 
+                bc="$green5"
+                pressStyle={{
+                  scale: 0.98,
+                  opacity: 0.85
+                }}
+                animation="quick"
+              >
                 <Leaf size={24} color="var(--green10)" />
               </YStack>
               <H3 size="$5" ta="center" $sm={{ size: "$4" }}>Regenerative Agriculture</H3>
@@ -189,7 +225,21 @@ export default function Community() {
               $sm={{ fd: 'column' }}
               width="100%"
             >
-              <Card f={1} bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60} width="48%" $sm={{ width: '100%' }}>
+              <Card 
+                f={1} 
+                bw={1} 
+                bc="$borderColor" 
+                br="$6" 
+                elevation="$6" 
+                shadowRadius={60} 
+                width="48%" 
+                animation="medium"
+                hoverStyle={{
+                  elevation: "$8",
+                  scale: 1.01
+                }}
+                $sm={{ width: '100%' }}
+              >
                 <YStack jc="center" p="$6" space="$6">
                   <YStack space="$4">
                     <H2 size="$8">Paradise Found</H2>
@@ -241,7 +291,10 @@ export default function Community() {
                 </YStack>
               </Card>
 
-              <Card f={1} bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60} width="48%" $sm={{ width: '100%' }}>
+              <Card f={1} bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60} width="48%" hoverStyle={{
+                  elevation: "$8",
+                  scale: 1.01
+                }} $sm={{ width: '100%' }}>
                 <YStack jc="center" p="$6" space="$6">
                   <YStack space="$4">
                     <H2 size="$8">Location Details</H2>
@@ -324,6 +377,15 @@ export default function Community() {
               space="$4"
               borderWidth={2}
               borderColor="$borderColor"
+              pressStyle={{
+                scale: 0.98,
+                bc: "$color1",
+              }}
+              animation="medium"
+              hoverStyle={{
+                elevation: "$8",
+                borderColor: "$color8"
+              }}
               $sm={{ 
                 miw: "auto",
                 w: "100%",
@@ -349,7 +411,20 @@ export default function Community() {
                   </XStack>
                 ))}
               </YStack>
-              <Button size="$4" theme="green_alt2">Join Waitlist</Button>
+              <Button 
+                size="$4" 
+                theme="green_alt2"
+                pressStyle={{
+                  scale: 0.97,
+                }}
+                animation="quick"
+                hoverStyle={{
+                  opacity: 0.9,
+                  scale: 1.02
+                }}
+              >
+                Join Waitlist
+              </Button>
             </YStack>
 
             <YStack
@@ -362,6 +437,15 @@ export default function Community() {
               borderWidth={2}
               borderColor="$borderColor"
               theme="purple"
+              pressStyle={{
+                scale: 0.98,
+                bc: "$color1",
+              }}
+              animation="medium"
+              hoverStyle={{
+                elevation: "$8",
+                borderColor: "$color8"
+              }}
               $sm={{ 
                 miw: "auto",
                 w: "100%",
@@ -400,6 +484,15 @@ export default function Community() {
               borderWidth={2}
               borderColor="$borderColor"
               theme="blue"
+              pressStyle={{
+                scale: 0.98,
+                bc: "$color1",
+              }}
+              animation="medium"
+              hoverStyle={{
+                elevation: "$8",
+                borderColor: "$color8"
+              }}
               $sm={{ 
                 miw: "auto",
                 w: "100%",
@@ -494,6 +587,16 @@ export default function Community() {
                   elevation="$6"
                   shadowRadius={60}
                   width="23%"
+                  pressStyle={{
+                    scale: 0.98,
+                    bc: "$color1",
+                  }}
+                  animation="medium"
+                  hoverStyle={{
+                    elevation: "$8",
+                    borderColor: "$color8",
+                    scale: 1.02
+                  }}
                   $gtSm={{ minWidth: 220 }}
                   $sm={{ width: '100%' }}
                 >
@@ -578,8 +681,34 @@ export default function Community() {
               Be among the pioneers shaping the future of sustainable living in Mexico. Limited founding memberships available.
             </Paragraph>
             <XStack gap="$4" mt="$4">
-              <Button size="$5" theme="green">Join Whitelist</Button>
-              <Button size="$5" theme="alt2">Schedule a Call</Button>
+              <Button 
+                size="$5" 
+                theme="green"
+                pressStyle={{
+                  scale: 0.97,
+                }}
+                animation="quick"
+                hoverStyle={{
+                  opacity: 0.9,
+                  scale: 1.02
+                }}
+              >
+                Join Whitelist
+              </Button>
+              <Button 
+                size="$5" 
+                theme="alt2"
+                pressStyle={{
+                  scale: 0.97,
+                }}
+                animation="quick"
+                hoverStyle={{
+                  opacity: 0.9,
+                  scale: 1.02
+                }}
+              >
+                Schedule a Call
+              </Button>
             </XStack>
           </YStack>
         </ContainerLarge>
