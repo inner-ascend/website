@@ -35,7 +35,7 @@ export function ProjectImpact() {
 
       <XStack flexWrap="wrap" gap="$8" jc="center" mt="$4" $sm={{ gap: "$6" }}>
         <YStack w={200} ai="center" space="$2" $sm={{ w: "45%" }}>
-          <H2 size="$9" color="$orange10">5+</H2>
+          <H2 size="$9" color="$orange10">4+</H2>
           <Paragraph size="$4" ta="center" theme="alt2">Water Springs</Paragraph>
         </YStack>
 
