@@ -1,18 +1,29 @@
 import { User } from '@tamagui/lucide-icons'
-import { useState } from 'react'
-import { Card, H3, Image, Paragraph, XStack, YStack } from 'tamagui'
+import { useEffect, useState } from 'react'
+import { Card, H3, Image, Paragraph, Spinner, XStack, YStack } from 'tamagui'
 import { teamMembers } from '~/data/mexico/team'
 import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 
 export function TeamSection() {
-  const [imageErrors, setImageErrors] = useState<{[key: string]: boolean}>({})
+  const [imageStates, setImageStates] = useState<{[key: string]: 'loading' | 'error' | 'loaded'}>({})
 
-  const handleImageError = (memberName: string) => {
-    setImageErrors(prev => ({
-      ...prev,
-      [memberName]: true
-    }))
-  }
+  // Pre-load images
+  useEffect(() => {
+    teamMembers.forEach(member => {
+      const img = new window.Image()
+      setImageStates(prev => ({ ...prev, [member.name]: 'loading' }))
+      
+      img.onload = () => {
+        setImageStates(prev => ({ ...prev, [member.name]: 'loaded' }))
+      }
+      
+      img.onerror = () => {
+        setImageStates(prev => ({ ...prev, [member.name]: 'error' }))
+      }
+      
+      img.src = member.image
+    })
+  }, [])
 
   return (
     <YStack space="$6" mb="$8">
@@ -23,7 +34,13 @@ export function TeamSection() {
         </HomeH3>
       </YStack>
 
-      <XStack flexWrap="wrap" gap="$6" jc="center">
+      <XStack 
+        flexWrap="wrap" 
+        gap="$6" 
+        jc="center"
+        maxWidth={1200}
+        als="center"
+      >
         {teamMembers.map((member, i) => (
           <Card
             key={i}
@@ -32,6 +49,8 @@ export function TeamSection() {
             br="$6"
             elevation="$4"
             width={280}
+            minWidth={280}
+            maxWidth={280}
             pressStyle={{
               scale: 0.98,
               bc: "$color1",
@@ -42,24 +61,55 @@ export function TeamSection() {
               borderColor: "$color8",
               scale: 1.01
             }}
-            $sm={{ width: '100%' }}
+            $gtSm={{
+              width: 280,
+              minWidth: 280,
+              maxWidth: 280
+            }}
+            $sm={{ 
+              width: "calc(100% - $4)",
+              minWidth: "calc(100% - $4)",
+              maxWidth: "calc(100% - $4)",
+              als: "center"
+            }}
           >
             <YStack 
               height={320} 
+              minHeight={320}
+              maxHeight={320}
               br="$6" 
               ov="hidden" 
               backgroundColor="$color4"
               position="relative"
             >
-              {!imageErrors[member.name] ? (
-                <Image
-                  source={{ uri: member.image, width: 280, height: 320 }}
-                  resizeMode="cover"
-                  width="100%"
-                  height="100%"
-                  onError={() => handleImageError(member.name)}
-                />
-              ) : (
+              {imageStates[member.name] === 'loading' && (
+                <YStack f={1} ai="center" jc="center">
+                  <Spinner size="large" color="$color" />
+                </YStack>
+              )}
+              
+              {imageStates[member.name] === 'loaded' && (
+                <YStack 
+                  position="relative"
+                  height={320}
+                  width={280}
+                  overflow="hidden"
+                >
+                  <Image
+                    source={{ uri: member.image }}
+                    alt={`${member.name} - ${member.role}`}
+                    resizeMode="cover"
+                    position="absolute"
+                    top={0}
+                    left={0}
+                    right={0}
+                    bottom={0}
+                    onError={() => setImageStates(prev => ({ ...prev, [member.name]: 'error' }))}
+                  />
+                </YStack>
+              )}
+              
+              {imageStates[member.name] === 'error' && (
                 <YStack f={1} ai="center" jc="center" space="$2">
                   <User size={40} color="var(--color)" opacity={0.5} />
                   <Paragraph size="$3" theme="alt2">Photo coming soon</Paragraph>
