@@ -98,7 +98,7 @@ export function EcovillageCarousel() {
             <HomeH2 color="white" size="$8" ta="center">
               {images[imageIndex].title}
             </HomeH2>
-            <HomeH3 color="white" size="$5" o={0.8} ta="center" p="$4" maxWidth={600}>
+            <HomeH3 color="white" size="$5" o={0.8} ta="center" p="$4" maxWidth={600} theme="dark">
               {images[imageIndex].description}
             </HomeH3>
           </YStack>
