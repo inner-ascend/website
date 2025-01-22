@@ -862,185 +862,52 @@ function FAQItem({
   )
 }
 
-function GalleryModal({ 
-  isOpen, 
-  onClose, 
-  category,
-  images 
-}: { 
-  isOpen: boolean
-  onClose: () => void
-  category: string
-  images: { url: string; caption: string }[]
-}) {
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  const nextImage = () => {
-    setCurrentIndex((prev) => (prev + 1) % images.length)
+const galleryData = {
+  "Natural Cenotes": {
+    images: [
+      { url: "/images/gallery/cenote.jpg", caption: "Crystal-clear waters perfect for swimming" },
+      { url: "/images/gallery/cenote-2.jpg", caption: "Ancient limestone formations create natural pools" },
+      { url: "/images/gallery/cenote-3.jpg", caption: "Underground water systems feed our cenotes" }
+    ]
+  },
+  "Lush Jungle": {
+    images: [
+      { url: "/images/gallery/jungle.jpg", caption: "50 acres of pristine tropical forest" },
+      { url: "/images/gallery/jungle-2.jpg", caption: "Rich biodiversity with native species" },
+      { url: "/images/gallery/jungle-3.jpg", caption: "Natural trails through the property" }
+    ]
+  },
+  "Community Spaces": {
+    images: [
+      { url: "/images/gallery/community.jpg", caption: "Shared areas for connection & creativity" },
+      { url: "/images/gallery/community-2.jpg", caption: "Open-air gathering spaces" },
+      { url: "/images/gallery/community-3.jpg", caption: "Collaborative work areas" }
+    ]
+  },
+  "Sustainable Villas": {
+    images: [
+      { url: "/images/gallery/villa.jpg", caption: "Eco-friendly homes with modern amenities" },
+      { url: "/images/gallery/villa-2.jpg", caption: "Solar-powered living spaces" },
+      { url: "/images/gallery/villa-3.jpg", caption: "Natural building materials" }
+    ]
+  },
+  "Nearby Beaches": {
+    images: [
+      { url: "/images/gallery/beach.jpg", caption: "Just minutes from pristine coastline" },
+      { url: "/images/gallery/beach-2.jpg", caption: "Crystal clear Caribbean waters" },
+      { url: "/images/gallery/beach-3.jpg", caption: "White sand beaches nearby" }
+    ]
   }
-
-  const prevImage = () => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
-  }
-
-  return (
-    <Dialog modal open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <Dialog.Portal>
-        <Dialog.Overlay
-          key="overlay"
-          animation="quick"
-          opacity={0.5}
-          enterStyle={{ opacity: 0 }}
-          exitStyle={{ opacity: 0 }}
-        />
-        <Dialog.Content
-          bordered
-          elevate
-          key="content"
-          animation={[
-            'quick',
-            {
-              opacity: {
-                overshootClamping: true,
-              },
-            },
-          ]}
-          enterStyle={{ x: 0, y: -20, opacity: 0, scale: 0.9 }}
-          exitStyle={{ x: 0, y: 10, opacity: 0, scale: 0.95 }}
-          x={0}
-          scale={1}
-          opacity={1}
-          y={0}
-          width="90%"
-          maxWidth={950}
-          height="90vh"
-          maxHeight={750}
-        >
-          <YStack space="$4" height="100%" padding="$4">
-            <XStack jc="space-between" ai="center">
-              <H2 size="$8">{category}</H2>
-              <Button 
-                size="$3" 
-                circular 
-                icon={X}
-                onPress={onClose}
-                theme="alt2"
-              />
-            </XStack>
-            
-            <YStack f={1} position="relative">
-              <Card
-                elevation={10}
-                br="$4"
-                bw={1}
-                width="100%"
-                height="100%"
-                style={{
-                  backgroundImage: `url(${images[currentIndex].url})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                }}
-              />
-              
-              <XStack 
-                position="absolute" 
-                bottom="$4" 
-                left="50%" 
-                x="-50%" 
-                space="$4"
-                elevation={10}
-              >
-                <Button 
-                  size="$4" 
-                  circular 
-                  icon={ChevronLeft}
-                  onPress={prevImage}
-                  theme="alt2"
-                  backgroundColor="$background"
-                />
-                <Button 
-                  size="$4" 
-                  circular 
-                  icon={ChevronRight}
-                  onPress={nextImage}
-                  theme="alt2"
-                  backgroundColor="$background"
-                />
-              </XStack>
-            </YStack>
-            
-            <YStack space="$4">
-              <Paragraph size="$4" ta="center" theme="alt2">
-                {images[currentIndex].caption}
-              </Paragraph>
-              
-              <XStack jc="center" space="$2">
-                {images.map((_, index) => (
-                  <YStack
-                    key={index}
-                    width={8}
-                    height={8}
-                    borderRadius={100}
-                    backgroundColor={index === currentIndex ? "$color" : "$color4"}
-                    pressStyle={{ scale: 0.9 }}
-                    onPress={() => setCurrentIndex(index)}
-                  />
-                ))}
-              </XStack>
-            </YStack>
-          </YStack>
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog>
-  )
 }
 
 function GallerySection() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
-  
-  const galleryData = {
-    "Natural Cenotes": {
-      images: [
-        { url: "/images/gallery/cenote.jpg", caption: "Crystal-clear waters perfect for swimming" },
-        { url: "/images/gallery/cenote-2.jpg", caption: "Ancient limestone formations create natural pools" },
-        { url: "/images/gallery/cenote-3.jpg", caption: "Underground water systems feed our cenotes" }
-      ]
-    },
-    "Lush Jungle": {
-      images: [
-        { url: "/images/gallery/jungle.jpg", caption: "50 acres of pristine tropical forest" },
-        { url: "/images/gallery/jungle-2.jpg", caption: "Rich biodiversity with native species" },
-        { url: "/images/gallery/jungle-3.jpg", caption: "Natural trails through the property" }
-      ]
-    },
-    "Community Spaces": {
-      images: [
-        { url: "/images/gallery/community.jpg", caption: "Shared areas for connection & creativity" },
-        { url: "/images/gallery/community-2.jpg", caption: "Open-air gathering spaces" },
-        { url: "/images/gallery/community-3.jpg", caption: "Collaborative work areas" }
-      ]
-    },
-    "Sustainable Villas": {
-      images: [
-        { url: "/images/gallery/villa.jpg", caption: "Eco-friendly homes with modern amenities" },
-        { url: "/images/gallery/villa-2.jpg", caption: "Solar-powered living spaces" },
-        { url: "/images/gallery/villa-3.jpg", caption: "Natural building materials" }
-      ]
-    },
-    "Nearby Beaches": {
-      images: [
-        { url: "/images/gallery/beach.jpg", caption: "Just minutes from pristine coastline" },
-        { url: "/images/gallery/beach-2.jpg", caption: "Crystal clear Caribbean waters" },
-        { url: "/images/gallery/beach-3.jpg", caption: "White sand beaches nearby" }
-      ]
-    }
-  }
 
   return (
     <>
       <XStack flexWrap="wrap" gap="$4" jc="center">
         {Object.entries(galleryData).map(([category, data], index) => (
-          <Card 
+          <Card
             key={category}
             bw={1}
             bc="$borderColor"
@@ -1086,5 +953,178 @@ function GallerySection() {
         />
       )}
     </>
+  )
+}
+
+const GalleryModal = ({ 
+  isOpen, 
+  onClose, 
+  category,
+  images 
+}: { 
+  isOpen: boolean
+  onClose: () => void
+  category: string
+  images: { url: string; caption: string }[]
+}) => {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentCategory, setCurrentCategory] = useState(category)
+
+  const handleNext = () => {
+    if (currentIndex < images.length - 1) {
+      setCurrentIndex(currentIndex + 1)
+    } else {
+      const categories = Object.keys(galleryData)
+      const currentCategoryIndex = categories.indexOf(currentCategory)
+      if (currentCategoryIndex < categories.length - 1) {
+        const nextCategory = categories[currentCategoryIndex + 1]
+        setCurrentCategory(nextCategory)
+        setCurrentIndex(0)
+      } else {
+        setCurrentCategory(categories[0])
+        setCurrentIndex(0)
+      }
+    }
+  }
+
+  const handlePrevious = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1)
+    } else {
+      const categories = Object.keys(galleryData)
+      const currentCategoryIndex = categories.indexOf(currentCategory)
+      if (currentCategoryIndex > 0) {
+        const prevCategory = categories[currentCategoryIndex - 1]
+        setCurrentCategory(prevCategory)
+        setCurrentIndex(galleryData[prevCategory].images.length - 1)
+      } else {
+        const lastCategory = categories[categories.length - 1]
+        setCurrentCategory(lastCategory)
+        setCurrentIndex(galleryData[lastCategory].images.length - 1)
+      }
+    }
+  }
+
+  return (
+    <Dialog modal open={isOpen} onOpenChange={(open) => !open && onClose()}>
+      <Dialog.Portal>
+        <Dialog.Overlay
+          key="overlay"
+          animation="quick"
+          opacity={0.5}
+          enterStyle={{ opacity: 0 }}
+          exitStyle={{ opacity: 0 }}
+        />
+        <Dialog.Content
+          bordered
+          elevate
+          key="content"
+          animation={[
+            'quick',
+            {
+              opacity: {
+                overshootClamping: true,
+              },
+            },
+          ]}
+          enterStyle={{ x: 0, y: -20, opacity: 0, scale: 0.9 }}
+          exitStyle={{ x: 0, y: 10, opacity: 0, scale: 0.95 }}
+          x={0}
+          scale={1}
+          opacity={1}
+          y={0}
+          width="90%"
+          maxWidth={950}
+          height="90vh"
+          maxHeight={750}
+        >
+          <YStack space="$4" height="100%" padding="$4">
+            <XStack jc="space-between" ai="center">
+              <H2 size="$8">{currentCategory}</H2>
+              <Button 
+                size="$3" 
+                circular 
+                icon={X} 
+                onPress={onClose}
+                theme="alt2"
+              />
+            </XStack>
+
+            <YStack f={1} position="relative">
+              <Card
+                elevation={10}
+                br="$4"
+                bw={1}
+                width="100%"
+                height="100%"
+                style={{
+                  backgroundImage: `url(${galleryData[currentCategory].images[currentIndex].url})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  transition: 'background-image 0.3s ease-in-out'
+                }}
+              >
+                <YStack
+                  width="100%"
+                  height="100%"
+                  style={{
+                    backgroundImage: `url(${galleryData[currentCategory].images[currentIndex].url})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    transition: 'all 0.3s ease-in-out'
+                  }}
+                />
+              </Card>
+              
+              <XStack 
+                position="absolute" 
+                bottom="$4" 
+                left="50%" 
+                x="-50%" 
+                space="$4"
+                elevation={10}
+              >
+                <Button 
+                  size="$4" 
+                  circular 
+                  icon={ChevronLeft}
+                  onPress={handlePrevious}
+                  theme="alt2"
+                  backgroundColor="$background"
+                />
+                <Button 
+                  size="$4" 
+                  circular 
+                  icon={ChevronRight}
+                  onPress={handleNext}
+                  theme="alt2"
+                  backgroundColor="$background"
+                />
+              </XStack>
+            </YStack>
+
+            <YStack space="$4">
+              <Paragraph size="$4" ta="center" theme="alt2">
+                {galleryData[currentCategory].images[currentIndex].caption}
+              </Paragraph>
+              
+              <XStack jc="center" space="$2">
+                {galleryData[currentCategory].images.map((_, index) => (
+                  <YStack
+                    key={index}
+                    width={8}
+                    height={8}
+                    borderRadius={100}
+                    backgroundColor={index === currentIndex ? "$color" : "$color4"}
+                    pressStyle={{ scale: 0.9 }}
+                    onPress={() => setCurrentIndex(index)}
+                  />
+                ))}
+              </XStack>
+            </YStack>
+          </YStack>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog>
   )
 }
