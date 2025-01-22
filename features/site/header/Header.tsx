@@ -209,13 +209,12 @@ export const HeaderContents = React.memo((props: HeaderProps) => {
       <XStack
         position="absolute"
         $md={{
-          opacity: 0,
-          pointerEvents: 'none',
+          opacity: 1,
+          pointerEvents: 'auto',
         }}
         zIndex={-1}
         jc="center"
         fullscreen
-        pointerEvents="none"
         ai="center"
       >
         <Link href="/" aria-label="Homepage">
@@ -224,7 +223,20 @@ export const HeaderContents = React.memo((props: HeaderProps) => {
             pointerEvents="auto"
             als="center"
           >
-            <InnerAscendLogo animated />
+            <XStack
+              $gtMd={{
+                display: 'none'
+              }}
+            >
+              <InnerAscendLogo showWords downscale={1.75} />
+            </XStack>
+            <XStack
+              $md={{
+                display: 'none'
+              }}
+            >
+              <InnerAscendLogo animated />
+            </XStack>
           </XStack>
         </Link>
       </XStack>
