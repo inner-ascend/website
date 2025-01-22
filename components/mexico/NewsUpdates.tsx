@@ -1,6 +1,6 @@
 import { ChevronRight } from '@tamagui/lucide-icons'
 import { Button, Card, H3, Paragraph, XStack, YStack } from 'tamagui'
-import { newsItems } from '../data/news'
+import { newsItems } from '~/data/mexico/news'
 
 export function NewsUpdates() {
   return (

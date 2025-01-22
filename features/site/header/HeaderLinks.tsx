@@ -122,9 +122,9 @@ export const HeaderLinks = (props: HeaderProps) => {
       {forceShowAllLinks && (
         <>
           <XStack fw="wrap" f={1} gap="$2" w="100%">
-            <Link asChild href="/community">
+            <Link asChild href="/mexico">
               <HeadAnchor grid tag="a">
-                Community
+                Mexico Project
               </HeadAnchor>
             </Link>
           </XStack>
@@ -134,11 +134,11 @@ export const HeaderLinks = (props: HeaderProps) => {
 
       {/* Bento and Takeout triggers (commented out) */}
 
-      {showExtra && (
+      {/* {showExtra && (
         <Link asChild href="/studio">
           <HeadAnchor grid={forceShowAllLinks}>Studio</HeadAnchor>
         </Link>
-      )}
+      )} */}
     </>
   )
 }

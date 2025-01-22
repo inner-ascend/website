@@ -1,7 +1,7 @@
 import { ChevronLeft, ChevronRight, X } from '@tamagui/lucide-icons'
 import { useState } from 'react'
 import { Button, Card, Dialog, H2, H3, Paragraph, XStack, YStack } from 'tamagui'
-import { galleryData } from '../data/gallery'
+import { galleryData } from '~/data/mexico/gallery'
 
 export function GallerySection() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)

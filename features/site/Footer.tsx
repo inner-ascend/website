@@ -80,7 +80,7 @@ export const Footer = memo(() => {
               Community
             </H4>
             <XStack gap="$1" ai="center">
-              <ParagraphLink href="/community">Community</ParagraphLink>
+              <ParagraphLink href="/mexico">Mexico</ParagraphLink>
             </XStack>
             <XStack gap="$1" ai="center">
               <ParagraphLink href="/blog">Blog</ParagraphLink>
