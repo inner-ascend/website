@@ -296,7 +296,16 @@ export default function Community() {
             <HomeH3 ta="center" theme="alt2" maw={680} $sm={{ size: "$5" }}>
               Be among the pioneers shaping the future of sustainable living in Mexico. Limited founding memberships available.
             </HomeH3>
-            <XStack gap="$4" mt="$4">
+            <XStack 
+              gap="$4" 
+              mt="$4"
+              $sm={{ 
+                flexDirection: 'column',
+                ai: 'center',
+                gap: '$3',
+                als: 'center'
+              }}
+            >
               <Button 
                 size="$5" 
                 theme="green"
