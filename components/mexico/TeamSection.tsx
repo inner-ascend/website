@@ -36,11 +36,15 @@ export function TeamSection() {
 
       <XStack 
         flexWrap="wrap" 
-        gap="$4" 
+        gap="$6" 
         jc="center"
         maxWidth={1200}
         als="center"
-        $sm={{ gap: "$2" }}
+        px="$4"
+        $sm={{ 
+          gap: "$4",
+          px: "$2"
+        }}
       >
         {teamMembers.map((member, i) => (
           <Card
@@ -71,7 +75,7 @@ export function TeamSection() {
               width: "100%",
               minWidth: "100%",
               maxWidth: "100%",
-              marginHorizontal: "$2"
+              mb: "$2"
             }}
           >
             <YStack 

@@ -6,6 +6,10 @@ import { Button, H1, Paragraph, XStack, YStack } from 'tamagui'
 import { ContainerLarge } from '~/components/Containers'
 import { Link } from '~/components/Link'
 
+export function generateStaticParams() {
+  return []
+}
+
 export default function NotFound() {
   const router = useRouter()
 
