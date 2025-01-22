@@ -1,13 +1,14 @@
 import { H2, Paragraph, XStack, YStack } from 'tamagui'
+import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 
 export function ProjectImpact() {
   return (
     <YStack space="$6" mb="$8">
       <YStack space="$6" mb="$6">
-        <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Project Impact</H2>
-        <Paragraph size="$6" ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
+        <HomeH2 ta="center" $sm={{ size: "$8" }}>Project Impact</HomeH2>
+        <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
           Join a growing community of visionaries committed to sustainable living
-        </Paragraph>
+        </HomeH3>
       </YStack>
 
       <XStack flexWrap="wrap" gap="$8" jc="center" $sm={{ gap: "$6" }}>

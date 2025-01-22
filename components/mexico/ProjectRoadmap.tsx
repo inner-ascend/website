@@ -1,4 +1,5 @@
-import { Card, H2, H3, Paragraph, XStack, YStack } from 'tamagui'
+import { Card, H3, Paragraph, XStack, YStack } from 'tamagui'
+import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 
 const roadmapPhases = [
   {
@@ -43,10 +44,10 @@ export function ProjectRoadmap() {
   return (
     <YStack zi={1} space="$6" mb="$4">
       <YStack space="$6" mb="$6">
-        <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Project Roadmap</H2>
-        <Paragraph size="$6" ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
+        <HomeH2 ta="center" $sm={{ size: "$8" }}>Project Roadmap</HomeH2>
+        <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
           Strategic milestones for developing our sustainable community
-        </Paragraph>
+        </HomeH3>
       </YStack>
       <XStack
         pos="relative"

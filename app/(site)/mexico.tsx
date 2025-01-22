@@ -1,7 +1,7 @@
 import { useTint } from '@tamagui/logo'
 import { ChevronRight } from '@tamagui/lucide-icons'
 import { useMemo } from 'react'
-import { Button, Card, H1, H2, H3, Paragraph, Spacer, XStack, YStack } from 'tamagui'
+import { Button, Card, H1, H3, Paragraph, Spacer, XStack, YStack } from 'tamagui'
 import { ContainerLarge } from '~/components/Containers'
 import { HeadInfo } from '~/components/HeadInfo'
 import { FAQSection } from '~/components/mexico/FAQ'
@@ -13,6 +13,7 @@ import { NewsUpdates } from '~/components/mexico/NewsUpdates'
 import { ProjectImpact } from '~/components/mexico/ProjectImpact'
 import { ProjectRoadmap } from '~/components/mexico/ProjectRoadmap'
 import { teamMembers } from '~/data/mexico/team'
+import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
 import { HomeSection, TintSection } from '~/features/site/home/TintSection'
 import { ThemeNameEffect } from '~/features/site/theme/ThemeNameEffect'
@@ -79,6 +80,7 @@ export default function Community() {
               <Button 
                 size="$5" 
                 theme="green"
+                fontFamily="$silkscreen"
                 pressStyle={{
                   scale: 0.97,
                 }}
@@ -93,6 +95,7 @@ export default function Community() {
               <Button 
                 size="$5" 
                 theme="alt1" 
+                fontFamily="$silkscreen"
                 borderWidth={1}
                 pressStyle={{
                   scale: 0.97,
@@ -128,10 +131,10 @@ export default function Community() {
       <TintSection index={3}>
         <ContainerLarge space="$6">
           <YStack space="$6" mb="$6">
-            <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Experience Paradise</H2>
-            <Paragraph size="$6" ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
+            <HomeH2 ta="center" $sm={{ size: "$8" }}>Experience Paradise</HomeH2>
+            <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
               Discover the natural beauty and planned amenities of our sustainable community
-            </Paragraph>
+            </HomeH3>
           </YStack>
           
           <GallerySection />
@@ -142,10 +145,10 @@ export default function Community() {
       <TintSection index={4}>
         <ContainerLarge space="$6">
           <YStack space="$6" mb="$6">
-            <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Membership Tiers</H2>
-            <Paragraph size="$6" ta="center" theme="alt2" $sm={{ size: "$5" }}>
+            <HomeH2 ta="center" $sm={{ size: "$8" }}>Membership Tiers</HomeH2>
+            <HomeH3 ta="center" theme="alt2" $sm={{ size: "$5" }}>
               Secure your place in our community with blockchain-powered ownership and exclusive benefits
-            </Paragraph>
+            </HomeH3>
           </YStack>
           <MembershipTiers />
         </ContainerLarge>
@@ -170,10 +173,10 @@ export default function Community() {
         <ContainerLarge>
           <YStack space="$6" mb="$8">
             <YStack space="$6" mb="$6">
-              <H2 size="$9" ta="center" $sm={{ size: "$8" }}>News & Updates</H2>
-              <Paragraph size="$6" ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
+              <HomeH2 ta="center" $sm={{ size: "$8" }}>News & Updates</HomeH2>
+              <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
                 Follow our journey as we build a sustainable paradise
-              </Paragraph>
+              </HomeH3>
             </YStack>
 
             <NewsUpdates />
@@ -186,10 +189,10 @@ export default function Community() {
         <ContainerLarge>
           <YStack space="$6" mb="$8">
             <YStack space="$6" mb="$6">
-              <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Meet Our Team</H2>
-              <Paragraph size="$6" ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
+              <HomeH2 ta="center" $sm={{ size: "$8" }}>Meet Our Team</HomeH2>
+              <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
                 Visionaries and experts bringing sustainable community living to life
-              </Paragraph>
+              </HomeH3>
             </YStack>
 
             <XStack flexWrap="wrap" gap="$6" jc="center">
@@ -238,6 +241,7 @@ export default function Community() {
               <Button 
                 size="$4" 
                 theme="alt2"
+                fontFamily="$silkscreen"
                 iconAfter={ChevronRight}
                 pressStyle={{
                   scale: 0.97,
@@ -260,10 +264,10 @@ export default function Community() {
         <ContainerLarge>
           <YStack space="$6" mb="$8">
             <YStack space="$6" mb="$6">
-              <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Frequently Asked Questions</H2>
-              <Paragraph size="$6" ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
+              <HomeH2 ta="center" $sm={{ size: "$8" }}>Frequently Asked Questions</HomeH2>
+              <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
                 Everything you need to know about joining our community
-              </Paragraph>
+              </HomeH3>
             </YStack>
 
             <YStack space="$4" als="center" px="$4">
@@ -277,14 +281,15 @@ export default function Community() {
       <HomeSection>
         <ContainerLarge space="$8">
           <YStack ai="center" space="$6">
-            <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Ready to Join?</H2>
-            <Paragraph size="$6" ta="center" theme="alt2" maw={600} $sm={{ size: "$5" }}>
+            <HomeH2 ta="center" $sm={{ size: "$8" }}>Ready to Join?</HomeH2>
+            <HomeH3 ta="center" theme="alt2" maw={680} $sm={{ size: "$5" }}>
               Be among the pioneers shaping the future of sustainable living in Mexico. Limited founding memberships available.
-            </Paragraph>
+            </HomeH3>
             <XStack gap="$4" mt="$4">
               <Button 
                 size="$5" 
                 theme="green"
+                fontFamily="$silkscreen"
                 pressStyle={{
                   scale: 0.97,
                 }}
@@ -299,6 +304,7 @@ export default function Community() {
               <Button 
                 size="$5" 
                 theme="alt2"
+                fontFamily="$silkscreen"
                 pressStyle={{
                   scale: 0.97,
                 }}

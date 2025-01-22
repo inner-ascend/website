@@ -1,11 +1,11 @@
 import { Check } from '@tamagui/lucide-icons'
-import { Button, H3, Paragraph, Separator, XStack, YStack } from 'tamagui'
+import { Button, H3, Paragraph, Separator, Spacer, XStack, YStack, type ThemeName } from 'tamagui'
 
 interface MembershipTier {
   name: string
   price: string
   benefits: string[]
-  theme: string
+  theme: ThemeName
   buttonText: string
 }
 
@@ -94,9 +94,11 @@ export function MembershipTiers() {
               </XStack>
             ))}
           </YStack>
-          <Button 
-            size="$4" 
-            theme={`${tier.theme}_alt2`}
+          <Spacer size="$1"/>
+          <Button
+            size="$4"
+            theme={tier.theme}
+            fontFamily="$silkscreen"
             pressStyle={{
               scale: 0.97,
             }}

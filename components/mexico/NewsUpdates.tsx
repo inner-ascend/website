@@ -30,7 +30,7 @@ export function NewsUpdates() {
             $sm={{ width: '100%' }}
           >
             <XStack jc="space-between" ai="center">
-              <Paragraph size="$3" theme="alt2">{update.date}</Paragraph>
+              <Paragraph size="$3" theme="alt2" fontFamily="$silkscreen">{update.date}</Paragraph>
               <YStack 
                 backgroundColor={
                   update.tag === 'Development' ? '$green5' :
@@ -55,7 +55,7 @@ export function NewsUpdates() {
                 </Paragraph>
               </YStack>
             </XStack>
-            <H3 size="$6">{update.title}</H3>
+            <H3 size="$6" fontFamily="$silkscreen">{update.title}</H3>
             <Paragraph size="$4" theme="alt2">{update.description}</Paragraph>
           </Card>
         ))}
@@ -65,6 +65,7 @@ export function NewsUpdates() {
         <Button 
           size="$4" 
           theme="alt2"
+          fontFamily="$silkscreen"
           iconAfter={ChevronRight}
           pressStyle={{
             scale: 0.97,

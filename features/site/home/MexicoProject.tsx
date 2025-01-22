@@ -2,18 +2,19 @@ import { ChevronRight } from '@tamagui/lucide-icons'
 import { Button, Card, H2, Paragraph, XStack, YStack } from 'tamagui'
 import { Link } from '~/components/Link'
 import { ContainerLarge } from '../../../components/Containers'
+import { HomeH2, HomeH3 } from './HomeHeaders'
 
 export function MexicoProject() {
   return (
     <ContainerLarge>
       <YStack space="$6" mb="$8">
         <YStack space="$4" mb="$4">
-          <H2 size="$9" ta="center" $sm={{ size: "$8" }}>
+          <HomeH2 ta="center" $sm={{ size: "$8" }}>
             Mexico Project
-          </H2>
-          <Paragraph size="$6" ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
+          </HomeH2>
+          <HomeH3 ta="center" theme="alt2" maw={750} als="center" $sm={{ size: "$5" }}>
             Join our flagship regenerative community in Oaxaca, featuring natural cenotes, lush jungle, and sustainable infrastructure
-          </Paragraph>
+          </HomeH3>
         </YStack>
 
         <Link href="/mexico" style={{ textDecoration: 'none' }}>
@@ -59,6 +60,7 @@ export function MexicoProject() {
                   <Button
                     size="$5"
                     theme="green"
+                    fontFamily="$silkscreen"
                     iconAfter={ChevronRight}
                     pressStyle={{
                       scale: 0.97,

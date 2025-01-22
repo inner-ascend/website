@@ -62,7 +62,7 @@ export default function TamaguiHomePage() {
             maskImage: `linear-gradient(transparent, #000, transparent)`,
           }}
         />
-        <MexicoProject />
+        <CommunityShowcase examples={compilationExamples} />
       </TintSection>
 
       <TintSection index={2} contain="paint layout" zi={1000}>
@@ -75,8 +75,9 @@ export default function TamaguiHomePage() {
             maskImage: `linear-gradient(transparent, #000, transparent)`,
           }}
         />
-        <CommunityShowcase examples={compilationExamples} />
+        <MexicoProject />
       </TintSection>
+
       <TintSection my={-50} index={3} contain="paint layout" pos="relative" zi={100}>
         <YStack
           pe="none"
