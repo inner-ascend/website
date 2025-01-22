@@ -88,6 +88,18 @@ export const HeaderLinks = (props: HeaderProps) => {
         </HeadAnchor>
       </Link>
 
+      {!forceShowAllLinks && <Link asChild href="/mexico">
+        <HeadAnchor
+          // half={forceShowAllLinks}
+          grid={forceShowAllLinks}
+          $sm={{
+            display: forceShowAllLinks ? 'flex' : 'none',
+          }}
+        >
+          Mexico
+        </HeadAnchor>
+      </Link>}
+
       <Link asChild href="https://t.me/+s6l6LL0v5BIxMWJk" target="_blank" rel="noopener noreferrer">
         <HeadAnchor
           grid={forceShowAllLinks}
