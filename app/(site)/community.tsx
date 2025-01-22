@@ -64,7 +64,7 @@ export default function Community() {
               }}
               $sm={{ size: "$6" }}
             >
-              Own a piece of paradise through our NFT-powered community
+              Join a visionary community where sustainable living meets tropical paradise
             </Paragraph>
             <XStack jc="center" mt="$6" gap="$4">
               <Button size="$5" theme="green">Join Whitelist</Button>
@@ -175,10 +175,10 @@ export default function Community() {
       <TintSection index={2}>
         <ContainerLarge position="relative">
           <YStack zi={1} space="$6" mb="$8">
-            <YStack space="$4" mb="$6">
+            <YStack space="$6" mb="$6">
               <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Location & Climate</H2>
               <Paragraph size="$6" ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
-                Discover our pristine property in the Riviera Maya, where tropical beauty meets modern convenience
+                Experience the perfect blend of natural beauty and modern comfort in Mexico's stunning Riviera Maya
               </Paragraph>
             </YStack>
 
@@ -308,10 +308,10 @@ export default function Community() {
       {/* NFT Tiers */}
       <TintSection index={3}>
         <ContainerLarge space="$6">
-          <YStack space="$4" mb="$6">
+          <YStack space="$6" mb="$6">
             <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Membership Tiers</H2>
             <Paragraph size="$6" ta="center" theme="alt2" $sm={{ size: "$5" }}>
-              Choose your level of involvement in our community
+              Secure your place in our community with blockchain-powered ownership and exclusive benefits
             </Paragraph>
           </YStack>
           <XStack flexWrap="wrap" gap="$4" jc="center" $sm={{ gap: "$3" }}>
@@ -435,7 +435,12 @@ export default function Community() {
       <TintSection index={4}>
         <ContainerLarge position="relative">
           <YStack zi={1} space="$6" mb="$4">
-            <H2 size="$9" ta="center" mb="$6" $sm={{ size: "$8", mb: "$4" }}>Project Roadmap</H2>
+            <YStack space="$6" mb="$6">
+              <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Project Roadmap</H2>
+              <Paragraph size="$6" ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
+                Strategic milestones for developing our sustainable community
+              </Paragraph>
+            </YStack>
             <XStack
               pos="relative"
               jc="center"
@@ -513,11 +518,10 @@ export default function Community() {
       {/* Call to Action */}
       <HomeSection>
         <ContainerLarge space="$8">
-          <YStack ai="center" space="$4">
+          <YStack ai="center" space="$6">
             <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Ready to Join?</H2>
             <Paragraph size="$6" ta="center" theme="alt2" maw={600} $sm={{ size: "$5" }}>
-              Be part of the first blockchain-powered regenerative community in Mexico. 
-              Limited spots available for founding members.
+              Be among the pioneers shaping the future of sustainable living in Mexico. Limited founding memberships available.
             </Paragraph>
             <XStack gap="$4" mt="$4">
               <Button size="$5" theme="green">Join Whitelist</Button>
