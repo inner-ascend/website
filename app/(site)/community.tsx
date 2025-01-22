@@ -1,5 +1,5 @@
 import { useTint } from '@tamagui/logo'
-import { ChevronRight, Globe, Heart, Leaf, Palette, Sun, Users } from '@tamagui/lucide-icons'
+import { ChevronRight } from '@tamagui/lucide-icons'
 import { useMemo } from 'react'
 import { Button, Card, H1, H2, H3, Paragraph, Spacer, XStack, YStack } from 'tamagui'
 import { ContainerLarge } from '~/components/Containers'
@@ -9,9 +9,12 @@ import { HomeSection, TintSection } from '~/features/site/home/TintSection'
 import { ThemeNameEffect } from '~/features/site/theme/ThemeNameEffect'
 import { FAQSection } from './components/FAQ'
 import { GallerySection } from './components/Gallery'
+import { KeyFeatures } from './components/KeyFeatures'
 import { LocationClimate } from './components/LocationClimate'
 import { MembershipTiers } from './components/MembershipTiers'
 import { NewsUpdates } from './components/NewsUpdates'
+import { ProjectImpact } from './components/ProjectImpact'
+import { ProjectRoadmap } from './components/ProjectRoadmap'
 import { teamMembers } from './data/team'
 
 export default function Community() {
@@ -110,106 +113,7 @@ export default function Community() {
       {/* Key Features */}
       <TintSection index={1} zi={100}>
         <ContainerLarge>
-          <XStack flexWrap="wrap" gap="$8" jc="center" $sm={{ gap: "$6" }}>
-            <YStack w={250} ai="center" space="$3" $sm={{ w: "100%", maw: 300 }}>
-              <YStack 
-                p="$4" 
-                br="$6" 
-                bc="$green5"
-                pressStyle={{
-                  scale: 0.98,
-                  opacity: 0.85
-                }}
-                animation="quick"
-              >
-                <Leaf size={24} color="var(--green10)" />
-              </YStack>
-              <H3 size="$5" ta="center" $sm={{ size: "$4" }}>Regenerative Agriculture</H3>
-              <YStack space="$2">
-                <Paragraph size="$3" ta="center" theme="alt2">
-                  Beyond organic farming: our food forests and permaculture systems restore soil health while producing abundant tropical fruits and vegetables.
-                </Paragraph>
-                <Paragraph size="$2" ta="center" theme="alt2" o={0.8}>
-                  Food forests • Aquaponics • Seed saving • Composting
-                </Paragraph>
-              </YStack>
-            </YStack>
-
-            <YStack w={250} ai="center" space="$3" $sm={{ w: "100%", maw: 300 }}>
-              <YStack p="$4" br="$6" bc="$blue5">
-                <Users size={24} color="var(--blue10)" />
-              </YStack>
-              <H3 size="$5" ta="center" $sm={{ size: "$4" }}>Community Living</H3>
-              <YStack space="$2">
-                <Paragraph size="$3" ta="center" theme="alt2">
-                  Experience life in a purpose-driven community with shared workspaces, communal gardens, and a governance system that empowers all members.
-                </Paragraph>
-                <Paragraph size="$2" ta="center" theme="alt2" o={0.8}>
-                  Co-working • Shared kitchen • Events space • Learning center
-                </Paragraph>
-              </YStack>
-            </YStack>
-
-            <YStack w={250} ai="center" space="$3" $sm={{ w: "100%", maw: 300 }}>
-              <YStack p="$4" br="$6" bc="$yellow5">
-                <Sun size={24} color="var(--yellow10)" />
-              </YStack>
-              <H3 size="$5" ta="center" $sm={{ size: "$4" }}>Sustainable Energy</H3>
-              <YStack space="$2">
-                <Paragraph size="$3" ta="center" theme="alt2">
-                  Powered by Mexico's abundant sunshine through solar arrays and smart microgrids, with integrated water management systems.
-                </Paragraph>
-                <Paragraph size="$2" ta="center" theme="alt2" o={0.8}>
-                  Solar arrays • Battery storage • Smart metering • Greywater
-                </Paragraph>
-              </YStack>
-            </YStack>
-
-            <YStack w={250} ai="center" space="$3" $sm={{ w: "100%", maw: 300 }}>
-              <YStack p="$4" br="$6" bc="$purple5">
-                <Heart size={24} color="var(--purple10)" />
-              </YStack>
-              <H3 size="$5" ta="center" $sm={{ size: "$4" }}>Wellness Focus</H3>
-              <YStack space="$2">
-                <Paragraph size="$3" ta="center" theme="alt2">
-                  Nurture mind and body with dedicated spaces for yoga, meditation, and holistic health practices in harmony with nature.
-                </Paragraph>
-                <Paragraph size="$2" ta="center" theme="alt2" o={0.8}>
-                  Yoga deck • Meditation garden • Natural pool • Healing center
-                </Paragraph>
-              </YStack>
-            </YStack>
-
-            <YStack w={250} ai="center" space="$3" $sm={{ w: "100%", maw: 300 }}>
-              <YStack p="$4" br="$6" bc="$orange5">
-                <Palette size={24} color="var(--orange10)" />
-              </YStack>
-              <H3 size="$5" ta="center" $sm={{ size: "$4" }}>Creative Spaces</H3>
-              <YStack space="$2">
-                <Paragraph size="$3" ta="center" theme="alt2">
-                  Express yourself in dedicated maker spaces and art studios, fostering a vibrant creative community culture.
-                </Paragraph>
-                <Paragraph size="$2" ta="center" theme="alt2" o={0.8}>
-                  Art studio • Workshop • Music room • Performance space
-                </Paragraph>
-              </YStack>
-            </YStack>
-
-            <YStack w={250} ai="center" space="$3" $sm={{ w: "100%", maw: 300 }}>
-              <YStack p="$4" br="$6" bc="$pink5">
-                <Globe size={24} color="var(--pink10)" />
-              </YStack>
-              <H3 size="$5" ta="center" $sm={{ size: "$4" }}>Cultural Integration</H3>
-              <YStack space="$2">
-                <Paragraph size="$3" ta="center" theme="alt2">
-                  Bridge global and local communities through cultural exchange programs and partnerships with local artisans.
-                </Paragraph>
-                <Paragraph size="$2" ta="center" theme="alt2" o={0.8}>
-                  Local markets • Language exchange • Artisan workshops • Festivals
-                </Paragraph>
-              </YStack>
-            </YStack>
-          </XStack>
+          <KeyFeatures />
         </ContainerLarge>
       </TintSection>
 
@@ -250,130 +154,14 @@ export default function Community() {
       {/* Timeline */}
       <TintSection index={5}>
         <ContainerLarge position="relative">
-          <YStack zi={1} space="$6" mb="$4">
-            <YStack space="$6" mb="$6">
-              <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Project Roadmap</H2>
-              <Paragraph size="$6" ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
-                Strategic milestones for developing our sustainable community
-              </Paragraph>
-            </YStack>
-            <XStack
-              pos="relative"
-              jc="center"
-              flexWrap="wrap"
-              gap="$4"
-              width="100%"
-            >
-              {[
-                {
-                  date: 'Q4 2024',
-                  title: 'Land Acquisition',
-                  items: [
-                    'Property purchase finalized',
-                    'Initial permits secured',
-                    'Community NFT launch'
-                  ]
-                },
-                {
-                  date: 'Q2 2025',
-                  title: 'Infrastructure',
-                  items: [
-                    'Solar installation',
-                    'Water systems',
-                    'Initial housing units'
-                  ]
-                },
-                {
-                  date: 'Q4 2025',
-                  title: 'Community Launch',
-                  items: [
-                    'First residents move in',
-                    'Farm operations begin',
-                    'Community spaces open'
-                  ]
-                },
-                {
-                  date: '2026+',
-                  title: 'Expansion',
-                  items: [
-                    'Additional housing',
-                    'Education center',
-                    'Wellness facilities'
-                  ]
-                }
-              ].map((phase, i) => (
-                <Card 
-                  key={i}
-                  bw={1}
-                  bc="$borderColor"
-                  br="$6"
-                  elevation="$6"
-                  shadowRadius={60}
-                  width="23%"
-                  pressStyle={{
-                    scale: 0.98,
-                    bc: "$color1",
-                  }}
-                  animation="medium"
-                  hoverStyle={{
-                    elevation: "$8",
-                    borderColor: "$color8",
-                    scale: 1.02
-                  }}
-                  $gtSm={{ minWidth: 220 }}
-                  $sm={{ width: '100%' }}
-                >
-                  <YStack jc="center" p="$4" space="$2">
-                    <H3 size="$4" theme="alt2">{phase.date}</H3>
-                    <H3 size="$5">{phase.title}</H3>
-                    <YStack space="$1">
-                      {phase.items.map((item, j) => (
-                        <Paragraph key={j} size="$3" theme="alt2">
-                          • {item}
-                        </Paragraph>
-                      ))}
-                    </YStack>
-                  </YStack>
-                </Card>
-              ))}
-            </XStack>
-          </YStack>
+          <ProjectRoadmap />
         </ContainerLarge>
       </TintSection>
 
       {/* Social Proof */}
       <TintSection index={6}>
         <ContainerLarge>
-          <YStack space="$6" mb="$8">
-            <YStack space="$6" mb="$6">
-              <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Project Impact</H2>
-              <Paragraph size="$6" ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
-                Join a growing community of visionaries committed to sustainable living
-              </Paragraph>
-            </YStack>
-
-            <XStack flexWrap="wrap" gap="$8" jc="center" $sm={{ gap: "$6" }}>
-              <YStack w={200} ai="center" space="$2" $sm={{ w: "45%" }}>
-                <H2 size="$9" color="$green10">50</H2>
-                <Paragraph size="$4" ta="center" theme="alt2">Acres of Pristine Land</Paragraph>
-              </YStack>
-
-              <YStack w={200} ai="center" space="$2" $sm={{ w: "45%" }}>
-                <H2 size="$9" color="$blue10">100+</H2>
-                <Paragraph size="$4" ta="center" theme="alt2">Interested Members</Paragraph>
-              </YStack>
-
-              <YStack w={200} ai="center" space="$2" $sm={{ w: "45%" }}>
-                <H2 size="$9" color="$yellow10">3</H2>
-                <Paragraph size="$4" ta="center" theme="alt2">Natural Cenotes</Paragraph>
-              </YStack>
-
-              <YStack w={200} ai="center" space="$2" $sm={{ w: "45%" }}>
-                <H2 size="$9" color="$purple10">24/7</H2>
-                <Paragraph size="$4" ta="center" theme="alt2">Solar Power</Paragraph>
-              </YStack>
-            </XStack>
-          </YStack>
+          <ProjectImpact />
         </ContainerLarge>
       </TintSection>
 
