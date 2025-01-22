@@ -1,7 +1,7 @@
 import { useTint } from '@tamagui/logo'
-import { Check, ChevronDown, ChevronUp, Globe, Heart, Leaf, Palette, Sun, Users } from '@tamagui/lucide-icons'
+import { Check, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Globe, Heart, Leaf, Palette, Sun, Users, X } from '@tamagui/lucide-icons'
 import { useMemo, useState } from 'react'
-import { Button, Card, H1, H2, H3, Paragraph, Separator, Spacer, XStack, YStack } from 'tamagui'
+import { Button, Card, Dialog, H1, H2, H3, Paragraph, Separator, Spacer, XStack, YStack } from 'tamagui'
 import { ContainerLarge } from '~/components/Containers'
 import { HeadInfo } from '~/components/HeadInfo'
 import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
@@ -234,8 +234,13 @@ export default function Community() {
                 shadowRadius={60} 
                 width="48%" 
                 animation="medium"
+                pressStyle={{
+                  scale: 0.98,
+                  bc: "$color1",
+                }}
                 hoverStyle={{
                   elevation: "$8",
+                  borderColor: "$color8",
                   scale: 1.01
                 }}
                 $sm={{ width: '100%' }}
@@ -291,10 +296,26 @@ export default function Community() {
                 </YStack>
               </Card>
 
-              <Card f={1} bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60} width="48%" hoverStyle={{
+              <Card 
+                f={1} 
+                bw={1} 
+                bc="$borderColor" 
+                br="$6" 
+                elevation="$6" 
+                shadowRadius={60} 
+                width="48%" 
+                animation="medium"
+                pressStyle={{
+                  scale: 0.98,
+                  bc: "$color1",
+                }}
+                hoverStyle={{
                   elevation: "$8",
+                  borderColor: "$color8",
                   scale: 1.01
-                }} $sm={{ width: '100%' }}>
+                }}
+                $sm={{ width: '100%' }}
+              >
                 <YStack jc="center" p="$6" space="$6">
                   <YStack space="$4">
                     <H2 size="$8">Location Details</H2>
@@ -358,8 +379,22 @@ export default function Community() {
         </ContainerLarge>
       </TintSection>
 
-      {/* NFT Tiers */}
+      {/* Image Gallery */}
       <TintSection index={3}>
+        <ContainerLarge space="$6">
+          <YStack space="$6" mb="$6">
+            <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Experience Paradise</H2>
+            <Paragraph size="$6" ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
+              Discover the natural beauty and planned amenities of our sustainable community
+            </Paragraph>
+          </YStack>
+          
+          <GallerySection />
+        </ContainerLarge>
+      </TintSection>
+
+      {/* NFT Tiers */}
+      <TintSection index={4}>
         <ContainerLarge space="$6">
           <YStack space="$6" mb="$6">
             <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Membership Tiers</H2>
@@ -525,7 +560,7 @@ export default function Community() {
       </TintSection>
 
       {/* Timeline */}
-      <TintSection index={4}>
+      <TintSection index={5}>
         <ContainerLarge position="relative">
           <YStack zi={1} space="$6" mb="$4">
             <YStack space="$6" mb="$6">
@@ -619,7 +654,7 @@ export default function Community() {
       </TintSection>
 
       {/* Social Proof */}
-      <TintSection index={5}>
+      <TintSection index={6}>
         <ContainerLarge>
           <YStack space="$6" mb="$8">
             <YStack space="$6" mb="$6">
@@ -655,7 +690,7 @@ export default function Community() {
       </TintSection>
 
       {/* FAQ Section */}
-      <TintSection index={6}>
+      <TintSection index={7}>
         <ContainerLarge>
           <YStack space="$6" mb="$8">
             <YStack space="$6" mb="$6">
@@ -824,5 +859,232 @@ function FAQItem({
         </YStack>
       )}
     </Card>
+  )
+}
+
+function GalleryModal({ 
+  isOpen, 
+  onClose, 
+  category,
+  images 
+}: { 
+  isOpen: boolean
+  onClose: () => void
+  category: string
+  images: { url: string; caption: string }[]
+}) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length)
+  }
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
+  }
+
+  return (
+    <Dialog modal open={isOpen} onOpenChange={(open) => !open && onClose()}>
+      <Dialog.Portal>
+        <Dialog.Overlay
+          key="overlay"
+          animation="quick"
+          opacity={0.5}
+          enterStyle={{ opacity: 0 }}
+          exitStyle={{ opacity: 0 }}
+        />
+        <Dialog.Content
+          bordered
+          elevate
+          key="content"
+          animation={[
+            'quick',
+            {
+              opacity: {
+                overshootClamping: true,
+              },
+            },
+          ]}
+          enterStyle={{ x: 0, y: -20, opacity: 0, scale: 0.9 }}
+          exitStyle={{ x: 0, y: 10, opacity: 0, scale: 0.95 }}
+          x={0}
+          scale={1}
+          opacity={1}
+          y={0}
+          width="90%"
+          maxWidth={950}
+          height="90vh"
+          maxHeight={750}
+        >
+          <YStack space="$4" height="100%" padding="$4">
+            <XStack jc="space-between" ai="center">
+              <H2 size="$8">{category}</H2>
+              <Button 
+                size="$3" 
+                circular 
+                icon={X}
+                onPress={onClose}
+                theme="alt2"
+              />
+            </XStack>
+            
+            <YStack f={1} position="relative">
+              <Card
+                elevation={10}
+                br="$4"
+                bw={1}
+                width="100%"
+                height="100%"
+                style={{
+                  backgroundImage: `url(${images[currentIndex].url})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              />
+              
+              <XStack 
+                position="absolute" 
+                bottom="$4" 
+                left="50%" 
+                x="-50%" 
+                space="$4"
+                elevation={10}
+              >
+                <Button 
+                  size="$4" 
+                  circular 
+                  icon={ChevronLeft}
+                  onPress={prevImage}
+                  theme="alt2"
+                  backgroundColor="$background"
+                />
+                <Button 
+                  size="$4" 
+                  circular 
+                  icon={ChevronRight}
+                  onPress={nextImage}
+                  theme="alt2"
+                  backgroundColor="$background"
+                />
+              </XStack>
+            </YStack>
+            
+            <YStack space="$4">
+              <Paragraph size="$4" ta="center" theme="alt2">
+                {images[currentIndex].caption}
+              </Paragraph>
+              
+              <XStack jc="center" space="$2">
+                {images.map((_, index) => (
+                  <YStack
+                    key={index}
+                    width={8}
+                    height={8}
+                    borderRadius={100}
+                    backgroundColor={index === currentIndex ? "$color" : "$color4"}
+                    pressStyle={{ scale: 0.9 }}
+                    onPress={() => setCurrentIndex(index)}
+                  />
+                ))}
+              </XStack>
+            </YStack>
+          </YStack>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog>
+  )
+}
+
+function GallerySection() {
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+  
+  const galleryData = {
+    "Natural Cenotes": {
+      images: [
+        { url: "/images/gallery/cenote.jpg", caption: "Crystal-clear waters perfect for swimming" },
+        { url: "/images/gallery/cenote-2.jpg", caption: "Ancient limestone formations create natural pools" },
+        { url: "/images/gallery/cenote-3.jpg", caption: "Underground water systems feed our cenotes" }
+      ]
+    },
+    "Lush Jungle": {
+      images: [
+        { url: "/images/gallery/jungle.jpg", caption: "50 acres of pristine tropical forest" },
+        { url: "/images/gallery/jungle-2.jpg", caption: "Rich biodiversity with native species" },
+        { url: "/images/gallery/jungle-3.jpg", caption: "Natural trails through the property" }
+      ]
+    },
+    "Community Spaces": {
+      images: [
+        { url: "/images/gallery/community.jpg", caption: "Shared areas for connection & creativity" },
+        { url: "/images/gallery/community-2.jpg", caption: "Open-air gathering spaces" },
+        { url: "/images/gallery/community-3.jpg", caption: "Collaborative work areas" }
+      ]
+    },
+    "Sustainable Villas": {
+      images: [
+        { url: "/images/gallery/villa.jpg", caption: "Eco-friendly homes with modern amenities" },
+        { url: "/images/gallery/villa-2.jpg", caption: "Solar-powered living spaces" },
+        { url: "/images/gallery/villa-3.jpg", caption: "Natural building materials" }
+      ]
+    },
+    "Nearby Beaches": {
+      images: [
+        { url: "/images/gallery/beach.jpg", caption: "Just minutes from pristine coastline" },
+        { url: "/images/gallery/beach-2.jpg", caption: "Crystal clear Caribbean waters" },
+        { url: "/images/gallery/beach-3.jpg", caption: "White sand beaches nearby" }
+      ]
+    }
+  }
+
+  return (
+    <>
+      <XStack flexWrap="wrap" gap="$4" jc="center">
+        {Object.entries(galleryData).map(([category, data], index) => (
+          <Card 
+            key={category}
+            bw={1}
+            bc="$borderColor"
+            br="$6"
+            elevation="$4"
+            width={index >= 3 ? "48%" : "31%"}
+            height={index >= 3 ? 400 : 300}
+            pressStyle={{
+              scale: 0.98,
+              bc: "$color1",
+            }}
+            animation="medium"
+            hoverStyle={{
+              elevation: "$8",
+              borderColor: "$color8",
+              scale: 1.02
+            }}
+            onPress={() => setSelectedCategory(category)}
+            $gtSm={{ minWidth: index >= 3 ? 450 : 300 }}
+            $sm={{ width: '100%', height: index >= 3 ? 250 : 200 }}
+            style={{
+              backgroundImage: `url(${data.images[0].url})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          >
+            <YStack f={1} jc="flex-end" p="$4" space="$2" style={{
+              background: 'linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%)',
+            }}>
+              <H3 size="$6" color="white">{category}</H3>
+              <Paragraph size="$3" color="white" o={0.9}>{data.images[0].caption}</Paragraph>
+            </YStack>
+          </Card>
+        ))}
+      </XStack>
+
+      {selectedCategory && (
+        <GalleryModal
+          isOpen={!!selectedCategory}
+          onClose={() => setSelectedCategory(null)}
+          category={selectedCategory}
+          images={galleryData[selectedCategory].images}
+        />
+      )}
+    </>
   )
 }
