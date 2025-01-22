@@ -1,10 +1,18 @@
+import { User } from '@tamagui/lucide-icons'
 import { useState } from 'react'
-import { Card, H3, Paragraph, XStack, YStack } from 'tamagui'
+import { Card, H3, Image, Paragraph, XStack, YStack } from 'tamagui'
 import { teamMembers } from '~/data/mexico/team'
 import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 
 export function TeamSection() {
   const [imageErrors, setImageErrors] = useState<{[key: string]: boolean}>({})
+
+  const handleImageError = (memberName: string) => {
+    setImageErrors(prev => ({
+      ...prev,
+      [memberName]: true
+    }))
+  }
 
   return (
     <YStack space="$6" mb="$8">
@@ -41,15 +49,20 @@ export function TeamSection() {
               br="$6" 
               ov="hidden" 
               backgroundColor="$color4"
-              style={!imageErrors[member.name] ? {
-                backgroundImage: `url(${member.image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              } : undefined}
+              position="relative"
             >
-              {imageErrors[member.name] && (
-                <YStack f={1} ai="center" jc="center">
-                  <Paragraph size="$3" theme="alt2">Image not available</Paragraph>
+              {!imageErrors[member.name] ? (
+                <Image
+                  source={{ uri: member.image, width: 280, height: 320 }}
+                  resizeMode="cover"
+                  width="100%"
+                  height="100%"
+                  onError={() => handleImageError(member.name)}
+                />
+              ) : (
+                <YStack f={1} ai="center" jc="center" space="$2">
+                  <User size={40} color="var(--color)" opacity={0.5} />
+                  <Paragraph size="$3" theme="alt2">Photo coming soon</Paragraph>
                 </YStack>
               )}
             </YStack>
