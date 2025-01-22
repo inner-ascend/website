@@ -1,5 +1,5 @@
 import { useTint } from '@tamagui/logo'
-import { Check, Leaf, Map, Sun, Users } from '@tamagui/lucide-icons'
+import { Check, Globe, Heart, Leaf, Palette, Sun, Users } from '@tamagui/lucide-icons'
 import { useMemo } from 'react'
 import { Button, Card, H1, H2, H3, Paragraph, Separator, Spacer, XStack, YStack } from 'tamagui'
 import { ContainerLarge } from '~/components/Containers'
@@ -18,7 +18,7 @@ export default function Community() {
       />
 
       {/* Hero Section with Background */}
-      <YStack pos="relative" height={700}>
+      <YStack pos="relative" height={700} $sm={{ height: 500 }}>
         <YStack
           pos="absolute"
           top={0}
@@ -41,7 +41,7 @@ export default function Community() {
         <YStack zi={2} py="$12" space="$6" ai="center" jc="center" f={1}>
           <ContainerLarge space="$4">
             <H1 
-              size="$10" 
+              size="$12" 
               ta="center" 
               className="hero-text" 
               color="white"
@@ -49,11 +49,12 @@ export default function Community() {
               style={{
                 textShadow: '0 2px 10px rgba(0,0,0,0.3)'
               }}
+              $sm={{ size: "$10" }}
             >
               Regenerative Living in Mexico
             </H1>
             <Paragraph 
-              size="$7" 
+              size="$8" 
               ta="center" 
               color="white"
               o={0.9}
@@ -61,6 +62,7 @@ export default function Community() {
               style={{
                 textShadow: '0 1px 8px rgba(0,0,0,0.3)'
               }}
+              $sm={{ size: "$6" }}
             >
               Own a piece of paradise through our NFT-powered community
             </Paragraph>
@@ -75,33 +77,95 @@ export default function Community() {
       {/* Key Features */}
       <TintSection index={1} zi={100}>
         <ContainerLarge>
-          <XStack flexWrap="wrap" gap="$8" jc="center">
-            <YStack w={250} ai="center" space="$2">
+          <XStack flexWrap="wrap" gap="$8" jc="center" $sm={{ gap: "$6" }}>
+            <YStack w={250} ai="center" space="$3" $sm={{ w: "100%", maw: 300 }}>
               <YStack p="$4" br="$6" bc="$green5">
                 <Leaf size={24} color="var(--green10)" />
               </YStack>
-              <H3 size="$5" ta="center">Regenerative Agriculture</H3>
-              <Paragraph size="$3" ta="center" theme="alt2">
-                Sustainable food production using permaculture principles
-              </Paragraph>
+              <H3 size="$5" ta="center" $sm={{ size: "$4" }}>Regenerative Agriculture</H3>
+              <YStack space="$2">
+                <Paragraph size="$3" ta="center" theme="alt2">
+                  Beyond organic farming: our food forests and permaculture systems restore soil health while producing abundant tropical fruits and vegetables.
+                </Paragraph>
+                <Paragraph size="$2" ta="center" theme="alt2" o={0.8}>
+                  Food forests • Aquaponics • Seed saving • Composting
+                </Paragraph>
+              </YStack>
             </YStack>
-            <YStack w={250} ai="center" space="$2">
+
+            <YStack w={250} ai="center" space="$3" $sm={{ w: "100%", maw: 300 }}>
               <YStack p="$4" br="$6" bc="$blue5">
                 <Users size={24} color="var(--blue10)" />
               </YStack>
-              <H3 size="$5" ta="center">Community Living</H3>
-              <Paragraph size="$3" ta="center" theme="alt2">
-                Shared spaces and collaborative governance
-              </Paragraph>
+              <H3 size="$5" ta="center" $sm={{ size: "$4" }}>Community Living</H3>
+              <YStack space="$2">
+                <Paragraph size="$3" ta="center" theme="alt2">
+                  Experience life in a purpose-driven community with shared workspaces, communal gardens, and a governance system that empowers all members.
+                </Paragraph>
+                <Paragraph size="$2" ta="center" theme="alt2" o={0.8}>
+                  Co-working • Shared kitchen • Events space • Learning center
+                </Paragraph>
+              </YStack>
             </YStack>
-            <YStack w={250} ai="center" space="$2">
+
+            <YStack w={250} ai="center" space="$3" $sm={{ w: "100%", maw: 300 }}>
               <YStack p="$4" br="$6" bc="$yellow5">
                 <Sun size={24} color="var(--yellow10)" />
               </YStack>
-              <H3 size="$5" ta="center">Sustainable Energy</H3>
-              <Paragraph size="$3" ta="center" theme="alt2">
-                100% renewable power and smart infrastructure
-              </Paragraph>
+              <H3 size="$5" ta="center" $sm={{ size: "$4" }}>Sustainable Energy</H3>
+              <YStack space="$2">
+                <Paragraph size="$3" ta="center" theme="alt2">
+                  Powered by Mexico's abundant sunshine through solar arrays and smart microgrids, with integrated water management systems.
+                </Paragraph>
+                <Paragraph size="$2" ta="center" theme="alt2" o={0.8}>
+                  Solar arrays • Battery storage • Smart metering • Greywater
+                </Paragraph>
+              </YStack>
+            </YStack>
+
+            <YStack w={250} ai="center" space="$3" $sm={{ w: "100%", maw: 300 }}>
+              <YStack p="$4" br="$6" bc="$purple5">
+                <Heart size={24} color="var(--purple10)" />
+              </YStack>
+              <H3 size="$5" ta="center" $sm={{ size: "$4" }}>Wellness Focus</H3>
+              <YStack space="$2">
+                <Paragraph size="$3" ta="center" theme="alt2">
+                  Nurture mind and body with dedicated spaces for yoga, meditation, and holistic health practices in harmony with nature.
+                </Paragraph>
+                <Paragraph size="$2" ta="center" theme="alt2" o={0.8}>
+                  Yoga deck • Meditation garden • Natural pool • Healing center
+                </Paragraph>
+              </YStack>
+            </YStack>
+
+            <YStack w={250} ai="center" space="$3" $sm={{ w: "100%", maw: 300 }}>
+              <YStack p="$4" br="$6" bc="$orange5">
+                <Palette size={24} color="var(--orange10)" />
+              </YStack>
+              <H3 size="$5" ta="center" $sm={{ size: "$4" }}>Creative Spaces</H3>
+              <YStack space="$2">
+                <Paragraph size="$3" ta="center" theme="alt2">
+                  Express yourself in dedicated maker spaces and art studios, fostering a vibrant creative community culture.
+                </Paragraph>
+                <Paragraph size="$2" ta="center" theme="alt2" o={0.8}>
+                  Art studio • Workshop • Music room • Performance space
+                </Paragraph>
+              </YStack>
+            </YStack>
+
+            <YStack w={250} ai="center" space="$3" $sm={{ w: "100%", maw: 300 }}>
+              <YStack p="$4" br="$6" bc="$pink5">
+                <Globe size={24} color="var(--pink10)" />
+              </YStack>
+              <H3 size="$5" ta="center" $sm={{ size: "$4" }}>Cultural Integration</H3>
+              <YStack space="$2">
+                <Paragraph size="$3" ta="center" theme="alt2">
+                  Bridge global and local communities through cultural exchange programs and partnerships with local artisans.
+                </Paragraph>
+                <Paragraph size="$2" ta="center" theme="alt2" o={0.8}>
+                  Local markets • Language exchange • Artisan workshops • Festivals
+                </Paragraph>
+              </YStack>
             </YStack>
           </XStack>
         </ContainerLarge>
@@ -110,7 +174,14 @@ export default function Community() {
       {/* Location & Climate */}
       <TintSection index={2}>
         <ContainerLarge position="relative">
-          <YStack zi={1} space="$6" mb="$4">
+          <YStack zi={1} space="$6" mb="$8">
+            <YStack space="$4" mb="$6">
+              <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Location & Climate</H2>
+              <Paragraph size="$6" ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
+                Discover our pristine property in the Riviera Maya, where tropical beauty meets modern convenience
+              </Paragraph>
+            </YStack>
+
             <XStack
               pos="relative"
               jc="center"
@@ -119,31 +190,114 @@ export default function Community() {
               width="100%"
             >
               <Card f={1} bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60} width="48%" $sm={{ width: '100%' }}>
-                <YStack jc="center" p="$6" space="$4">
-                  <H2 size="$8">Paradise Found</H2>
-                  <Paragraph size="$5" theme="alt2">
-                    Located in the heart of Mexico's Riviera Maya, our 50-acre property combines:
-                  </Paragraph>
-                  <YStack space="$2">
-                    {[
-                      'Year-round tropical climate perfect for agriculture',
-                      'Rich biodiversity and natural cenotes',
-                      'Easy access to international airports',
-                      'Close proximity to beautiful beaches',
-                      'Established expat community nearby'
-                    ].map(item => (
-                      <XStack key={item} ai="center" space="$2">
-                        <Check size={16} color="var(--green10)" />
-                        <Paragraph size="$4">{item}</Paragraph>
-                      </XStack>
-                    ))}
+                <YStack jc="center" p="$6" space="$6">
+                  <YStack space="$4">
+                    <H2 size="$8">Paradise Found</H2>
+                    <Paragraph size="$5" theme="alt2">
+                      Our carefully selected location offers the perfect blend of natural beauty and strategic advantages:
+                    </Paragraph>
+                  </YStack>
+                  <YStack space="$6">
+                    <XStack ai="center" space="$3">
+                      <Check size={20} color="var(--green10)" />
+                      <YStack space="$1">
+                        <Paragraph size="$4" fontWeight="600">Perfect Growing Climate</Paragraph>
+                        <Paragraph size="$3" theme="alt2">Year-round conditions ideal for tropical and subtropical crops</Paragraph>
+                      </YStack>
+                    </XStack>
+                    
+                    <XStack ai="center" space="$3">
+                      <Check size={20} color="var(--green10)" />
+                      <YStack space="$1">
+                        <Paragraph size="$4" fontWeight="600">Natural Resources</Paragraph>
+                        <Paragraph size="$3" theme="alt2">Crystal-clear cenotes and rich biodiversity on the property</Paragraph>
+                      </YStack>
+                    </XStack>
+
+                    <XStack ai="center" space="$3">
+                      <Check size={20} color="var(--green10)" />
+                      <YStack space="$1">
+                        <Paragraph size="$4" fontWeight="600">Strategic Location</Paragraph>
+                        <Paragraph size="$3" theme="alt2">Easy access to airports, beaches, and modern amenities</Paragraph>
+                      </YStack>
+                    </XStack>
+
+                    <XStack ai="center" space="$3">
+                      <Check size={20} color="var(--green10)" />
+                      <YStack space="$1">
+                        <Paragraph size="$4" fontWeight="600">Community Integration</Paragraph>
+                        <Paragraph size="$3" theme="alt2">Thriving expat community and local cultural experiences</Paragraph>
+                      </YStack>
+                    </XStack>
+
+                    <XStack ai="center" space="$3">
+                      <Check size={20} color="var(--green10)" />
+                      <YStack space="$1">
+                        <Paragraph size="$4" fontWeight="600">Development Ready</Paragraph>
+                        <Paragraph size="$3" theme="alt2">All permits secured and infrastructure planning complete</Paragraph>
+                      </YStack>
+                    </XStack>
                   </YStack>
                 </YStack>
               </Card>
 
               <Card f={1} bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60} width="48%" $sm={{ width: '100%' }}>
-                <YStack br="$4" ov="hidden" h={400}>
-                  <Map size="100%" />
+                <YStack jc="center" p="$6" space="$6">
+                  <YStack space="$4">
+                    <H2 size="$8">Location Details</H2>
+                    <YStack space="$5">
+                      <YStack space="$3">
+                        <H3 size="$5" theme="alt2">Climate & Environment</H3>
+                        <YStack space="$2">
+                          <Paragraph size="$4">
+                            • Average temperature: 24-29°C (75-84°F)
+                          </Paragraph>
+                          <Paragraph size="$4">
+                            • Rainy season: June to October
+                          </Paragraph>
+                          <Paragraph size="$4">
+                            • Humidity: Moderate tropical climate
+                          </Paragraph>
+                        </YStack>
+                      </YStack>
+
+                      <YStack space="$3">
+                        <H3 size="$5" theme="alt2">Travel & Access</H3>
+                        <YStack space="$2">
+                          <Paragraph size="$4">
+                            • 45 min from Cancún International Airport
+                          </Paragraph>
+                          <Paragraph size="$4">
+                            • 20 min to nearest major hospital
+                          </Paragraph>
+                          <Paragraph size="$4">
+                            • 15 min to local markets and amenities
+                          </Paragraph>
+                          <Paragraph size="$4">
+                            • 10 min to pristine beaches
+                          </Paragraph>
+                        </YStack>
+                      </YStack>
+
+                      <YStack space="$3">
+                        <H3 size="$5" theme="alt2">Property Overview</H3>
+                        <YStack space="$2">
+                          <Paragraph size="$4">
+                            • 50 acres of pristine tropical land
+                          </Paragraph>
+                          <Paragraph size="$4">
+                            • Multiple natural cenotes on-site
+                          </Paragraph>
+                          <Paragraph size="$4">
+                            • Mix of jungle and clearings
+                          </Paragraph>
+                          <Paragraph size="$4">
+                            • Natural elevation changes
+                          </Paragraph>
+                        </YStack>
+                      </YStack>
+                    </YStack>
+                  </YStack>
                 </YStack>
               </Card>
             </XStack>
@@ -155,12 +309,12 @@ export default function Community() {
       <TintSection index={3}>
         <ContainerLarge space="$6">
           <YStack space="$4" mb="$6">
-            <H2 size="$8" ta="center">Membership Tiers</H2>
-            <Paragraph size="$5" ta="center" theme="alt2">
+            <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Membership Tiers</H2>
+            <Paragraph size="$6" ta="center" theme="alt2" $sm={{ size: "$5" }}>
               Choose your level of involvement in our community
             </Paragraph>
           </YStack>
-          <XStack flexWrap="wrap" gap="$4" jc="center">
+          <XStack flexWrap="wrap" gap="$4" jc="center" $sm={{ gap: "$3" }}>
             <YStack
               f={1}
               miw={300}
@@ -170,13 +324,18 @@ export default function Community() {
               space="$4"
               borderWidth={2}
               borderColor="$borderColor"
+              $sm={{ 
+                miw: "auto",
+                w: "100%",
+                p: "$4"
+              }}
             >
               <YStack space="$2">
                 <H3 size="$6">Founding Member</H3>
                 <Paragraph theme="alt2" size="$8" fontWeight="800">5 ETH</Paragraph>
               </YStack>
               <Separator />
-              <YStack space="$2">
+              <YStack space="$3">
                 {[
                   'Private villa allocation',
                   'Full voting rights',
@@ -184,7 +343,7 @@ export default function Community() {
                   'Priority access to facilities',
                   'Founding member NFT'
                 ].map(benefit => (
-                  <XStack key={benefit} ai="center" space="$2">
+                  <XStack key={benefit} ai="center" space="$3">
                     <Check size={16} color="var(--color)" />
                     <Paragraph size="$3">{benefit}</Paragraph>
                   </XStack>
@@ -203,13 +362,18 @@ export default function Community() {
               borderWidth={2}
               borderColor="$borderColor"
               theme="purple"
+              $sm={{ 
+                miw: "auto",
+                w: "100%",
+                p: "$4"
+              }}
             >
               <YStack space="$2">
                 <H3 size="$6">Core Member</H3>
                 <Paragraph theme="alt2" size="$8" fontWeight="800">2 ETH</Paragraph>
               </YStack>
               <Separator />
-              <YStack space="$2">
+              <YStack space="$3">
                 {[
                   'Shared living space',
                   'Partial voting rights',
@@ -217,7 +381,7 @@ export default function Community() {
                   'Access to all facilities',
                   'Core member NFT'
                 ].map(benefit => (
-                  <XStack key={benefit} ai="center" space="$2">
+                  <XStack key={benefit} ai="center" space="$3">
                     <Check size={16} color="var(--color)" />
                     <Paragraph size="$3">{benefit}</Paragraph>
                   </XStack>
@@ -236,13 +400,18 @@ export default function Community() {
               borderWidth={2}
               borderColor="$borderColor"
               theme="blue"
+              $sm={{ 
+                miw: "auto",
+                w: "100%",
+                p: "$4"
+              }}
             >
               <YStack space="$2">
                 <H3 size="$6">Community Member</H3>
                 <Paragraph theme="alt2" size="$8" fontWeight="800">0.5 ETH</Paragraph>
               </YStack>
               <Separator />
-              <YStack space="$2">
+              <YStack space="$3">
                 {[
                   'Access to common areas',
                   'Community events',
@@ -250,7 +419,7 @@ export default function Community() {
                   'Basic amenities',
                   'Community NFT'
                 ].map(benefit => (
-                  <XStack key={benefit} ai="center" space="$2">
+                  <XStack key={benefit} ai="center" space="$3">
                     <Check size={16} color="var(--color)" />
                     <Paragraph size="$3">{benefit}</Paragraph>
                   </XStack>
@@ -266,7 +435,7 @@ export default function Community() {
       <TintSection index={4}>
         <ContainerLarge position="relative">
           <YStack zi={1} space="$6" mb="$4">
-            <H2 size="$8" ta="center" mb="$6">Project Roadmap</H2>
+            <H2 size="$9" ta="center" mb="$6" $sm={{ size: "$8", mb: "$4" }}>Project Roadmap</H2>
             <XStack
               pos="relative"
               jc="center"
@@ -345,8 +514,8 @@ export default function Community() {
       <HomeSection>
         <ContainerLarge space="$8">
           <YStack ai="center" space="$4">
-            <H2 size="$8" ta="center">Ready to Join?</H2>
-            <Paragraph size="$5" ta="center" theme="alt2" maw={600}>
+            <H2 size="$9" ta="center" $sm={{ size: "$8" }}>Ready to Join?</H2>
+            <Paragraph size="$6" ta="center" theme="alt2" maw={600} $sm={{ size: "$5" }}>
               Be part of the first blockchain-powered regenerative community in Mexico. 
               Limited spots available for founding members.
             </Paragraph>
