@@ -224,8 +224,8 @@ export default function Community() {
         <ContainerLarge space="$8">
           <YStack ai="center" space="$6">
             <HomeH2 ta="center" $sm={{ size: "$8" }}>Ready to Join?</HomeH2>
-            <HomeH3 ta="center" theme="alt2" maw={680} $sm={{ size: "$5" }}>
-              Be among the pioneers shaping the future of sustainable living in Mexico. Limited founding memberships available.
+            <HomeH3 ta="center" theme="alt2" maw={600} $sm={{ size: "$5" }}>
+              Be among the pioneers shaping the future of sustainable living in our mountain jungle sanctuary, just an hour from pristine Pacific beaches.
             </HomeH3>
             <XStack 
               gap="$4" 
@@ -268,6 +268,9 @@ export default function Community() {
                 Schedule a Call
               </Button>
             </XStack>
+            <Paragraph size="$3" theme="alt2" ta="center" o={0.8}>
+              Limited founding memberships available. Early supporters receive priority access.
+            </Paragraph>
           </YStack>
         </ContainerLarge>
       </HomeSection>

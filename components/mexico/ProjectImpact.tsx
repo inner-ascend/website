@@ -50,7 +50,7 @@ export function ProjectImpact() {
         </YStack>
 
         <YStack w={200} ai="center" space="$2" $sm={{ w: "45%" }}>
-          <H2 size="$9" color="$cyan10">1hr</H2>
+          <H2 size="$9" color="$blue10">1hr</H2>
           <Paragraph size="$4" ta="center" theme="alt2">To Beach & Airport</Paragraph>
         </YStack>
       </XStack>
