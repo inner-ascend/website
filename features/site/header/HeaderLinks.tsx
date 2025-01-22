@@ -95,14 +95,11 @@ export const HeaderLinks = (props: HeaderProps) => {
             display: forceShowAllLinks ? 'flex' : 'none',
           }}
         >
-          <XStack ai="center" gap="$2">
-            {/* <TooltipSimple label="Telegram"> */}
-              <TelegramIcon width={14} height={14} />
-            {/* </TooltipSimple> */}
-            {forceShowAllLinks && (
-              <Paragraph fontFamily="$silkscreen">Telegram</Paragraph>
-            )}
-          </XStack>
+          {!forceShowAllLinks ? (
+            <TelegramIcon width={14} height={14} color="$color11" />
+          ) : (
+            'Telegram'
+          )}
         </HeadAnchor>
       </Link>
     </>

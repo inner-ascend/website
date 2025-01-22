@@ -12,7 +12,7 @@ export function MexicoProject() {
           <HomeH2 ta="center" $sm={{ size: "$8" }}>
             Mexico Project
           </HomeH2>
-          <HomeH3 ta="center" theme="alt2" maw={750} als="center" $sm={{ size: "$5" }}>
+          <HomeH3 ta="center" theme="alt1" maw={750} als="center" $sm={{ size: "$5" }}>
             Join our flagship regenerative community in Oaxaca, featuring natural cenotes, lush jungle, and sustainable infrastructure
           </HomeH3>
         </YStack>
