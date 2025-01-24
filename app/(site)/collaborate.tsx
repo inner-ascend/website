@@ -592,52 +592,52 @@ const faqs: FAQItem[] = [
   {
     question: 'What types of collaboration opportunities are available?',
     answer:
-      'We offer diverse opportunities including technical roles (development, AI, blockchain), sustainability roles (permaculture, natural building), community roles (management, content creation), and research positions. Both remote and on-site positions are available, with flexible engagement levels from part-time to full-time commitment.',
+      'We have four main collaboration areas: 1) Technical: blockchain development, AI/ML engineering, full-stack development, DevOps, UI/UX design, 2) Sustainability: permaculture design, natural building, renewable energy systems, water management, 3) Community: project management, content creation, education, events coordination, 4) Research: sustainability research, documentation, grant writing. Each area offers both remote and on-site positions, with flexible engagement levels.',
   },
   {
     question: 'How does the compensation and ownership model work?',
     answer:
-      'We have a unique hybrid model combining traditional compensation with Web3 elements. This includes revenue sharing, NFT-based ownership rights, governance tokens, and for certain roles, accommodation in our communities. Long-term collaborators can earn ownership stakes through our DAO structure and participate in key decision-making.',
+      'We use a hybrid model that combines traditional compensation with Web3 elements. This includes revenue sharing, NFT-based ownership rights, and governance tokens. Long-term collaborators can earn ownership stakes in our projects and communities through our DAO structure. On-site roles may also include accommodation and additional benefits.',
+  },
+  {
+    question: "What's the current focus of the Mexico project?",
+    answer:
+      "We're in Phase 1, focusing on land development and initial infrastructure. Key priorities include permaculture design implementation, sustainable building construction, community platform development, and establishing our first on-site team. We're particularly seeking collaborators in natural building, permaculture, and technical infrastructure.",
+  },
+  {
+    question: 'Can I start remotely and transition to on-site?',
+    answer:
+      'Yes! Many collaborators start remotely and transition to on-site roles as opportunities arise. We have a structured pathway: starting with remote work, participating in virtual meetings, short-term project visits (2-4 weeks), extended stays (1-3 months), and eventually full relocation for key team members. We provide support throughout this journey.',
+  },
+  {
+    question: 'What skills and qualities are you looking for?',
+    answer:
+      "Beyond technical skills, we value: passion for sustainability and regenerative living, ability to work in a decentralized environment, strong communication skills in English (Spanish is a plus), self-motivation, and alignment with community values. We're looking for people who can grow with us and contribute to our long-term vision.",
+  },
+  {
+    question: 'How does the mentorship and training work?',
+    answer:
+      'Each collaborator is paired with an experienced team member in their area. We provide access to our knowledge base, regular skill-sharing sessions, and structured learning paths. Technical roles include code reviews and architecture guidance, while sustainability roles include hands-on training and expert workshops.',
   },
   {
     question: "What's the collaboration process like?",
     answer:
-      "We start with an initial discussion to understand your interests and skills, followed by a trial period to ensure mutual fit. You'll be paired with a mentor and given access to our learning resources. Regular feedback sessions and clear milestone tracking help guide your progress and growth within the community.",
+      "After initial contact, we schedule a call to discuss your interests and experience. If there's mutual interest, we start with a small trial project or paid trial period (2-4 weeks). You'll be integrated into our communication channels, assigned a mentor, and given clear objectives. Regular feedback ensures alignment and growth.",
   },
   {
-    question: 'Can I transition between different roles?',
+    question: 'How are decisions made in the community?',
     answer:
-      "Yes! We encourage skill development and role exploration. Many collaborators start in one area and expand their involvement as they discover new interests. We provide training and mentorship to support these transitions, whether it's moving between technical and community roles or shifting from remote to on-site positions.",
+      'We use a DAO (Decentralized Autonomous Organization) structure where collaborators participate in decision-making based on their role and contribution level. Day-to-day decisions are made by team leads, while strategic and community-wide decisions use token-weighted voting through our DAO. Regular community calls and online forums facilitate discussions.',
   },
   {
-    question: 'What resources and support are provided?',
+    question: 'What immediate opportunities are available?',
     answer:
-      'Collaborators receive access to our knowledge base, training programs, development tools, and community resources. We provide mentorship, regular skill-sharing sessions, and opportunities to learn from experienced team members. For on-site roles, we assist with accommodation and integration into the local community.',
+      'Our priority roles are listed above, with immediate needs in technical development (full-stack, blockchain), sustainability (natural building, permaculture), and community building. We also have ongoing opportunities in content creation, research, and project coordination. Check our current projects section for the most urgent needs.',
   },
   {
-    question: 'How does remote collaboration work?',
+    question: 'How do I take the next step?',
     answer:
-      'Remote collaborators are fully integrated into our community through digital platforms. We use a mix of async and real-time communication tools, regular video calls, and project management systems. Remote team members have equal access to learning resources and can participate in decision-making through our DAO structure.',
-  },
-  {
-    question: 'What are the current priority projects?',
-    answer:
-      "Our main focus is the Mexico ecovillage project, where we're developing sustainable infrastructure, permaculture systems, and community spaces. We're also building our digital platform for community management and expanding our educational content. Priority roles are updated regularly based on project phases.",
-  },
-  {
-    question: 'What makes an ideal collaborator?',
-    answer:
-      'We value passion for sustainability, openness to learning, and alignment with our community values. While specific skills are important, we equally value adaptability, initiative, and ability to work in a decentralized environment. Strong communication skills and comfort with both independent and collaborative work are essential.',
-  },
-  {
-    question: 'How can I start contributing immediately?',
-    answer:
-      'You can begin by joining our community channels, participating in discussions, and exploring our documentation. We often have small starter projects available for new collaborators to get familiar with our workflow. Reach out through our contact form or social channels to discuss specific opportunities that match your interests.',
-  },
-  {
-    question: 'What long-term opportunities exist?',
-    answer:
-      "Long-term collaborators can grow into leadership roles, develop new project initiatives, and gain ownership stakes in our communities. We're building a network of sustainable communities, offering opportunities for international collaboration and the chance to help shape the future of regenerative living.",
+      "1) Review our priority roles and identify areas where you can contribute, 2) Prepare a brief introduction highlighting your relevant experience and interests, 3) Join our Discord community to connect with current collaborators, 4) Reach out through our contact form, 5) We'll schedule an initial discussion. For technical roles, please include links to previous work.",
   },
 ]
 
