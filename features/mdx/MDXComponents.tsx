@@ -27,6 +27,7 @@ import {
   Separator,
   SizableText,
   Spacer,
+  Stack,
   Text,
   Theme,
   ThemeableStack,
@@ -228,6 +229,11 @@ const componentsIn = {
   BenchmarkChartNative,
   BenchmarkChartWeb,
   TooltipSimple,
+  H3,
+  H4,
+  H5,
+  Link,
+  Stack,
 
   ...Demos,
 
@@ -899,6 +905,10 @@ const componentsIn = {
       </YStack>
     )
   },
+
+  VisionSection: (props) => <YStack space="$4" {...props} />,
+
+  ProjectSection: (props) => <YStack space="$4" {...props} />,
 }
 
 export class ErrorBoundary extends React.Component<{ children: any; name: string }> {
