@@ -1,11 +1,12 @@
 import { useTint } from '@tamagui/logo'
-import { ArrowRight, Check } from '@tamagui/lucide-icons'
-import { useMemo } from 'react'
+import { ArrowRight, Check, ChevronDown, ChevronUp } from '@tamagui/lucide-icons'
+import { useMemo, useState } from 'react'
 import {
   Button,
   Card,
   H1,
   H2,
+  H3,
   Image,
   Paragraph,
   Separator,
@@ -30,6 +31,11 @@ interface CollaborationCard {
   image: string
   theme: ThemeName
   buttonText: string
+}
+
+interface FAQItem {
+  question: string
+  answer: string
 }
 
 function CommunityLayout({ children }: { children: React.ReactNode }) {
@@ -408,6 +414,26 @@ export default function Collaborate() {
         </ContainerLarge>
       </TintSection>
 
+      {/* FAQ Section */}
+      <TintSection index={4}>
+        <ContainerLarge>
+          <YStack space="$6" mb="$8">
+            <YStack space="$6" mb="$6">
+              <HomeH2 ta="center" $sm={{ size: '$8' }}>
+                Frequently Asked Questions
+              </HomeH2>
+              <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
+                Common questions about collaborating with Inner Ascend
+              </HomeH3>
+            </YStack>
+
+            <YStack space="$4" als="center">
+              <FAQSection />
+            </YStack>
+          </YStack>
+        </ContainerLarge>
+      </TintSection>
+
       {/* Contact Section */}
       <TintSection index={2}>
         <ContainerLarge space="$4">
@@ -561,3 +587,119 @@ const priorityRoles = [
     ],
   },
 ]
+
+const faqs: FAQItem[] = [
+  {
+    question: 'What types of collaboration opportunities are available?',
+    answer:
+      'We offer diverse opportunities including technical roles (development, AI, blockchain), sustainability roles (permaculture, natural building), community roles (management, content creation), and research positions. Both remote and on-site positions are available, with flexible engagement levels from part-time to full-time commitment.',
+  },
+  {
+    question: 'How does the compensation and ownership model work?',
+    answer:
+      'We have a unique hybrid model combining traditional compensation with Web3 elements. This includes revenue sharing, NFT-based ownership rights, governance tokens, and for certain roles, accommodation in our communities. Long-term collaborators can earn ownership stakes through our DAO structure and participate in key decision-making.',
+  },
+  {
+    question: "What's the collaboration process like?",
+    answer:
+      "We start with an initial discussion to understand your interests and skills, followed by a trial period to ensure mutual fit. You'll be paired with a mentor and given access to our learning resources. Regular feedback sessions and clear milestone tracking help guide your progress and growth within the community.",
+  },
+  {
+    question: 'Can I transition between different roles?',
+    answer:
+      "Yes! We encourage skill development and role exploration. Many collaborators start in one area and expand their involvement as they discover new interests. We provide training and mentorship to support these transitions, whether it's moving between technical and community roles or shifting from remote to on-site positions.",
+  },
+  {
+    question: 'What resources and support are provided?',
+    answer:
+      'Collaborators receive access to our knowledge base, training programs, development tools, and community resources. We provide mentorship, regular skill-sharing sessions, and opportunities to learn from experienced team members. For on-site roles, we assist with accommodation and integration into the local community.',
+  },
+  {
+    question: 'How does remote collaboration work?',
+    answer:
+      'Remote collaborators are fully integrated into our community through digital platforms. We use a mix of async and real-time communication tools, regular video calls, and project management systems. Remote team members have equal access to learning resources and can participate in decision-making through our DAO structure.',
+  },
+  {
+    question: 'What are the current priority projects?',
+    answer:
+      "Our main focus is the Mexico ecovillage project, where we're developing sustainable infrastructure, permaculture systems, and community spaces. We're also building our digital platform for community management and expanding our educational content. Priority roles are updated regularly based on project phases.",
+  },
+  {
+    question: 'What makes an ideal collaborator?',
+    answer:
+      'We value passion for sustainability, openness to learning, and alignment with our community values. While specific skills are important, we equally value adaptability, initiative, and ability to work in a decentralized environment. Strong communication skills and comfort with both independent and collaborative work are essential.',
+  },
+  {
+    question: 'How can I start contributing immediately?',
+    answer:
+      'You can begin by joining our community channels, participating in discussions, and exploring our documentation. We often have small starter projects available for new collaborators to get familiar with our workflow. Reach out through our contact form or social channels to discuss specific opportunities that match your interests.',
+  },
+  {
+    question: 'What long-term opportunities exist?',
+    answer:
+      "Long-term collaborators can grow into leadership roles, develop new project initiatives, and gain ownership stakes in our communities. We're building a network of sustainable communities, offering opportunities for international collaboration and the chance to help shape the future of regenerative living.",
+  },
+]
+
+function FAQItem({
+  question,
+  answer,
+  isOpen,
+  onToggle,
+}: {
+  question: string
+  answer: string
+  isOpen: boolean
+  onToggle: () => void
+}) {
+  return (
+    <Card bw={1} bc="$borderColor" br="$6" ov="hidden" animation="quick" w="100%">
+      <XStack
+        p="$5"
+        pr="$4"
+        jc="space-between"
+        ai="center"
+        cursor="pointer"
+        pressStyle={{ opacity: 0.8 }}
+        onPress={onToggle}
+        w="100%"
+      >
+        <YStack f={1} pr="$4">
+          <H3 size="$6">{question}</H3>
+        </YStack>
+        <YStack>
+          {isOpen ? (
+            <ChevronUp size={20} color="var(--color)" />
+          ) : (
+            <ChevronDown size={20} color="var(--color)" />
+          )}
+        </YStack>
+      </XStack>
+      {isOpen && (
+        <YStack p="$5" pt="$0" animation="quick">
+          <Paragraph size="$4" theme="alt2">
+            {answer}
+          </Paragraph>
+        </YStack>
+      )}
+    </Card>
+  )
+}
+
+function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  return (
+    <YStack w={650} space="$4" $sm={{ w: '100%' }}>
+      {faqs.map((faq, index) => (
+        <FAQItem
+          key={index}
+          question={faq.question}
+          answer={faq.answer}
+          isOpen={openIndex === index}
+          onToggle={() => setOpenIndex(openIndex === index ? null : index)}
+        />
+      ))}
+    </YStack>
+  )
+}
