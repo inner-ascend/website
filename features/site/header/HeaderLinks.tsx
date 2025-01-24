@@ -15,7 +15,7 @@ import {
   XStack,
   YStack,
   debounce,
-  styled
+  styled,
 } from 'tamagui'
 import { Link } from '../../../components/Link'
 // Bento and Takeout dependencies (commented out)
@@ -56,8 +56,7 @@ const HeadAnchor = styled(Paragraph, {
         px: '$4',
 
         hoverStyle: {
-          backgroundColor:
-            'color-mix(in srgb, var(--color8) 10%, transparent 50%)' as any,
+          backgroundColor: 'color-mix(in srgb, var(--color8) 10%, transparent 50%)' as any,
         },
       },
     },
@@ -88,7 +87,21 @@ export const HeaderLinks = (props: HeaderProps) => {
         </HeadAnchor>
       </Link>
 
-      {!forceShowAllLinks && <Link asChild href="/mexico">
+      {!forceShowAllLinks && (
+        <Link asChild href="/mexico">
+          <HeadAnchor
+            // half={forceShowAllLinks}
+            grid={forceShowAllLinks}
+            $sm={{
+              display: forceShowAllLinks ? 'flex' : 'none',
+            }}
+          >
+            Mexico
+          </HeadAnchor>
+        </Link>
+      )}
+
+      <Link asChild href="/collaborate">
         <HeadAnchor
           // half={forceShowAllLinks}
           grid={forceShowAllLinks}
@@ -96,9 +109,9 @@ export const HeaderLinks = (props: HeaderProps) => {
             display: forceShowAllLinks ? 'flex' : 'none',
           }}
         >
-          Mexico
+          Collaborate
         </HeadAnchor>
-      </Link>}
+      </Link>
 
       <Link asChild href="https://t.me/+s6l6LL0v5BIxMWJk" target="_blank" rel="noopener noreferrer">
         <HeadAnchor
@@ -108,16 +121,9 @@ export const HeaderLinks = (props: HeaderProps) => {
           }}
         >
           <XStack ai="center" gap="$2">
-          {forceShowAllLinks && (
-            <TelegramIcon width={14} height={14} />
-          )}
-          {!forceShowAllLinks ? (
-            <TelegramIcon width={14} height={14} />
-          ) : (
-            'Telegram'
-          )}
-          
-</XStack>
+            {forceShowAllLinks && <TelegramIcon width={14} height={14} />}
+            {!forceShowAllLinks ? <TelegramIcon width={14} height={14} /> : 'Telegram'}
+          </XStack>
         </HeadAnchor>
       </Link>
     </>
@@ -350,59 +356,57 @@ const SlidingPopover = (props: PopoverProps) => {
   )
 }
 
-const SlidingPopoverTrigger = YStack.styleable<{ id: string }>(
-  ({ id, ...props }, ref) => {
-    const context = React.useContext(SlidingPopoverContext)
-    const [layout, setLayout_] = React.useState<LayoutRectangle>()
-    const setLayout = createShallowSetState<LayoutRectangle>(setLayout_ as any)
-    const triggerRef = React.useRef<HTMLElement>(null)
-    const combinedRef = useComposedRefs(ref)
+const SlidingPopoverTrigger = YStack.styleable<{ id: string }>(({ id, ...props }, ref) => {
+  const context = React.useContext(SlidingPopoverContext)
+  const [layout, setLayout_] = React.useState<LayoutRectangle>()
+  const setLayout = createShallowSetState<LayoutRectangle>(setLayout_ as any)
+  const triggerRef = React.useRef<HTMLElement>(null)
+  const combinedRef = useComposedRefs(ref)
 
-    React.useEffect(() => {
-      const handleMove = debounce(() => {
-        const layout = triggerRef.current?.getBoundingClientRect()
-        if (layout) {
-          setLayout(layout)
-        }
-      }, 32)
-      window.addEventListener('resize', handleMove)
-      return () => {
-        window.removeEventListener('resize', handleMove)
+  React.useEffect(() => {
+    const handleMove = debounce(() => {
+      const layout = triggerRef.current?.getBoundingClientRect()
+      if (layout) {
+        setLayout(layout)
       }
-    }, [])
+    }, 32)
+    window.addEventListener('resize', handleMove)
+    return () => {
+      window.removeEventListener('resize', handleMove)
+    }
+  }, [])
 
-    return (
-      <YStack
-        onMouseEnter={() => {
-          if (layout) {
-            context.setActive(id, layout)
-          }
-        }}
-        // onMouseLeave={() => {
-        //   context.setInactive(id)
-        // }}
-        onPress={() => {
-          setTimeout(() => {
-            context.close()
-          }, 400)
-        }}
-        onLayout={(e) => {
-          React.startTransition(() => {
-            setLayout({
-              ...e.nativeEvent.layout,
-              // @ts-ignore
-              x: e.nativeEvent.layout.left,
-              // @ts-ignore
-              y: e.nativeEvent.layout.top,
-            })
+  return (
+    <YStack
+      onMouseEnter={() => {
+        if (layout) {
+          context.setActive(id, layout)
+        }
+      }}
+      // onMouseLeave={() => {
+      //   context.setInactive(id)
+      // }}
+      onPress={() => {
+        setTimeout(() => {
+          context.close()
+        }, 400)
+      }}
+      onLayout={(e) => {
+        React.startTransition(() => {
+          setLayout({
+            ...e.nativeEvent.layout,
+            // @ts-ignore
+            x: e.nativeEvent.layout.left,
+            // @ts-ignore
+            y: e.nativeEvent.layout.top,
           })
-        }}
-        ref={combinedRef}
-        {...props}
-      />
-    )
-  }
-)
+        })
+      }}
+      ref={combinedRef}
+      {...props}
+    />
+  )
+})
 
 const order = ['', 'takeout', 'bento', 'studio']
 
@@ -561,7 +565,12 @@ const TooltipLabelLarge = ({
   subtitle,
   icon,
   href,
-}: { href: string; icon: any; title: string; subtitle: string }) => {
+}: {
+  href: string
+  icon: any
+  title: string
+  subtitle: string
+}) => {
   return (
     <Link asChild href={href as Href}>
       <YStack cur="pointer" f={1} ai="center" p="$7" br="$4" ov="hidden">

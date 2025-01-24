@@ -1,40 +1,40 @@
 import { TamaguiLogo, ThemeTint, ThemeTintAlt } from '@tamagui/logo'
 import {
-    Asterisk,
-    Box,
-    Check,
-    CheckCircle,
-    ChevronRight,
-    Copy,
-    File,
-    Link as LinkIcon,
+  Asterisk,
+  Box,
+  Check,
+  CheckCircle,
+  ChevronRight,
+  Copy,
+  File,
+  Link as LinkIcon,
 } from '@tamagui/lucide-icons'
 import type { Href } from 'one'
 import React, { useState } from 'react'
 import { ScrollView } from 'react-native'
 import type { ImageProps, XStackProps } from 'tamagui'
 import {
-    Adapt,
-    Button,
-    Card,
-    H1,
-    H2,
-    H3,
-    H4,
-    H5,
-    Image,
-    Paragraph,
-    Separator,
-    SizableText,
-    Spacer,
-    Text,
-    Theme,
-    ThemeableStack,
-    TooltipSimple,
-    XGroup,
-    XStack,
-    YStack,
-    styled,
+  Adapt,
+  Button,
+  Card,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  Image,
+  Paragraph,
+  Separator,
+  SizableText,
+  Spacer,
+  Text,
+  Theme,
+  ThemeableStack,
+  TooltipSimple,
+  XGroup,
+  XStack,
+  YStack,
+  styled,
 } from 'tamagui'
 import { LinearGradient } from 'tamagui/linear-gradient'
 import { Code, CodeInline } from '../../components/Code'
@@ -468,20 +468,12 @@ const componentsIn = {
     </LinkHeading>
   ),
 
-  h4: (props) => (
-    <H4 pos="relative" width={`fit-content` as any} mt="$4" mb="$3" {...props} />
-  ),
+  h4: (props) => <H4 pos="relative" width={`fit-content` as any} mt="$4" mb="$3" {...props} />,
 
   h5: (props) => <H5 mt="$4" {...props} />,
 
   p: (props) => (
-    <Paragraph
-      className="docs-paragraph"
-      display="block"
-      size="$6"
-      my="$2.5"
-      {...props}
-    />
+    <Paragraph className="docs-paragraph" display="block" size="$6" my="$2.5" {...props} />
   ),
 
   a: ({ href = '', children, ...props }) => {
@@ -536,9 +528,7 @@ const componentsIn = {
     )
   },
 
-  strong: (props) => (
-    <Paragraph tag="strong" fontSize="inherit" {...props} fontWeight="700" />
-  ),
+  strong: (props) => <Paragraph tag="strong" fontSize="inherit" {...props} fontWeight="700" />,
 
   img: ({ ...props }) => (
     <YStack tag="span" my="$6">
@@ -591,6 +581,7 @@ const componentsIn = {
 
     return content
   },
+  ChevronRight,
 
   Video: ({
     small,
@@ -697,8 +688,8 @@ const componentsIn = {
               .
             </Paragraph>
             <Paragraph>
-              My goal is to support Tamagui development with sponsorships that get early
-              access to <a href="#sponsors">some really interesting</a> new features.
+              My goal is to support Tamagui development with sponsorships that get early access to{' '}
+              <a href="#sponsors">some really interesting</a> new features.
             </Paragraph>
             <SponsorButton />
           </YStack>
@@ -727,9 +718,9 @@ const componentsIn = {
       <YStack gap="$1">
         <ThemeTintAlt offset={2}>
           <IntroParagraph mt="$4">
-            Tamagui makes styling React easy and fast on web, Android, and iOS. It focuses
-            on platform-native output, with an optional optimizing compiler that
-            significantly improves your app or site performance.
+            Tamagui makes styling React easy and fast on web, Android, and iOS. It focuses on
+            platform-native output, with an optional optimizing compiler that significantly improves
+            your app or site performance.
           </IntroParagraph>
 
           <Paragraph size="$6">Tamagui is three things:</Paragraph>
@@ -743,9 +734,8 @@ const componentsIn = {
                     <span style={{ color: 'var(--color12)' }}>@tamagui/core</span>
                   </CodeInline>
                 </Link>
-                &nbsp;is a style library that expands on the React Native style API with
-                many features from CSS - all without any external dependency except for
-                React.
+                &nbsp;is a style library that expands on the React Native style API with many
+                features from CSS - all without any external dependency except for React.
               </LI>
             </ThemeTintAlt>
 
@@ -765,8 +755,7 @@ const componentsIn = {
                 >
                   significantly improves performance
                 </Link>{' '}
-                by hoisting objects and CSS at build-time, leaving behind flatter React
-                trees.
+                by hoisting objects and CSS at build-time, leaving behind flatter React trees.
               </LI>
             </ThemeTintAlt>
 

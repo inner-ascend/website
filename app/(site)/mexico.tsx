@@ -21,8 +21,8 @@ export default function Community() {
   return (
     <CommunityLayout>
       <ThemeNameEffect />
-      <HeadInfo 
-        title="Mexico Project | Inner Ascend" 
+      <HeadInfo
+        title="Mexico Project | Inner Ascend"
         description="Join our regenerative living project in Mexico through NFT-based community ownership"
       />
 
@@ -44,51 +44,52 @@ export default function Community() {
           fullscreen
           zi={1}
           style={{
-            background: 'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%), linear-gradient(0deg, rgba(0,100,100,0.15) 0%, rgba(0,0,0,0) 100%)',
+            background:
+              'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%), linear-gradient(0deg, rgba(0,100,100,0.15) 0%, rgba(0,0,0,0) 100%)',
           }}
         />
         <YStack zi={2} py="$12" space="$6" ai="center" jc="center" f={1}>
           <ContainerLarge space="$4">
-            <H1 
-              size="$12" 
-              ta="center" 
-              className="hero-text" 
+            <H1
+              size="$12"
+              ta="center"
+              className="hero-text"
               color="white"
               fontWeight="900"
               style={{
-                textShadow: '0 2px 10px rgba(0,0,0,0.3)'
+                textShadow: '0 2px 10px rgba(0,0,0,0.3)',
               }}
-              $sm={{ size: "$10" }}
+              $sm={{ size: '$10' }}
             >
               Regenerative Living in Mexico
             </H1>
-            <Paragraph 
-              size="$8" 
-              ta="center" 
+            <Paragraph
+              size="$8"
+              ta="center"
               color="white"
               o={0.9}
               fontWeight="500"
               style={{
-                textShadow: '0 1px 8px rgba(0,0,0,0.3)'
+                textShadow: '0 1px 8px rgba(0,0,0,0.3)',
               }}
-              $sm={{ size: "$6" }}
+              $sm={{ size: '$6' }}
             >
               Join a visionary community where sustainable living meets tropical paradise
             </Paragraph>
-            <XStack 
-              jc="center" 
-              mt="$6" 
+            <XStack
+              jc="center"
+              mt="$6"
               gap="$4"
-              $sm={{ 
+              $sm={{
                 flexDirection: 'column',
                 ai: 'center',
                 gap: '$3',
                 maxWidth: 200,
-                als: 'center'
+                als: 'center',
               }}
             >
-              <Button 
-                size="$5" 
+              <Button
+                size="$5"
                 theme="green"
                 fontFamily="$silkscreen"
                 pressStyle={{
@@ -97,14 +98,14 @@ export default function Community() {
                 animation="quick"
                 hoverStyle={{
                   opacity: 0.9,
-                  scale: 1.02
+                  scale: 1.02,
                 }}
               >
                 Join Whitelist
               </Button>
-              <Button 
-                size="$5" 
-                theme="alt1" 
+              <Button
+                size="$5"
+                theme="alt1"
                 fontFamily="$silkscreen"
                 borderWidth={1}
                 pressStyle={{
@@ -113,7 +114,7 @@ export default function Community() {
                 animation="quick"
                 hoverStyle={{
                   opacity: 0.9,
-                  scale: 1.02
+                  scale: 1.02,
                 }}
               >
                 Learn More
@@ -132,7 +133,11 @@ export default function Community() {
 
       {/* Location & Climate */}
       <TintSection index={2}>
-        <ContainerLarge position="relative">
+        <ContainerLarge
+          position="relative"
+          id="location-climate"
+          style={{ scrollMarginTop: '100px' }}
+        >
           <LocationClimate />
         </ContainerLarge>
       </TintSection>
@@ -141,23 +146,28 @@ export default function Community() {
       <TintSection index={3}>
         <ContainerLarge space="$6">
           <YStack space="$6" mb="$6">
-            <HomeH2 ta="center" $sm={{ size: "$8" }}>Experience Paradise</HomeH2>
-            <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
+            <HomeH2 ta="center" $sm={{ size: '$8' }}>
+              Experience Paradise
+            </HomeH2>
+            <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
               Discover the natural beauty and planned amenities of our sustainable community
             </HomeH3>
           </YStack>
-          
+
           <GallerySection />
         </ContainerLarge>
       </TintSection>
 
       {/* NFT Tiers */}
       <TintSection index={4}>
-        <ContainerLarge space="$6">
+        <ContainerLarge space="$6" id="membership-tiers" style={{ scrollMarginTop: '100px' }}>
           <YStack space="$6" mb="$6">
-            <HomeH2 ta="center" $sm={{ size: "$8" }}>Membership Tiers</HomeH2>
-            <HomeH3 ta="center" theme="alt2" $sm={{ size: "$5" }}>
-              Secure your place in our community with blockchain-powered ownership and exclusive benefits
+            <HomeH2 ta="center" $sm={{ size: '$8' }}>
+              Membership Tiers
+            </HomeH2>
+            <HomeH3 ta="center" theme="alt2" $sm={{ size: '$5' }}>
+              Secure your place in our community with blockchain-powered ownership and exclusive
+              benefits
             </HomeH3>
           </YStack>
           <MembershipTiers />
@@ -166,7 +176,11 @@ export default function Community() {
 
       {/* Timeline */}
       <TintSection index={5}>
-        <ContainerLarge position="relative">
+        <ContainerLarge
+          position="relative"
+          id="project-roadmap"
+          style={{ scrollMarginTop: '100px' }}
+        >
           <ProjectRoadmap />
         </ContainerLarge>
       </TintSection>
@@ -183,8 +197,10 @@ export default function Community() {
         <ContainerLarge>
           <YStack space="$6" mb="$8">
             <YStack space="$6" mb="$6">
-              <HomeH2 ta="center" $sm={{ size: "$8" }}>News & Updates</HomeH2>
-              <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
+              <HomeH2 ta="center" $sm={{ size: '$8' }}>
+                News & Updates
+              </HomeH2>
+              <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
                 Follow our journey as we build a sustainable paradise
               </HomeH3>
             </YStack>
@@ -196,7 +212,7 @@ export default function Community() {
 
       {/* Team Section */}
       <TintSection index={8}>
-        <ContainerLarge>
+        <ContainerLarge id="team-section" style={{ scrollMarginTop: '100px' }}>
           <TeamSection />
         </ContainerLarge>
       </TintSection>
@@ -206,8 +222,10 @@ export default function Community() {
         <ContainerLarge>
           <YStack space="$6" mb="$8">
             <YStack space="$6" mb="$6">
-              <HomeH2 ta="center" $sm={{ size: "$8" }}>Frequently Asked Questions</HomeH2>
-              <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: "$5" }}>
+              <HomeH2 ta="center" $sm={{ size: '$8' }}>
+                Frequently Asked Questions
+              </HomeH2>
+              <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
                 Everything you need to know about joining our community
               </HomeH3>
             </YStack>
@@ -223,22 +241,25 @@ export default function Community() {
       <HomeSection>
         <ContainerLarge space="$8">
           <YStack ai="center" space="$6">
-            <HomeH2 ta="center" $sm={{ size: "$8" }}>Ready to Join?</HomeH2>
-            <HomeH3 ta="center" theme="alt2" maw={600} $sm={{ size: "$5" }}>
-              Be among the pioneers shaping the future of sustainable living in our mountain jungle sanctuary, just an hour from pristine Pacific beaches.
+            <HomeH2 ta="center" $sm={{ size: '$8' }}>
+              Ready to Join?
+            </HomeH2>
+            <HomeH3 ta="center" theme="alt2" maw={600} $sm={{ size: '$5' }}>
+              Be among the pioneers shaping the future of sustainable living in our mountain jungle
+              sanctuary, just an hour from pristine Pacific beaches.
             </HomeH3>
-            <XStack 
-              gap="$4" 
+            <XStack
+              gap="$4"
               mt="$4"
-              $sm={{ 
+              $sm={{
                 flexDirection: 'column',
                 ai: 'center',
                 gap: '$3',
-                als: 'center'
+                als: 'center',
               }}
             >
-              <Button 
-                size="$5" 
+              <Button
+                size="$5"
                 theme="green"
                 fontFamily="$silkscreen"
                 pressStyle={{
@@ -247,13 +268,13 @@ export default function Community() {
                 animation="quick"
                 hoverStyle={{
                   opacity: 0.9,
-                  scale: 1.02
+                  scale: 1.02,
                 }}
               >
                 Join Whitelist
               </Button>
-              <Button 
-                size="$5" 
+              <Button
+                size="$5"
                 theme="alt2"
                 fontFamily="$silkscreen"
                 pressStyle={{
@@ -262,7 +283,7 @@ export default function Community() {
                 animation="quick"
                 hoverStyle={{
                   opacity: 0.9,
-                  scale: 1.02
+                  scale: 1.02,
                 }}
               >
                 Schedule a Call
