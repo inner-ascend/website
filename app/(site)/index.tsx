@@ -12,7 +12,6 @@ import { EcoThemes } from '../../features/site/home/EcoThemes'
 import { EcovillageGrid } from '../../features/site/home/EcovillageGrid'
 import { HomeGlow } from '../../features/site/home/HomeGlow'
 import { Hero } from '../../features/site/home/HomeHero'
-import { HomeHeroBelow } from '../../features/site/home/HomeHeroBelow'
 import { SustainableImpact } from '../../features/site/home/SustainableImpact'
 import { HomeSection, SectionTinted, TintSection } from '../../features/site/home/TintSection'
 import { ThemeNameEffect } from '../../features/site/theme/ThemeNameEffect'
@@ -50,8 +49,7 @@ export default function TamaguiHomePage() {
       <TintSection index={0} p={0}>
         <Hero />
       </TintSection>
-      <HomeHeroBelow />
-      
+
       <TintSection index={1} contain="paint layout" zi={1000}>
         <YStack
           pe="none"

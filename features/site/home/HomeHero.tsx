@@ -17,10 +17,9 @@ import { Link } from '../../../components/Link'
 import { TelegramIcon } from '../../icons/TelegramIcon'
 import { seasons } from '../seasons/SeasonTogglePopover'
 
-import { TagSubtitle } from '~/components/atoms/TagSubtitle'
 import { HeroTitle } from '~/components/molecules/HeroTitle'
+import { HomeHeroBelow } from '~/components/organisms/HomeHeroBelow'
 import { HomeHeroText } from '~/components/organisms/HomeHeroText'
-import { useHeroHovered } from './useHeroHovered'
 
 export function Hero() {
   const { name } = useTint()
@@ -30,38 +29,10 @@ export function Hero() {
       <div className={`${name}-season _dsp-contents`}>
         <HeroContents />
       </div>
+      <HomeHeroBelow />
     </>
   )
 }
-
-const HeroSubTitle = memo(() => {
-  const [hovered, setHovered] = useHeroHovered()
-
-  return (
-    <TagSubtitle
-      tags={[
-        {
-          text: 'REGENERATIVE LIVING',
-          theme: 'green',
-          href: '/docs/core/configuration',
-        },
-        {
-          text: 'CONSCIOUS COMMUNITY',
-          theme: 'blue',
-          href: '/docs/intro/why-a-compiler',
-        },
-        {
-          text: 'LAND STEWARDSHIP',
-          theme: 'purple',
-          href: '/ui/stacks',
-        },
-      ]}
-      suffix="for all · in harmony"
-      onTagHover={setHovered}
-      activeIndex={hovered}
-    />
-  )
-})
 
 const HeroContents = memo(function HeroContents() {
   const { name, tint, tintAlt } = useTint()
