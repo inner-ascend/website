@@ -1,12 +1,11 @@
-import { useLoader } from 'one'
 import { Spacer, YStack } from 'tamagui'
+import { CommunityShowcase } from '~/components/organisms/CommunityShowcase'
 import { MexicoProject } from '~/features/site/home/MexicoProject'
 import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
 import { HeadInfo } from '../../components/HeadInfo'
 import { AdaptiveSpaces } from '../../features/site/home/AdaptiveSpaces'
 import { CommunityFeatures } from '../../features/site/home/CommunityFeatures'
 import { CommunityGrowth } from '../../features/site/home/CommunityGrowth'
-import { CommunityShowcase } from '../../features/site/home/CommunityShowcase'
 import { CommunityVision } from '../../features/site/home/CommunityVision'
 import { EcoThemes } from '../../features/site/home/EcoThemes'
 import { EcovillageGrid } from '../../features/site/home/EcovillageGrid'
@@ -16,18 +15,7 @@ import { SustainableImpact } from '../../features/site/home/SustainableImpact'
 import { HomeSection, SectionTinted, TintSection } from '../../features/site/home/TintSection'
 import { ThemeNameEffect } from '../../features/site/theme/ThemeNameEffect'
 
-export async function loader() {
-  const { getCompilationExamples } = await import('@tamagui/mdx-2')
-  return getCompilationExamples()
-}
-
 export default function TamaguiHomePage() {
-  const { compilationExamples, animationCode } = useLoader(loader)
-
-  if (!compilationExamples) {
-    return null
-  }
-
   return (
     <>
       <HeadInfo
@@ -60,7 +48,7 @@ export default function TamaguiHomePage() {
             maskImage: `linear-gradient(transparent, #000, transparent)`,
           }}
         />
-        <CommunityShowcase examples={compilationExamples} />
+        <CommunityShowcase />
       </TintSection>
 
       <TintSection index={2} contain="paint layout" zi={1000}>
@@ -104,7 +92,7 @@ export default function TamaguiHomePage() {
             maskImage: `linear-gradient(transparent, #000, transparent)`,
           }}
         />
-        <CommunityGrowth animationCode={animationCode} />
+        <CommunityGrowth />
       </TintSection>
       <TintSection index={7} zi={1}>
         <EcovillageGrid />

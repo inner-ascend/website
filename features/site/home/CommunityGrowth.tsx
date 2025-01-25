@@ -49,7 +49,7 @@ const growthStages = [
       'Initial DAO token distribution',
       'Core team formation',
       'Community platform launch',
-      'Early member onboarding'
+      'Early member onboarding',
     ],
     animation: 'bouncy',
     settings: animations.animations.bouncy,
@@ -62,7 +62,7 @@ const growthStages = [
       'Land NFT minting',
       'Property evaluation',
       'Legal framework setup',
-      'Sustainable design planning'
+      'Sustainable design planning',
     ],
     animation: 'lazy',
     settings: animations.animations.lazy,
@@ -75,7 +75,7 @@ const growthStages = [
       'Renewable energy systems',
       'Water management',
       'Permaculture design',
-      'Initial housing units'
+      'Initial housing units',
     ],
     animation: 'quick',
     settings: animations.animations.quick,
@@ -88,7 +88,7 @@ const growthStages = [
       'Governance framework',
       'Resource sharing system',
       'Skills workshops',
-      'Cultural events'
+      'Cultural events',
     ],
     animation: 'quick',
     settings: animations.animations.quick,
@@ -101,16 +101,16 @@ const growthStages = [
       'Additional land acquisition',
       'New member integration',
       'Inter-community networks',
-      'Knowledge sharing platform'
+      'Knowledge sharing platform',
     ],
     animation: 'quick',
     settings: animations.animations.quick,
-  }
+  },
 ] as const
 
 let hasScrolledOnce = false
 
-export function CommunityGrowth({ animationCode }: { animationCode: string }) {
+export function CommunityGrowth() {
   const { tint } = useTint()
   const [activeStage, setActiveStage] = useState(0)
   const currentStage = growthStages[activeStage]
@@ -123,7 +123,8 @@ export function CommunityGrowth({ animationCode }: { animationCode: string }) {
             Community <span className="rainbow clip-text">Growth</span>
           </HomeH2>
           <HomeH3>
-            Watch your community evolve through different stages of development, from initial planning to thriving ecosystem.
+            Watch your community evolve through different stages of development, from initial
+            planning to thriving ecosystem.
           </HomeH3>
         </YStack>
 
@@ -149,21 +150,21 @@ export function CommunityGrowth({ animationCode }: { animationCode: string }) {
               als="center"
               x={0}
               $sm={{
-                fd: "column",
-                h: "auto"
+                fd: 'column',
+                h: 'auto',
               }}
             >
-              <YStack 
-                width="40%" 
-                theme="alt2" 
-                bg="$color3" 
-                f={1} 
-                jc="space-between" 
+              <YStack
+                width="40%"
+                theme="alt2"
+                bg="$color3"
+                f={1}
+                jc="space-between"
                 pointerEvents="auto"
                 $sm={{
-                  width: "100%",
+                  width: '100%',
                   f: 0,
-                  pb: "$2"
+                  pb: '$2',
                 }}
               >
                 {growthStages.map((stage, i) => {
@@ -177,8 +178,13 @@ export function CommunityGrowth({ animationCode }: { animationCode: string }) {
                       f={1}
                       title={stage.name}
                       iconAfter={
-                        <XStack jc="unset" $sm={{ jc: "flex-end", minWidth: "38%" }}>
-                          <Paragraph size="$3" o={0.7} fontFamily="$silkscreen" $sm={{ size: "$2" }}>
+                        <XStack jc="unset" $sm={{ jc: 'flex-end', minWidth: '38%' }}>
+                          <Paragraph
+                            size="$3"
+                            o={0.7}
+                            fontFamily="$silkscreen"
+                            $sm={{ size: '$2' }}
+                          >
                             {stage.date}
                           </Paragraph>
                         </XStack>
@@ -193,25 +199,35 @@ export function CommunityGrowth({ animationCode }: { animationCode: string }) {
                 })}
               </YStack>
 
-              <Separator vertical $sm={{ vertical: false, my: "$0.5" }} />
+              <Separator vertical $sm={{ vertical: false, my: '$0.5' }} />
 
-              <YStack 
-                f={1} 
-                p="$4" 
-                space="$4" 
+              <YStack
+                f={1}
+                p="$4"
+                space="$4"
                 width="60%"
                 bg="$color3"
                 $sm={{
-                  width: "100%",
-                  pt: "$4"
+                  width: '100%',
+                  pt: '$4',
                 }}
               >
                 <YStack space="$2">
-                  <XStack jc="space-between" ai="center" $sm={{ fd: "column", ai: "flex-start", gap: "$1" }}>
-                    <Paragraph size="$8" fontFamily="$silkscreen" $sm={{ size: "$7" }}>{currentStage.name}</Paragraph>
-                    <Paragraph size="$6" fontFamily="$silkscreen" o={0.7} $sm={{ size: "$5" }}>{currentStage.date}</Paragraph>
+                  <XStack
+                    jc="space-between"
+                    ai="center"
+                    $sm={{ fd: 'column', ai: 'flex-start', gap: '$1' }}
+                  >
+                    <Paragraph size="$8" fontFamily="$silkscreen" $sm={{ size: '$7' }}>
+                      {currentStage.name}
+                    </Paragraph>
+                    <Paragraph size="$6" fontFamily="$silkscreen" o={0.7} $sm={{ size: '$5' }}>
+                      {currentStage.date}
+                    </Paragraph>
                   </XStack>
-                  <Paragraph size="$5" theme="alt2">{currentStage.description}</Paragraph>
+                  <Paragraph size="$5" theme="alt2">
+                    {currentStage.description}
+                  </Paragraph>
                 </YStack>
 
                 <YStack space="$2">
@@ -239,23 +255,39 @@ export function CommunityGrowth({ animationCode }: { animationCode: string }) {
               space="$5"
             >
               <YStack ai="center" space="$2">
-                <Paragraph size="$8" fontFamily="$silkscreen">Next Steps</Paragraph>
+                <Paragraph size="$8" fontFamily="$silkscreen">
+                  Next Steps
+                </Paragraph>
                 <Paragraph size="$4" theme="alt2" ta="center" maw={500}>
                   Join our community and be part of the next generation of sustainable living
                 </Paragraph>
               </YStack>
               <YStack space="$4" ai="center" w="100%" maw={400}>
                 <Link href="/mexico" w="100%">
-                  <Button w="100%" size="$5" theme="active" fontFamily="$silkscreen" iconAfter={Play}>Join the DAO</Button>
+                  <Button
+                    w="100%"
+                    size="$5"
+                    theme="active"
+                    fontFamily="$silkscreen"
+                    iconAfter={Play}
+                  >
+                    Join the DAO
+                  </Button>
                 </Link>
                 <Link href="/mexico" w="100%">
-                  <Button w="100%" size="$5" theme="alt2" fontFamily="$silkscreen">View Land NFTs</Button>
+                  <Button w="100%" size="$5" theme="alt2" fontFamily="$silkscreen">
+                    View Land NFTs
+                  </Button>
                 </Link>
                 <Link href="/mexico" w="100%">
-                  <Button w="100%" size="$5" theme="alt2" fontFamily="$silkscreen">Community Guidelines</Button>
+                  <Button w="100%" size="$5" theme="alt2" fontFamily="$silkscreen">
+                    Community Guidelines
+                  </Button>
                 </Link>
                 <Link href="/docs/intro/introduction" w="100%">
-                  <Button w="100%" size="$5" theme="alt2" fontFamily="$silkscreen">Docs &raquo;</Button>
+                  <Button w="100%" size="$5" theme="alt2" fontFamily="$silkscreen">
+                    Docs &raquo;
+                  </Button>
                 </Link>
               </YStack>
             </YStack>
@@ -460,4 +492,3 @@ export const positions = [
     },
   },
 ]
-

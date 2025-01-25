@@ -9,7 +9,7 @@ const features: FeatureItem[] = [
     title: 'Decentralized Ownership',
     description:
       'Your NFT is your voice. Participate in transparent governance and shape the future of sustainable communities through our innovative DAO structure.',
-    href: '/docs/core/configuration',
+    href: '/docs/core/configuration' as const,
     icon: Code,
     theme: 'green',
   },
@@ -17,7 +17,7 @@ const features: FeatureItem[] = [
     title: 'NFT-Powered Property Rights',
     description:
       'Break down barriers to sustainable living with fractional ownership through NFTs. Secure, transparent, and community-validated property rights.',
-    href: '/docs/intro/why-a-compiler',
+    href: '/docs/intro/why-a-compiler' as const,
     icon: Cpu,
     theme: 'blue',
   },
@@ -25,11 +25,11 @@ const features: FeatureItem[] = [
     title: 'Holistic Development',
     description:
       'Connect with like-minded individuals in vibrant eco-communities. Experience personal and collective evolution through our unique incubator programs.',
-    href: '/docs/components/stacks',
+    href: '/docs/components/stacks' as const,
     icon: Layers,
     theme: 'purple',
   },
-]
+] as const
 
 export function HomeHeroBelow() {
   const [hovered, setHovered] = useHeroHovered()

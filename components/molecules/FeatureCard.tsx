@@ -1,5 +1,5 @@
+import { type Code } from '@tamagui/lucide-icons'
 import { type LinkProps } from 'one'
-import type { ComponentProps } from 'react'
 import { Paragraph, YStack, type YStackProps } from 'tamagui'
 import { IconStack } from '~/features/site/home/IconStack'
 import { FeatureTitle } from '../atoms/FeatureTitle'
@@ -8,7 +8,7 @@ export interface FeatureItem {
   title: string
   description: string
   href: LinkProps<any>['href']
-  icon: React.ComponentType<ComponentProps<'svg'>>
+  icon: typeof Code
   theme: 'green' | 'blue' | 'purple'
 }
 
