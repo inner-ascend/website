@@ -190,7 +190,7 @@ export default function Community() {
       {/* Social Proof */}
       <TintSection index={6}>
         <ContainerLarge>
-          <MexicoImpact useCards={false} />
+          <MexicoImpact useCards={true} />
         </ContainerLarge>
       </TintSection>
 

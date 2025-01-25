@@ -43,13 +43,13 @@ const stats: Stat[] = [
     label: 'To Beach & Airport',
     color: '$blue10',
   },
-]
+] as const
 
 export interface MexicoImpactProps {
   useCards?: boolean
 }
 
-export function MexicoImpact({ useCards = false }: MexicoImpactProps) {
+export function MexicoImpact({ useCards = true }: MexicoImpactProps) {
   return (
     <YStack space="$6" mb="$8">
       <YStack space="$6" mb="$6">
