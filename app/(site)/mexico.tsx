@@ -5,12 +5,12 @@ import { ContainerLarge } from '~/components/Containers'
 import { HeadInfo } from '~/components/HeadInfo'
 import { LocationClimate } from '~/components/mexico/LocationClimate'
 import { ProjectImpact } from '~/components/mexico/ProjectImpact'
-import { ProjectRoadmap } from '~/components/mexico/ProjectRoadmap'
 import { KeyFeatures } from '~/components/organisms/KeyFeatures'
 import { MexicoFAQ } from '~/components/organisms/MexicoFAQ'
 import { MexicoGallery } from '~/components/organisms/MexicoGallery'
 import { MexicoMembership } from '~/components/organisms/MexicoMembership'
 import { MexicoNews } from '~/components/organisms/MexicoNews'
+import { MexicoRoadmap } from '~/components/organisms/MexicoRoadmap'
 import { MexicoTeam } from '~/components/organisms/MexicoTeam'
 import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
@@ -183,7 +183,7 @@ export default function Community() {
           id="project-roadmap"
           style={{ scrollMarginTop: '100px' }}
         >
-          <ProjectRoadmap />
+          <MexicoRoadmap />
         </ContainerLarge>
       </TintSection>
 
