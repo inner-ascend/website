@@ -17,6 +17,7 @@ import {
 } from 'tamagui'
 import { ContainerLarge } from '~/components/Containers'
 import { HeadInfo } from '~/components/HeadInfo'
+import { CurrentProjects } from '~/components/organisms/CurrentProjects'
 import { MexicoRoadmap } from '~/components/organisms/MexicoRoadmap'
 import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
@@ -448,6 +449,10 @@ export default function Collaborate() {
         </ContainerLarge>
         <SocialLinksRow />
       </TintSection>
+
+      <ContainerLarge>
+        <CurrentProjects />
+      </ContainerLarge>
     </CommunityLayout>
   )
 }
