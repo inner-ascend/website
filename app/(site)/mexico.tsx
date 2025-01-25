@@ -3,15 +3,15 @@ import { useMemo } from 'react'
 import { Button, H1, Paragraph, Spacer, XStack, YStack } from 'tamagui'
 import { ContainerLarge } from '~/components/Containers'
 import { HeadInfo } from '~/components/HeadInfo'
-import { FAQSection } from '~/components/mexico/FAQ'
-import { GallerySection } from '~/components/mexico/Gallery'
-import { KeyFeatures } from '~/components/mexico/KeyFeatures'
-import { LocationClimate } from '~/components/mexico/LocationClimate'
-import { MembershipTiers } from '~/components/mexico/MembershipTiers'
-import { NewsUpdates } from '~/components/mexico/NewsUpdates'
-import { ProjectImpact } from '~/components/mexico/ProjectImpact'
-import { ProjectRoadmap } from '~/components/mexico/ProjectRoadmap'
-import { TeamSection } from '~/components/mexico/TeamSection'
+import { KeyFeatures } from '~/components/organisms/KeyFeatures'
+import { MexicoFAQ } from '~/components/organisms/MexicoFAQ'
+import { MexicoGallery } from '~/components/organisms/MexicoGallery'
+import { MexicoImpact } from '~/components/organisms/MexicoImpact'
+import { MexicoMembership } from '~/components/organisms/MexicoMembership'
+import { MexicoNews } from '~/components/organisms/MexicoNews'
+import { MexicoProperty } from '~/components/organisms/MexicoProperty'
+import { MexicoRoadmap } from '~/components/organisms/MexicoRoadmap'
+import { MexicoTeam } from '~/components/organisms/MexicoTeam'
 import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
 import { HomeSection, TintSection } from '~/features/site/home/TintSection'
@@ -138,23 +138,25 @@ export default function Community() {
           id="location-climate"
           style={{ scrollMarginTop: '100px' }}
         >
-          <LocationClimate />
+          <MexicoProperty />
         </ContainerLarge>
       </TintSection>
 
-      {/* Image Gallery */}
+      {/* Gallery Section */}
       <TintSection index={3}>
-        <ContainerLarge space="$6">
-          <YStack space="$6" mb="$6">
-            <HomeH2 ta="center" $sm={{ size: '$8' }}>
-              Experience Paradise
-            </HomeH2>
-            <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
-              Discover the natural beauty and planned amenities of our sustainable community
-            </HomeH3>
-          </YStack>
+        <ContainerLarge>
+          <YStack space="$6" mb="$8">
+            <YStack space="$6" mb="$6">
+              <HomeH2 ta="center" $sm={{ size: '$8' }}>
+                Gallery
+              </HomeH2>
+              <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
+                Explore our vision through stunning visuals
+              </HomeH3>
+            </YStack>
 
-          <GallerySection />
+            <MexicoGallery />
+          </YStack>
         </ContainerLarge>
       </TintSection>
 
@@ -170,7 +172,7 @@ export default function Community() {
               benefits
             </HomeH3>
           </YStack>
-          <MembershipTiers />
+          <MexicoMembership />
         </ContainerLarge>
       </TintSection>
 
@@ -181,14 +183,14 @@ export default function Community() {
           id="project-roadmap"
           style={{ scrollMarginTop: '100px' }}
         >
-          <ProjectRoadmap />
+          <MexicoRoadmap />
         </ContainerLarge>
       </TintSection>
 
       {/* Social Proof */}
       <TintSection index={6}>
         <ContainerLarge>
-          <ProjectImpact />
+          <MexicoImpact useCards={true} />
         </ContainerLarge>
       </TintSection>
 
@@ -205,7 +207,7 @@ export default function Community() {
               </HomeH3>
             </YStack>
 
-            <NewsUpdates />
+            <MexicoNews />
           </YStack>
         </ContainerLarge>
       </TintSection>
@@ -213,7 +215,7 @@ export default function Community() {
       {/* Team Section */}
       <TintSection index={8}>
         <ContainerLarge id="team-section" style={{ scrollMarginTop: '100px' }}>
-          <TeamSection />
+          <MexicoTeam />
         </ContainerLarge>
       </TintSection>
 
@@ -231,7 +233,7 @@ export default function Community() {
             </YStack>
 
             <YStack space="$4" als="center" px="$4">
-              <FAQSection />
+              <MexicoFAQ />
             </YStack>
           </YStack>
         </ContainerLarge>
