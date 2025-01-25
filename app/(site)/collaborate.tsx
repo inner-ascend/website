@@ -121,11 +121,6 @@ export default function Collaborate() {
                 theme: 'blue',
                 onPress: () => (window.location.href = '/contact'),
               },
-              {
-                text: 'Join Discord',
-                theme: 'purple',
-                onPress: () => (window.location.href = 'https://discord.gg/innerascend'),
-              },
             ]}
           />
         </ContainerLarge>
