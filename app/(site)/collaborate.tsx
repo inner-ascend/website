@@ -1,18 +1,7 @@
 import { useTint } from '@tamagui/logo'
-import { ArrowRight, Check } from '@tamagui/lucide-icons'
+import { Check } from '@tamagui/lucide-icons'
 import { useMemo } from 'react'
-import {
-  Button,
-  Card,
-  H1,
-  H2,
-  Paragraph,
-  Separator,
-  Spacer,
-  XStack,
-  YStack,
-  type ThemeName,
-} from 'tamagui'
+import { Button, H1, Paragraph, Spacer, XStack, YStack, type ThemeName } from 'tamagui'
 import { ContainerLarge } from '~/components/Containers'
 import { HeadInfo } from '~/components/HeadInfo'
 import { CollaborateFAQ } from '~/components/organisms/CollaborateFAQ'
@@ -127,121 +116,7 @@ export default function Collaborate() {
       {/* Current Projects Section */}
       <TintSection index={2}>
         <ContainerLarge>
-          <YStack space="$6" mb="$8">
-            <YStack space="$6" mb="$6">
-              <HomeH2 ta="center" $sm={{ size: '$8' }}>
-                Current Project: Mexico Ecovillage
-              </HomeH2>
-              <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
-                Join us in building our first regenerative community
-              </HomeH3>
-            </YStack>
-
-            <YStack pos="relative" height={300} br="$4" ov="hidden" mb="$6">
-              <YStack
-                pos="absolute"
-                top={0}
-                left={0}
-                right={0}
-                bottom={0}
-                style={{
-                  backgroundImage: 'url(/images/hero/oaxaca-paradise.jpg)',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                }}
-              />
-              <YStack
-                fullscreen
-                zi={1}
-                style={{
-                  background:
-                    'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.3) 100%)',
-                }}
-              />
-              <YStack f={1} ai="center" jc="center" zi={2}>
-                <XStack space="$4">
-                  <Button
-                    size="$6"
-                    theme="green"
-                    fontFamily="$silkscreen"
-                    onPress={() => (window.location.href = '/mexico#team-section')}
-                  >
-                    Join Our Team
-                  </Button>
-                  <Button
-                    size="$6"
-                    theme="alt1"
-                    fontFamily="$silkscreen"
-                    onPress={() => (window.location.href = '/mexico')}
-                  >
-                    Learn More
-                  </Button>
-                </XStack>
-              </YStack>
-            </YStack>
-
-            <XStack fw="wrap" gap="$4" jc="center">
-              <Card bordered theme="green" elevation="$2" p="$4" br="$4" f={1} miw={250} maw={300}>
-                <YStack space="$2">
-                  <H2 size="$6">Phase 1 Active</H2>
-                  <Separator />
-                  <Paragraph size="$4" theme="alt2">
-                    Land acquisition and initial infrastructure development
-                  </Paragraph>
-                  <XStack space="$2" ai="center" mt="$2">
-                    <ArrowRight size={16} />
-                    <Button
-                      theme="green"
-                      size="$3"
-                      onPress={() => (window.location.href = '/mexico#project-roadmap')}
-                    >
-                      View Roadmap
-                    </Button>
-                  </XStack>
-                </YStack>
-              </Card>
-
-              <Card bordered theme="blue" elevation="$2" p="$4" br="$4" f={1} miw={250} maw={300}>
-                <YStack space="$2">
-                  <H2 size="$6">Location</H2>
-                  <Separator />
-                  <Paragraph size="$4" theme="alt2">
-                    Oaxaca, Mexico - Mountain jungle near Pacific beaches
-                  </Paragraph>
-                  <XStack space="$2" ai="center" mt="$2">
-                    <ArrowRight size={16} />
-                    <Button
-                      theme="blue"
-                      size="$3"
-                      onPress={() => (window.location.href = '/mexico#location-climate')}
-                    >
-                      View Location
-                    </Button>
-                  </XStack>
-                </YStack>
-              </Card>
-
-              <Card bordered theme="purple" elevation="$2" p="$4" br="$4" f={1} miw={250} maw={300}>
-                <YStack space="$2">
-                  <H2 size="$6">Membership</H2>
-                  <Separator />
-                  <Paragraph size="$4" theme="alt2">
-                    NFT-based ownership and governance model
-                  </Paragraph>
-                  <XStack space="$2" ai="center" mt="$2">
-                    <ArrowRight size={16} />
-                    <Button
-                      theme="purple"
-                      size="$3"
-                      onPress={() => (window.location.href = '/mexico#membership-tiers')}
-                    >
-                      View Tiers
-                    </Button>
-                  </XStack>
-                </YStack>
-              </Card>
-            </XStack>
-          </YStack>
+          <CurrentProjects />
         </ContainerLarge>
       </TintSection>
 
@@ -262,20 +137,7 @@ export default function Collaborate() {
       {/* FAQ Section */}
       <TintSection index={4}>
         <ContainerLarge>
-          <YStack space="$6" mb="$8">
-            <YStack space="$6" mb="$6">
-              <HomeH2 ta="center" $sm={{ size: '$8' }}>
-                Frequently Asked Questions
-              </HomeH2>
-              <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
-                Common questions about collaborating with Inner Ascend
-              </HomeH3>
-            </YStack>
-
-            <YStack space="$4" als="center">
-              <CollaborateFAQ />
-            </YStack>
-          </YStack>
+          <CollaborateFAQ />
         </ContainerLarge>
       </TintSection>
 
@@ -293,10 +155,6 @@ export default function Collaborate() {
         </ContainerLarge>
         <SocialLinksRow />
       </TintSection>
-
-      <ContainerLarge>
-        <CurrentProjects />
-      </ContainerLarge>
     </CommunityLayout>
   )
 }

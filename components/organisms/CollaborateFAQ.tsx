@@ -1,3 +1,5 @@
+import { YStack } from 'tamagui'
+import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 import { FAQAccordion, FAQData } from '../molecules/FAQAccordion'
 
 const faqs: FAQData[] = [
@@ -54,5 +56,20 @@ const faqs: FAQData[] = [
 ]
 
 export function CollaborateFAQ() {
-  return <FAQAccordion items={faqs} />
+  return (
+    <YStack space="$6" mb="$8">
+      <YStack space="$6" mb="$6">
+        <HomeH2 ta="center" $sm={{ size: '$8' }}>
+          Frequently Asked Questions
+        </HomeH2>
+        <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
+          Common questions about collaborating with Inner Ascend
+        </HomeH3>
+      </YStack>
+
+      <YStack space="$4" als="center">
+        <FAQAccordion items={faqs} />
+      </YStack>
+    </YStack>
+  )
 }
