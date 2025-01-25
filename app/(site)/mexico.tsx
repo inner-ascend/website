@@ -3,13 +3,13 @@ import { useMemo } from 'react'
 import { Button, H1, Paragraph, Spacer, XStack, YStack } from 'tamagui'
 import { ContainerLarge } from '~/components/Containers'
 import { HeadInfo } from '~/components/HeadInfo'
-import { LocationClimate } from '~/components/mexico/LocationClimate'
 import { ProjectImpact } from '~/components/mexico/ProjectImpact'
 import { KeyFeatures } from '~/components/organisms/KeyFeatures'
 import { MexicoFAQ } from '~/components/organisms/MexicoFAQ'
 import { MexicoGallery } from '~/components/organisms/MexicoGallery'
 import { MexicoMembership } from '~/components/organisms/MexicoMembership'
 import { MexicoNews } from '~/components/organisms/MexicoNews'
+import { MexicoProperty } from '~/components/organisms/MexicoProperty'
 import { MexicoRoadmap } from '~/components/organisms/MexicoRoadmap'
 import { MexicoTeam } from '~/components/organisms/MexicoTeam'
 import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
@@ -138,7 +138,7 @@ export default function Community() {
           id="location-climate"
           style={{ scrollMarginTop: '100px' }}
         >
-          <LocationClimate />
+          <MexicoProperty />
         </ContainerLarge>
       </TintSection>
 
