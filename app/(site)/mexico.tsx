@@ -5,13 +5,13 @@ import { ContainerLarge } from '~/components/Containers'
 import { HeadInfo } from '~/components/HeadInfo'
 import { GallerySection } from '~/components/mexico/Gallery'
 import { LocationClimate } from '~/components/mexico/LocationClimate'
-import { MembershipTiers } from '~/components/mexico/MembershipTiers'
 import { NewsUpdates } from '~/components/mexico/NewsUpdates'
 import { ProjectImpact } from '~/components/mexico/ProjectImpact'
 import { ProjectRoadmap } from '~/components/mexico/ProjectRoadmap'
 import { TeamSection } from '~/components/mexico/TeamSection'
 import { KeyFeatures } from '~/components/organisms/KeyFeatures'
 import { MexicoFAQ } from '~/components/organisms/MexicoFAQ'
+import { MexicoMembership } from '~/components/organisms/MexicoMembership'
 import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
 import { HomeSection, TintSection } from '~/features/site/home/TintSection'
@@ -170,7 +170,7 @@ export default function Community() {
               benefits
             </HomeH3>
           </YStack>
-          <MembershipTiers />
+          <MexicoMembership />
         </ContainerLarge>
       </TintSection>
 
