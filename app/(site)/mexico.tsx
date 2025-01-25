@@ -8,10 +8,10 @@ import { LocationClimate } from '~/components/mexico/LocationClimate'
 import { NewsUpdates } from '~/components/mexico/NewsUpdates'
 import { ProjectImpact } from '~/components/mexico/ProjectImpact'
 import { ProjectRoadmap } from '~/components/mexico/ProjectRoadmap'
-import { TeamSection } from '~/components/mexico/TeamSection'
 import { KeyFeatures } from '~/components/organisms/KeyFeatures'
 import { MexicoFAQ } from '~/components/organisms/MexicoFAQ'
 import { MexicoMembership } from '~/components/organisms/MexicoMembership'
+import { MexicoTeam } from '~/components/organisms/MexicoTeam'
 import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
 import { HomeSection, TintSection } from '~/features/site/home/TintSection'
@@ -213,7 +213,7 @@ export default function Community() {
       {/* Team Section */}
       <TintSection index={8}>
         <ContainerLarge id="team-section" style={{ scrollMarginTop: '100px' }}>
-          <TeamSection />
+          <MexicoTeam />
         </ContainerLarge>
       </TintSection>
 
