@@ -3,7 +3,6 @@ import { useMemo } from 'react'
 import { Button, H1, Paragraph, Spacer, XStack, YStack } from 'tamagui'
 import { ContainerLarge } from '~/components/Containers'
 import { HeadInfo } from '~/components/HeadInfo'
-import { FAQSection } from '~/components/mexico/FAQ'
 import { GallerySection } from '~/components/mexico/Gallery'
 import { LocationClimate } from '~/components/mexico/LocationClimate'
 import { MembershipTiers } from '~/components/mexico/MembershipTiers'
@@ -12,6 +11,7 @@ import { ProjectImpact } from '~/components/mexico/ProjectImpact'
 import { ProjectRoadmap } from '~/components/mexico/ProjectRoadmap'
 import { TeamSection } from '~/components/mexico/TeamSection'
 import { KeyFeatures } from '~/components/organisms/KeyFeatures'
+import { MexicoFAQ } from '~/components/organisms/MexicoFAQ'
 import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
 import { HomeSection, TintSection } from '~/features/site/home/TintSection'
@@ -231,7 +231,7 @@ export default function Community() {
             </YStack>
 
             <YStack space="$4" als="center" px="$4">
-              <FAQSection />
+              <MexicoFAQ />
             </YStack>
           </YStack>
         </ContainerLarge>
