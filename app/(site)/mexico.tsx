@@ -3,10 +3,10 @@ import { useMemo } from 'react'
 import { Button, H1, Paragraph, Spacer, XStack, YStack } from 'tamagui'
 import { ContainerLarge } from '~/components/Containers'
 import { HeadInfo } from '~/components/HeadInfo'
-import { ProjectImpact } from '~/components/mexico/ProjectImpact'
 import { KeyFeatures } from '~/components/organisms/KeyFeatures'
 import { MexicoFAQ } from '~/components/organisms/MexicoFAQ'
 import { MexicoGallery } from '~/components/organisms/MexicoGallery'
+import { MexicoImpact } from '~/components/organisms/MexicoImpact'
 import { MexicoMembership } from '~/components/organisms/MexicoMembership'
 import { MexicoNews } from '~/components/organisms/MexicoNews'
 import { MexicoProperty } from '~/components/organisms/MexicoProperty'
@@ -190,7 +190,7 @@ export default function Community() {
       {/* Social Proof */}
       <TintSection index={6}>
         <ContainerLarge>
-          <ProjectImpact />
+          <MexicoImpact useCards={false} />
         </ContainerLarge>
       </TintSection>
 
