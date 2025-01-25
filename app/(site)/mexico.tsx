@@ -4,13 +4,13 @@ import { Button, H1, Paragraph, Spacer, XStack, YStack } from 'tamagui'
 import { ContainerLarge } from '~/components/Containers'
 import { HeadInfo } from '~/components/HeadInfo'
 import { LocationClimate } from '~/components/mexico/LocationClimate'
-import { NewsUpdates } from '~/components/mexico/NewsUpdates'
 import { ProjectImpact } from '~/components/mexico/ProjectImpact'
 import { ProjectRoadmap } from '~/components/mexico/ProjectRoadmap'
 import { KeyFeatures } from '~/components/organisms/KeyFeatures'
 import { MexicoFAQ } from '~/components/organisms/MexicoFAQ'
 import { MexicoGallery } from '~/components/organisms/MexicoGallery'
 import { MexicoMembership } from '~/components/organisms/MexicoMembership'
+import { MexicoNews } from '~/components/organisms/MexicoNews'
 import { MexicoTeam } from '~/components/organisms/MexicoTeam'
 import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
@@ -207,7 +207,7 @@ export default function Community() {
               </HomeH3>
             </YStack>
 
-            <NewsUpdates />
+            <MexicoNews />
           </YStack>
         </ContainerLarge>
       </TintSection>
