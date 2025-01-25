@@ -17,7 +17,7 @@ import {
 } from 'tamagui'
 import { ContainerLarge } from '~/components/Containers'
 import { HeadInfo } from '~/components/HeadInfo'
-import { ProjectRoadmap } from '~/components/mexico/ProjectRoadmap'
+import { MexicoRoadmap } from '~/components/organisms/MexicoRoadmap'
 import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
 import { HomeSection, TintSection } from '~/features/site/home/TintSection'
@@ -338,7 +338,7 @@ export default function Collaborate() {
       {/* Collaboration Journey */}
       <TintSection index={3}>
         <ContainerLarge position="relative">
-          <ProjectRoadmap />
+          <MexicoRoadmap />
         </ContainerLarge>
       </TintSection>
 
