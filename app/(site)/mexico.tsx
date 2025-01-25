@@ -3,13 +3,13 @@ import { useMemo } from 'react'
 import { Button, H1, Paragraph, Spacer, XStack, YStack } from 'tamagui'
 import { ContainerLarge } from '~/components/Containers'
 import { HeadInfo } from '~/components/HeadInfo'
-import { GallerySection } from '~/components/mexico/Gallery'
 import { LocationClimate } from '~/components/mexico/LocationClimate'
 import { NewsUpdates } from '~/components/mexico/NewsUpdates'
 import { ProjectImpact } from '~/components/mexico/ProjectImpact'
 import { ProjectRoadmap } from '~/components/mexico/ProjectRoadmap'
 import { KeyFeatures } from '~/components/organisms/KeyFeatures'
 import { MexicoFAQ } from '~/components/organisms/MexicoFAQ'
+import { MexicoGallery } from '~/components/organisms/MexicoGallery'
 import { MexicoMembership } from '~/components/organisms/MexicoMembership'
 import { MexicoTeam } from '~/components/organisms/MexicoTeam'
 import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
@@ -142,19 +142,21 @@ export default function Community() {
         </ContainerLarge>
       </TintSection>
 
-      {/* Image Gallery */}
+      {/* Gallery Section */}
       <TintSection index={3}>
-        <ContainerLarge space="$6">
-          <YStack space="$6" mb="$6">
-            <HomeH2 ta="center" $sm={{ size: '$8' }}>
-              Experience Paradise
-            </HomeH2>
-            <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
-              Discover the natural beauty and planned amenities of our sustainable community
-            </HomeH3>
-          </YStack>
+        <ContainerLarge>
+          <YStack space="$6" mb="$8">
+            <YStack space="$6" mb="$6">
+              <HomeH2 ta="center" $sm={{ size: '$8' }}>
+                Gallery
+              </HomeH2>
+              <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
+                Explore our vision through stunning visuals
+              </HomeH3>
+            </YStack>
 
-          <GallerySection />
+            <MexicoGallery />
+          </YStack>
         </ContainerLarge>
       </TintSection>
 
