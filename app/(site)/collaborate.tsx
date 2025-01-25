@@ -19,6 +19,7 @@ import { ContainerLarge } from '~/components/Containers'
 import { HeadInfo } from '~/components/HeadInfo'
 import { CurrentProjects } from '~/components/organisms/CurrentProjects'
 import { MexicoRoadmap } from '~/components/organisms/MexicoRoadmap'
+import { PriorityRoles } from '~/components/organisms/PriorityRoles'
 import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
 import { HomeSection, TintSection } from '~/features/site/home/TintSection'
@@ -346,72 +347,7 @@ export default function Collaborate() {
       {/* Priority Roles Section */}
       <TintSection index={2}>
         <ContainerLarge>
-          <YStack space="$6">
-            <YStack space="$6" mb="$6">
-              <HomeH2 ta="center" $sm={{ size: '$8' }}>
-                Priority Roles
-              </HomeH2>
-              <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
-                We're actively seeking passionate individuals for these key positions
-              </HomeH3>
-            </YStack>
-
-            <XStack flexWrap="wrap" gap="$8" rowGap="$8" jc="center" $sm={{ gap: '$4' }} pb="$8">
-              {priorityRoles.map((category, i) => (
-                <YStack
-                  key={i}
-                  f={1}
-                  miw={300}
-                  maxWidth={400}
-                  $sm={{
-                    miw: 'auto',
-                    w: '100%',
-                  }}
-                >
-                  <Card
-                    elevate
-                    size="$4"
-                    bordered
-                    theme={category.theme}
-                    ov="hidden"
-                    f={1}
-                    pressStyle={{
-                      scale: 0.98,
-                      bc: '$color1',
-                    }}
-                    animation="medium"
-                    hoverStyle={{
-                      elevation: '$8',
-                      borderColor: '$color8',
-                      scale: 1.01,
-                    }}
-                  >
-                    <YStack f={1} space="$4">
-                      <Card padded>
-                        <YStack space="$4">
-                          <H2 size="$6">{category.title}</H2>
-                          <Separator />
-                        </YStack>
-                        <Spacer size="$6"></Spacer>
-                        <YStack f={1} space="$4">
-                          <YStack space="$2">
-                            {category.roles.map((role, j) => (
-                              <XStack key={j} space="$2" ai="center">
-                                <Check size={16} color={`var(--${category.theme}10)`} />
-                                <Paragraph size="$4" theme="alt2">
-                                  {role}
-                                </Paragraph>
-                              </XStack>
-                            ))}
-                          </YStack>
-                        </YStack>
-                      </Card>
-                    </YStack>
-                  </Card>
-                </YStack>
-              ))}
-            </XStack>
-          </YStack>
+          <PriorityRoles />
         </ContainerLarge>
       </TintSection>
 
@@ -521,75 +457,6 @@ const collaborationCards: CollaborationCard[] = [
     image: '/images/collaborate/onsite-collab.jpg',
     theme: 'yellow',
     buttonText: 'Get Involved',
-  },
-]
-
-const priorityRoles = [
-  {
-    title: 'Technical Development',
-    theme: 'blue',
-    roles: [
-      'Full-stack Developer',
-      'Blockchain Developer',
-      'AI/ML Engineer',
-      'DevOps Engineer',
-      'UI/UX Designer',
-    ],
-  },
-  {
-    title: 'Land & Sustainability',
-    theme: 'green',
-    roles: [
-      'Permaculture Designer',
-      'Land Planning Expert',
-      'Sustainable Architect',
-      'Natural Builder',
-      'Water Systems Specialist',
-    ],
-  },
-  {
-    title: 'Community & Operations',
-    theme: 'purple',
-    roles: [
-      'Community Manager',
-      'Social Media Strategist',
-      'Content Creator',
-      'Project Coordinator',
-      'Executive Assistant',
-    ],
-  },
-  {
-    title: 'Research & Innovation',
-    theme: 'yellow',
-    roles: [
-      'AI Research Lead',
-      'Sustainability Researcher',
-      'Documentation Writer',
-      'Grant Writer',
-      'Innovation Strategist',
-    ],
-  },
-  {
-    title: 'Education & Culture',
-    theme: 'orange',
-    roles: [
-      'Workshop Facilitator',
-      'Language Teacher',
-      'Cultural Liaison',
-      'Educational Content Creator',
-      'Community Events Organizer',
-    ],
-  },
-  {
-    title: 'Health & Wellbeing',
-    theme: 'pink',
-    roles: [
-      'Holistic Health Practitioner',
-      'Yoga/Meditation Teacher',
-      'Nutritionist',
-      'Mental Health Advocate',
-      'Wellness Program Coordinator',
-    ],
   },
 ]
 
