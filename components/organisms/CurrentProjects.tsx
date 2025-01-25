@@ -9,7 +9,7 @@ const projects = [
     buttonText: 'Learn More',
     href: '/mexico',
   },
-] as const
+]
 
 export function CurrentProjects() {
   return (

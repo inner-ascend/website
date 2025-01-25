@@ -6,7 +6,6 @@ import {
   Card,
   H1,
   H2,
-  Image,
   Paragraph,
   Separator,
   Spacer,
@@ -17,6 +16,7 @@ import {
 import { ContainerLarge } from '~/components/Containers'
 import { HeadInfo } from '~/components/HeadInfo'
 import { CollaborateFAQ } from '~/components/organisms/CollaborateFAQ'
+import { CollaborationWays } from '~/components/organisms/CollaborationWays'
 import { CurrentProjects } from '~/components/organisms/CurrentProjects'
 import { MexicoRoadmap } from '~/components/organisms/MexicoRoadmap'
 import { PriorityRoles } from '~/components/organisms/PriorityRoles'
@@ -120,99 +120,7 @@ export default function Collaborate() {
       {/* Collaboration Opportunities */}
       <HomeSection id="opportunities">
         <ContainerLarge space="$4">
-          <HomeH2 ta="center">Ways to Collaborate</HomeH2>
-          <HomeH3 ta="center" theme="alt2" maw={700} mx="auto" mb="$8">
-            Choose your path to contribute and make a lasting impact
-          </HomeH3>
-          <YStack space="$6" mt="$8">
-            <XStack flexWrap="wrap" gap="$8" rowGap="$12" jc="center" $sm={{ gap: '$4' }} pb="$8">
-              {collaborationCards.map((card, i) => (
-                <YStack
-                  key={i}
-                  f={1}
-                  miw={300}
-                  maxWidth={400}
-                  $sm={{
-                    miw: 'auto',
-                    w: '100%',
-                  }}
-                >
-                  <Card
-                    elevate
-                    size="$4"
-                    bordered
-                    theme={card.theme}
-                    ov="hidden"
-                    f={1}
-                    pressStyle={{
-                      scale: 0.98,
-                      bc: '$color1',
-                    }}
-                    animation="medium"
-                    hoverStyle={{
-                      elevation: '$8',
-                      borderColor: '$color8',
-                      scale: 1.01,
-                    }}
-                  >
-                    <YStack f={1} space="$4">
-                      <Card.Header padded>
-                        <YStack space="$4">
-                          <YStack height={160} br="$4" ov="hidden">
-                            <Image
-                              source={{ uri: card.image }}
-                              alt={card.title}
-                              width="100%"
-                              height="100%"
-                              resizeMode="cover"
-                            />
-                          </YStack>
-                          <H2 size="$6">{card.title}</H2>
-                          <Separator />
-                        </YStack>
-                      </Card.Header>
-
-                      <Card.Footer padded f={1}>
-                        <YStack f={1} space="$4">
-                          <Paragraph size="$4" theme="alt2">
-                            {card.description}
-                          </Paragraph>
-                          <YStack space="$2">
-                            {card.benefits.map((benefit, i) => (
-                              <XStack key={i} space="$2" ai="center">
-                                <Check size={16} color={`var(--${card.theme}10)`} />
-                                <Paragraph size="$3" theme="alt2">
-                                  {benefit}
-                                </Paragraph>
-                              </XStack>
-                            ))}
-                          </YStack>
-                          <Spacer flex={1} />
-                          <Button
-                            size="$5"
-                            theme={card.theme}
-                            width="100%"
-                            fontFamily="$silkscreen"
-                            pressStyle={{
-                              scale: 0.97,
-                            }}
-                            animation="quick"
-                            hoverStyle={{
-                              opacity: 0.9,
-                              scale: 1.02,
-                            }}
-                            onPress={() => (window.location.href = card.link)}
-                          >
-                            {card.buttonText}
-                          </Button>
-                        </YStack>
-                      </Card.Footer>
-                    </YStack>
-                  </Card>
-                </YStack>
-              ))}
-            </XStack>
-          </YStack>
+          <CollaborationWays />
         </ContainerLarge>
       </HomeSection>
 
@@ -399,63 +307,4 @@ const visionPoints = [
   'Build a global network of like-minded individuals and communities',
   'Share knowledge and resources to accelerate positive change',
   'Develop replicable models for sustainable living',
-]
-
-const collaborationCards: CollaborationCard[] = [
-  {
-    title: 'Technical Skills',
-    description:
-      'Contribute your expertise in software development, architecture, sustainable building, or permaculture design.',
-    benefits: [
-      'Work on cutting-edge sustainability projects',
-      'Shape the future of community living',
-      'Learn from experienced practitioners',
-    ],
-    link: '#technical',
-    image: '/images/collaborate/tech-collab.jpg',
-    theme: 'blue',
-    buttonText: 'Join Tech Team',
-  },
-  {
-    title: 'Community Building',
-    description:
-      'Help grow our community through content creation, social media management, or community organizing.',
-    benefits: [
-      'Connect with global change-makers',
-      'Share inspiring stories and knowledge',
-      'Build meaningful relationships',
-    ],
-    link: '#community',
-    image: '/images/collaborate/community-collab.jpg',
-    theme: 'green',
-    buttonText: 'Build Community',
-  },
-  {
-    title: 'Investment',
-    description:
-      'Support our vision through financial investment or by participating in our NFT-based ownership model.',
-    benefits: [
-      'Be part of innovative ownership models',
-      'Support sustainable development',
-      'Earn potential returns while doing good',
-    ],
-    link: '#investment',
-    image: '/images/collaborate/investment-collab.jpg',
-    theme: 'purple',
-    buttonText: 'Invest Now',
-  },
-  {
-    title: 'On-site Support',
-    description:
-      'Join us on the ground to help with construction, gardening, or other practical aspects of building our communities.',
-    benefits: [
-      'Gain hands-on experience',
-      'Live in beautiful natural settings',
-      'Learn valuable sustainable living skills',
-    ],
-    link: '#onsite',
-    image: '/images/collaborate/onsite-collab.jpg',
-    theme: 'yellow',
-    buttonText: 'Get Involved',
-  },
 ]
