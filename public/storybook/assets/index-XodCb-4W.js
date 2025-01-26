@@ -1,0 +1,9 @@
+import{a as requireReact,g as getDefaultExportFromCjs}from"./index-J9LxNlkQ.js";import{r as requireReactDom}from"./index-B4jcXgF0.js";var jsxRuntime={exports:{}},reactJsxRuntime_production_min={};/**
+ * @license React
+ * react-jsx-runtime.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */var hasRequiredReactJsxRuntime_production_min;function requireReactJsxRuntime_production_min(){if(hasRequiredReactJsxRuntime_production_min)return reactJsxRuntime_production_min;hasRequiredReactJsxRuntime_production_min=1;var m=requireReact(),a=Symbol.for("react.element"),_=Symbol.for("react.fragment"),R=Object.prototype.hasOwnProperty,c=m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,x={key:!0,ref:!0,__self:!0,__source:!0};function u(t,e,o){var r,n={},i=null,s=null;o!==void 0&&(i=""+o),e.key!==void 0&&(i=""+e.key),e.ref!==void 0&&(s=e.ref);for(r in e)R.call(e,r)&&!x.hasOwnProperty(r)&&(n[r]=e[r]);if(t&&t.defaultProps)for(r in e=t.defaultProps,e)n[r]===void 0&&(n[r]=e[r]);return{$$typeof:a,type:t,key:i,ref:s,props:n,_owner:c.current}}return reactJsxRuntime_production_min.Fragment=_,reactJsxRuntime_production_min.jsx=u,reactJsxRuntime_production_min.jsxs=u,reactJsxRuntime_production_min}var hasRequiredJsxRuntime;function requireJsxRuntime(){return hasRequiredJsxRuntime||(hasRequiredJsxRuntime=1,function(module,exports){var define_process_env_default={};define_process_env_default.VXRN_REACT_19?Object.assign(exports,eval("require('@vxrn/vendor/react-jsx-19')")):module.exports=requireReactJsxRuntime_production_min()}(jsxRuntime,jsxRuntime.exports)),jsxRuntime.exports}var jsxRuntimeExports=requireJsxRuntime(),reactDomExports=requireReactDom();const ML=getDefaultExportFromCjs(reactDomExports);export{ML as M,jsxRuntimeExports as j,reactDomExports as r};
