@@ -1,17 +1,12 @@
+import '@tamagui/core/reset.css'
+import '../app.css'
+import '../tamagui.css'
+
 import type { Preview } from '@storybook/react'
 import React from 'react'
-import { AppRegistry } from 'react-native'
-import { TamaguiProvider, Theme, createTamagui } from 'tamagui'
+import { TamaguiProvider, Theme } from 'tamagui'
 import config from '../config/tamagui.config'
-
-// Initialize React Native Web
-if (typeof window !== 'undefined') {
-  // @ts-ignore
-  window.React = React
-  // @ts-ignore
-  window.__DEV__ = true
-  AppRegistry.registerComponent('Main', () => () => null)
-}
+import { themes } from '../config/themes'
 
 const preview: Preview = {
   parameters: {
@@ -24,14 +19,29 @@ const preview: Preview = {
     },
     layout: 'centered',
   },
+  globalTypes: {
+    theme: {
+      name: 'Theme',
+      description: 'Global theme for components',
+      defaultValue: 'light',
+      toolbar: {
+        icon: 'circlehollow',
+        items: Object.keys(themes),
+        showName: true,
+      },
+    },
+  },
   decorators: [
-    (Story) => (
-      <TamaguiProvider config={config} defaultTheme="light">
-        <Theme name="light">
-          <Story />
-        </Theme>
-      </TamaguiProvider>
-    ),
+    (Story, context) => {
+      const theme = context.globals.theme
+      return (
+        <TamaguiProvider config={config} defaultTheme={theme}>
+          <Theme name={theme}>
+            <Story />
+          </Theme>
+        </TamaguiProvider>
+      )
+    },
   ],
 }
 
