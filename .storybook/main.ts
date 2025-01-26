@@ -21,12 +21,13 @@ const config: StorybookConfig = {
   typescript: {
     reactDocgen: 'react-docgen',
   },
-  async viteFinal(config) {
+  viteFinal: async (config) => {
     return mergeConfig(config, {
+      base: '/',
       define: {
         'process.env.TAMAGUI_TARGET': JSON.stringify('web'),
-        'process.env.NODE_ENV': JSON.stringify('development'),
-        __DEV__: true,
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+        __DEV__: process.env.NODE_ENV !== 'production',
         global: 'globalThis',
       },
       resolve: {
