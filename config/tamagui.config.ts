@@ -1,22 +1,19 @@
 import type { CreateTamaguiProps } from '@tamagui/core'
 import { setupDev } from '@tamagui/core'
-import { shorthands } from '@tamagui/shorthands/v2'
-import { tokens } from '@tamagui/themes/v3'
+import { shorthands } from '@tamagui/shorthands'
+import { tokens } from '@tamagui/themes'
 import { createTamagui } from 'tamagui'
-import { animations } from './animations'
 import {
-    bodyFont,
-    cherryBombFont,
-    dmSansHeadingFont,
-    dmSerifDisplayHeadingFont,
-    headingFont,
-    monoFont,
-    munroFont,
-    nohemiFont,
-    silkscreenFont,
+  bodyFont,
+  cherryBombFont,
+  dmSansHeadingFont,
+  dmSerifDisplayHeadingFont,
+  headingFont,
+  monoFont,
+  munroFont,
+  nohemiFont,
+  silkscreenFont,
 } from './fonts'
-
-// testing tsconfig paths in compiler
 import { media, mediaQueryDefaultActive } from './media'
 import { themes } from './themes'
 
@@ -38,9 +35,7 @@ const fonts = {
 
 // Converts a union of two types into an intersection
 // i.e. A | B -> A & B
-type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (
-  k: infer I
-) => void
+type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (k: infer I) => void
   ? I
   : never
 
@@ -75,7 +70,6 @@ const fixTypescript55Bug = {
 }
 
 const config = {
-  animations,
   themes: maybeThemes,
   media,
   shorthands,
@@ -91,7 +85,6 @@ const config = {
     }),
     allowedStyleValues: 'somewhat-strict-web',
     autocompleteSpecificTokens: 'except-special',
-    // mediaPropOrder: true,
   },
   fonts,
 } satisfies CreateTamaguiProps
