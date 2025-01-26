@@ -5,6 +5,10 @@
   "env": {
     "NODE_VERSION": "20"
   },
+  "rewrites": [
+    { "source": "/storybook/(.*)", "destination": "/storybook/$1" },
+    { "source": "/((?!storybook/).*)", "destination": "/index.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -37,4 +41,4 @@
       ]
     }
   ]
-} 
+}
