@@ -1,9 +1,8 @@
 import { getMDXComponent } from 'mdx-bundler/client'
-import React from 'react'
 import type { LoaderProps } from 'one'
 import { useLoader } from 'one'
+import React from 'react'
 import { HeadInfo } from '~/components/HeadInfo'
-import { TamaguiExamples } from '~/components/TamaguiExamples'
 import { BlogSlugPage } from '~/features/site/blog/BlogSlugPage'
 import { getOgUrl } from '~/features/site/getOgUrl'
 
@@ -16,7 +15,7 @@ export async function generateStaticParams() {
 }
 
 export async function loader(props: LoaderProps) {
-  const { getCompilationExamples, getMDXBySlug } = await import('@tamagui/mdx-2')
+  const { getMDXBySlug } = await import('@tamagui/mdx-2')
   const { slug } = props.params
   const { frontmatter, code } = await getMDXBySlug('data/blog', slug)
   const relatedPosts = frontmatter.relatedIds
@@ -32,7 +31,6 @@ export async function loader(props: LoaderProps) {
     frontmatter,
     code,
     relatedPosts,
-    examples: getCompilationExamples(),
   }
 }
 
@@ -68,10 +66,7 @@ export default function BlogSlug() {
           ],
         }}
       />
-
-      <TamaguiExamples.Provider value={data.examples}>
-        <BlogSlugPage Component={Component} {...data} />
-      </TamaguiExamples.Provider>
+      <BlogSlugPage Component={Component} {...data} />
     </>
   )
 }

@@ -52,7 +52,6 @@ import { Preview } from '../../components/Preview'
 import { ProductCard } from '../../components/ProductCard'
 import { SubTitle } from '../../components/SubTitle'
 import { TamaguiCard } from '../../components/TamaguiCard'
-import { TamaguiExamplesCode } from '../../components/TamaguiExamples'
 import { UL } from '../../components/UL'
 import { unwrapText } from '../../helpers/unwrapText'
 import { pkgCommands, useBashCommand } from '../../hooks/useBashCommand'
@@ -249,7 +248,7 @@ const componentsIn = {
   UL,
   LI,
 
-  TamaguiExamplesCode,
+  TamaguiExamplesCode: () => null,
 
   InstallBanner: ({ name = '' }) => {
     const {
