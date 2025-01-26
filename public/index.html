@@ -20,5 +20,13 @@
 </head>
 <body>
   <div id="root"></div>
+  <script>
+    // Handle 404s by checking if the path exists in your app's routes
+    window.addEventListener('load', function() {
+      if (window.location.pathname !== '/' && !window.__ROUTES__) {
+        window.location.replace('/?/' + window.location.pathname.slice(1));
+      }
+    });
+  </script>
 </body>
 </html> 
