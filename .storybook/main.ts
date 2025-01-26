@@ -23,7 +23,7 @@ const config: StorybookConfig = {
   },
   viteFinal: async (config) => {
     return mergeConfig(config, {
-      base: '/',
+      base: '/storybook/',
       define: {
         'process.env.TAMAGUI_TARGET': JSON.stringify('web'),
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
