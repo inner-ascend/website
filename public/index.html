@@ -7,13 +7,8 @@
     // Single Page Apps for GitHub Pages
     // https://github.com/rafgraph/spa-github-pages
     (function(l) {
-      // Don't handle Storybook paths
-      if (l.pathname.startsWith('/storybook')) return;
-      
-      // Check if the path exists in the app's routes
-      if (!window.__ROUTES__ || !window.__ROUTES__.includes(l.pathname)) {
-        // If it's not a valid route, show the 404 page without modifying the URL
-        window.history.replaceState(null, null, l.pathname);
+      if (l.pathname.startsWith('/storybook/')) {
+        // Let Storybook handle its own routing
         return;
       }
       
@@ -31,16 +26,15 @@
 <body>
   <div id="root"></div>
   <script>
-    // Handle 404s by checking if the path exists in your app's routes
     window.addEventListener('load', function() {
-      // Don't handle Storybook paths
-      if (!window.location.pathname.startsWith('/storybook') && 
-          window.location.pathname !== '/') {
-        // Check if the current path is in your app's routes
-        if (!window.__ROUTES__ || !window.__ROUTES__.includes(window.location.pathname)) {
-          // If it's not a valid route, show the 404 page without modifying the URL
-          window.history.replaceState(null, null, window.location.pathname);
-        }
+      if (window.location.pathname.startsWith('/storybook/')) {
+        // Let Storybook handle its own routing
+        return;
+      }
+      
+      // Only check app routes for non-Storybook paths
+      if (!window.__ROUTES__ || !window.__ROUTES__.includes(window.location.pathname)) {
+        window.history.replaceState(null, null, window.location.pathname);
       }
     });
   </script>
