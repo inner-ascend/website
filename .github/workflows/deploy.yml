@@ -70,9 +70,13 @@ jobs:
           cp -a storybook-static/. dist/client/storybook/
           # Ensure we have the correct index.html
           cp storybook-static/iframe.html dist/client/storybook/index.html
-          # Verify the copy
+          # Verify the copy and check permissions
           echo "=== Verifying copy ==="
+          ls -la dist/client/storybook/
+          echo "=== Checking assets directory ==="
           ls -la dist/client/storybook/assets/
+          echo "=== Checking file permissions ==="
+          find dist/client/storybook -type f -exec ls -l {} \;
 
       - name: Debug final structure
         continue-on-error: true
