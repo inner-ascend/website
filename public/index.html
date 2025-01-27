@@ -7,6 +7,9 @@
     // Single Page Apps for GitHub Pages
     // https://github.com/rafgraph/spa-github-pages
     (function(l) {
+      // Don't handle Storybook paths
+      if (l.pathname.startsWith('/storybook')) return;
+      
       if (l.search[1] === '/' ) {
         var decoded = l.search.slice(1).split('&').map(function(s) { 
           return s.replace(/~and~/g, '&')
@@ -23,7 +26,10 @@
   <script>
     // Handle 404s by checking if the path exists in your app's routes
     window.addEventListener('load', function() {
-      if (window.location.pathname !== '/' && !window.__ROUTES__) {
+      // Don't handle Storybook paths
+      if (!window.location.pathname.startsWith('/storybook') && 
+          window.location.pathname !== '/' && 
+          !window.__ROUTES__) {
         window.location.replace('/?/' + window.location.pathname.slice(1));
       }
     });
