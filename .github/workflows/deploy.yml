@@ -51,22 +51,20 @@ jobs:
         continue-on-error: true
         run: |
           echo "=== Storybook Static Directory ==="
-          ls -la storybook-static/ || echo "Failed to list storybook-static/"
-          echo "=== Storybook Assets ==="
-          ls -la storybook-static/assets/ || echo "Failed to list assets/"
-          echo "=== Storybook iframe.html (first 50 lines) ==="
-          head -n 50 storybook-static/iframe.html || echo "Failed to read iframe.html"
-          echo "=== Storybook index.html (first 50 lines) ==="
-          head -n 50 storybook-static/index.html || echo "Failed to read index.html"
-          echo "=== Build Environment ==="
-          env | grep -i storybook || echo "No Storybook env vars found"
-          echo "=== Check Asset References (limited) ==="
-          grep -r "/storybook/" storybook-static/ | head -n 20 || echo "No references found"
+          ls -la storybook-static/
+          echo "=== Original Storybook index.html ==="
+          cat storybook-static/iframe.html
 
       - name: Copy Storybook to dist
         run: |
+          # First remove any existing storybook directory
+          rm -rf dist/client/storybook
+          # Create fresh directory
           mkdir -p dist/client/storybook
+          # Copy all Storybook files
           cp -r storybook-static/* dist/client/storybook/
+          # Ensure we have the correct index.html
+          cp storybook-static/iframe.html dist/client/storybook/index.html
 
       - name: Debug final structure
         continue-on-error: true
