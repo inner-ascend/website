@@ -10,6 +10,13 @@
       // Don't handle Storybook paths
       if (l.pathname.startsWith('/storybook')) return;
       
+      // Check if the path exists in the app's routes
+      if (!window.__ROUTES__ || !window.__ROUTES__.includes(l.pathname)) {
+        // If it's not a valid route, show the 404 page without modifying the URL
+        window.history.replaceState(null, null, l.pathname);
+        return;
+      }
+      
       if (l.search[1] === '/' ) {
         var decoded = l.search.slice(1).split('&').map(function(s) { 
           return s.replace(/~and~/g, '&')
@@ -28,9 +35,12 @@
     window.addEventListener('load', function() {
       // Don't handle Storybook paths
       if (!window.location.pathname.startsWith('/storybook') && 
-          window.location.pathname !== '/' && 
-          !window.__ROUTES__) {
-        window.location.replace('/?/' + window.location.pathname.slice(1));
+          window.location.pathname !== '/') {
+        // Check if the current path is in your app's routes
+        if (!window.__ROUTES__ || !window.__ROUTES__.includes(window.location.pathname)) {
+          // If it's not a valid route, show the 404 page without modifying the URL
+          window.history.replaceState(null, null, window.location.pathname);
+        }
       }
     });
   </script>
