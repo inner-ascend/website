@@ -61,10 +61,11 @@ jobs:
           rm -rf dist/client/storybook
           # Create fresh directory
           mkdir -p dist/client/storybook
-          # Copy all Storybook files
-          cp -r storybook-static/* dist/client/storybook/
-          # Ensure we have the correct index.html
-          cp storybook-static/iframe.html dist/client/storybook/index.html
+          # Copy everything preserving file attributes and links
+          cp -a storybook-static/. dist/client/storybook/
+          # Verify the copy
+          echo "=== Verifying copy ==="
+          ls -la dist/client/storybook/assets/
 
       - name: Debug final structure
         continue-on-error: true
