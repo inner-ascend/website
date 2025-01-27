@@ -34,13 +34,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build App
-        run: one build
-
-      - name: Build Storybook
-        env:
-          STORYBOOK_BASE_URL: /storybook/
-        run: NODE_ENV=production storybook build
+      - name: Build
+        run: yarn build:prod
 
       - name: Debug build output
         run: |
@@ -55,27 +50,21 @@ jobs:
       - name: Debug Storybook build
         continue-on-error: true
         run: |
-          echo "=== Storybook Static Directory Structure ==="
-          tree storybook-static || ls -R storybook-static
-          echo "=== Storybook index.html ==="
-          cat storybook-static/index.html
-          echo "=== Storybook iframe.html ==="
+          echo "=== Storybook Static Directory ==="
+          ls -la storybook-static/
+          echo "=== Original Storybook index.html ==="
           cat storybook-static/iframe.html
 
       - name: Copy Storybook to dist
         run: |
           # First remove any existing storybook directory
           rm -rf dist/client/storybook
-          # Create fresh directory and copy files
+          # Create fresh directory
           mkdir -p dist/client/storybook
+          # Copy all Storybook files
           cp -r storybook-static/* dist/client/storybook/
-          # Verify the copy
-          echo "=== Verifying Storybook copy ==="
-          tree dist/client/storybook || ls -R dist/client/storybook
-          echo "=== Checking asset references ==="
-          grep -r "assets/" dist/client/storybook/
-          echo "=== Checking HTML files ==="
-          find dist/client/storybook -name "*.html" -type f -exec echo {} \; -exec cat {} \;
+          # Ensure we have the correct index.html
+          cp storybook-static/iframe.html dist/client/storybook/index.html
 
       - name: Debug final structure
         continue-on-error: true
