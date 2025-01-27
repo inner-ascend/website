@@ -34,8 +34,13 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build
-        run: yarn build:prod
+      - name: Build App
+        run: one build
+
+      - name: Build Storybook
+        env:
+          STORYBOOK_BASE_URL: /storybook/
+        run: NODE_ENV=production storybook build
 
       - name: Debug build output
         run: |
