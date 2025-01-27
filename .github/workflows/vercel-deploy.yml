@@ -32,5 +32,11 @@ jobs:
       - name: Build Project
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
 
+      - name: Clean unnecessary files
+        run: |
+          rm -rf storybook-static/
+          rm -rf .git/
+          rm -rf node_modules/.cache/
+
       - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel deploy --prebuilt --archive=tgz --token=${{ secrets.VERCEL_TOKEN }}
