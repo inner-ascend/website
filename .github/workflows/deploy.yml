@@ -52,8 +52,8 @@ jobs:
         run: |
           echo "=== Storybook Static Directory ==="
           ls -la storybook-static/
-          echo "=== Original Storybook index.html ==="
-          cat storybook-static/iframe.html
+          echo "=== Original Storybook Manager ==="
+          cat storybook-static/index.html
 
       - name: Copy Storybook to dist
         run: |
@@ -61,10 +61,10 @@ jobs:
           rm -rf dist/client/storybook
           # Create fresh directory
           mkdir -p dist/client/storybook
-          # Copy all Storybook files
-          cp -r storybook-static/* dist/client/storybook/
-          # Ensure we have the correct index.html
-          cp storybook-static/iframe.html dist/client/storybook/index.html
+          # Copy all Storybook files preserving the original structure
+          cp -r storybook-static/. dist/client/storybook/
+          # Make sure we don't overwrite it with the app's index.html
+          git checkout dist/client/storybook/index.html || true
 
       - name: Debug final structure
         continue-on-error: true
