@@ -28,9 +28,12 @@
     window.addEventListener('load', function() {
       // Don't handle Storybook paths
       if (!window.location.pathname.startsWith('/storybook') && 
-          window.location.pathname !== '/' && 
-          !window.__ROUTES__) {
-        window.location.replace('/?/' + window.location.pathname.slice(1));
+          window.location.pathname !== '/') {
+        // Check if the current path is in your app's routes
+        if (!window.__ROUTES__ || !window.__ROUTES__.includes(window.location.pathname)) {
+          // If it's not a valid route, show the 404 page without modifying the URL
+          window.history.replaceState(null, null, window.location.pathname);
+        }
       }
     });
   </script>
