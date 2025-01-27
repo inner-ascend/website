@@ -63,8 +63,6 @@ jobs:
           mkdir -p dist/client/storybook
           # Copy all Storybook files preserving the original structure
           cp -r storybook-static/. dist/client/storybook/
-          # Make sure we don't overwrite it with the app's index.html
-          git checkout dist/client/storybook/index.html || true
 
       - name: Debug final structure
         continue-on-error: true
