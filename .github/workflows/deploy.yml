@@ -63,6 +63,8 @@ jobs:
           mkdir -p dist/client/storybook
           # Copy everything preserving file attributes and links
           cp -a storybook-static/. dist/client/storybook/
+          # Ensure we have the correct index.html
+          cp storybook-static/iframe.html dist/client/storybook/index.html
           # Verify the copy
           echo "=== Verifying copy ==="
           ls -la dist/client/storybook/assets/
