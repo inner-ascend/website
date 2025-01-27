@@ -85,6 +85,10 @@ jobs:
           head -n 50 dist/client/storybook/index.html || echo "Failed to read final index.html"
           echo "=== Check Final Asset Paths (limited) ==="
           grep -r "/storybook/" dist/client/storybook/ | head -n 20 || echo "No final references found"
+          echo "=== Check Asset References ==="
+          grep -r "assets/" dist/client/storybook/index.html || echo "No asset references found"
+          echo "=== Check Script Tags ==="
+          grep -r "<script" dist/client/storybook/index.html || echo "No script tags found"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
