@@ -62,15 +62,6 @@ const config: StorybookConfig = {
         commonjsOptions: {
           transformMixedEsModules: true,
         },
-        assetsDir: 'assets',
-        outDir: 'storybook-static',
-        rollupOptions: {
-          output: {
-            assetFileNames: 'assets/[name][extname]',
-            chunkFileNames: 'assets/[name].js',
-            entryFileNames: 'assets/[name].js',
-          },
-        },
       },
       server: {
         fs: {

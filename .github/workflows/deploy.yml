@@ -41,7 +41,9 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Copy Storybook to dist
-        run: cp -r storybook-static dist/client/storybook
+        run: |
+          mkdir -p dist/client/storybook
+          cp -r storybook-static/* dist/client/storybook/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
