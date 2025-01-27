@@ -34,8 +34,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build
+      - name: Build App
         run: yarn build:prod
+
+      - name: Build Storybook
+        run: yarn storybook:build
 
       - name: Debug build output
         run: |
@@ -43,6 +46,8 @@ jobs:
           ls -la dist/client/ || echo "Failed to list dist/client/"
           echo "=== App Build Assets ==="
           ls -la dist/client/assets/ || echo "Failed to list assets/"
+          echo "=== Storybook Output ==="
+          ls -la storybook-static/ || echo "Failed to list storybook/"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
