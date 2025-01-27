@@ -40,6 +40,15 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+      - name: Debug Storybook build
+        run: |
+          echo "=== Storybook Static Directory ==="
+          ls -la storybook-static/
+          echo "=== Storybook Static Contents ==="
+          ls -la storybook-static/*
+          echo "=== Index.html Contents ==="
+          cat storybook-static/index.html
+
       - name: Copy Storybook to dist
         run: |
           mkdir -p dist/client/storybook
