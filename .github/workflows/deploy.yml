@@ -40,29 +40,28 @@ jobs:
       - name: Debug build output
         run: |
           echo "=== App Build Output ==="
-          ls -la dist/client/
+          ls -la dist/client/ || echo "Failed to list dist/client/"
           echo "=== App Build Assets ==="
-          ls -la dist/client/assets/
+          ls -la dist/client/assets/ || echo "Failed to list assets/"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Debug Storybook build
+        continue-on-error: true
         run: |
           echo "=== Storybook Static Directory ==="
-          ls -la storybook-static/
+          ls -la storybook-static/ || echo "Failed to list storybook-static/"
           echo "=== Storybook Assets ==="
-          ls -la storybook-static/assets/
-          echo "=== Storybook iframe.html ==="
-          cat storybook-static/iframe.html
-          echo "=== Storybook index.html ==="
-          cat storybook-static/index.html
+          ls -la storybook-static/assets/ || echo "Failed to list assets/"
+          echo "=== Storybook iframe.html (first 50 lines) ==="
+          head -n 50 storybook-static/iframe.html || echo "Failed to read iframe.html"
+          echo "=== Storybook index.html (first 50 lines) ==="
+          head -n 50 storybook-static/index.html || echo "Failed to read index.html"
           echo "=== Build Environment ==="
-          env | grep -i storybook
-          echo "=== Storybook Manager HTML ==="
-          cat storybook-static/index.html
-          echo "=== Check Asset References ==="
-          grep -r "/storybook/" storybook-static/
+          env | grep -i storybook || echo "No Storybook env vars found"
+          echo "=== Check Asset References (limited) ==="
+          grep -r "/storybook/" storybook-static/ | head -n 20 || echo "No references found"
 
       - name: Copy Storybook to dist
         run: |
@@ -70,15 +69,16 @@ jobs:
           cp -r storybook-static/* dist/client/storybook/
 
       - name: Debug final structure
+        continue-on-error: true
         run: |
-          echo "=== Final Dist Structure ==="
-          ls -R dist/client/
+          echo "=== Final Dist Structure (limited) ==="
+          ls -R dist/client/ | head -n 50 || echo "Failed to list structure"
           echo "=== Final Storybook Assets ==="
-          ls -la dist/client/storybook/assets/
-          echo "=== Final Storybook HTML ==="
-          cat dist/client/storybook/index.html
-          echo "=== Check Final Asset Paths ==="
-          grep -r "/storybook/" dist/client/storybook/
+          ls -la dist/client/storybook/assets/ || echo "Failed to list final assets"
+          echo "=== Final Storybook HTML (first 50 lines) ==="
+          head -n 50 dist/client/storybook/index.html || echo "Failed to read final index.html"
+          echo "=== Check Final Asset Paths (limited) ==="
+          grep -r "/storybook/" dist/client/storybook/ | head -n 20 || echo "No final references found"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
