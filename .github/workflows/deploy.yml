@@ -37,6 +37,13 @@ jobs:
       - name: Build
         run: yarn build:prod
 
+      - name: Debug build output
+        run: |
+          echo "=== App Build Output ==="
+          ls -la dist/client/
+          echo "=== App Build Assets ==="
+          ls -la dist/client/assets/
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
@@ -44,15 +51,34 @@ jobs:
         run: |
           echo "=== Storybook Static Directory ==="
           ls -la storybook-static/
-          echo "=== Storybook Static Contents ==="
-          ls -la storybook-static/*
-          echo "=== Index.html Contents ==="
+          echo "=== Storybook Assets ==="
+          ls -la storybook-static/assets/
+          echo "=== Storybook iframe.html ==="
+          cat storybook-static/iframe.html
+          echo "=== Storybook index.html ==="
           cat storybook-static/index.html
+          echo "=== Build Environment ==="
+          env | grep -i storybook
+          echo "=== Storybook Manager HTML ==="
+          cat storybook-static/index.html
+          echo "=== Check Asset References ==="
+          grep -r "/storybook/" storybook-static/
 
       - name: Copy Storybook to dist
         run: |
           mkdir -p dist/client/storybook
           cp -r storybook-static/* dist/client/storybook/
+
+      - name: Debug final structure
+        run: |
+          echo "=== Final Dist Structure ==="
+          ls -R dist/client/
+          echo "=== Final Storybook Assets ==="
+          ls -la dist/client/storybook/assets/
+          echo "=== Final Storybook HTML ==="
+          cat dist/client/storybook/index.html
+          echo "=== Check Final Asset Paths ==="
+          grep -r "/storybook/" dist/client/storybook/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
