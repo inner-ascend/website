@@ -1,4 +1,4 @@
-import { YStack } from 'tamagui'
+import { Spacer, YStack } from 'tamagui'
 import { useHeroHovered } from '~/features/site/home/useHeroHovered'
 import { SilkscreenParagraph } from '../atoms/SilkscreenParagraph'
 import { TagSubtitle, type TagItem } from '../atoms/TagSubtitle'
@@ -8,17 +8,17 @@ const tags: TagItem[] = [
   {
     text: 'REGENERATIVE LIVING',
     theme: 'green',
-    href: '/docs/core/configuration',
+    href: 'https://astralintegration.notion.site/Inner-Ascend-White-Paper-136c4d6657888066bbd9c3bee9bf6f96',
   },
   {
     text: 'CONSCIOUS COMMUNITY',
     theme: 'blue',
-    href: '/docs/intro/why-a-compiler',
+    href: 'https://astralintegration.notion.site/Inner-Ascend-White-Paper-136c4d6657888066bbd9c3bee9bf6f96',
   },
   {
     text: 'LAND STEWARDSHIP',
     theme: 'purple',
-    href: '/ui/stacks',
+    href: 'https://astralintegration.notion.site/Inner-Ascend-White-Paper-136c4d6657888066bbd9c3bee9bf6f96',
   },
 ]
 
@@ -45,10 +45,11 @@ export function HomeHeroText({ withTitle = false }) {
       {withTitle && <HeroTitle title="Inner Ascend" subtitle="DAO" />}
       <TagSubtitle
         tags={tags}
-        suffix="for all · in harmony"
+        suffix="for all · with nft"
         onTagHover={setHovered}
         activeIndex={hovered}
       />
+      <Spacer size="$2" />
 
       <SilkscreenParagraph
         size={{ default: '$4', sm: '$5' }}

@@ -284,7 +284,10 @@ export function CommunityGrowth() {
                     Community Guidelines
                   </Button>
                 </Link>
-                <Link href="/docs/intro/introduction" w="100%">
+                <Link
+                  href="https://astralintegration.notion.site/Inner-Ascend-White-Paper-136c4d6657888066bbd9c3bee9bf6f96"
+                  w="100%"
+                >
                   <Button w="100%" size="$5" theme="alt2" fontFamily="$silkscreen">
                     Docs &raquo;
                   </Button>

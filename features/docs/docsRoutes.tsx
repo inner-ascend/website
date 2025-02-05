@@ -1,9 +1,13 @@
-
 export const docsRoutes = [
   {
     isUI: false,
     pages: [
-      { title: 'Introduction', route: '/docs/intro/introduction' },
+      // { title: 'Introduction', route: '/docs/intro/introduction' },
+      {
+        title: 'Introduction',
+        route:
+          'https://astralintegration.notion.site/Inner-Ascend-White-Paper-136c4d6657888066bbd9c3bee9bf6f96',
+      },
       { title: 'Installation', route: '/docs/intro/installation' },
       // { title: 'Thinking in Tamagui', route: '/docs/intro/thinking-in-tamagui' },
       // { title: 'Comparison', route: '/docs/intro/comparison' },

@@ -1,20 +1,8 @@
 import { ThemeTint, ThemeTintAlt, useTint } from '@tamagui/logo'
 import { memo } from 'react'
-import {
-  Button,
-  Paragraph,
-  SizableText,
-  Spacer,
-  Text,
-  TooltipSimple,
-  VisuallyHidden,
-  XStack,
-  YStack,
-  styled,
-} from 'tamagui'
+import { Button, Paragraph, SizableText, Spacer, Text, XStack, YStack, styled } from 'tamagui'
 import { ContainerLarge } from '../../../components/Containers'
 import { Link } from '../../../components/Link'
-import { TelegramIcon } from '../../icons/TelegramIcon'
 import { seasons } from '../seasons/SeasonTogglePopover'
 
 import { HeroTitle } from '~/components/molecules/HeroTitle'
@@ -143,16 +131,16 @@ const HeroContents = memo(function HeroContents() {
         </> */}
 
         <YStack ai="flex-start" $gtSm={{ ai: 'center' }} gap="$4">
-          <HeroTitle title="Inner Ascned" subtitle="DAO" />
+          <HeroTitle title="Inner Ascend" subtitle="DAO" />
           <HomeHeroText />
         </YStack>
 
-        <Spacer size="$9" />
-        {/* <InstallInput /> */}
         <Spacer size="$8" />
+        {/* <InstallInput /> */}
+        <Spacer size="$14" />
 
         <XStack ai="center" jc="center" gap="$2" $xxs={{ ai: 'center', fw: 'wrap', gap: 0 }}>
-          <Link target="_blank" href="https://t.me/+dv4zmhAQfHMzYWFk">
+          {/* <Link target="_blank" href="https://t.me/+dv4zmhAQfHMzYWFk">
             <TooltipSimple placement="top" delay={0} restMs={25} label="Telegram">
               <YStack p="$5" $sm={{ p: '$3' }} opacity={0.65} hoverStyle={{ opacity: 1 }}>
                 <VisuallyHidden>
@@ -161,10 +149,13 @@ const HeroContents = memo(function HeroContents() {
                 <TelegramIcon width={24} />
               </YStack>
             </TooltipSimple>
-          </Link>
+          </Link> */}
 
           <ThemeTint>
-            <Link asChild href="/docs/intro/introduction">
+            <Link
+              asChild
+              href="https://astralintegration.notion.site/Inner-Ascend-White-Paper-136c4d6657888066bbd9c3bee9bf6f96"
+            >
               <Button
                 aria-label="Get started (docs)"
                 fontFamily="$silkscreen"

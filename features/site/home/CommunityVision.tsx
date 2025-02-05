@@ -53,8 +53,7 @@ export const CommunityVision = memo(() => {
       <ContainerLarge my={-5} position="relative" space="$8">
         <YStack ref={ref} ai="center" space="$3">
           <HomeH2>
-            Building harmonious communities with{' '}
-            <span className="clip-text rainbow">purpose</span>.
+            Building harmonious communities with <span className="clip-text rainbow">purpose</span>.
           </HomeH2>
         </YStack>
 
@@ -69,13 +68,7 @@ export const CommunityVision = memo(() => {
           }}
         >
           <Card bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60}>
-            <YStack
-              jc="center"
-              p="$6"
-              space="$5"
-              maw="calc(min(90vw, 400px))"
-              $sm={{ p: '$5' }}
-            >
+            <YStack jc="center" p="$6" space="$5" maw="calc(min(90vw, 400px))" $sm={{ p: '$5' }}>
               <Paragraph ta="left" size="$8" fow="400" ls={-1}>
                 Join a network of conscious communities working towards a sustainable future.
               </Paragraph>
@@ -85,7 +78,10 @@ export const CommunityVision = memo(() => {
                 regenerative practices, and collaborative governance.
               </Paragraph>
 
-              <Link asChild href="/docs/core/configuration">
+              <Link
+                asChild
+                href="https://astralintegration.notion.site/Inner-Ascend-White-Paper-136c4d6657888066bbd9c3bee9bf6f96"
+              >
                 <Button
                   accessibilityLabel="Join community"
                   fontFamily="$silkscreen"
@@ -185,23 +181,20 @@ const OverlayCard = () => {
   // {/* TODO elevation not overriding? */}
   return (
     <Card bw={1} bc="$borderColor" br="$6" elevation="$6" shadowRadius={60}>
-      <YStack
-        jc="center"
-        p="$6"
-        space="$5"
-        maw="calc(min(90vw, 400px))"
-        $sm={{ p: '$5' }}
-      >
+      <YStack jc="center" p="$6" space="$5" maw="calc(min(90vw, 400px))" $sm={{ p: '$5' }}>
         <Paragraph ta="left" size="$8" fow="400" ls={-1}>
           Use, swap and share fonts with typed vertical rhythm.
         </Paragraph>
 
         <Paragraph ta="left" size="$6" theme="alt2" fow="400">
-          Typed, sizable fonts with control over every facet - weight, spacing,
-          line-height, letter-spacing, color and more.
+          Typed, sizable fonts with control over every facet - weight, spacing, line-height,
+          letter-spacing, color and more.
         </Paragraph>
 
-        <Link asChild href="/docs/core/configuration">
+        <Link
+          asChild
+          href="https://astralintegration.notion.site/Inner-Ascend-White-Paper-136c4d6657888066bbd9c3bee9bf6f96"
+        >
           <Button
             accessibilityLabel="Fonts docs"
             fontFamily="$silkscreen"
