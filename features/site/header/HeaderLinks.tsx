@@ -75,7 +75,10 @@ export const HeaderLinks = (props: HeaderProps) => {
 
   const primaryLinks = (
     <>
-      <Link asChild href="/docs/intro/introduction">
+      <Link
+        asChild
+        href="https://astralintegration.notion.site/Inner-Ascend-White-Paper-136c4d6657888066bbd9c3bee9bf6f96"
+      >
         <HeadAnchor
           // half={forceShowAllLinks}
           grid={forceShowAllLinks}
@@ -101,17 +104,19 @@ export const HeaderLinks = (props: HeaderProps) => {
         </Link>
       )}
 
-      <Link asChild href="/collaborate">
-        <HeadAnchor
-          // half={forceShowAllLinks}
-          grid={forceShowAllLinks}
-          $sm={{
-            display: forceShowAllLinks ? 'flex' : 'none',
-          }}
-        >
-          Collaborate
-        </HeadAnchor>
-      </Link>
+      {!forceShowAllLinks && (
+        <Link asChild href="/collaborate">
+          <HeadAnchor
+            // half={forceShowAllLinks}
+            grid={forceShowAllLinks}
+            $sm={{
+              display: forceShowAllLinks ? 'flex' : 'none',
+            }}
+          >
+            Collaborate
+          </HeadAnchor>
+        </Link>
+      )}
 
       <Link asChild href="https://t.me/+s6l6LL0v5BIxMWJk" target="_blank" rel="noopener noreferrer">
         <HeadAnchor
