@@ -120,6 +120,9 @@ export default {
             permanent: true,
           },
         ],
+        static: {
+          '/storybook': 'storybook-static',
+        },
       },
     }),
 

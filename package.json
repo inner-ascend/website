@@ -18,7 +18,8 @@
     "test:watch": "vitest",
     "postinstall": "chmod +x scripts/fix-demo-images.sh && ./scripts/fix-demo-images.sh",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "NODE_ENV=production storybook build"
+    "storybook:build": "NODE_ENV=production storybook build",
+    "storybook:serve": "npx serve storybook-static -p 6006"
   },
   "dependencies": {
     "@discordjs/core": "^0.6.0",
