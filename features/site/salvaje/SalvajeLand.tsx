@@ -6,10 +6,10 @@ export function SalvajeLand() {
     <YStack space="$6" mb="$8" id="land">
       <YStack space="$6" mb="$6">
         <HomeH2 ta="center" $sm={{ size: '$8' }}>
-          Mazunte, Oaxaca — Where Mountain Meets Ocean
+          The Land
         </HomeH2>
         <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
-          Our 12-acre site lies within a rich ecological corridor, bordered by natural reserves, mangroves, and lagoons.
+          The Land Calling Us Home
         </HomeH3>
       </YStack>
 
@@ -107,28 +107,85 @@ export function SalvajeLand() {
         {/* Right - Text content */}
         <YStack f={1} space="$4">
           <Paragraph size="$6" theme="alt1" $sm={{ size: '$5' }}>
-            The land holds old-growth trees, fertile soils, abundant water, and is zoned for 20 eco-homes and ~40 residents — just one hour from an international airport.
+            The project is rooted in Oaxaca, Mexico — a land of resistance, indigenous rights, and rich cultural history. The property includes forests, fertile valleys, streams, and panoramic mountain views.
           </Paragraph>
 
-          <YStack space="$3" mt="$4">
-            <XStack ai="center" gap="$3">
-              <YStack width={8} height={8} bg="$salvaje_ocean9" borderRadius="$10" />
-              <Paragraph size="$4" theme="alt1">
-                Natural reserves and mangroves
+          {/* Key Facts organized into 3 groups */}
+          <YStack space="$6" mt="$6" width="100%">
+            {/* Topography & Access */}
+            <YStack space="$3">
+              <Paragraph size="$5" fontWeight="600" color="$salvaje_ocean11" fontFamily="$heading">
+                Topography & Access
               </Paragraph>
-            </XStack>
-            <XStack ai="center" gap="$3">
-              <YStack width={8} height={8} bg="$salvaje_ocean9" borderRadius="$10" />
-              <Paragraph size="$4" theme="alt1">
-                Old-growth trees and abundant water
+              <YStack space="$2" pl="$3">
+                <XStack ai="center" gap="$3">
+                  <YStack width={6} height={6} bg="$salvaje_ocean9" borderRadius="$10" />
+                  <Paragraph size="$4" theme="alt1">12 acres diverse terrain</Paragraph>
+                </XStack>
+                <XStack ai="center" gap="$3">
+                  <YStack width={6} height={6} bg="$salvaje_ocean9" borderRadius="$10" />
+                  <Paragraph size="$4" theme="alt1">Flat & hilly areas</Paragraph>
+                </XStack>
+                <XStack ai="center" gap="$3">
+                  <YStack width={6} height={6} bg="$salvaje_ocean9" borderRadius="$10" />
+                  <Paragraph size="$4" theme="alt1">Year-round water access</Paragraph>
+                </XStack>
+                <XStack ai="center" gap="$3">
+                  <YStack width={6} height={6} bg="$salvaje_ocean9" borderRadius="$10" />
+                  <Paragraph size="$4" theme="alt1">Private road</Paragraph>
+                </XStack>
+              </YStack>
+            </YStack>
+
+            {/* Location & Community */}
+            <YStack space="$3">
+              <Paragraph size="$5" fontWeight="600" color="$salvaje_mango11" fontFamily="$heading">
+                Location & Community
               </Paragraph>
-            </XStack>
-            <XStack ai="center" gap="$3">
-              <YStack width={8} height={8} bg="$salvaje_ocean9" borderRadius="$10" />
-              <Paragraph size="$4" theme="alt1">
-                Perfect permaculture environment
+              <YStack space="$2" pl="$3">
+                <XStack ai="center" gap="$3">
+                  <YStack width={6} height={6} bg="$salvaje_mango9" borderRadius="$10" />
+                  <Paragraph size="$4" theme="alt1">Near Mazunte, Oaxaca</Paragraph>
+                </XStack>
+                <XStack ai="center" gap="$3">
+                  <YStack width={6} height={6} bg="$salvaje_mango9" borderRadius="$10" />
+                  <Paragraph size="$4" theme="alt1">1 hr to international airport</Paragraph>
+                </XStack>
+                <XStack ai="center" gap="$3">
+                  <YStack width={6} height={6} bg="$salvaje_mango9" borderRadius="$10" />
+                  <Paragraph size="$4" theme="alt1">Connected by highway</Paragraph>
+                </XStack>
+                <XStack ai="center" gap="$3">
+                  <YStack width={6} height={6} bg="$salvaje_mango9" borderRadius="$10" />
+                  <Paragraph size="$4" theme="alt1">Vibrant, eclectic local network</Paragraph>
+                </XStack>
+              </YStack>
+            </YStack>
+
+            {/* Development Potential */}
+            <YStack space="$3">
+              <Paragraph size="$5" fontWeight="600" color="$salvaje_bougainvillea11" fontFamily="$heading">
+                Development Potential
               </Paragraph>
-            </XStack>
+              <YStack space="$2" pl="$3">
+                <XStack ai="center" gap="$3">
+                  <YStack width={6} height={6} bg="$salvaje_bougainvillea9" borderRadius="$10" />
+                  <Paragraph size="$4" theme="alt1">Space for 20 eco-homes</Paragraph>
+                </XStack>
+                <XStack ai="center" gap="$3">
+                  <YStack width={6} height={6} bg="$salvaje_bougainvillea9" borderRadius="$10" />
+                  <Paragraph size="$4" theme="alt1">Comfortable for 40 residents</Paragraph>
+                </XStack>
+                <XStack ai="center" gap="$3">
+                  <YStack width={6} height={6} bg="$salvaje_bougainvillea9" borderRadius="$10" />
+                  <Paragraph size="$4" theme="alt1">Rich soil & electricity access</Paragraph>
+                </XStack>
+                <XStack ai="center" gap="$3">
+                  <YStack width={6} height={6} bg="$salvaje_bougainvillea9" borderRadius="$10" />
+                  <Paragraph size="$4" theme="alt1">One of the last intact parcels</Paragraph>
+                </XStack>
+              </YStack>
+            </YStack>
           </YStack>
 
           <XStack

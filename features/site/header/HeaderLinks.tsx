@@ -90,7 +90,7 @@ export const HeaderLinks = (props: HeaderProps) => {
         </HeadAnchor>
       </Link>
 
-      {/* {!forceShowAllLinks && (
+      {!forceShowAllLinks && (
         <Link asChild href="/mexico">
           <HeadAnchor
             // half={forceShowAllLinks}
@@ -102,7 +102,7 @@ export const HeaderLinks = (props: HeaderProps) => {
             Mexico
           </HeadAnchor>
         </Link>
-      )} */}
+      )}
 
       {!forceShowAllLinks && (
         <Link asChild href="/collaborate">
@@ -145,7 +145,7 @@ export const HeaderLinks = (props: HeaderProps) => {
         primaryLinks
       )}
 
-      {/* {forceShowAllLinks && (
+      {forceShowAllLinks && (
         <>
           <XStack fw="wrap" f={1} gap="$2" w="100%">
             <Link asChild href="/mexico">
@@ -156,7 +156,7 @@ export const HeaderLinks = (props: HeaderProps) => {
           </XStack>
           <Separator bc="$color025" o={0.25} my="$2" />
         </>
-      )} */}
+      )}
 
       {/* Bento and Takeout triggers (commented out) */}
 

@@ -6,16 +6,16 @@ export function SalvajeMembership() {
     <YStack space="$6" mb="$8" id="participate">
       <YStack space="$6" mb="$6">
         <HomeH2 ta="center" $sm={{ size: '$8' }}>
-          Choose Your Path
+          Join Us
         </HomeH2>
         <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
-          Four ways to participate in the regenerative sanctuary
+          The Sacred Invitation
         </HomeH3>
       </YStack>
 
       <YStack space="$4" ai="center" maw={900} als="center">
         <Paragraph size="$6" ta="center" theme="alt1" $sm={{ size: '$5' }}>
-          All contributions are sacred investments into Earth restoration, never speculative real estate. Each path offers unique benefits and deeper community connection.
+          This is a call to those who feel the fire — to stand for truth, care for the land, and embody sacred leadership. There are many ways to contribute.
         </Paragraph>
 
         {/* 4 participation cards */}
@@ -58,10 +58,10 @@ export function SalvajeMembership() {
               </YStack>
             </YStack>
             <Paragraph size="$5" fontWeight="600" color="$salvaje_ocean11" ta="center">
-              Resident
+              Founding Land Stewards
             </Paragraph>
             <Paragraph size="$4" theme="alt1" ta="center">
-              Live on the land, co-steward daily life.
+              Families ready to build the village
             </Paragraph>
           </YStack>
 
@@ -95,10 +95,10 @@ export function SalvajeMembership() {
               </YStack>
             </YStack>
             <Paragraph size="$5" fontWeight="600" color="$salvaje_mango11" ta="center">
-              Founding Steward
+              Aligned Investors
             </Paragraph>
             <Paragraph size="$4" theme="alt1" ta="center">
-              Contribute to land & shared spaces; receive recognition, lifetime access.
+              Support financially in alignment with regenerative principles
             </Paragraph>
           </YStack>
 
@@ -132,10 +132,10 @@ export function SalvajeMembership() {
               </YStack>
             </YStack>
             <Paragraph size="$5" fontWeight="600" color="$salvaje_bougainvillea11" ta="center">
-              Volunteer / Work-Trade
+              Community Contributors
             </Paragraph>
             <Paragraph size="$4" theme="alt1" ta="center">
-              Help with building, gardens, hospitality.
+              Share skills, time, and wisdom
             </Paragraph>
           </YStack>
 
@@ -169,13 +169,116 @@ export function SalvajeMembership() {
               </YStack>
             </YStack>
             <Paragraph size="$5" fontWeight="600" color="$salvaje_ocean12" ta="center">
-              Retreat Guest
+              Future Visitors & Participants
             </Paragraph>
             <Paragraph size="$4" theme="alt1" ta="center">
-              Join short-term regenerative hospitality and courses.
+              Join retreats, workshops, and programs
             </Paragraph>
           </YStack>
         </XStack>
+
+        {/* Contact Form */}
+        <YStack space="$6" mt="$10" width="100%" maw={600}>
+          <HomeH3 ta="center" $sm={{ size: '$6' }}>
+            Contact Form
+          </HomeH3>
+          
+          <YStack space="$4" p="$6" bg="$background" borderRadius="$6" borderWidth={2} borderColor="$salvaje_ocean6">
+            <YStack space="$3">
+              <Paragraph size="$4" fontWeight="600" color="$salvaje_ocean11">
+                Name
+              </Paragraph>
+              <YStack
+                height={40}
+                bg="$salvaje_ocean2"
+                borderRadius="$4"
+                borderWidth={1}
+                borderColor="$salvaje_ocean6"
+                px="$3"
+                jc="center"
+              >
+                <Paragraph size="$4" theme="alt2" o={0.7}>
+                  Your full name
+                </Paragraph>
+              </YStack>
+            </YStack>
+
+            <YStack space="$3">
+              <Paragraph size="$4" fontWeight="600" color="$salvaje_ocean11">
+                Email
+              </Paragraph>
+              <YStack
+                height={40}
+                bg="$salvaje_ocean2"
+                borderRadius="$4"
+                borderWidth={1}
+                borderColor="$salvaje_ocean6"
+                px="$3"
+                jc="center"
+              >
+                <Paragraph size="$4" theme="alt2" o={0.7}>
+                  your@email.com
+                </Paragraph>
+              </YStack>
+            </YStack>
+
+            <YStack space="$3">
+              <Paragraph size="$4" fontWeight="600" color="$salvaje_ocean11">
+                Your Interest
+              </Paragraph>
+              <YStack
+                height={40}
+                bg="$salvaje_ocean2"
+                borderRadius="$4"
+                borderWidth={1}
+                borderColor="$salvaje_ocean6"
+                px="$3"
+                jc="center"
+              >
+                <Paragraph size="$4" theme="alt2" o={0.7}>
+                  General, Land Steward, Investor, Contributor, Visitor
+                </Paragraph>
+              </YStack>
+            </YStack>
+
+            <YStack space="$3">
+              <Paragraph size="$4" fontWeight="600" color="$salvaje_ocean11">
+                Message
+              </Paragraph>
+              <YStack
+                height={120}
+                bg="$salvaje_ocean2"
+                borderRadius="$4"
+                borderWidth={1}
+                borderColor="$salvaje_ocean6"
+                px="$3"
+                py="$3"
+              >
+                <Paragraph size="$4" theme="alt2" o={0.7}>
+                  Tell us about your interest in Proyecto Salvaje...
+                </Paragraph>
+              </YStack>
+            </YStack>
+
+            <Button
+              size="$5"
+              theme="salvaje_mango"
+              fontFamily="$body"
+              fontWeight="600"
+              mt="$4"
+              pressStyle={{
+                scale: 0.97,
+              }}
+              animation="quick"
+              hoverStyle={{
+                opacity: 0.9,
+                scale: 1.02,
+              }}
+            >
+              Submit Application
+            </Button>
+          </YStack>
+        </YStack>
 
         <XStack
           gap="$4"

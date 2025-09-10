@@ -29,36 +29,36 @@ export function SalvajeHero() {
       {/* Content */}
       <YStack zi={2} py="$12" space="$6" ai="center" jc="center" f={1}>
         <ContainerLarge space="$4">
-          <H1
-            size="$12"
-            ta="center"
-            className="hero-text"
-            color="white"
-            fontWeight="700"
-            fontFamily="$heading"
-            style={{
-              textShadow: '0 2px 10px rgba(0,0,0,0.4)',
-            }}
-            $sm={{ size: '$10' }}
-          >
-            A Regenerative Sanctuary on the Oaxacan Coast
-          </H1>
-          <Paragraph
-            size="$8"
-            ta="center"
-            color="white"
-            o={0.95}
-            fontWeight="500"
-            fontFamily="$body"
-            maw={900}
-            als="center"
-            style={{
-              textShadow: '0 1px 8px rgba(0,0,0,0.3)',
-            }}
-            $sm={{ size: '$6' }}
-          >
-            Proyecto Salvaje is a living school and healing village on 12 acres near Mazunte, where mangroves, lagoons, and the Sierra Madre meet the sea. We protect dignity and sacred relationship with the Earth through community, education, and remembrance.
-          </Paragraph>
+            <H1
+              size="$12"
+              ta="center"
+              className="hero-text"
+              color="white"
+              fontWeight="700"
+              fontFamily="$heading"
+              style={{
+                textShadow: '0 2px 10px rgba(0,0,0,0.4)',
+              }}
+              $sm={{ size: '$10' }}
+            >
+              Regenerative Village School
+            </H1>
+            <Paragraph
+              size="$8"
+              ta="center"
+              color="white"
+              o={0.95}
+              fontWeight="500"
+              fontFamily="$body"
+              maw={900}
+              als="center"
+              style={{
+                textShadow: '0 1px 8px rgba(0,0,0,0.3)',
+              }}
+              $sm={{ size: '$6' }}
+            >
+              Creation of an intentional regenerative community for human integrity and sovereign living. A healing village, real-life school, and educational center dedicated to protecting freedom, bodily autonomy, and living in harmony with nature.
+            </Paragraph>
           
           {/* Icon bullets */}
           <XStack
@@ -102,40 +102,56 @@ export function SalvajeHero() {
               als: 'center',
             }}
           >
-            <Button
-              size="$5"
-              theme="salvaje_mango"
-              fontFamily="$body"
-              fontWeight="600"
-              pressStyle={{
-                scale: 0.97,
-              }}
-              animation="quick"
-              hoverStyle={{
-                opacity: 0.9,
-                scale: 1.02,
-              }}
-            >
-              Apply to Join
-            </Button>
-            <Button
-              size="$5"
-              theme="salvaje_ocean"
-              fontFamily="$body"
-              fontWeight="600"
-              borderWidth={2}
-              borderColor="$salvaje_ocean9"
-              pressStyle={{
-                scale: 0.97,
-              }}
-              animation="quick"
-              hoverStyle={{
-                opacity: 0.9,
-                scale: 1.02,
-              }}
-            >
-              Book a Call
-            </Button>
+              <Button
+                size="$5"
+                theme="salvaje_mango"
+                fontFamily="$body"
+                fontWeight="600"
+                pressStyle={{
+                  scale: 0.97,
+                }}
+                animation="quick"
+                hoverStyle={{
+                  opacity: 0.9,
+                  scale: 1.02,
+                }}
+              >
+                Join Our Community
+              </Button>
+              <Button
+                size="$5"
+                theme="salvaje_ocean"
+                fontFamily="$body"
+                fontWeight="600"
+                borderWidth={2}
+                borderColor="$salvaje_ocean9"
+                pressStyle={{
+                  scale: 0.97,
+                }}
+                animation="quick"
+                hoverStyle={{
+                  opacity: 0.9,
+                  scale: 1.02,
+                }}
+              >
+                Explore Our Vision
+              </Button>
+              <Button
+                size="$5"
+                theme="salvaje_bougainvillea"
+                fontFamily="$body"
+                fontWeight="600"
+                pressStyle={{
+                  scale: 0.97,
+                }}
+                animation="quick"
+                hoverStyle={{
+                  opacity: 0.9,
+                  scale: 1.02,
+                }}
+              >
+                Begin the Journey
+              </Button>
           </XStack>
         </ContainerLarge>
       </YStack>

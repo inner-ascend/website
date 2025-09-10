@@ -6,19 +6,19 @@ export function SalvajePrograms() {
     <YStack space="$6" mb="$8" id="programs">
       <YStack space="$6" mb="$6">
         <HomeH2 ta="center" $sm={{ size: '$8' }}>
-          What We Practice & Teach
+          Programs
         </HomeH2>
         <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
-          Transformational experiences rooted in Earth wisdom
+          Educational, healing, and regenerative programs designed to cultivate skills and wisdom
         </HomeH3>
       </YStack>
 
       <YStack space="$4" ai="center" maw={800} als="center">
         <Paragraph size="$6" ta="center" theme="alt1" $sm={{ size: '$5' }}>
-          From permaculture and natural building to nervous system health and ancestral healing—every program honors both ancient wisdom and modern needs.
+          Educational, healing, and regenerative programs designed to cultivate skills and wisdom.
         </Paragraph>
 
-        {/* 3-column card grid */}
+        {/* 4-column card grid */}
         <XStack
           gap="$4"
           mt="$6"
@@ -58,10 +58,10 @@ export function SalvajePrograms() {
               </YStack>
             </YStack>
             <Paragraph size="$5" fontWeight="600" color="$salvaje_ocean11" ta="center">
-              Educational Curriculums
+              Permaculture
             </Paragraph>
             <Paragraph size="$4" theme="alt1" ta="center">
-              Permaculture, natural building, nutrition, nervous system health, emotional intelligence, animism.
+              Sustainable agriculture, natural building, and ecological design.
             </Paragraph>
           </YStack>
 
@@ -95,10 +95,10 @@ export function SalvajePrograms() {
               </YStack>
             </YStack>
             <Paragraph size="$5" fontWeight="600" color="$salvaje_mango11" ta="center">
-              Transformational Experiences
+              Health & Well-being
             </Paragraph>
             <Paragraph size="$4" theme="alt1" ta="center">
-              Youth rites of passage, family rewilding, cross-pollination gatherings, incubators.
+              Nervous system health, emotional intelligence, and holistic healing.
             </Paragraph>
           </YStack>
 
@@ -132,10 +132,47 @@ export function SalvajePrograms() {
               </YStack>
             </YStack>
             <Paragraph size="$5" fontWeight="600" color="$salvaje_bougainvillea11" ta="center">
-              Healing Modalities
+              Traditional Skills
             </Paragraph>
             <Paragraph size="$4" theme="alt1" ta="center">
-              Sacred medicine (with integrity), breathwork, somatic therapy, expressive arts, ancestral healing.
+              Ancestral healing, traditional crafts, and community resilience practices.
+            </Paragraph>
+          </YStack>
+
+          {/* Community Resilience */}
+          <YStack
+            f={1}
+            space="$3"
+            p="$5"
+            bg="$salvaje_ocean3"
+            borderRadius="$4"
+            borderWidth={2}
+            borderColor="$salvaje_ocean7"
+            hoverStyle={{
+              scale: 1.02,
+              borderColor: "$salvaje_ocean9",
+            }}
+            animation="quick"
+          >
+            <YStack ai="center" space="$2" mb="$3">
+              <YStack
+                width={40}
+                height={40}
+                bg="$salvaje_ocean10"
+                borderRadius="$10"
+                ai="center"
+                jc="center"
+              >
+                <Paragraph size="$3" color="white" fontWeight="700">
+                  🤝
+                </Paragraph>
+              </YStack>
+            </YStack>
+            <Paragraph size="$5" fontWeight="600" color="$salvaje_ocean12" ta="center">
+              Community Resilience
+            </Paragraph>
+            <Paragraph size="$4" theme="alt1" ta="center">
+              Building strong, supportive communities and mutual aid networks.
             </Paragraph>
           </YStack>
         </XStack>

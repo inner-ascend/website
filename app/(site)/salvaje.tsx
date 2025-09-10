@@ -7,10 +7,11 @@ import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 import { HomeSection, TintSection } from '~/features/site/home/TintSection'
 import { ThemeNameEffect } from '~/features/site/theme/ThemeNameEffect'
 import { SalvajeHero } from '~/features/site/salvaje/SalvajeHero'
-import { SalvajeWhyJoin } from '~/features/site/salvaje/SalvajeWhyJoin'
+import { SalvajeVision } from '~/features/site/salvaje/SalvajeVision'
 import { SalvajeLand } from '~/features/site/salvaje/SalvajeLand'
+import { SalvajeCommunity } from '~/features/site/salvaje/SalvajeCommunity'
+import { SalvajeIndigenous } from '~/features/site/salvaje/SalvajeIndigenous'
 import { SalvajePrograms } from '~/features/site/salvaje/SalvajePrograms'
-import { SalvajeInfrastructure } from '~/features/site/salvaje/SalvajeInfrastructure'
 import { SalvajeMembership } from '~/features/site/salvaje/SalvajeMembership'
 import { SalvajeImpact } from '~/features/site/salvaje/SalvajeImpact'
 import { SalvajeRoadmap } from '~/features/site/salvaje/SalvajeRoadmap'
@@ -23,8 +24,8 @@ export default function Salvaje() {
     <SalvajeLayout>
       <ThemeNameEffect />
       <HeadInfo
-        title="Proyecto Salvaje - Regenerative Sanctuary Oaxaca | Join Founding Circle"
-        description="Join Proyecto Salvaje's founding circle in Oaxaca. 12-acre regenerative sanctuary for sovereign living, permaculture, and healing community. Limited spots available."
+        title="Proyecto Salvaje - Regenerative Village School | Sovereign Living Community"
+        description="Join Proyecto Salvaje's regenerative village school in Oaxaca. Creation of an intentional regenerative community for human integrity and sovereign living. 12 acres of sacred land."
       />
 
       {/* Sticky CTA Bar */}
@@ -33,11 +34,13 @@ export default function Salvaje() {
       {/* Hero Section */}
       <SalvajeHero />
 
-      {/* Why Join Now */}
+      {/* Vision */}
       <TintSection index={1}>
-        <ContainerLarge>
-          <SalvajeWhyJoin />
-        </ContainerLarge>
+        <YStack bg="$salvaje_mango1" py="$16">
+          <ContainerLarge>
+            <SalvajeVision />
+          </ContainerLarge>
+        </YStack>
       </TintSection>
 
       {/* The Land */}
@@ -47,50 +50,61 @@ export default function Salvaje() {
         </ContainerLarge>
       </TintSection>
 
-      {/* Programs */}
+      {/* Community */}
       <TintSection index={3}>
-        <ContainerLarge>
-          <SalvajePrograms />
-        </ContainerLarge>
+        <YStack bg="$salvaje_bougainvillea1" py="$16">
+          <ContainerLarge>
+            <SalvajeCommunity />
+          </ContainerLarge>
+        </YStack>
       </TintSection>
 
-      {/* Infrastructure */}
+      {/* Indigenous Integration */}
       <TintSection index={4}>
         <ContainerLarge>
-          <SalvajeInfrastructure />
+          <SalvajeIndigenous />
         </ContainerLarge>
       </TintSection>
 
-      {/* Membership */}
+      {/* Programs */}
       <TintSection index={5}>
+        <YStack bg="$salvaje_mango1" py="$16">
+          <ContainerLarge>
+            <SalvajePrograms />
+          </ContainerLarge>
+        </YStack>
+      </TintSection>
+
+      {/* Join Us */}
+      <TintSection index={6}>
         <ContainerLarge>
           <SalvajeMembership />
         </ContainerLarge>
       </TintSection>
 
       {/* Community Impact */}
-      <TintSection index={6}>
+      <TintSection index={7}>
         <ContainerLarge>
           <SalvajeImpact />
         </ContainerLarge>
       </TintSection>
 
       {/* Roadmap */}
-      <TintSection index={7}>
+      <TintSection index={8}>
         <ContainerLarge>
           <SalvajeRoadmap />
         </ContainerLarge>
       </TintSection>
 
       {/* Social Proof */}
-      <TintSection index={8}>
+      <TintSection index={9}>
         <ContainerLarge>
           <SalvajeSocialProof />
         </ContainerLarge>
       </TintSection>
 
       {/* FAQ */}
-      <TintSection index={9}>
+      <TintSection index={10}>
         <ContainerLarge>
           <SalvajeFAQ />
         </ContainerLarge>
@@ -198,7 +212,10 @@ export default function Salvaje() {
                 {/* Contact info */}
                 <YStack ai="center" space="$2" mt="$4">
                   <Paragraph size="$3" ta="center" o={0.8} color="white">
-                    hello@proyectosalvaje.org
+                    info@proyectosalvaje.com
+                  </Paragraph>
+                  <Paragraph size="$3" ta="center" o={0.8} color="white">
+                    Mazunte, Oaxaca, Mexico
                   </Paragraph>
                   <Button
                     size="$3"
