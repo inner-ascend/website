@@ -3,6 +3,8 @@ import { useMemo } from 'react'
 import { Button, H1, Paragraph, Spacer, XStack, YStack } from 'tamagui'
 import { ContainerLarge } from '~/components/Containers'
 import { HeadInfo } from '~/components/HeadInfo'
+import { CommunityShowcase } from '~/components/organisms/CommunityShowcase'
+import { HomeHeroBelow } from '~/components/organisms/HomeHeroBelow'
 import { KeyFeatures } from '~/components/organisms/KeyFeatures'
 import { MexicoFAQ } from '~/components/organisms/MexicoFAQ'
 import { MexicoGallery } from '~/components/organisms/MexicoGallery'
@@ -12,6 +14,9 @@ import { MexicoNews } from '~/components/organisms/MexicoNews'
 import { MexicoProperty } from '~/components/organisms/MexicoProperty'
 import { MexicoRoadmap } from '~/components/organisms/MexicoRoadmap'
 import { MexicoTeam } from '~/components/organisms/MexicoTeam'
+import { CommunityVision } from '~/features/site/home/CommunityVision'
+import { EcoThemes } from '~/features/site/home/EcoThemes'
+import { EcovillageGrid } from '~/features/site/home/EcovillageGrid'
 import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
 import { HomeSection, TintSection } from '~/features/site/home/TintSection'
@@ -22,7 +27,7 @@ export default function Community() {
     <CommunityLayout>
       <ThemeNameEffect />
       <HeadInfo
-        title="Mexico Project | Inner Ascend"
+        title="Inner Ascend | Mexico"
         description="Join our regenerative living project in Mexico through NFT-based community ownership"
       />
 
@@ -61,7 +66,7 @@ export default function Community() {
               }}
               $sm={{ size: '$10' }}
             >
-              Regenerative Living in Mexico
+              A Regenerative Sanctuary for Sovereign Living
             </H1>
             <Paragraph
               size="$8"
@@ -74,7 +79,7 @@ export default function Community() {
               }}
               $sm={{ size: '$6' }}
             >
-              Join a visionary community where sustainable living meets tropical paradise
+              Healing village, living school, and sacred ground for human freedom, spiritual self-determination, and harmony with nature
             </Paragraph>
             <XStack
               jc="center"
@@ -101,7 +106,7 @@ export default function Community() {
                   scale: 1.02,
                 }}
               >
-                Join Whitelist
+                Join Our Vision
               </Button>
               <Button
                 size="$5"
@@ -124,6 +129,8 @@ export default function Community() {
         </YStack>
       </YStack>
 
+      {/* <HomeHeroBelow /> */}
+
       {/* Key Features */}
       <TintSection index={1} zi={100}>
         <ContainerLarge>
@@ -142,6 +149,9 @@ export default function Community() {
         </ContainerLarge>
       </TintSection>
 
+      <EcovillageGrid />
+      <CommunityVision />
+
       {/* Gallery Section */}
       <TintSection index={3}>
         <ContainerLarge>
@@ -159,6 +169,8 @@ export default function Community() {
           </YStack>
         </ContainerLarge>
       </TintSection>
+
+      <CommunityShowcase />
 
       {/* NFT Tiers */}
       <TintSection index={4}>
@@ -193,6 +205,8 @@ export default function Community() {
           <MexicoImpact useCards={true} />
         </ContainerLarge>
       </TintSection>
+
+      <EcoThemes />
 
       {/* News & Updates */}
       <TintSection index={7}>
