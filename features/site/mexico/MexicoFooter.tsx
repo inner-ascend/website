@@ -1,12 +1,9 @@
 import { memo } from 'react'
-import { H4, Paragraph, Spacer, VisuallyHidden, XStack, YStack, Text, Button, Input } from 'tamagui'
+import { YStack, XStack, Text, Button, Input } from 'tamagui'
+import { ContainerLarge } from '~/components/Containers'
+import { Link } from '~/components/Link'
 
-import { ContainerLarge } from '../../components/Containers'
-import { Link, ParagraphLink } from '../../components/Link'
-import { ExternalIcon } from '../icons/ExternalIcon'
-import { InnerAscendLogo } from './logo/InnerAscendLogo'
-
-export const Footer = memo(() => {
+export const MexicoFooter = memo(() => {
   const quickLinks = [
     { label: 'Vision', href: '#vision' },
     { label: 'Programs', href: '#programs' },
@@ -15,9 +12,15 @@ export const Footer = memo(() => {
   ]
 
   return (
-    <YStack tag="footer" pos="relative" mb="$10" bg="$background" borderTopWidth={1} borderTopColor="$borderColor">
+    <YStack
+      bg="$background"
+      borderTopWidth={1}
+      borderTopColor="$borderColor"
+      py="$8"
+      id="contact"
+    >
       <ContainerLarge>
-        <YStack space="$8" py="$8">
+        <YStack space="$8">
           {/* Main Footer Content */}
           <XStack
             space="$8"
@@ -32,10 +35,9 @@ export const Footer = memo(() => {
           >
             {/* Brand & Description */}
             <YStack space="$4" f={1} maxWidth={400}>
-              <Link href="/" aria-label="Homepage">
-                <VisuallyHidden>homepage</VisuallyHidden>
-                <InnerAscendLogo showWords downscale={1} />
-              </Link>
+              <Text fontSize="$6" fontWeight="700" color="$color">
+                Proyecto Salvaje
+              </Text>
               
               <Text
                 fontSize="$4"
@@ -46,22 +48,13 @@ export const Footer = memo(() => {
               >
                 A regenerative village school dedicated to human integrity, sovereign living, and harmony with nature in Oaxaca, Mexico.
               </Text>
-
-              <Paragraph size="$3" o={0.25}>
-              info@proyectosalvaje.com - 
-              Mazunte, Oaxaca, Mexico
-              </Paragraph>
-              
-              <Paragraph size="$3" o={0.25}>
-                built with ❤️ by communities
-              </Paragraph>
             </YStack>
 
             {/* Quick Links */}
             <YStack space="$4" f={1}>
-              <H4 mb="$3" fontFamily="$silkscreen" fontSize={12} ls={0.5} o={0.5}>
+              <Text fontSize="$4" fontWeight="600" color="$color">
                 Quick Links
-              </H4>
+              </Text>
               
               <YStack space="$2">
                 {quickLinks.map((link) => (
@@ -81,30 +74,11 @@ export const Footer = memo(() => {
               </YStack>
             </YStack>
 
-            {/* Community Links */}
-            <YStack space="$4" f={1}>
-              <H4 mb="$3" fontFamily="$silkscreen" fontSize={12} ls={0.5} o={0.5}>
-                Community
-              </H4>
-              <XStack gap="$1" ai="center">
-                <ParagraphLink href="/mexico">Mexico</ParagraphLink>
-              </XStack>
-              <XStack gap="$1" ai="center">
-                <ParagraphLink href="/blog">Blog</ParagraphLink>
-              </XStack>
-              <XStack gap="$1" ai="center">
-                <ParagraphLink href="https://t.me/+dv4zmhAQfHMzYWFk" target="_blank">
-                  Telegram
-                </ParagraphLink>
-                <ExternalIcon />
-              </XStack>
-            </YStack>
-
             {/* Newsletter Signup */}
-            {/* <YStack space="$4" f={1} maxWidth={300}>
-              <H4 mb="$3" fontFamily="$silkscreen" fontSize={12} ls={0.5} o={0.5}>
+            <YStack space="$4" f={1} maxWidth={300}>
+              <Text fontSize="$4" fontWeight="600" color="$color">
                 Stay Connected
-              </H4>
+              </Text>
               
               <YStack space="$3">
                 <Input
@@ -121,9 +95,44 @@ export const Footer = memo(() => {
                   Subscribe
                 </Button>
               </YStack>
-            </YStack> */}
+            </YStack>
           </XStack>
 
+          {/* Contact Info */}
+          <YStack
+            space="$4"
+            p="$6"
+            bg="$backgroundHover"
+            borderRadius="$3"
+            $md={{
+              flexDirection: 'row',
+              jc: 'space-between',
+              ai: 'center'
+            }}
+            $sm={{
+              flexDirection: 'column',
+              space: '$3'
+            }}
+          >
+            <YStack space="$2">
+              <Text fontSize="$4" fontWeight="600" color="$color">
+                Contact Information
+              </Text>
+              
+              <YStack space="$1">
+                <Text fontSize="$3" color="$color" opacity={0.8}>
+                  Email: info@proyectosalvaje.com
+                </Text>
+                <Text fontSize="$3" color="$color" opacity={0.8}>
+                  Location: Mazunte, Oaxaca, Mexico
+                </Text>
+              </YStack>
+            </YStack>
+
+            <Text fontSize="$3" color="$color" opacity={0.6}>
+              Copyright © 2025 Proyecto Salvaje. All rights reserved.
+            </Text>
+          </YStack>
         </YStack>
       </ContainerLarge>
     </YStack>

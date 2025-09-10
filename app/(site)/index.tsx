@@ -150,10 +150,10 @@ export default function Community() {
       </TintSection>
 
       <EcovillageGrid />
-      <CommunityVision />
+      {/* <CommunityVision /> */}
 
       {/* Gallery Section */}
-      <TintSection index={3}>
+      {/* <TintSection index={3}>
         <ContainerLarge>
           <YStack space="$6" mb="$8">
             <YStack space="$6" mb="$6">
@@ -168,7 +168,7 @@ export default function Community() {
             <MexicoGallery />
           </YStack>
         </ContainerLarge>
-      </TintSection>
+      </TintSection> */}
 
       <CommunityShowcase />
 
@@ -227,11 +227,11 @@ export default function Community() {
       </TintSection>
 
       {/* Team Section */}
-      <TintSection index={8}>
+      {/* <TintSection index={8}>
         <ContainerLarge id="team-section" style={{ scrollMarginTop: '100px' }}>
           <MexicoTeam />
         </ContainerLarge>
-      </TintSection>
+      </TintSection> */}
 
       {/* FAQ Section */}
       <TintSection index={9}>
