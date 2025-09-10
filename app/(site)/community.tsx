@@ -161,11 +161,11 @@ export default function Community() {
                   Get Involved
                 </Button>
               </Link>
-              <Link href="/mexico">
+              {/* <Link href="/mexico">
                 <Button size="$5" theme="green" iconAfter={Sprout}>
                   Visit Mexico Hub
                 </Button>
-              </Link>
+              </Link> */}
             </XStack>
           </YStack>
         </ContainerLarge>

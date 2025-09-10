@@ -6,25 +6,25 @@ import { FeatureGrid } from './FeatureGrid'
 
 const features: FeatureItem[] = [
   {
-    title: 'Decentralized Ownership',
+    title: 'Community',
     description:
-      'Your NFT is your voice. Participate in transparent governance and shape the future of sustainable communities through our innovative DAO structure.',
+      'Creating a regenerative sanctuary where people rediscover what it means to live in true reciprocity with nature and each other',
     href: 'https://astralintegration.notion.site/Inner-Ascend-White-Paper-136c4d6657888066bbd9c3bee9bf6f96' as const,
     icon: Code,
     theme: 'green',
   },
   {
-    title: 'NFT-Powered Property Rights',
+    title: 'Education',
     description:
-      'Break down barriers to sustainable living with fractional ownership through NFTs. Secure, transparent, and community-validated property rights.',
+      'Immersive learning experiences that blend ancestral wisdom with contemporary skills for sustainable, sovereign living',
     href: 'https://astralintegration.notion.site/Inner-Ascend-White-Paper-136c4d6657888066bbd9c3bee9bf6f96' as const,
     icon: Cpu,
     theme: 'blue',
   },
   {
-    title: 'Holistic Development',
+    title: 'Impact',
     description:
-      'Connect with like-minded individuals in vibrant eco-communities. Experience personal and collective evolution through our unique incubator programs.',
+      'A heart-led social project designed to radiate outward and plant seeds of change rather than exist as an isolated bubble',
     href: 'https://astralintegration.notion.site/Inner-Ascend-White-Paper-136c4d6657888066bbd9c3bee9bf6f96' as const,
     icon: Layers,
     theme: 'purple',

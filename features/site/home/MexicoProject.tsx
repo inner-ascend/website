@@ -17,7 +17,7 @@ export function MexicoProject() {
           </HomeH3>
         </YStack>
 
-        <Link href="/mexico" style={{ textDecoration: 'none' }}>
+        <Link href="/" style={{ textDecoration: 'none' }}>
           <Card
             bw={1}
             bc="$borderColor"
@@ -70,7 +70,7 @@ export function MexicoProject() {
                       scale: 1.02
                     }}
                   >
-                    <Link href="/mexico">Learn More</Link>
+                    <Link href="/">Learn More</Link>
                   </Button>
                 </XStack>
               </YStack>

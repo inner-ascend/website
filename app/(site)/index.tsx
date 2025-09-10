@@ -1,130 +1,325 @@
-import { Spacer, YStack } from 'tamagui'
+import { useTint } from '@tamagui/logo'
+import { useMemo } from 'react'
+import { Button, H1, Paragraph, Spacer, XStack, YStack } from 'tamagui'
+import { ContainerLarge } from '~/components/Containers'
+import { HeadInfo } from '~/components/HeadInfo'
 import { CommunityShowcase } from '~/components/organisms/CommunityShowcase'
-import { MexicoProject } from '~/features/site/home/MexicoProject'
+import { HomeHeroBelow } from '~/components/organisms/HomeHeroBelow'
+import { KeyFeatures } from '~/components/organisms/KeyFeatures'
+import { MexicoFAQ } from '~/components/organisms/MexicoFAQ'
+import { MexicoGallery } from '~/components/organisms/MexicoGallery'
+import { MexicoImpact } from '~/components/organisms/MexicoImpact'
+import { MexicoMembership } from '~/components/organisms/MexicoMembership'
+import { MexicoNews } from '~/components/organisms/MexicoNews'
+import { MexicoProperty } from '~/components/organisms/MexicoProperty'
+import { MexicoRoadmap } from '~/components/organisms/MexicoRoadmap'
+import { MexicoTeam } from '~/components/organisms/MexicoTeam'
+import { CommunityVision } from '~/features/site/home/CommunityVision'
+import { EcoThemes } from '~/features/site/home/EcoThemes'
+import { EcovillageGrid } from '~/features/site/home/EcovillageGrid'
+import { HomeH2, HomeH3 } from '~/features/site/home/HomeHeaders'
 import { SocialLinksRow } from '~/features/site/home/SocialLinksRow'
-import { HeadInfo } from '../../components/HeadInfo'
-import { AdaptiveSpaces } from '../../features/site/home/AdaptiveSpaces'
-import { CommunityFeatures } from '../../features/site/home/CommunityFeatures'
-import { CommunityGrowth } from '../../features/site/home/CommunityGrowth'
-import { CommunityVision } from '../../features/site/home/CommunityVision'
-import { EcoThemes } from '../../features/site/home/EcoThemes'
-import { EcovillageGrid } from '../../features/site/home/EcovillageGrid'
-import { HomeGlow } from '../../features/site/home/HomeGlow'
-import { Hero } from '../../features/site/home/HomeHero'
-import { SustainableImpact } from '../../features/site/home/SustainableImpact'
-import { HomeSection, SectionTinted, TintSection } from '../../features/site/home/TintSection'
-import { ThemeNameEffect } from '../../features/site/theme/ThemeNameEffect'
+import { HomeSection, TintSection } from '~/features/site/home/TintSection'
+import { ThemeNameEffect } from '~/features/site/theme/ThemeNameEffect'
 
-export default function TamaguiHomePage() {
+export default function Community() {
   return (
-    <>
+    <CommunityLayout>
+      <ThemeNameEffect />
       <HeadInfo
-        title="Inner Ascend"
-        description="Building sustainable ecovillage communities through shared ownership and governance"
+        title="Inner Ascend | Mexico"
+        description="Join our regenerative living project in Mexico through NFT-based community ownership"
       />
 
-      <ThemeNameEffect colorKey="$color2" />
-      <HomeGlow />
-      <YStack
-        fullscreen
-        className="grain"
-        o={0.2}
-        style={{
-          maskImage: `linear-gradient(transparent, rgba(0, 0, 0, 1) 100px)`,
-        }}
-      />
+      {/* Hero Section with Background */}
+      <YStack pos="relative" height={700} $sm={{ height: 500 }}>
+        <YStack
+          pos="absolute"
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+          style={{
+            backgroundImage: 'url(/images/hero/oaxaca-paradise.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <YStack
+          fullscreen
+          zi={1}
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%), linear-gradient(0deg, rgba(0,100,100,0.15) 0%, rgba(0,0,0,0) 100%)',
+          }}
+        />
+        <YStack zi={2} py="$12" space="$6" ai="center" jc="center" f={1}>
+          <ContainerLarge space="$4">
+            <H1
+              size="$12"
+              ta="center"
+              className="hero-text"
+              color="white"
+              fontWeight="900"
+              style={{
+                textShadow: '0 2px 10px rgba(0,0,0,0.3)',
+              }}
+              $sm={{ size: '$10' }}
+            >
+              A Regenerative Sanctuary for Sovereign Living
+            </H1>
+            <Paragraph
+              size="$8"
+              ta="center"
+              color="white"
+              o={0.9}
+              fontWeight="500"
+              style={{
+                textShadow: '0 1px 8px rgba(0,0,0,0.3)',
+              }}
+              $sm={{ size: '$6' }}
+            >
+              Healing village, living school, and sacred ground for human freedom, spiritual self-determination, and harmony with nature
+            </Paragraph>
+            <XStack
+              jc="center"
+              mt="$6"
+              gap="$4"
+              $sm={{
+                flexDirection: 'column',
+                ai: 'center',
+                gap: '$3',
+                maxWidth: 200,
+                als: 'center',
+              }}
+            >
+              <Button
+                size="$5"
+                theme="green"
+                fontFamily="$silkscreen"
+                pressStyle={{
+                  scale: 0.97,
+                }}
+                animation="quick"
+                hoverStyle={{
+                  opacity: 0.9,
+                  scale: 1.02,
+                }}
+              >
+                Join Our Vision
+              </Button>
+              <Button
+                size="$5"
+                theme="alt1"
+                fontFamily="$silkscreen"
+                borderWidth={1}
+                pressStyle={{
+                  scale: 0.97,
+                }}
+                animation="quick"
+                hoverStyle={{
+                  opacity: 0.9,
+                  scale: 1.02,
+                }}
+              >
+                Learn More
+              </Button>
+            </XStack>
+          </ContainerLarge>
+        </YStack>
+      </YStack>
 
-      <TintSection index={0} p={0}>
-        <Hero />
+      {/* <HomeHeroBelow /> */}
+
+      {/* Key Features */}
+      <TintSection index={1} zi={100}>
+        <ContainerLarge>
+          <KeyFeatures />
+        </ContainerLarge>
       </TintSection>
 
-      <TintSection index={1} contain="paint layout" zi={1000}>
-        <YStack
-          pe="none"
-          zi={0}
-          fullscreen
-          className="bg-dot-grid"
-          style={{
-            maskImage: `linear-gradient(transparent, #000, transparent)`,
-          }}
-        />
-        <CommunityShowcase />
+      {/* Location & Climate */}
+      <TintSection index={2}>
+        <ContainerLarge
+          position="relative"
+          id="location-climate"
+          style={{ scrollMarginTop: '100px' }}
+        >
+          <MexicoProperty />
+        </ContainerLarge>
       </TintSection>
 
-      <TintSection index={2} contain="paint layout" zi={1000}>
-        <YStack
-          pe="none"
-          zi={0}
-          fullscreen
-          className="bg-dot-grid"
-          style={{
-            maskImage: `linear-gradient(transparent, #000, transparent)`,
-          }}
-        />
-        <MexicoProject />
+      <EcovillageGrid />
+      <CommunityVision />
+
+      {/* Gallery Section */}
+      <TintSection index={3}>
+        <ContainerLarge>
+          <YStack space="$6" mb="$8">
+            <YStack space="$6" mb="$6">
+              <HomeH2 ta="center" $sm={{ size: '$8' }}>
+                Gallery
+              </HomeH2>
+              <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
+                Explore our vision through stunning visuals
+              </HomeH3>
+            </YStack>
+
+            <MexicoGallery />
+          </YStack>
+        </ContainerLarge>
       </TintSection>
 
-      <TintSection my={-50} index={3} contain="paint layout" pos="relative" zi={100}>
-        <YStack
-          pe="none"
-          zi={0}
-          fullscreen
-          className="bg-dot-grid"
-          style={{
-            maskImage: `linear-gradient(transparent, #000, transparent)`,
-          }}
-        />
-        <EcoThemes />
+      <CommunityShowcase />
+
+      {/* NFT Tiers */}
+      <TintSection index={4}>
+        <ContainerLarge space="$6" id="membership-tiers" style={{ scrollMarginTop: '100px' }}>
+          <YStack space="$6" mb="$6">
+            <HomeH2 ta="center" $sm={{ size: '$8' }}>
+              Membership Tiers
+            </HomeH2>
+            <HomeH3 ta="center" theme="alt2" $sm={{ size: '$5' }}>
+              Secure your place in our community with blockchain-powered ownership and exclusive
+              benefits
+            </HomeH3>
+          </YStack>
+          <MexicoMembership />
+        </ContainerLarge>
       </TintSection>
-      <TintSection index={4} mb={-120} zIndex={10000}>
-        <AdaptiveSpaces />
+
+      {/* Timeline */}
+      <TintSection index={5}>
+        <ContainerLarge
+          position="relative"
+          id="project-roadmap"
+          style={{ scrollMarginTop: '100px' }}
+        >
+          <MexicoRoadmap />
+        </ContainerLarge>
       </TintSection>
-      <TintSection index={5} p={0} zIndex={0}>
-        <SectionTinted gradient bubble>
-          <SustainableImpact />
-        </SectionTinted>
+
+      {/* Social Proof */}
+      <TintSection index={6}>
+        <ContainerLarge>
+          <MexicoImpact useCards={true} />
+        </ContainerLarge>
       </TintSection>
-      <TintSection index={6} zi={100}>
-        <YStack
-          fullscreen
-          className="bg-grid"
-          style={{
-            maskImage: `linear-gradient(transparent, #000, transparent)`,
-          }}
-        />
-        <CommunityGrowth />
+
+      <EcoThemes />
+
+      {/* News & Updates */}
+      <TintSection index={7}>
+        <ContainerLarge>
+          <YStack space="$6" mb="$8">
+            <YStack space="$6" mb="$6">
+              <HomeH2 ta="center" $sm={{ size: '$8' }}>
+                News & Updates
+              </HomeH2>
+              <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
+                Follow our journey as we build a sustainable paradise
+              </HomeH3>
+            </YStack>
+
+            <MexicoNews />
+          </YStack>
+        </ContainerLarge>
       </TintSection>
-      <TintSection index={7} zi={1}>
-        <EcovillageGrid />
-        <YStack
-          pe="none"
-          zi={2}
-          fullscreen
-          className="bg-dot-grid"
-          style={{
-            maskImage: `linear-gradient(transparent, #000, transparent)`,
-          }}
-        />
+
+      {/* Team Section */}
+      <TintSection index={8}>
+        <ContainerLarge id="team-section" style={{ scrollMarginTop: '100px' }}>
+          <MexicoTeam />
+        </ContainerLarge>
       </TintSection>
-      <TintSection index={8} my="$-4" p={0} zIndex={100}>
-        <SectionTinted zi={1000} bubble gradient>
-          <CommunityVision />
-        </SectionTinted>
+
+      {/* FAQ Section */}
+      <TintSection index={9}>
+        <ContainerLarge>
+          <YStack space="$6" mb="$8">
+            <YStack space="$6" mb="$6">
+              <HomeH2 ta="center" $sm={{ size: '$8' }}>
+                Frequently Asked Questions
+              </HomeH2>
+              <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
+                Everything you need to know about joining our community
+              </HomeH3>
+            </YStack>
+
+            <YStack space="$4" als="center" px="$4">
+              <MexicoFAQ />
+            </YStack>
+          </YStack>
+        </ContainerLarge>
       </TintSection>
-      <HomeSection zi={10}>
-        <YStack
-          pe="none"
-          zi={0}
-          fullscreen
-          className="bg-dot-grid"
-          style={{
-            maskImage: `linear-gradient(transparent, #000, transparent)`,
-          }}
-        />
-        <CommunityFeatures />
-        <Spacer size="$18" />
-        <SocialLinksRow />
+
+      {/* Call to Action */}
+      <HomeSection>
+        <ContainerLarge space="$8">
+          <YStack ai="center" space="$6">
+            <HomeH2 ta="center" $sm={{ size: '$8' }}>
+              Ready to Join?
+            </HomeH2>
+            <HomeH3 ta="center" theme="alt2" maw={600} $sm={{ size: '$5' }}>
+              Be among the pioneers shaping the future of sustainable living in our mountain jungle
+              sanctuary, just an hour from pristine Pacific beaches.
+            </HomeH3>
+            <XStack
+              gap="$4"
+              mt="$4"
+              $sm={{
+                flexDirection: 'column',
+                ai: 'center',
+                gap: '$3',
+                als: 'center',
+              }}
+            >
+              <Button
+                size="$5"
+                theme="green"
+                fontFamily="$silkscreen"
+                pressStyle={{
+                  scale: 0.97,
+                }}
+                animation="quick"
+                hoverStyle={{
+                  opacity: 0.9,
+                  scale: 1.02,
+                }}
+              >
+                Join Whitelist
+              </Button>
+              <Button
+                size="$5"
+                theme="alt2"
+                fontFamily="$silkscreen"
+                pressStyle={{
+                  scale: 0.97,
+                }}
+                animation="quick"
+                hoverStyle={{
+                  opacity: 0.9,
+                  scale: 1.02,
+                }}
+              >
+                Schedule a Call
+              </Button>
+            </XStack>
+            <Paragraph size="$3" theme="alt2" ta="center" o={0.8}>
+              Limited founding memberships available. Early supporters receive priority access.
+            </Paragraph>
+          </YStack>
+        </ContainerLarge>
       </HomeSection>
-    </>
+
+      <Spacer />
+      <SocialLinksRow />
+      <Spacer size="$10" />
+    </CommunityLayout>
   )
+}
+
+function CommunityLayout({ children }: { children: any }) {
+  const { tint } = useTint()
+  return <YStack theme={tint as any}>{useMemo(() => children, [children])}</YStack>
 }
