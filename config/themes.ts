@@ -64,8 +64,108 @@ const dark_tan = {
   background: dark_tan_palette[0],
 }
 
+// Proyecto Salvaje Color Palette
+const salvaje_ocean_palette = [
+  'hsla(195, 70%, 95%, 1)', // Lightest
+  'hsla(195, 65%, 90%, 1)',
+  'hsla(195, 60%, 85%, 1)',
+  'hsla(195, 55%, 80%, 1)',
+  'hsla(195, 50%, 75%, 1)',
+  'hsla(195, 45%, 70%, 1)',
+  'hsla(195, 40%, 65%, 1)',
+  'hsla(195, 35%, 60%, 1)',
+  'hsla(195, 30%, 55%, 1)',
+  'hsla(195, 25%, 50%, 1)',
+  'hsla(195, 20%, 45%, 1)',
+  'hsla(195, 15%, 40%, 1)', // Darkest
+]
+
+const salvaje_ocean = {
+  color1: salvaje_ocean_palette[0],
+  color2: salvaje_ocean_palette[1],
+  color3: salvaje_ocean_palette[2],
+  color4: salvaje_ocean_palette[3],
+  color5: salvaje_ocean_palette[4],
+  color6: salvaje_ocean_palette[5],
+  color7: salvaje_ocean_palette[6],
+  color8: salvaje_ocean_palette[7],
+  color9: salvaje_ocean_palette[8],
+  color10: salvaje_ocean_palette[9],
+  color11: salvaje_ocean_palette[10],
+  color12: salvaje_ocean_palette[11],
+  color: salvaje_ocean_palette[11],
+  background: salvaje_ocean_palette[0],
+}
+
+const salvaje_mango_palette = [
+  'hsla(40, 90%, 95%, 1)', // Lightest
+  'hsla(40, 85%, 90%, 1)',
+  'hsla(40, 80%, 85%, 1)',
+  'hsla(40, 75%, 80%, 1)',
+  'hsla(40, 70%, 75%, 1)',
+  'hsla(40, 65%, 70%, 1)',
+  'hsla(40, 60%, 65%, 1)',
+  'hsla(40, 55%, 60%, 1)',
+  'hsla(40, 50%, 55%, 1)',
+  'hsla(40, 45%, 50%, 1)',
+  'hsla(40, 40%, 45%, 1)',
+  'hsla(40, 35%, 40%, 1)', // Darkest
+]
+
+const salvaje_mango = {
+  color1: salvaje_mango_palette[0],
+  color2: salvaje_mango_palette[1],
+  color3: salvaje_mango_palette[2],
+  color4: salvaje_mango_palette[3],
+  color5: salvaje_mango_palette[4],
+  color6: salvaje_mango_palette[5],
+  color7: salvaje_mango_palette[6],
+  color8: salvaje_mango_palette[7],
+  color9: salvaje_mango_palette[8],
+  color10: salvaje_mango_palette[9],
+  color11: salvaje_mango_palette[10],
+  color12: salvaje_mango_palette[11],
+  color: salvaje_mango_palette[11],
+  background: salvaje_mango_palette[0],
+}
+
+const salvaje_bougainvillea_palette = [
+  'hsla(340, 80%, 95%, 1)', // Lightest
+  'hsla(340, 75%, 90%, 1)',
+  'hsla(340, 70%, 85%, 1)',
+  'hsla(340, 65%, 80%, 1)',
+  'hsla(340, 60%, 75%, 1)',
+  'hsla(340, 55%, 70%, 1)',
+  'hsla(340, 50%, 65%, 1)',
+  'hsla(340, 45%, 60%, 1)',
+  'hsla(340, 40%, 55%, 1)',
+  'hsla(340, 35%, 50%, 1)',
+  'hsla(340, 30%, 45%, 1)',
+  'hsla(340, 25%, 40%, 1)', // Darkest
+]
+
+const salvaje_bougainvillea = {
+  color1: salvaje_bougainvillea_palette[0],
+  color2: salvaje_bougainvillea_palette[1],
+  color3: salvaje_bougainvillea_palette[2],
+  color4: salvaje_bougainvillea_palette[3],
+  color5: salvaje_bougainvillea_palette[4],
+  color6: salvaje_bougainvillea_palette[5],
+  color7: salvaje_bougainvillea_palette[6],
+  color8: salvaje_bougainvillea_palette[7],
+  color9: salvaje_bougainvillea_palette[8],
+  color10: salvaje_bougainvillea_palette[9],
+  color11: salvaje_bougainvillea_palette[10],
+  color12: salvaje_bougainvillea_palette[11],
+  color: salvaje_bougainvillea_palette[11],
+  background: salvaje_bougainvillea_palette[0],
+}
+
 export const themes = {
   ...themesv3,
   light_tan,
   dark_tan,
+  salvaje_ocean,
+  salvaje_mango,
+  salvaje_bougainvillea,
 }

@@ -1,0 +1,224 @@
+# Cursor Rules for Inner Ascend Website
+
+## Project Overview
+This is a React/Next.js website built with Tamagui UI framework for the Inner Ascend community project in Mexico. The site showcases a regenerative living project with NFT-based community ownership.
+
+## Tech Stack
+- **Framework**: React with Next.js (using Expo Router)
+- **UI Library**: Tamagui v1.121.7
+- **Styling**: Tamagui's design system with custom themes
+- **Language**: TypeScript
+- **Build Tool**: Vite
+- **Package Manager**: Yarn
+- **Linting**: Biome
+- **Testing**: Vitest
+
+## File Structure & Conventions
+
+### Directory Structure
+```
+app/                    # Next.js app router pages
+├── (site)/            # Main site pages
+│   ├── (blog)/        # Blog pages
+│   ├── (docs)/        # Documentation pages
+│   └── index.tsx      # Homepage
+components/            # Reusable UI components
+├── atoms/             # Basic UI elements
+├── molecules/         # Composite components
+└── organisms/         # Complex page sections
+features/              # Feature-specific components
+config/                # Tamagui configuration
+data/                  # Static data and content
+public/                # Static assets
+```
+
+### Import Conventions
+- Use `~/*` path alias for imports (configured in tsconfig.json)
+- Import Tamagui components from 'tamagui'
+- Import custom components with `~/components/` prefix
+- Import features with `~/features/` prefix
+
+### Component Patterns
+
+#### Page Components
+```tsx
+// Page components should follow this structure:
+export default function PageName() {
+  return (
+    <LayoutComponent>
+      <ThemeNameEffect />
+      <HeadInfo title="..." description="..." />
+      {/* Page content */}
+    </LayoutComponent>
+  )
+}
+
+// Layout wrapper for theme management
+function LayoutComponent({ children }: { children: any }) {
+  const { tint } = useTint()
+  return <YStack theme={tint as any}>{useMemo(() => children, [children])}</YStack>
+}
+```
+
+#### Component Organization
+- **Atoms**: Basic UI elements (Button, Input, etc.)
+- **Molecules**: Composite components (Card, Form, etc.)
+- **Organisms**: Complex sections (Hero, Gallery, etc.)
+- **Features**: Page-specific components organized by feature
+
+### Styling Guidelines
+
+#### Tamagui Usage
+- Use Tamagui components (YStack, XStack, Button, etc.) instead of HTML elements
+- Apply responsive styles using `$sm`, `$md`, etc. props
+- Use theme tokens for colors, spacing, and typography
+- Leverage Tamagui's built-in animations and transitions
+
+#### Responsive Design
+```tsx
+// Use responsive props for mobile-first design
+<YStack
+  space="$6"
+  $sm={{ space: '$4' }}  // Mobile styles
+  $md={{ space: '$8' }}  // Tablet styles
+>
+```
+
+#### Theme Integration
+- Use `useTint()` hook for theme switching
+- Apply themes to sections using `TintSection` component
+- Use semantic color tokens (color1, color2, etc.)
+
+### Content Management
+
+#### Static Content
+- Store static data in `data/` directory
+- Use TypeScript interfaces for type safety
+- Organize by content type (blog, docs, etc.)
+
+#### MDX Content
+- Use MDX for rich content (blog posts, documentation)
+- Store in `data/blog/` and `data/docs/` directories
+- Use custom MDX components for enhanced functionality
+
+### Performance & Optimization
+
+#### Code Splitting
+- Use dynamic imports for heavy components
+- Implement lazy loading for images and media
+- Leverage Next.js automatic code splitting
+
+#### Image Optimization
+- Store images in `public/` directory
+- Use appropriate formats (WebP for photos, SVG for icons)
+- Implement responsive images with proper sizing
+
+### Development Workflow
+
+#### Scripts
+- `yarn dev` - Start development server
+- `yarn build:prod` - Production build
+- `yarn test` - Run tests
+- `yarn storybook` - Start Storybook
+
+#### Code Quality
+- Follow Biome linting rules (configured in biome.json)
+- Use TypeScript strict mode
+- Implement proper error boundaries
+- Write tests for critical functionality
+
+### Component Examples
+
+#### Hero Section Pattern
+```tsx
+<YStack pos="relative" height={700} $sm={{ height: 500 }}>
+  {/* Background image */}
+  <YStack
+    pos="absolute"
+    fullscreen
+    style={{
+      backgroundImage: 'url(/images/hero/image.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}
+  />
+  {/* Overlay */}
+  <YStack
+    fullscreen
+    zi={1}
+    style={{
+      background: 'linear-gradient(...)',
+    }}
+  />
+  {/* Content */}
+  <YStack zi={2} py="$12" space="$6" ai="center" jc="center" f={1}>
+    <ContainerLarge>
+      {/* Hero content */}
+    </ContainerLarge>
+  </YStack>
+</YStack>
+```
+
+#### Section Pattern
+```tsx
+<TintSection index={1}>
+  <ContainerLarge>
+    <YStack space="$6" mb="$8">
+      <YStack space="$6" mb="$6">
+        <HomeH2 ta="center" $sm={{ size: '$8' }}>
+          Section Title
+        </HomeH2>
+        <HomeH3 ta="center" theme="alt2" maw={700} als="center" $sm={{ size: '$5' }}>
+          Section description
+        </HomeH3>
+      </YStack>
+      {/* Section content */}
+    </YStack>
+  </ContainerLarge>
+</TintSection>
+```
+
+### Accessibility
+- Use semantic HTML elements through Tamagui components
+- Implement proper ARIA labels and roles
+- Ensure keyboard navigation support
+- Test with screen readers
+
+### SEO & Meta
+- Use `HeadInfo` component for page metadata
+- Implement proper heading hierarchy (H1, H2, H3)
+- Add structured data where appropriate
+- Optimize for Core Web Vitals
+
+### Error Handling
+- Use `ErrorBoundary` component for error catching
+- Implement graceful fallbacks for failed content
+- Log errors appropriately for debugging
+
+### Testing Strategy
+- Write unit tests for utility functions
+- Test component rendering and interactions
+- Use Vitest for testing framework
+- Mock external dependencies appropriately
+
+## Best Practices
+
+1. **Component Composition**: Build complex UIs by composing smaller components
+2. **Theme Consistency**: Use Tamagui's design tokens for consistent styling
+3. **Performance**: Optimize images, use code splitting, and minimize bundle size
+4. **Accessibility**: Ensure all components are accessible and keyboard navigable
+5. **Responsive Design**: Design mobile-first with progressive enhancement
+6. **Type Safety**: Use TypeScript interfaces and proper typing throughout
+7. **Code Organization**: Keep related functionality together in feature directories
+8. **Documentation**: Document complex components and business logic
+
+## Common Patterns to Follow
+
+- Use `ContainerLarge` for consistent page width and padding
+- Implement `TintSection` for alternating background themes
+- Use `HomeH2` and `HomeH3` for consistent heading styles
+- Apply `useMemo` for expensive computations in layout components
+- Use `YStack` and `XStack` for layout instead of div elements
+- Implement proper loading states and error boundaries
+- Use semantic color tokens and spacing tokens from Tamagui
+- Follow the established component hierarchy (atoms → molecules → organisms)
